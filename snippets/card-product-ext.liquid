@@ -1,0 +1,35 @@
+{% liquid
+  assign featured_image = _product.metafields.custom.featured_image
+  assign image_alt = featured_image.alt | default: _product.title
+  assign product_offer = _product.metafields.custom.product_offer
+  assign strapline = _product.metafields.custom.strapline
+  assign short_description = _product.metafields.custom.short_description
+%}
+
+<div class="snippet-card-product-ext">
+  {%- liquid
+    if featured_image != blank
+      echo featured_image | image_url: width: 960 | image_tag: widths: '400, 600, 800, 960', alt: image_alt, loading: 'lazy'
+    endif
+  -%}
+  <div class="card-content">
+    {%- if product_offer != blank -%}
+      <div class="c-lozenge gallery">
+        {%- render 'element-icon', _icon: 'tag' -%}
+        {{- product_offer -}}
+      </div>
+    {%- endif -%}
+    <h3 class="u-heading-lg heading">{{- _product.title -}}</h3>
+    {%- if strapline != blank -%}
+      <p class="u-text-lg">{{- strapline -}}</p>
+    {%- endif -%}
+    {%- if short_description != blank -%}
+      {{- short_description | metafield_tag -}}
+    {%- endif -%}
+    <div class="anchors">
+      <a href="{{- _product.url -}}" class="c-btn main tuna">
+        {{- 'buttons.get_started' | t -}}
+      </a>
+    </div>
+  </div>
+</div>

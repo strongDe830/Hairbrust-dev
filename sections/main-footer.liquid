@@ -1,0 +1,178 @@
+{%- liquid
+  assign template_name = 'section-main-footer'
+
+  assign heading = section.settings.heading
+  assign newsletter_heading = section.settings.newsletter_heading
+  assign newsletter_text = section.settings.newsletter_text
+  assign opening_hours = section.settings.opening_hours
+  assign information_menu = section.settings.information_menu
+  assign shop_menu = section.settings.shop_menu
+  assign policy_menu = section.settings.policy_menu
+
+  assign copyright_text = 'sections.footer.copyright' | t: company_number: settings.company_number, company_vat_number: settings.company_vat_number
+%}
+
+{%  render 'file-css', _name: 'section-main-footer.css' %}
+
+<footer>
+  <div class="container">
+    <div class="top">
+      {% if heading != blank %}
+        <h2 class="u-heading-xs heading">{{ heading }}</h2>
+      {% endif %}
+      <div class="newsletter">
+        {% if newsletter_heading != blank %}
+          <h3 class="u-heading-sm newsletter-heading">{{ newsletter_heading }}</h3>
+        {% endif %}
+        {%- form 'customer', class: 'c-form newsletter-form' -%}
+          <div class="form-container">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="form-field">
+            <label class="form-label sr-only" for="NewsletterForm--{{ section.id }}">
+              {{ 'forms.newsletter.label' | t }}
+            </label>
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="form-input"
+              value="{{ form.email }}"
+              aria-required="true"å
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--{{ section.id }}"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--{{ section.id }}"
+              {% endif %}
+              placeholder="{{ 'forms.newsletter.label' | t }}"
+              required
+            >
+          </div>
+          <button class="c-btn main primary">
+            {{ 'forms.newsletter.sign_up' | t }}
+          </button>
+          </div>
+          {%- if form.posted_successfully? -%}
+            <p class="c-alert success">{{- 'forms.newsletter.success_message' | t -}}</p>
+          {%- endif -%}
+        {%- endform -%}
+        {% if newsletter_text != blank %}
+          <span>{{ newsletter_text }}</span>
+        {% endif %}
+        {% render 'social-links' %}
+        <div class="switcher">
+          {% render 'territory-switcher', _open_above: true %}
+        </div>
+      </div>
+      <div class="menus">
+        <div class="contact">
+          <span class="list-title">{{ 'sections.footer.contact' | t }}</span>
+          <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+          {% if opening_hours != blank %}
+            <div class="opening-hours">
+              <span class="opening-title">{{ 'sections.footer.opening_hours' | t }}</span>
+              <span>{{ opening_hours }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if information_menu != blank %}
+          <ul class="information">
+            <li class="list-title">{{ information_menu.title }}</li>
+            {% for link in information_menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if shop_menu != blank %}
+          <ul class="shop">
+            <li class="list-title">{{ shop_menu.title }}</li>
+            {% for link in shop_menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="legal">
+        <span>© {{ shop.name }} 2020-{{ 'now' | date: '%Y' }} </span>
+        {{ copyright_text -}}
+        <span class="attribution-link">
+          Powered by
+          {% if template == 'index' %}
+            <a
+              href="https://herd.io/pages/why-shopify"
+              title="Visit Herd, Shopify Plus performance partners"
+              rel="noopener"
+              >Herd</a
+            >
+          {% else %}
+            Herd
+          {% endif %}
+        </span>
+      </div>
+      <div class="payments-and-policies">
+        {% if policy_menu != blank %}
+          <ul class="policies">
+            {% for link in policy_menu.links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {%- render 'payment-types' -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.main_footer.name",
+  "tag": "footer",
+  "class": "section-main-footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.main_footer.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "t:sections.main_footer.settings.newsletter_heading.label"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "t:sections.main_footer.settings.newsletter_text.label"
+    },
+    {
+      "type": "text",
+      "id": "opening_hours",
+      "label": "t:sections.main_footer.settings.opening_hours.label"
+    },
+    {
+      "type": "link_list",
+      "id": "information_menu",
+      "label": "t:sections.main_footer.settings.information_menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "shop_menu",
+      "label": "t:sections.main_footer.settings.shop_menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "policy_menu",
+      "label": "t:sections.main_footer.settings.policy_menu.label"
+    },
+
+  ]
+}
+{% endschema %}

@@ -1,0 +1,6 @@
+<script
+  src="{{ _name | asset_url }}"
+  {% if _type != blank -%}type="{{- _type -}}"{%- endif -%}
+  {% if _load_type != blank -%}{{ _load_type -}}{%- endif %}
+>
+</script>

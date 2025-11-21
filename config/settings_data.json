@@ -1,0 +1,150 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "theme_favicon": "shopify://shop_images/favicon.jpg",
+    "company_legal_name": "Hairburst",
+    "established_date": 2009,
+    "company_number": "08898301",
+    "company_vat_number": "GB193833086",
+    "google_maps_url": "",
+    "top_queries": "Advanced+, Vitamins, Shampoo, Conditioner",
+    "featured_collections": [
+      "bestsellers",
+      "vitamins",
+      "shampoos-conditioners"
+    ],
+    "featured_products": [
+      "advanced-hair-formula-x",
+      "advanced-bond-repair-duo",
+      "chewable-hair-vitamins-x",
+      "multi-active-hair-growth-serum-x"
+    ],
+    "social_facebook_link": "https://www.facebook.com/hairburst",
+    "social_instagram_link": "https://www.instagram.com/hairburst",
+    "social_tiktok_link": "https://www.tiktok.com/@hairburst",
+    "social_whatsapp_link": "https://wa.me/447888872524",
+    "social_youtube_link": "",
+    "prices_include_tax": false,
+    "iterable_deals_modal": false,
+    "theme_logo_wordmark": "{{ shop.brand.logo }}",
+    "theme_logo_ensign": "{{ shop.brand.square_logo }}",
+    "social_twitter_link": "q",
+    "checkout_logo_image": "shopify://shop_images/herd-logo-primary.png",
+    "checkout_logo_size": "small",
+    "checkout_body_background_color": "#f3efec",
+    "checkout_accent_color": "#343436",
+    "sections": {
+      "data-cart-count": {
+        "type": "data-cart-count",
+        "settings": {}
+      },
+      "cart-drawer-items": {
+        "type": "cart-drawer-items",
+        "settings": {}
+      },
+      "cart-drawer-totals": {
+        "type": "cart-drawer-totals",
+        "settings": {}
+      },
+      "cart-drawer-actions": {
+        "type": "cart-drawer-actions",
+        "settings": {}
+      },
+      "cart-drawer-related-products": {
+        "type": "cart-drawer-related-products",
+        "blocks": {
+          "text_light_9EJaV7": {
+            "type": "text-light",
+            "settings": {
+              "text": "Why not try?",
+              "text_align": "start",
+              "margin_bottom": 24
+            },
+            "blocks": {}
+          }
+        },
+        "block_order": [
+          "text_light_9EJaV7"
+        ],
+        "settings": {}
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "7885500093077574326": {
+        "type": "shopify://apps/videowise-video-commerce/blocks/script_embed/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+        "disabled": false,
+        "settings": {}
+      },
+      "15685250022964305326": {
+        "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
+        "disabled": false,
+        "settings": {}
+      },
+      "3576686563519644491": {
+        "type": "shopify://apps/vwo/blocks/vwo-smartcode/2ce905b2-3842-4d20-b6b0-8c51fc208426",
+        "disabled": false,
+        "settings": {
+          "vwoAccountId": "1033291",
+          "codeType": "ASYNC",
+          "settingsTolerance": 2000,
+          "enableThemeTesting": false
+        }
+      },
+      "13768625480086291342": {
+        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#060606",
+          "contrast_color": "#ffffff",
+          "color_brand_secondary": "#000000",
+          "corners": "8px",
+          "app_background": "#f3efec",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#ffffff",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "5419952609722095102": {
+        "type": "shopify://apps/gift-box/blocks/head/f53ea332-e066-453a-9116-800349284dfb",
+        "disabled": false,
+        "settings": {
+          "script_load_mode": "sync"
+        }
+      },
+      "6864468922717759293": {
+        "type": "shopify://apps/privy-pop-ups-email-sms/blocks/privy-convert-production/1d8599fa-4edf-4071-bda6-4d5d6d82de9c",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {}
+  }
+}

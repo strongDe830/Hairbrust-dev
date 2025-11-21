@@ -1,0 +1,42 @@
+.snippet-card-product-alt {
+  --scpa-image-size: 4.5rem;
+  --scpa-font-size: 1rem;
+  --scpa-gap: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: var(--scpa-image-size) 1fr;
+  gap: var(--scpa-gap);
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+.snippet-card-product-alt * {
+  margin: 0;
+}
+.snippet-card-product-alt img,
+.snippet-card-product-alt svg {
+  grid-column: 1;
+  grid-row: 1/span 2;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  aspect-ratio: 1;
+  height: auto;
+  width: var(--scpa-image-size);
+  object-fit: contain;
+}
+.snippet-card-product-alt .title {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  text-decoration: none;
+  color: inherit;
+  font-size: var(--scpa-font-size);
+  font-weight: 500;
+}
+.snippet-card-product-alt .title:hover, .snippet-card-product-alt .title:focus {
+  text-decoration: underline;
+}
+.snippet-card-product-alt .snippet-data-prices {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+}

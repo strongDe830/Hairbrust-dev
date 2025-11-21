@@ -1,0 +1,59 @@
+.snippet-card-product-add-on {
+  --scpao-img-width: 4.5rem;
+  display: grid;
+  grid-template-columns: var(--scpao-img-width) 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--colour-white);
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+}
+.snippet-card-product-add-on * {
+  margin: 0;
+}
+.snippet-card-product-add-on .card-details {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.813rem;
+}
+.snippet-card-product-add-on > img,
+.snippet-card-product-add-on > svg {
+  border-radius: var(--border-radius-xs);
+  overflow: hidden;
+  aspect-ratio: 1;
+  height: auto;
+  width: var(--scpao-img-width);
+  object-fit: contain;
+}
+.snippet-card-product-add-on .title {
+  align-self: end;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+.snippet-card-product-add-on .title:hover, .snippet-card-product-add-on .title:focus {
+  text-decoration: underline;
+}
+.snippet-card-product-add-on form {
+  align-self: center;
+  height: 100%;
+}
+.snippet-card-product-add-on form .add-to-cart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+  background-color: transparent;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  padding: 0 0.75rem;
+  border-radius: var(--border-radius-xs);
+}
+.snippet-card-product-add-on form .add-to-cart:hover, .snippet-card-product-add-on form .add-to-cart:focus {
+  background-color: var(--colour-pampas);
+}
+.snippet-card-product-add-on form svg {
+  height: 1rem;
+  width: 1rem;
+}

@@ -1,0 +1,154 @@
+{%- liquid
+  assign template_name = 'section-main-product'
+  assign current_variant = product.selected_or_first_available_variant
+%}
+
+{%- render 'file-css', _name: 'section-main-product.css' -%}
+{%- render 'file-css', _name: 'snippet-layout-product-media.css' -%}
+
+<main-product
+  class="{{- template_name }} u-space-below-md"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div data-item-id="{{ product.id }}"></div>
+  <div class="container" id="{{ section.id }}">
+    <div class="main-wrapper">
+      {%- render 'layout-product-media', _product: product, _section: section -%}
+      {%- render 'layout-product-form', _product: product, _section: section -%}
+    </div>
+  </div>
+  {%- if section.settings.use_sticky_product == true -%}
+    {%- render 'action-sticky-product', _product: product, _section: section -%}
+  {%- endif -%}
+</main-product>
+
+{% schema %}
+{
+  "name": "t:sections.main_product.name",
+  "tag": "section",
+  "class": "overflow-hidden-down-lg",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_sticky_product",
+      "label": "t:sections.main_product.settings.use_sticky_product.label",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "t:sections.main_product.settings.disclaimer.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.main_product.blocks.heading.name",
+      "limit": 1
+    },
+    {
+      "type": "short_desc",
+      "name": "t:sections.main_product.blocks.short_desc.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.main_product.blocks.short_desc.label"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main_product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "trust_points",
+      "name": "t:sections.main_product.blocks.trust_points.name",
+      "limit": 1
+    },
+    {
+      "type": "variants",
+      "name": "t:sections.main_product.blocks.variants.name",
+      "limit": 1
+    },
+    {
+      "type": "lozenges",
+      "name": "t:sections.main_product.blocks.lozenges.name",
+      "limit": 1
+    },
+    {
+      "type": "disclaimer",
+      "name": "t:sections.main_product.blocks.disclaimer.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.main_product.blocks.disclaimer.label"
+        }
+      ]
+    },
+    {
+      "type": "customer_q_and_a",
+      "name": "t:sections.main_product.blocks.customer_q_and_a.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "question",
+          "label": "t:sections.main_product.blocks.customer_q_and_a.settings.customer_question.label"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "t:sections.main_product.blocks.customer_q_and_a.settings.customer_answer.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_button",
+      "name": "t:sections.main_product.blocks.buy_button.name",
+      "limit": 1
+    },
+    {
+      "type": "alt_purchase_option",
+      "name": "Alt Purchase Option",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "complementary",
+      "name": "t:sections.main_product.blocks.complementary_products.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.main_product.blocks.complementary_products.settings.paragraph.content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.all.heading.label"
+        },
+        {
+          "type": "range",
+          "id": "product_limit",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 10,
+          "label": "t:sections.main_product.blocks.complementary_products.settings.product_limit.label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

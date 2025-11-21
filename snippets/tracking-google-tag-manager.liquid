@@ -1,0 +1,62 @@
+{% assign errors = '' %}
+
+{% if settings.show_gtm_errors == true and settings.gtm_id.size < 1 %}
+	{% assign errors = errors | append: 'No GTM code has been specified. You can get your GTM code from your admin panel in google tag manager. It should look like this GTM-AB1ABCD|' %}
+{% endif %}
+
+{% assign gtm_codes = settings.gtm_id | split: ',' %}
+
+{% for gtm_code in gtm_codes %}
+    {% if type == 'head' %}
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ gtm_code }}');</script>
+        <!-- End Google Tag Manager -->
+    {% elsif type == 'body' %}
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm_code }}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    {% else %}
+        {% assign errors = errors | append: 'Missing GTM tag position - make sure the theme (in layout) has a with type: "head" or "body" specified.<br />Example:&#123;% include &#39;tracking-google-tag-manager&#39; with type: &#39;body&#39; %&#125;|' %}
+    {% endif %}
+{% endfor %}
+
+{% comment %}
+=======================
+	Show Errors
+=======================
+{% endcomment %}
+{% if settings.show_gtm_errors == true and errors.size > 1 %}
+    <div style="color:red; font-size: 1.7em; position: fixed; top: 0; left: 0; right: 0;z-index: 3000; border-bottom: #000; background: #000;">
+        {% assign array_errors = errors | split: '|' %}
+        <h1 style="font-size: 20pt;">Google Tag Manager: Errors</h1>
+        <ul>
+            {% for error in array_errors %}
+                <li style="color:red; font-size: 10pt;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% comment %}
+	Global site tag (gtag.js) - Google Analytics
+{% endcomment %}
+{% if type == 'head' and settings.gtm_id %}
+  {% assign ga_codes = settings.gtm_id | split: ',' %}
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+  </script>
+
+  {% for ga_code in ga_codes %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_code }}"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', '{{ ga_code }}');
+    </script>
+  {% endfor %}
+{% endif %}

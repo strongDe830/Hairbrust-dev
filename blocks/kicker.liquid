@@ -1,0 +1,68 @@
+<span class="c-lozenge kicker u-text-md block-kicker {{ block.settings.background_colour }}" id="shopify-block-{{- block.id -}}">
+  {{ block.settings.kicker }}
+</span>
+
+<style>
+  #shopify-block-{{- block.id -}} {
+    margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
+    color: {{ block.settings.text_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:blocks.kicker.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "t:blocks.kicker.name"
+    },
+    {
+      "type": "select",
+      "id": "background_colour",
+      "label": "t:global.background_colour.label",
+      "options": [
+        {
+          "value": "white",
+          "label": "t:global.colours.white.label"
+        },
+        {
+          "value": "we-peep",
+          "label": "t:global.colours.we-peep.alt_name"
+        },
+        {
+          "value": "light-peep",
+          "label": "t:global.colours.light-peep.alt_name"
+        },
+        {
+          "value": "gallery",
+          "label": "t:global.colours.grey.label"
+        },
+        {
+          "value": "glass",
+          "label": "t:global.colours.glass.label"
+        }
+      ],
+      "default": "we-peep"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:global.text_colour.label"
+    },
+
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 8,
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.kicker.name" }]
+}
+{% endschema %}

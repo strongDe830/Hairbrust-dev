@@ -1,0 +1,1 @@
+customElements.get("spark-modal")||customElements.define("spark-modal",class extends window.Herd.SparkPopup{});

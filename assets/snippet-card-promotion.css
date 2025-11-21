@@ -1,0 +1,40 @@
+.snippet-card-promotion {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  flex-shrink: 0;
+}
+.snippet-card-promotion:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background: var(--colour-black);
+  opacity: 0.4;
+}
+.snippet-card-promotion .card-image, .snippet-card-promotion > svg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.snippet-card-promotion .card-content {
+  padding: 1.5rem;
+  color: var(--colour-white);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 6.5rem;
+}
+.snippet-card-promotion .card-content a {
+  color: inherit;
+}
+.snippet-card-promotion .card-content * {
+  margin: 0;
+}

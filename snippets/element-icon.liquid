@@ -1,0 +1,4 @@
+{% liquid
+  assign icon = 'icon-' | append: _icon | append: '.svg'
+  echo icon | inline_asset_content
+%}

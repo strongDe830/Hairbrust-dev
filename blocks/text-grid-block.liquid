@@ -1,0 +1,22 @@
+<div class="block-text-grid-block" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.text_grid_block.name",
+  "tag": null,
+  "settings":[
+  ],
+  "blocks": [
+    { "type": "icon" },
+    { "type": "title" },
+    { "type": "text-light" }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.text_grid_block.name"
+    }
+  ]
+}
+{% endschema %}

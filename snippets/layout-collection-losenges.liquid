@@ -1,0 +1,27 @@
+{% liquid
+
+  render 'file-css', _name: 'snippet-layout-collection-losenges.css'
+
+%}
+
+<div class="collection-losenges u-space-below-md">
+  {% for block in _blocks %}
+    {% assign collection_handle = block.settings.featured_collection %}
+    {% if collection_handle == _current_collection %}
+      {% continue %}
+    {% endif %}
+    {% assign collection = collections[collection_handle] %}
+    {% assign alt_tag = '' %}
+    {% if collection.image.alt != blank %}
+      {% assign alt_tag = collection.image.alt | escape %}
+    {% else %}
+      {% assign alt_tag = collection.title | escape %}
+    {% endif %}
+    <div class="collection-losenges losenge">
+      <a href="{{- collection.url -}}">
+        {{- collection.image | image_url: width: 300 | image_tag: alt: alt_tag -}}
+        <span>{{- collection.title | escape -}}</span>
+      </a>
+    </div>
+  {% endfor %}
+</div>

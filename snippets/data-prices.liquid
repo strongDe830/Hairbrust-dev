@@ -1,0 +1,71 @@
+{% liquid
+
+  assign variant = _variant | default: _product.selected_or_first_available_variant
+
+  if _product.price_varies
+    assign price = _product.price
+    assign compare_at_price = _product.compare_at_price
+
+    if _product.compare_at_price == price
+      assign compare_at_price = blank
+    endif
+  else
+    assign price = variant.price
+    assign compare_at_price = variant.compare_at_price
+  endif
+
+  if _type == 'cart'
+
+    if _item.product.price_varies
+      assign price = _item.variant.price | times: _item.quantity
+      assign compare_at_price = _item.variant.compare_at_price | times: _item.quantity
+
+      if _item.variant.compare_at_price == price
+        assign compare_at_price = blank
+      endif
+    else
+      assign price = _item.variant.price | times: _item.quantity
+      assign compare_at_price = _item.variant.compare_at_price | times: _item.quantity
+    endif
+
+    if _item.discount_allocations.size > 0
+      for discount in _item.discount_allocations
+        assign price = price | minus: discount.amount
+        assign compare_at_price = _item.variant.price
+      endfor
+    endif
+
+    assign original_price = _item.variant.compare_at_price
+  endif
+
+  assign money_price = price | money
+  assign money_compare_at_price = compare_at_price | money
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
+    assign money_compare_at_price = compare_at_price | money_with_currency
+  endif
+%}
+
+<div {% if _section != blank -%}id="data-prices-{{ _section.id }}"{% endif %} class="snippet-data-prices">
+  <span class="current">
+    {%- if _is_search == true -%}
+      {%- if _product.price_varies == true -%}
+        <small class="from">{{- 'accessibility.from' | t -}}</small>
+      {%- endif -%}
+    {%- endif -%}
+    {{- money_price }}
+  </span>
+  {%- if money_compare_at_price != blank and money_compare_at_price != money_price and compare_at_price > 0 -%}
+    <span class="was">
+      {{ money_compare_at_price -}}
+    </span>
+  {%- endif -%}
+  {%- if _type == 'cart' and _item.quantity > 1 -%}
+    <small class="original-price">
+      (
+      {{- _item.final_price | money | strip_html }}
+      {{ 'template.cart.each' | t -}}
+      )
+    </small>
+  {%- endif -%}
+</div>

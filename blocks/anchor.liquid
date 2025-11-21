@@ -1,0 +1,95 @@
+{%- render 'anchor',
+  _anchor_text: block.settings.title,
+  _anchor_url: block.settings.anchor_url,
+  _anchor_style: block.settings.anchor_style,
+  _anchor_version: block.settings.anchor_version,
+  _icon: block.settings.anchor_icon
+-%}
+
+{% schema %}
+{
+  "name": "t:blocks.anchor.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "url",
+      "id": "anchor_url",
+      "label": "t:blocks.anchor.settings.anchor_url.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:blocks.anchor.settings.anchor_text.label"
+    },
+    {
+      "type": "select",
+      "id": "anchor_version",
+      "label": "t:blocks.anchor.settings.anchor_version.label",
+      "options": [
+        {
+          "value": "main",
+          "label": "t:global.versions.main.label"
+        },
+        {
+          "value": "alt",
+          "label": "t:global.versions.alt.label"
+        }
+      ],
+      "default": "main"
+    },
+    {
+      "type": "select",
+      "id": "anchor_style",
+      "label": "t:blocks.anchor.settings.anchor_style.label",
+      "options": [
+        {
+          "value": "white",
+          "label": "t:global.colours.white.label"
+        },
+        {
+          "value": "tuna",
+          "label": "t:global.colours.tuna.label"
+        },
+        {
+          "value": "we-peep",
+          "label": "t:global.colours.we-peep.label"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "select",
+      "id": "anchor_icon",
+      "label": "t:blocks.anchor.settings.anchor_icon.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:global.options.none.label"
+        },
+        {
+          "value": "arrow-up",
+          "label": "t:global.icons.arrow_up.label"
+        },
+        {
+          "value": "arrow-right",
+          "label": "t:global.icons.arrow_right.label"
+        },
+        {
+          "value": "arrow-down",
+          "label": "t:global.icons.arrow_down.label"
+        },
+        {
+          "value": "arrow-left",
+          "label": "t:global.icons.arrow_left.label"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.anchor.name"
+    }
+  ]
+}
+{% endschema %}

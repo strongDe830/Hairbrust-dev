@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "blocks": {
+        "group_content_QfTQrf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false
+          },
+          "blocks": {
+            "heading_QkT6dV": {
+              "type": "heading",
+              "settings": {
+                "heading": "The requested page appears to be missing.",
+                "heading_type": "h1",
+                "heading_size": "lg"
+              }
+            },
+            "text_hVctc6": {
+              "type": "text",
+              "settings": {
+                "text": "<p>It appears that what you are looking for is not here anymore.</p>",
+                "use_icons_in_list": false
+              }
+            }
+          },
+          "block_order": [
+            "heading_QkT6dV",
+            "text_hVctc6"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_QfTQrf"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

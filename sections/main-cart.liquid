@@ -1,0 +1,131 @@
+{%- liquid
+  assign template_name = 'section-main-cart'
+
+  assign use_cart_notes = section.settings.use_cart_notes
+  assign use_upsell_products = section.settings.use_upsell_products
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-main-cart.css'
+  render 'file-css', _name: 'snippet-data-cart-totals.css'
+  render 'file-css', _name: 'snippet-cart-line-item.css'
+%}
+<script
+  src="{{ 'section-main-cart.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+
+<script
+  src="{{ 'snippet-cart-line-item.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+
+{%- capture continue_shopping -%}
+  <a href="{{- routes.all_products_collection_url -}}" class="c-btn alt primary">
+    {{- 'template.cart.continue_shopping' | t -}}
+  </a>
+{%- endcapture -%}
+
+<main-cart
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+  id="main-cart"
+>
+  <div class="container">
+    <header class="header">
+      <h1 class="u-heading-md">{{- 'template.cart.title' | t -}}</h1>
+      {%- if cart.item_count > 0 -%}
+        <p>
+          <span data-cart-count-integer aria-hidden="true">{{ cart.item_count }} </span>
+          {% if cart.item_count < 2 -%}
+            {{ 'template.cart.item_in_bag' | t }}
+          {%- else -%}
+            {{ 'template.cart.items_in_bag' | t -}}
+          {%- endif -%}
+          : <strong>{{ cart.total_price | money }}</strong>
+        </p>
+      {%- endif -%}
+      {%- render 'cart-rewards', _cart: cart -%}
+    </header>
+    {%- if cart.item_count > 0 -%}
+      <hr>
+      <form class="c-form" action="{{- routes.cart_url -}}" method="post" id="cart">
+        {% liquid
+          for item in cart.items
+            render 'cart-line-item', _index: forloop.index0, _item: item, _class: 'main-cart-item'
+            echo '<hr>'
+          endfor
+        %}
+        {%- render 'data-cart-totals', _cart: cart -%}
+        <div class="cart-actions">
+          <button class="c-btn main tuna checkout fw centre" name="checkout" type="submit" form="cart">
+            {%- render 'element-icon', _icon: 'lock' -%}
+            {{- 'template.cart.proceed_to_checkout' | t -}}
+          </button>
+          {{- continue_shopping -}}
+        </div>
+      </form>
+    {%- else -%}
+      <div class="empty">
+        <p>{{ 'template.cart.empty' | t }}</p>
+
+        {{- continue_shopping -}}
+      </div>
+    {%- endif -%}
+  </div>
+</main-cart>
+
+{% schema %}
+{
+  "name": "t:sections.main_cart.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_cart_notes",
+      "label": "t:sections.main_cart.settings.use_cart_notes.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_upsell_products",
+      "label": "t:sections.main_cart.settings.use_upsell_products.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

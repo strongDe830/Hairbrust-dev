@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "heading_ULNm9h": {
+          "type": "heading",
+          "settings": {}
+        },
+        "short_desc_fCEb9R": {
+          "type": "short_desc",
+          "settings": {
+            "text": ""
+          }
+        },
+        "variants_UxVqza": {
+          "type": "variants",
+          "settings": {}
+        },
+        "buy_button_frnqjn": {
+          "type": "buy_button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_ULNm9h",
+        "short_desc_fCEb9R",
+        "variants_UxVqza",
+        "buy_button_frnqjn"
+      ],
+      "settings": {
+        "use_sticky_product": true,
+        "disclaimer": ""
+      }
+    },
+    "related_products_xyVTHT": {
+      "type": "related-products",
+      "blocks": {
+        "heading_DT8FF8": {
+          "type": "heading",
+          "settings": {
+            "heading": "You may also like",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_DT8FF8"
+      ],
+      "settings": {
+        "product_limit": 6,
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related_products_xyVTHT"
+  ]
+}

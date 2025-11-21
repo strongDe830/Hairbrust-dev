@@ -1,0 +1,79 @@
+.section-main-search .search-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.section-main-search .search-header .filters-open {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  padding: 0.325rem 0.25rem;
+  border-radius: var(--border-radius-xs);
+  background-color: transparent;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+}
+.section-main-search .search-header .filters-open svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.section-main-search .search-header .filters-open:hover, .section-main-search .search-header .filters-open:focus {
+  background-color: var(--colour-white-glass);
+}
+.section-main-search .grid {
+  display: grid;
+  grid-template-columns: var(--mc-grid-columns, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+.section-main-search .grid .snippet-card-promotion {
+  grid-row: var(--mc-promotion-grid-row, 4);
+}
+.section-main-search .pagination {
+  display: flex;
+  justify-self: center;
+}
+.section-main-search .pagination.prev {
+  margin-bottom: 3.5rem;
+}
+.section-main-search .search-overlay {
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--colour-tuna);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  transition-delay: var(--transition-duration);
+  z-index: 1010;
+  pointer-events: none;
+}
+.section-main-search .search-overlay.is-visible {
+  opacity: 0.64;
+  visibility: visible;
+  pointer-events: unset;
+  transition-delay: 0s;
+}
+@media (min-width: 768px) {
+  .section-main-search .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section-main-search .grid .snippet-card-promotion {
+    grid-row: var(--mc-promotion-grid-row, 2);
+    grid-column: 2;
+  }
+}
+@media (min-width: 1280px) {
+  .section-main-search .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1023.98px) {
+  .section-main-search .search-header .filters-open svg {
+    transform: rotate(90deg);
+  }
+}

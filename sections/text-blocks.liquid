@@ -1,0 +1,139 @@
+{%- liquid
+  assign template_name = 'section-text-blocks'
+
+  assign heading = section.settings.heading
+  assign text = section.settings.text
+  assign anchor_url = section.settings.anchor_url
+  assign anchor_text = section.settings.anchor_text
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-text-blocks.css', _load_type: 'defer'
+  render 'file-js', _name: 'section-text-blocks.js', _load_type: 'defer'
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {%- if heading != blank -%}
+      <div class="content">
+        {%- if heading != blank -%}
+          <h2 class="u-heading-lg">{{- heading -}}</h2>
+        {%- endif -%}
+        {%- if text != blank -%}
+          <p>{{- text -}}</p>
+        {%- endif -%}
+        {%- render 'anchor',
+          _anchor_text: anchor_text,
+          _anchor_url: anchor_url,
+          _anchor_style: 'tuna',
+          _anchor_version: 'main'
+        -%}
+      </div>
+    {%- endif -%}
+    <text-blocks class="swiper">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {% liquid
+            assign title = block.settings.title
+            assign text = block.settings.text
+            if title == blank or text == blank
+              continue
+            endif
+          %}
+          <div class="swiper-slide">
+            <span class="u-heading-xs number">{{- forloop.index -}}.</span>
+            <h3 class="u-heading-xs title">{{- title -}}</h3>
+            <p>{{- text -}}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    </text-blocks>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.text_blocks.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "url",
+      "id": "anchor_url",
+      "label": "t:blocks.anchor.settings.anchor_url.label"
+    },
+    {
+      "type": "text",
+      "id": "anchor_text",
+      "label": "t:blocks.anchor.settings.anchor_text.label"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "t:sections.all.block.label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.all.title.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:sections.all.text.label"
+        }
+      ]
+    },
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text_blocks.name"
+    }
+  ]
+}
+{% endschema %}

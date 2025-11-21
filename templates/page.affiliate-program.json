@@ -1,0 +1,217 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17448038974fe13355": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_4btKM6": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<link rel=\"preload\" href=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\" as=\"script\">\n  <script src=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\"></script>\n  <div id=\"videowise_stream_channel\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_4btKM6"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "page_hero_7MF4Py": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_XH78az": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "<em>Earn with Hairburst</em>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_3ejaqa": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Share our best-selling haircare and get rewarded for every sale you inspire.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_XH78az",
+            "text_3ejaqa"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Concern_LP_169.png",
+            "image": "shopify://shop_images/Concern_LP_169.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "company_reviews_nkinW9": {
+      "type": "company-reviews",
+      "name": "t:sections.company_reviews.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_DFMgRD": {
+      "type": "text",
+      "blocks": {
+        "group_content_RbCQLt": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_7fBA3w": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "About the Hairburst Affiliate Program",
+                "heading_type": "h3",
+                "heading_size": "sm",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_3aaaX8": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Turn your content into commission by partnering with the brand customers trust for stronger, healthier-looking hair. Whether you’re a beauty creator, wellness blogger, or run a community with hair-obsessed fans, we’ll give you everything you need to succeed.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "heading_yQH8ea": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Why partner with us",
+                "heading_type": "h3",
+                "heading_size": "sm",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_YWWfCa": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Competitive commissions on every qualified sale</p><p>Generous cookie window to maximise your earnings</p><p>Ready-to-use assets: product images, lifestyle content, and fresh campaign creatives</p><p>New launches, promos, and exclusive offers to keep your audience engaged</p><p>Dedicated affiliate support and performance tips</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "heading_DXKXaN": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "How it works",
+                "heading_type": "h3",
+                "heading_size": "sm",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_KTi8cN": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p><strong>Apply</strong> — Tell us about your audience and channels.</p><p><strong>Promote</strong> — Get your unique links and creative assets.</p><p><strong>Earn</strong> — Drive sales and receive commissions with transparent tracking.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_7fBA3w",
+            "text_3aaaX8",
+            "heading_yQH8ea",
+            "text_YWWfCa",
+            "heading_DXKXaN",
+            "text_KTi8cN"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_RbCQLt"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "17448038974fe13355",
+    "page_hero_7MF4Py",
+    "company_reviews_nkinW9",
+    "text_DFMgRD"
+  ]
+}

@@ -1,0 +1,16 @@
+{% liquid
+  render 'file-css', _name: 'block-group-text-grid-blocks.css', _load_type: 'defer'
+%}
+
+<div class="block-group-text-grid-blocks">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.group_text_grid_blocks.name",
+  "tag": null,
+  "blocks": [{ "type": "text-grid-block" }],
+  "presets": [{ "name": "t:blocks.group_text_grid_blocks.name" }]
+}
+{% endschema %}

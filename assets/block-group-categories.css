@@ -1,0 +1,170 @@
+.block-group-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.block-group-categories .swiper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+.block-group-categories .swiper-navigation {
+  justify-content: flex-end;
+  gap: 0;
+}
+.block-group-categories .snippet-card-category {
+  display: flex;
+  transform: translateZ(0);
+  flex-shrink: 0;
+  transition-property: transform;
+}
+.section-categories .block-group-categories .swiper-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+}
+.section-categories .block-group-categories .swiper-pagination {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  background: var(--colour-white);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.section-categories .block-group-categories .swiper-pagination-progressbar-fill {
+  background: var(--colour-black);
+  border-radius: 2px;
+  height: 100%;
+}
+.section-categories .block-group-categories .swiper-navigation {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.section-categories .block-group-categories .swiper-button-prev,
+.section-categories .block-group-categories .swiper-button-next {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--colour-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.section-categories .block-group-categories .swiper-button-prev:hover,
+.section-categories .block-group-categories .swiper-button-next:hover {
+  background: var(--colour-white);
+  border-color: var(--colour-black);
+}
+.section-categories .block-group-categories .swiper-button-prev.swiper-button-disabled,
+.section-categories .block-group-categories .swiper-button-next.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.section-categories .snippet-card-category img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.section-categories .snippet-card-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+.section-categories .snippet-card-category > * {
+  position: relative;
+  z-index: 2;
+}
+.section-categories .snippet-card-category .c-lozenge {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.section-categories .snippet-card-category .card-title {
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 0;
+}
+.section-categories .snippet-card-category .card-title a {
+  color: var(--colour-white);
+  text-decoration: none;
+}
+.section-categories .snippet-card-category .c-btn.main {
+  display: none;
+}
+.section-categories .block-group-categories .swiper-wrapper {
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .section-categories .block-group-categories .swiper > .swiper-wrapper {
+    margin-bottom: 4.5rem;
+    display: flex;
+  }
+  .section-categories .block-group-categories .swiper-controls {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-top: 24px;
+  }
+  .section-categories .block-group-categories .snippet-card-category {
+    padding: 2rem;
+  }
+  .section-categories .snippet-card-category {
+    height: 360px;
+    padding: 24px;
+  }
+  .section-categories .block-group-categories .swiper-wrapper {
+    gap: 0;
+  }
+}
+@media (min-width: 768px) {
+  .block-group-categories .swiper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 575.98px) {
+  .block-group-categories .swiper-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .block-group-categories .swiper-navigation {
+    display: none;
+  }
+  .block-group-categories .snippet-card-category {
+    padding: 0.5rem;
+  }
+  .block-group-categories .snippet-card-category .c-lozenge {
+    display: inline-flex;
+    padding: 0.75rem 1.125rem;
+    font-size: 1rem;
+  }
+  .block-group-categories .snippet-card-category .card-title {
+    font-size: 0.875rem;
+  }
+  .block-group-categories .snippet-card-category .c-btn.main {
+    font-size: 0.6rem;
+    padding: 0.5rem 1rem;
+  }
+}

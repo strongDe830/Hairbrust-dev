@@ -1,0 +1,43 @@
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+  {%- assign pageUrl = contentForQuerystring | split: '"pageurl":"' | last | split: '"' | first | split: '.myshopify.com' | last | replace: '\/', '/' | replace: '%20', ' ' | replace: '\u0026', '&' -%}
+  {% assign querystring = pageUrl | split: '?' | last %}
+  {% assign paginate_value = querystring | split: 'paginateby=' | last | slice: 0, 2 | replace: '&', '' %}
+
+  {%- paginate search.results by paginate_value -%}
+    {% if search.results_count > 0 %}
+      <div class="pagination prev" data-search-pagination-less>
+        {%- if paginate.previous -%}
+          {%- assign previous_url = paginate.previous.url | default: '#' -%}
+          <a class="c-btn main primary" href="{{ previous_url | url }}" data-search-pagination-less-btn>
+            {{- 'template.collection.pagination.previous' | t -}}
+            {%- render 'element-icon', _icon: 'arrow-up' -%}
+          </a>
+        {%- endif -%}
+      </div>
+      <div hidden data-split></div>
+      {%- for search_item in search.results -%}
+        {% if search_item.object_type == 'product' %}
+          {%- render 'card-product', _product: search_item, _use_add_to_cart_btn: use_add_to_cart_btn -%}
+        {% elsif search_item.object_type == 'article' -%}
+          {%- render 'card-article', _article: search_item -%}
+        {%- elsif search_item.object_type == 'page' -%}
+          {%- render 'card-page', _page: search_item, _search_card: true -%}
+        {%- endif -%}
+      {%- endfor -%}
+      <div hidden data-split></div>
+      <div class="pagination next" data-search-pagination-more>
+        {%- if paginate.next -%}
+          {%- assign next_url = paginate.next.url | default: '#' -%}
+          <a class="c-btn main primary" href="{{ next_url | url }}" data-search-pagination-more-btn>
+            {{- 'template.collection.pagination.more' | t -}}
+            {%- render 'element-icon', _icon: 'arrow-down' -%}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+    <div class="s-collection__empty">
+      <p>{{ template.collection.empty }}</p>
+    </div>
+    {%- endif -%}
+  {%- endpaginate -%}

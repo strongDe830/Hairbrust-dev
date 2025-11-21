@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    {% liquid
+      render 'theme-meta'
+      render 'theme-microdata'
+      render 'theme-favicon'
+      render 'theme-hreflang'
+      render 'theme-scripts'
+      render 'theme-tracking'
+      render 'theme-css'
+    %}
+
+    <script>
+      window.videowiseShadow = {
+        mode: 'closed',
+        assets: [{ type: 'style', src: '{{ "custom-videowise.css" | asset_url }}' }],
+      };
+    </script>
+
+    <script type="text/javascript">
+      var _conv_page_type = '{{ request.page_type }}';
+      var _conv_category_id = '{{ collection.id }}';
+      var _conv_category_name = '{{ collection.title }}';
+      var _conv_product_sku = '{{ product.selected_or_first_available_variant.sku }}';
+      var _conv_product_name = '{{ product.title }}';
+      var _conv_product_price = '{{ product.price_min | money_without_currency }}';
+      var _conv_customer_id = '{{ customer.id }}';
+      var _conv_custom_v1 = '{{ product.tags.first }}';
+      var _conv_custom_v2 = '{{ collection.current_type }}';
+      var _conv_custom_v3 = '{{ cart.item_count }}';
+      var _conv_custom_v4 = '{{ cart.total_price | money_without_currency }}';
+    </script>
+    {% render 'convert' %}
+
+    {{ content_for_header }}
+  </head>
+  <body id="wrapper" class="page-type-{{ request.page_type }} template-{{ template.name | handle }}">
+    {%- render 'layout-predictive-search' -%}
+    {%- render 'cart-drawer' -%}
+    {%- if settings.iterable_deals_modal -%}
+      {%- render 'deals-modal' -%}
+    {%- endif -%}
+    {%- sections 'header' -%}
+    <main class="site-main" role="main">
+      {{ content_for_layout }}
+    </main>
+    {%- sections 'footer' -%}
+    <div class="snippet-overlay" data-theme-overlay></div>
+    {%- render 'theme-footer-scripts' -%}
+    {% render 'freegifts-snippet' %}
+  </body>
+</html>

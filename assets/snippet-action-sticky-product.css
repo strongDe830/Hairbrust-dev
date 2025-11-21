@@ -1,0 +1,72 @@
+.snippet-action-sticky-product {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background-color: var(--colour-tuna);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  z-index: 100;
+  padding: 1rem;
+}
+.no-js .snippet-action-sticky-product {
+  display: none;
+}
+
+.snippet-action-sticky-product.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.snippet-action-sticky-product .subscription-select {
+  background-color: var(--colour-white);
+  padding: 0.75rem;
+  width: 100%;
+  height: 60px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+}
+.snippet-action-sticky-product .snippet-data-prices {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.snippet-action-sticky-product .snippet-data-prices .current {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.snippet-action-sticky-product .snippet-data-prices .was {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.snippet-action-sticky-product .add-to-basket {
+  margin-left: auto;
+  width: -webkit-fit-content;
+  width: fit-content;
+  border: 1px solid var(--colour-gallery);
+  color: var(--colour-white);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 1024px) {
+  .snippet-action-sticky-product {
+    background-color: var(--colour-pampas);
+    max-width: 32rem;
+    bottom: 1rem;
+    right: 1.5rem;
+    border-radius: var(--border-radius-sm);
+  }
+  .snippet-action-sticky-product .add-to-basket {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: var(--colour-tuna);
+  }
+}

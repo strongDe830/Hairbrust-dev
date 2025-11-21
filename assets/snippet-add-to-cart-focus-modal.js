@@ -1,0 +1,1 @@
+customElements.get("add-to-cart-focus-modal")||customElements.define("add-to-cart-focus-modal",class extends window.Herd.SparkPopup{});

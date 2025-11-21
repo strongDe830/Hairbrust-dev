@@ -1,0 +1,98 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_UJWeGG": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "kicker_itid9W": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "30% off almost everything.",
+                "background_colour": "we-peep"
+              },
+              "blocks": {}
+            },
+            "heading_m7mhp6": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Your Spring Hair Reset Starts Here.",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_GaTwCx": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>This is your sign to start fresh. Shop science-backed haircare that's trusted by over 1 million women—now with <strong>30% off </strong>(almost) everything.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kicker_itid9W",
+            "heading_m7mhp6",
+            "text_GaTwCx"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Easter_Landing_Page_1260x1050_d817f423-dd06-43ce-b53c-439d26a8f6b6.png",
+            "image": "shopify://shop_images/Easter_Landing_Page_1260x1050_d817f423-dd06-43ce-b53c-439d26a8f6b6.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "17448038974fe13355": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "page_hero_UJWeGG",
+    "17448038974fe13355"
+  ]
+}

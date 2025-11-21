@@ -1,0 +1,80 @@
+{%- liquid
+  render 'file-css', _name: 'block-statistic.css', _load_type: 'defer'
+  render 'file-css', _name: 'block-group-statistics.css', _load_type: 'defer'
+  render 'file-js', _name: 'block-group-statistics.js', _load_type: 'defer'
+-%}
+
+<div class="u-space-below-{{- block.settings.margin_bottom }}  block-group-statistics" {{ block.shopify_attributes }}>
+  <group-statistics class="{% if block.settings.block_layout  == 'carousel' %}swiper{% endif %}">
+    <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-statistics-grid grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
+      {% content_for 'blocks' %}
+    </div>
+  </group-statistics>
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.group_statistics.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "block_layout",
+      "default": "grid",
+      "label": "Block layout",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Number of columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [{ "type": "statistic" }],
+  "presets": [{ "name": "t:blocks.group_statistics.name" }]
+}
+{% endschema %}

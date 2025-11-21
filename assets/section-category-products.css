@@ -1,0 +1,23 @@
+.section-category-products .container {
+  display: grid;
+  grid-template-columns: var(--mc-grid-columns, 1fr);
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+.section-category-products .container .snippet-card-promotion {
+  grid-row: var(--mc-promotion-grid-row, 4);
+}
+@media (min-width: 768px) {
+  .section-category-products .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .section-category-products .container .snippet-card-promotion {
+    grid-row: var(--mc-promotion-grid-row, 2);
+    grid-column: 2;
+  }
+}
+@media (min-width: 1280px) {
+  .section-category-products .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

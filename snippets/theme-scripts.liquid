@@ -1,0 +1,81 @@
+{% comment %}
+  Theme JavaScript settings
+
+  Edit this file to match your theme's JavaScript requirements. This file is used to set global JavaScript variables and import the theme.js file.
+{% endcomment %}
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+  var theme = {
+    url: {{ shop.url | json }},
+		template: '{{ template }}',
+    search: {
+      predictive_search_enabled: '{{ settings.predictive_search_enabled }}',
+      suggested_content_enabled: '{{ settings.suggested_content_enabled }}'
+    },
+  }
+
+  theme.breakpoints = {
+    xs: 0,
+    sm: 576,
+    md: 767,
+    lg: 1024,
+    xl: 1280,
+    hd: 1600,
+  };
+
+  theme.reviews = {
+    options: { method: 'GET', headers: { accept: 'application/json' } },
+    api_url: 'https://api.reviews.io/reviews?store=fr.hairburst.com&apikey=70c95a749912105e1468ec7fb99f610d&type=store_review&per_page=8&minRating=5&sort=date_desc&include_product_reviews=false&must_have_body=true',
+    profile_url: 'https://www.reviews.co.uk/company-reviews/store/fr.hairburst.com'
+  }
+
+  window.theme = {
+    ...theme,
+    ...window.theme
+  };
+
+  window.variantStrings = {
+    addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+    soldOut: `{{ 'products.product.sold_out' | t }}`,
+    unavailable: `{{ 'products.product.unavailable' | t }}`
+  }
+
+  window.routes = {
+    cart_add_url: '{{ routes.cart_add_url }}',
+    cart_change_url: '{{ routes.cart_change_url }}',
+    cart_update_url: '{{ routes.cart_update_url }}',
+    cartAddUrl: '{{ routes.cart_add_url }}',
+    cartChangeUrl: '{{ routes.cart_change_url }}',
+    cartUpdateUrl: '{{ routes.cart_update_url }}',
+  }
+
+  window.lockScrolling = function() {
+    document.body.style.overflowY = 'hidden';
+  }
+
+  window.unlockScrolling = function() {
+    document.body.style.overflowY = null;
+  }
+
+  window.setOverlay = function(state) {
+    let overlay = document.querySelector('[data-theme-overlay]');
+    if (state == 'active') {
+      overlay.classList.add('js-is-visible');
+    } else {
+      overlay.classList.remove('js-is-visible');
+    }
+  }
+</script>
+
+{% liquid
+  render 'file-js', _name: 'spark-utils.js', _load_type: 'defer'
+  render 'file-js', _name: 'spark-events.js', _load_type: 'defer'
+  render 'file-js', _name: 'spark-element.js', _load_type: 'defer'
+  render 'file-js', _name: 'spark-listeners.js', _load_type: 'defer'
+  render 'file-js', _name: 'spark-components.js', _load_type: 'defer', _type: 'module'
+  render 'file-js', _name: 'spark-cart.js', _load_type: 'defer'
+  render 'file-js', _name: 'spark-section-renderer.js', _load_type: 'defer'
+  render 'file-js', _name: 'theme.js', _load_type: 'defer'
+%}

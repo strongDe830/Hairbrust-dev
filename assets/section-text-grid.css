@@ -1,0 +1,36 @@
+.section-text-grid > .container {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2.5rem;
+}
+.section-text-grid .grid {
+  display: flex;
+  gap: 1rem;
+}
+.section-text-grid .grid .block-media {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .section-text-grid > .container {
+    max-width: var(--tablet-max-width);
+  }
+}
+@media (min-width: 1024px) {
+  .section-text-grid .grid .block-media {
+    width: 36%;
+    flex-shrink: 0;
+  }
+  .section-text-grid .grid .block-media * {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 1023.98px) {
+  .section-text-grid .grid {
+    flex-direction: column;
+  }
+  .section-text-grid .grid .block-media {
+    order: -1;
+  }
+}

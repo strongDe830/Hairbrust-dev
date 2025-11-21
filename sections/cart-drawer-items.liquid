@@ -1,0 +1,37 @@
+<script
+  src="{{ 'snippet-cart-line-item.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+
+{%- capture continue_shopping -%}
+  <button data-cart-drawer-el="close" class="c-btn alt primary">
+    {{- 'template.cart.continue_shopping' | t -}}
+  </button>
+{%- endcapture -%}
+
+<div
+  id="{{ section.id }}"
+  class="cart-drawer-items xx"
+  data-section-id="{{ section.id }}"
+  data-section-type="cart-drawer-items"
+>
+
+  {% if cart.item_count > 0 %}
+    {%- render 'cart-rewards', _cart: cart -%}
+    {% for item in cart.items %}
+      {% render 'cart-line-item', _item: item %}
+      {% unless forloop.last %}
+        <hr>
+      {% endunless %}
+    {% endfor %}
+    {% if cart.items.size > 0 %}
+      <hr>
+    {% endif %}
+    {% else %}
+    <div class="empty" data-quick-cart-empty>
+      {%- render 'element-icon', _icon: 'bag' -%}
+      <p>{{ 'template.cart.empty' | t }}</p>
+    </div>
+  {% endif %}
+</div>

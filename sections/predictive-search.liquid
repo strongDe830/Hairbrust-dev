@@ -1,0 +1,269 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+<div id="predictive-search-results" role="listbox">
+  {%- if predictive_search.performed -%}
+    {% assign first_column_results_size = predictive_search.resources.queries.size
+      | plus: predictive_search.resources.collections.size
+      | plus: predictive_search.resources.pages.size
+      | plus: predictive_search.resources.articles.size
+    %}
+
+    {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
+      <div
+        id="predictive-search-results-groups-wrapper"
+        class="predictive-results-wrapper{% unless predictive_search.resources.products.size > 0 %} no-products{% endunless %}{% unless predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %} no-suggestions{% endunless %} search-performed"
+      >
+        {% comment %}Suggested queries{% endcomment %}
+        {%- if predictive_search.resources.queries.size > 0 -%}
+          <div class="queries-results">
+            <span class="search-heading">{{- 'template.search.suggestions' | t -}}</span>
+            <ul
+              id="predictive-search-results-queries-list"
+              class="queries c-lozenges"
+              role="group"
+              aria-labelledby="predictive-search-queries"
+            >
+              {%- for query in predictive_search.resources.queries -%}
+                <li
+                  id="predictive-search-option-query-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a
+                    href="{{ query.url }}"
+                    class="c-btn query c-lozenge white"
+                    tabindex="-1"
+                  >
+                    {{ query.styled_text }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {% comment %}Products{% endcomment %}
+        {%- if predictive_search.resources.products.size > 0 -%}
+          <div class="results-products results-container">
+            <span id="predictive-search-products" class="search-heading">
+              {{- 'template.search.products' | t -}}
+            </span>
+            <ul
+              id="predictive-search-results-products-list"
+              class="results-list products"
+              role="group"
+              aria-labelledby="predictive-search-products"
+            >
+              {%- for product in predictive_search.resources.products -%}
+                <li
+                  id="predictive-search-option-product-{{ forloop.index }}"
+                  class="list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  {%- render 'card-product-alt', _product: product, _is_search: true -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% comment %}Collections{% endcomment %}
+        {%- if predictive_search.resources.collections.size > 0 -%}
+          <div class="results-collections results-container">
+            <span class="search-heading">{{- 'template.search.collections' | t -}}</span>
+            <ul
+              id="predictive-search-results-collections-list"
+              class="results-list collections"
+              role="group"
+              aria-labelledby="predictive-search-queries"
+            >
+              {%- for collection in predictive_search.resources.collections -%}
+                <li
+                  id="predictive-search-option-collection-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  {%- render 'card-collection-alt',
+                    _collection: collection
+                  -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {% comment %}Articles{% endcomment %}
+        {%- if predictive_search.resources.articles.size > 0 -%}
+          <div class="results-articles results-container">
+            <h2 id="predictive-search-articles-desktop" class="search-heading">
+              {{- 'template.search.articles' | t -}}
+            </h2>
+            <ul
+              id="predictive-search-results-articles-list-desktop"
+              class="results-list articles"
+              role="group"
+              aria-labelledby="predictive-search-pages-desktop"
+            >
+              {%- for article in predictive_search.resources.articles -%}
+                <li
+                  id="predictive-search-option-article-desktop-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a href="{{ article.url }}" class="c-btn alt primary" tabindex="-1">
+                    {{ article.title }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {% comment %}Pages{% endcomment %}
+        {%- if predictive_search.resources.pages.size > 0 -%}
+          <div class="results-pages results-container">
+            <span class="search-heading">{{- 'template.search.pages' | t -}}</span>
+            <ul
+              id="predictive-search-results-pages-list-desktop"
+              class="results-list pages"
+              role="group"
+              aria-labelledby="predictive-search-pages-desktop"
+            >
+              {%- for page in predictive_search.resources.pages -%}
+                <li
+                  id="predictive-search-option-page-desktop-{{ forloop.index }}"
+                  class="list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a href="{{ page.url }}" class="c-btn alt primary" tabindex="-1">
+                    {{ page.title }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+    {%- else -%}
+      <div class="no-results-found">
+        {% assign total_results = predictive_search.resources.products.size | plus: first_column_results_size %}
+        {% if total_results == 0 %}
+          <button
+            class="
+                          c-btn main spring
+              predictive-search-no-result-search-prompt
+              predictive-search__item predictive-search__item--term
+            "
+            tabindex="-1"
+            role="option"
+            aria-selected="false"
+          >
+            <span data-predictive-search-search-for-text>
+              {{- 'template.search.search_no_result_prompt' | t: terms: predictive_search.terms -}}
+            </span>
+          </button>
+        {% endif %}
+      </div>
+    {%- endif -%}
+  {% else %}
+    {% assign first_collection = settings.featured_collections | first %}
+    {% unless first_collection == null %}
+      {% assign atleast_one_collection = true %}
+    {% endunless %}
+
+    {% assign first_product = settings.featured_products | first %}
+    {% unless first_product == null %}
+      {% assign atleast_one_product = true %}
+    {% endunless %}
+
+    {% if settings.top_queries.size > 0 or atleast_one_collection or atleast_one_product %}
+      <div id="predictive-search-results-groups-wrapper" class="predictive-results-wrapper">
+        {% comment %}Top queries{% endcomment %}
+        {%- if settings.top_queries.size > 0 -%}
+          {% assign queries = settings.top_queries | split: ',' %}
+          <div class="suggestion-queries-list">
+            <span class="search-heading">{{- 'template.search.top_suggestions' | t -}}</span>
+            <ul
+              id="predictive-search-results-queries-list"
+              role="group"
+              class="queries c-lozenges"
+              aria-labelledby="predictive-search-queries"
+            >
+              {%- for query in queries limit: 8 -%}
+                {% assign cleaned_query = query | strip %}
+                {% assign handleized_query = query | handleize %}
+                <li
+                  id="predictive-search-option-query-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a
+                    href="{{ routes.search_url | append: '?q=' | append: handleized_query }}"
+                    class="c-btn query c-lozenge white"
+                    tabindex="-1"
+                  >
+                    {{ cleaned_query }}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {% comment %}Featured Collections{% endcomment %}
+        {%- if atleast_one_collection -%}
+          <div class="suggestion-queries-collections">
+            <span class="search-heading">{{- 'template.search.collections' | t -}}</span>
+            <ul
+              id="predictive-search-results-collection-list"
+              class="suggestion-collection-items"
+              role="group"
+              aria-labelledby="predictive-search-queries"
+            >
+              {%- for collection in settings.featured_collections -%}
+                <li
+                  id="predictive-search-option-collection-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  {%- render 'card-collection-alt',
+                    _collection: collection
+                  -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+        {% comment %}Featured Products{% endcomment %}
+        {%- if atleast_one_product -%}
+          <div class="suggestion-queries-products">
+            <span class="search-heading">{{- 'template.search.products' | t -}}</span>
+            <ul
+              id="predictive-search-results-products-list"
+              class="suggestion-product-items"
+              role="group"
+              aria-labelledby="predictive-search-queries"
+            >
+              {%- for product in settings.featured_products -%}
+                <li
+                  id="predictive-search-option-product-{{ forloop.index }}"
+                  class="search-list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  {%- render 'card-product-alt', _product: product, _is_search: true -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+    {% endif %}
+  {%- endif -%}
+</div>

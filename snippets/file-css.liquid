@@ -1,0 +1,6 @@
+{%- if _load_type == 'defer' -%}
+  <link rel="preload" href="{{- _name | asset_url -}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{- _name | asset_url -}}"></noscript>
+{%- else -%}
+  {{- _name | asset_url | stylesheet_tag -}}
+{%- endif -%}

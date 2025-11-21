@@ -1,0 +1,19 @@
+{% liquid
+  assign image_alt = _settings.image.alt | default: _settings.heading
+  assign anchor = _settings.link.value
+%}
+
+<div class="snippet-card-promotion">
+  {%- if _settings.image != blank -%}
+    {{- _settings.image | image_url: width: 512 | image_tag: alt: image_alt, loading: 'lazy', class: 'card-image' -}}
+  {%- else -%}
+    {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+  {%- endif -%}
+  <div class="card-content">
+    <p class="u-heading-sm">{{- _settings.heading -}}</p>
+    <p>{{- _settings.text -}}</p>
+    <a href="{{- anchor.url -}}" class="c-btn alt">
+      {{- anchor.text -}}
+    </a>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{% liquid
+  if _collection.image != blank
+    assign image_alt = _collection.image.alt | default: _collection.title
+  endif
+  assign category = _collection.metafields.custom.category
+  assign card_title = _collection.metafields.custom.card_title | default: _collection.title
+%}
+<div class="snippet-card-collection">
+  <a href="{{- _collection.url -}}" class="c-btn card-image">
+    {%- liquid
+      if _collection.image != blank
+        echo _collection.image | image_url: width: 600 | image_tag: alt: image_alt, loading: 'lazy'
+      else
+        echo 'image' | placeholder_svg_tag: 'placeholder-svg'
+      endif
+    -%}
+  </a>
+  <h3 class="u-heading-xs card-title">
+    <a href="{{- _collection.url -}}" class="c-btn">
+      {{- card_title -}}
+    </a>
+  </h3>
+</div>

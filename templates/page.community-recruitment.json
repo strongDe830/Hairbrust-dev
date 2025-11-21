@@ -1,0 +1,322 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_Xq4MbP": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_tK98Nh": {
+              "type": "heading",
+              "settings": {
+                "heading": "We Want You.",
+                "heading_type": "h1",
+                "heading_size": "xl",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_Qr3DED": {
+              "type": "text",
+              "settings": {
+                "text": "<h5>Be the face of our new campaign. <br/>Reclaim control.<br/>Rebuild what’s been broken.</h5>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            },
+            "group_anchors_G7CUft": {
+              "type": "group-anchors",
+              "settings": {},
+              "blocks": {
+                "anchor_FPNzpJ": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "https://collector.reviews.io/surveys?store=fr.hairburst.com&campaign_id=4876",
+                    "title": "Apply now",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "arrow-down"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_FPNzpJ"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_tK98Nh",
+            "text_Qr3DED",
+            "group_anchors_G7CUft"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/WWYS_Landing_Page_-_Mobile.png",
+            "image": "shopify://shop_images/WWYS_Landing_Page_-_Desktop.png",
+            "image_size": "small",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_grLAHU": {
+      "type": "text",
+      "blocks": {
+        "group_content_849ggQ": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center"
+          },
+          "blocks": {
+            "heading_bCRULk": {
+              "type": "heading",
+              "settings": {
+                "heading": "This is more than a hair campaign. It’s about reclaiming control.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center"
+              },
+              "blocks": {}
+            },
+            "text_ML9BXU": {
+              "type": "text",
+              "settings": {
+                "text": "<h5>We’re looking for real women to take part in our 90-day journey using Advanced+ — the science-backed formula designed to rebuild hair, confidence, and control.<br/></h5><h5>Whether your hair is falling behind from stress, lifestyle, or hormonal changes, this is your chance to take it back — and inspire others while you do it.</h5>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_bCRULk",
+            "text_ML9BXU"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_849ggQ"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "sm"
+      }
+    },
+    "text_and_media_VGphAd": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_qGVYfD": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_k4wMCa": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start"
+              },
+              "blocks": {
+                "heading_w3knwX": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "We’re calling on real women — just like you.",
+                    "heading_type": "h2",
+                    "heading_size": "md",
+                    "text_align": "start"
+                  },
+                  "blocks": {}
+                },
+                "text_RiUkie": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h5><strong> We want to hear from:</strong></h5><ul><li>Women experiencing hair thinning, stress-related shedding, or hormonal changes (PCOS, perimenopause, menopause)</li><li>Women who are committed to the journey and open to sharing real results</li><li>Those ready to reclaim control — and be part of something bigger</li></ul>",
+                    "add_margin": true,
+                    "text_align": "start",
+                    "use_icons_in_list": true
+                  },
+                  "blocks": {}
+                },
+                "text_7xBMWB": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h5><strong>As part of the campaign, you’ll receive:</strong></h5><ul><li>Your own Advanced+ prescription (90-day supply)</li><li>Be the first to try our new Shampoo & Hair Mask - completely free</li><li>Be featured as one of the faces of our campaign</li><li>Ongoing support, guidance, and visibility across Hairburst channels</li></ul>",
+                    "add_margin": true,
+                    "text_align": "start",
+                    "use_icons_in_list": true
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_w3knwX",
+                "text_RiUkie",
+                "text_7xBMWB"
+              ]
+            },
+            "media_94wVPG": {
+              "type": "media",
+              "settings": {
+                "image_size": "large",
+                "iframe_embed": "<div class=\"videowise-background videowise-background-component_67f03cef32d6630058406ab2\" data-widget-id=\"67f03cef32d6630058406ab2\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/custom-videos/videos/1743798186766_wid_NjdmMDNmYWEzMmQ2NjMwMDU4NDNiMWIw.mp4\" poster=\"https://cdn2.videowise.com/custom-videos/thumbnails/1743798187595_e264c781-8102-4ca2-ab99-4b4f0fdbdd04.webp\">\n  <source src=\"https://cdn2.videowise.com/custom-videos/videos/1743798186766_wid_NjdmMDNmYWEzMmQ2NjMwMDU4NDNiMWIw.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/custom-videos/videos/1743798186766_wid_NjdmMDNmYWEzMmQ2NjMwMDU4NDNiMWIw.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+                "media_type": "video",
+                "video_source": "iframe",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_k4wMCa",
+            "media_94wVPG"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_qGVYfD"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_AmXWHy": {
+      "type": "text",
+      "blocks": {
+        "group_content_eAnQij": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_UxeEEk": {
+              "type": "heading",
+              "settings": {
+                "heading": "Ready to be part of something real?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_fpn8Gz": {
+              "type": "text",
+              "settings": {
+                "text": "<h5>This is your chance to reclaim control — and inspire others to do the same. Hit the link below, complete our survey, and you could be part of our next big transformation.</h5>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            },
+            "group_anchors_qkT9BH": {
+              "type": "group-anchors",
+              "settings": {},
+              "blocks": {
+                "anchor_bYGimC": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "https://collector.reviews.io/surveys?store=fr.hairburst.com&campaign_id=4876",
+                    "title": "Apply Now",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "arrow-down"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_bYGimC"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_UxeEEk",
+            "text_fpn8Gz",
+            "group_anchors_qkT9BH"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_eAnQij"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    },
+    "faqs_3eN8pg": {
+      "type": "faqs",
+      "blocks": {
+        "faq_group_qqhrgD": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "community-recruitment"
+          }
+        }
+      },
+      "block_order": [
+        "faq_group_qqhrgD"
+      ],
+      "custom_css": [
+        ".tab-content {padding-top: 0;}"
+      ],
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "",
+        "contact_heading": "Have questions?",
+        "contact_text": "",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "page_hero_Xq4MbP",
+    "text_grLAHU",
+    "text_and_media_VGphAd",
+    "text_AmXWHy",
+    "faqs_3eN8pg"
+  ]
+}

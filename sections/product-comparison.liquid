@@ -1,0 +1,175 @@
+{%- liquid
+  assign template_name = 'section-product-comparison'
+
+  if request.page_type == 'collection'
+    assign comparison_products = collection.metafields.data.comparison_products.value
+    assign comparison_fields = collection.metafields.data.comparison_fields.value
+    assign field_size = comparison_fields.size | minus: 1
+  endif
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-product-comparison.css', _load_type: 'defer'
+
+
+  assign has_subscription_products = false
+  for product in comparison_products
+    if product.selling_plan_groups.size > 0
+      assign has_subscription_products = true
+    endif
+  endfor
+
+
+  assign lowest_price = blank
+
+  for comparison_product in comparison_products
+    for variant in comparison_product.variants
+      if variant.selling_plan_allocations.size > 0
+        if lowest_price == blank
+          assign lowest_price = variant.price
+        endif
+        if lowest_price > variant.price
+          assign lowest_price = variant.price
+        endif
+      endif
+    endfor
+  endfor
+
+  assign lowest_price = lowest_price | money
+%}
+
+<style>
+  div[data-section-id="{{ section.id }}"] {
+    --pc-field-column-span: 1 / span {{ field_size }};
+  }
+</style>
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container for-content">
+    {% content_for 'blocks' %}
+    {%- if lowest_price != blank -%}
+      <p class="u-text-lg">{{- 'template.collection.lowest_subscription_price_html' | t: price: lowest_price -}}</p>
+    {%- endif -%}
+  </div>
+  <div class="container for-grid">
+    <div class="wrapper">
+      <div class="product-grid">
+        {%- for product in comparison_products -%}
+          <div class="product">
+            {%- if product.featured_image != blank -%}
+              {{-
+                product.featured_image
+                | image_url: width: 600
+                | image_tag:
+                  widths: '320, 400, 500, 600',
+                  alt: product.featured_image.alt,
+                  loading: 'lazy',
+                  class: 'featured-img'
+              -}}
+            {%- else -%}
+              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+            {%- endif -%}
+            <a href="{{- product.url -}}" class="c-btn">{{- product.title -}}</a>
+          </div>
+        {%- endfor -%}
+      </div>
+      <product-comparison class="table-grid">
+        {%- for field in comparison_fields -%}
+          <div class="group">
+            <span class="field-title">{{ field }}</span>
+            {% assign field_handle = field | handleize | replace: '-', '_' -%}
+            <div class="value-grid">
+              {%- for product in comparison_products -%}
+                {%- if product.metafields.data[field_handle] -%}
+                  {% liquid
+                    assign field = field | handleize | replace: '-', '_'
+                    assign field_value = product.metafields.data[field_handle].value
+                    assign field_value_string = field_value | escape
+                  %}
+                  <div>
+                    {%- if field_value_string contains 'true' -%}
+                      {% render 'element-icon', _icon: 'check' %}
+                    {%- elsif field_value_string contains 'false' -%}
+                      {% render 'element-icon', _icon: 'cross' %}
+                    {%- elsif field_value_string != blank -%}
+                      {{ field_value_string }}
+                    {%- else -%}
+                      -
+                    {%- endif -%}
+                  </div>
+                {% else %}
+                  <div>-</div>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+        <div class="btns">
+          {%- for product in comparison_products -%}
+            <a
+              class="c-btn main tuna fw centre"
+              href="{{- product.url -}}"
+            >
+              {{- 'accessibility.select' | t -}}
+            </a>
+          {%- endfor -%}
+        </div>
+      </product-comparison>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.product_comparison.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group-content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_comparison.name"
+    }
+  ]
+}
+{% endschema %}

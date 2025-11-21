@@ -1,0 +1,90 @@
+{%- liquid
+  assign template_name = 'section-reviews'
+
+  assign margin_bottom = section.settings.margin_bottom
+  render 'file-css', _name: 'section-reviews.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-review.css', _load_type: 'defer'
+  render 'file-js', _name: 'section-reviews-slider.js', _load_type: 'defer'
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <div class="content">
+      <div class="reviews-logo">{{- 'reviews-io-logo.svg' | inline_asset_content -}}</div>
+      <div>
+        {% content_for 'block', type: 'heading', id: 'static-heading' %}
+        {% content_for 'block', type: 'text-light', id: 'static-text-light' %}
+      </div>
+      <reviews-slider class="swiper">
+        <div class="swiper-wrapper" data-rs-slider-wrapper></div>
+      </reviews-slider>
+      {% content_for 'block', type: 'anchor', id: 'static-anchor' %}
+    </div>
+    {% content_for 'block', type: 'media', id: 'static-media' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.reviews.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading"
+    },
+    {
+      "type": "text-light"
+    },
+    {
+      "type": "anchor"
+    },
+    {
+      "type": "media",
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.reviews.name"
+    }
+  ]
+}
+{% endschema %}

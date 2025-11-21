@@ -1,0 +1,127 @@
+.section-categories .block-group-content {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 750px) {
+  .section-categories .block-group-categories .swiper {
+    width: calc(100vw - ((100vw - var(--container-max-width)) / 2));
+  }
+}
+
+.section-categories .block-group-categories .swiper-pagination {
+  position: relative;
+  bottom: 0;
+  margin-top: 10px;
+  height: 4px;
+}
+.section-categories .block-group-categories .swiper-pagination-progressbar {
+  background: var(--colour-black);
+  border-radius: 2px;
+}
+.section-categories .block-group-categories .swiper-pagination-progressbar-fill {
+  background: var(--colour-black);
+  border-radius: 2px;
+}
+.section-categories .snippet-card-category {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: var(--colour-white);
+}
+.section-categories .snippet-card-category img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.section-categories .snippet-card-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 0;
+}
+.section-categories .snippet-card-category .c-lozenge {
+  color: var(--colour-white);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.section-categories .snippet-card-category .card-title {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.section-categories .snippet-card-category .card-title a {
+  color: var(--colour-white);
+  text-decoration: none;
+}
+.section-categories .snippet-card-category .c-btn.main {
+  display: none;
+}
+.section-categories .block-group-categories .swiper-slide {
+  height: auto;
+}
+.section-categories .snippet-card-category .category-icon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-categories .snippet-card-category .category-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--colour-white);
+}
+.section-categories .block-text {
+  max-width: 40rem;
+}
+.section-categories .block-heading {
+  margin-bottom: 1rem;
+}
+.section-categories .c-lozenge {
+  border-color: #ffffff35;
+}
+
+.section-categories .block-group-categories .swiper-controls {
+  max-width: var(--container-max-width);
+}
+
+@media (max-width: 1440px) {
+  .section-categories .block-group-categories .swiper-controls {
+    max-width: var(--tablet-max-width);
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .section-categories .block-group-categories .swiper-controls {
+    max-width: var(--tablet-max-width);
+  }
+  
+}

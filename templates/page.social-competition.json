@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_ac8X9V": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_qXtgnb": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Our Biggest Giveaway Just Landed.",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_WiXJRf": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Our biggest giveaway of the season is here and everyone’s a winner. <br/><br/>Sign up for your chance to win your dream hair routine, plus get an exclusive treat just for signing up.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_qXtgnb",
+            "text_WiXJRf"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/16x9_6.jpg",
+            "image": "shopify://shop_images/16x9_6.jpg",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "174548279258397546": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_k4yWkX": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "743355",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 40,
+            "padding_right": 15,
+            "padding_left": 15
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_k4yWkX"
+      ],
+      "settings": {}
+    },
+    "text_6XhziV": {
+      "type": "text",
+      "blocks": {
+        "group_content_FtxgVx": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_7pyggX": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "<strong>Here’s what’s up for grabs:</strong>",
+                "heading_type": "h2",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_6ABKCN": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p><strong>First Prize - 1 winner:</strong> Shark FlexStyle 5-in-1 Hot Air Styler & Hair Dryer, £100 Hairburst voucher, Hairburst bundle including: Chewable Vitamins (3-month supply), Volume & Growth Elixir, Multi-Active Growth Serum, and Original Shampoo & Conditioner.</p><p><strong>Second Prize - 50 winners: </strong>£10 Hairburst voucher.</p><p><strong>Third Prize - All other valid entrants: </strong>15% off Hairburst discount code.</p><p>Everyone walks away with something—because good hair days should never be left to chance.</p><p>Enter now and good luck! <br/><br/><em>This competition runs from Friday 14th November until Monday 1st December. For full entry details and eligibility, see our </em><a href=\"https://www.hairburst.com/policies/terms-of-service\" target=\"_blank\" title=\"https://www.hairburst.com/policies/terms-of-service\"><em>Terms & Conditions</em></a><em> for more information.</em></p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_7pyggX",
+            "text_6ABKCN"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_FtxgVx"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    },
+    "featured_publications_xVxdqB": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_xLHqdP": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_wHqCR7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_CtTLnm": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_PYgLcC": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_rnq8ir": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_weRhPA": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_xLHqdP",
+        "logo_wHqCR7",
+        "logo_CtTLnm",
+        "logo_PYgLcC",
+        "logo_rnq8ir",
+        "logo_weRhPA"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_ac8X9V",
+    "174548279258397546",
+    "text_6XhziV",
+    "featured_publications_xVxdqB"
+  ]
+}

@@ -1,0 +1,19 @@
+{% liquid
+  assign template_name = 'section-cart-drawer-related-products'
+
+  for item in cart.items
+    assign product = cart.items.first.product
+  endfor
+%}
+
+<div class="{{- template_name -}}">
+  {%- content_for 'blocks' -%}
+  {%- render 'layout-related-products', _product: product, _section: section, _use_vertical_slider: true -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.related_products.name",
+  "blocks": [{ "type": "text-light" }],
+}
+{% endschema %}

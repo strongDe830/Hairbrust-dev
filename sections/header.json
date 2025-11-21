@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header.name",
+  "sections": {
+    "main-comms": {
+      "type": "main-comms",
+      "blocks": {
+        "text_light_wf8RT9": {
+          "type": "text-light",
+          "name": "t:blocks.text_light.name",
+          "disabled": true,
+          "settings": {
+            "text": "Get a <strong>free </strong>Lash & Brow Serum when buying any bundle.",
+            "text_align": "center",
+            "margin_bottom": 0
+          },
+          "blocks": {}
+        },
+        "text_light_wg7Knc": {
+          "type": "text-light",
+          "settings": {
+            "text": "Free shipping on all orders over £45.",
+            "text_align": "center",
+            "margin_bottom": 0
+          },
+          "blocks": {}
+        },
+        "text_light_PJAJWy": {
+          "type": "text-light",
+          "name": "t:blocks.text_light.name",
+          "disabled": true,
+          "settings": {
+            "text": "Black Friday Sale now live.",
+            "text_align": "center",
+            "margin_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_light_wf8RT9",
+        "text_light_wg7Knc",
+        "text_light_PJAJWy"
+      ],
+      "custom_css": [
+        ".section-main-comms {background-color: #f2d27b !important; color: #343436 !important;}"
+      ],
+      "settings": {}
+    },
+    "main-header": {
+      "type": "main-header",
+      "blocks": {
+        "dropdown_GYWkiW": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Routines",
+            "anchor_text": "Shop Now",
+            "promotion": "thick-strong-hair"
+          }
+        }
+      },
+      "block_order": [
+        "dropdown_GYWkiW"
+      ],
+      "settings": {
+        "main_menu": "new-menu",
+        "quiz_anchor_text": "",
+        "quiz_anchor_url": ""
+      }
+    },
+    "trust-points": {
+      "type": "trust-points",
+      "blocks": {
+        "text_and_icon_EVGfhP": {
+          "type": "text-and-icon",
+          "settings": {
+            "text": "Trusted by over 1m+ customers"
+          },
+          "blocks": {}
+        },
+        "text_and_icon_Hjc9LG": {
+          "type": "text-and-icon",
+          "settings": {
+            "text": "Guaranteed results in 90 days"
+          },
+          "blocks": {}
+        },
+        "text_and_icon_rTDqXk": {
+          "type": "text-and-icon",
+          "settings": {
+            "text": "Over 10 years of research & results"
+          },
+          "blocks": {}
+        },
+        "text_and_icon_wgXHtw": {
+          "type": "text-and-icon",
+          "settings": {
+            "text": "Clinically proven and patented ingredients"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_and_icon_EVGfhP",
+        "text_and_icon_Hjc9LG",
+        "text_and_icon_rTDqXk",
+        "text_and_icon_wgXHtw"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-comms",
+    "main-header",
+    "trust-points"
+  ]
+}

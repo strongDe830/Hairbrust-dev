@@ -1,0 +1,74 @@
+<ul class="c-social-links {{ _class -}}" role="list">
+  {%- if settings.social_facebook_link != blank -%}
+    <li>
+      <a href="{{ settings.social_facebook_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'facebook' -%}
+        <span class="sr-only">{{ 'general.social.links.facebook' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_instagram_link != blank -%}
+    <li>
+      <a href="{{ settings.social_instagram_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'instagram' -%}
+        <span class="sr-only">{{ 'general.social.links.instagram' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_youtube_link != blank -%}
+    <li>
+      <a href="{{ settings.social_youtube_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'youtube' -%}
+        <span class="sr-only">{{ 'general.social.links.youtube' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_tiktok_link != blank -%}
+    <li>
+      <a href="{{ settings.social_tiktok_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'tiktok' -%}
+        <span class="sr-only">{{ 'general.social.links.tiktok' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_whatsapp_link != blank -%}
+    <li>
+      <a href="{{ settings.social_whatsapp_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'whatsapp' -%}
+        <span class="sr-only">{{ 'general.social.links.whatsapp' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_facebook_messenger_link != blank -%}
+    <li>
+      <a href="{{ settings.social_facebook_messenger_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'facebook-messenger' -%}
+        <span class="sr-only">{{ 'general.social.links.facebook_messenger' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_x_link != blank -%}
+    <li>
+      <a href="{{ settings.social_x_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'x' -%}
+        <span class="sr-only">{{ 'general.social.links.x' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_linkedin_link != blank -%}
+    <li>
+      <a href="{{ settings.social_linkedin_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'linkedin' -%}
+        <span class="sr-only">{{ 'general.social.links.linkedin' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+  {%- if settings.social_pinterest_link != blank -%}
+    <li>
+      <a href="{{ settings.social_pinterest_link }}" target="_blank">
+        {%- render 'element-icon', _icon: 'pinterest' -%}
+        <span class="sr-only">{{ 'general.social.links.linkedin' | t }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+</ul>

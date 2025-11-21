@@ -1,0 +1,444 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "accessibility": {
+    "skip_to_text": "Skip to content",
+    "skip_to_product_info": "Skip to product information",
+    "close": "Close",
+    "unit_price_separator": "per",
+    "vendor": "Vendor:",
+    "error": "Error",
+    "all": "All",
+    "includes": "Includes",
+    "select": "Select",
+    "refresh_page": "Choosing a selection results in a full page refresh.",
+    "link_messages": {
+      "new_window": "Opens in a new window.",
+      "external": "Opens external website."
+    },
+    "loading": "Loading...",
+    "total_reviews": "total reviews",
+    "star_reviews_info": "{{ rating_value }} out of {{ rating_max }} stars",
+    "collapsible_content_title": "Collapsible content",
+    "complementary_products": "Complementary products",
+    "from": "From"
+  },
+  "template": {
+    "404": {
+      "title": "Page not found",
+      "description_html": "Sorry, we couldn't find that page. <a href=\"{{ url }}\">Click here</a> to return to the home page."
+    },
+    "article": {
+      "meta_html": "Posted <time datetime=\"{{ datetime }}\">{{ date }}</time> by <span>{{ author }}</span>",
+      "tags_title": "Tags",
+      "no_tags": "Sorry, there are no tags for this blog.",
+      "subscribe_title": "Subscribe",
+      "subscribe_link": "Subscribe to our blog",
+      "blog": "Blog",
+      "read_more_title": "Read more: {{ title }}",
+      "read_more": "Read more",
+      "author": "Author",
+      "tags": "Tags",
+      "related_articles": "Related articles",
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "moderated": "Please note, comments need to be approved before they are published.",
+      "comment_form_title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "back_to_blog": "Back to blog",
+      "share": "Share this article",
+      "success": "Your comment was posted successfully! Thank you!",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated."
+    },
+    "blog": {
+      "description_html": "Displaying {{ count }} blog articles.",
+      "description_with_tag_html": "Displaying {{ count }} blog articles tagged with \"{{ tag }}\".",
+      "empty": "Sorry, there are no published articles for this blog.",
+      "tags_title": "Tags",
+      "clear_tags": "Clear tags",
+      "no_tags": "Sorry, there are no tags for this blog.",
+      "subscribe_title": "Subscribe",
+      "subscribe_link": "Subscribe to our blog"
+    },
+    "cart": {
+      "title": "Your bag",
+      "item_in_bag": "item in your bag",
+      "items_in_bag": "items in your bag",
+      "product_code": "Product code:",
+      "summary": "Summary",
+      "remove": "Remove",
+      "each": "each",
+      "continue_shopping": "Continue shopping",
+      "note_label": "Notes",
+      "note_placeholder": "Special instructions for your delivery.",
+      "discounts": "Discounts",
+      "discount": "Discount",
+      "subtotal": "Subtotal",
+      "vat_total": "VAT",
+      "total": "Total",
+      "delivery_from": "Delivery from",
+      "discount_code_html": "Got a discount code? Apply it at <a href=\"{{ checkout_url }}\">checkout</a>",
+      "shipping": "Shipping",
+      "shipping_at_checkout": "Discount Codes, Duties, Taxes & Shipping at Checkout",
+      "update": "Update",
+      "checkout": "Check Out",
+      "proceed_to_checkout": "Proceed to checkout",
+      "clear": "Clear",
+      "empty": "Your cart is currently empty.",
+      "cookies_required": "Enable cookies to use the shopping cart",
+      "item_quantity": "Item quantity",
+      "savings": "You're saving",
+      "exc_vat": "exc. VAT",
+      "inc_vat": "inc. VAT",
+      "label": {
+        "product": "Product",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "discounted_price": "Discounted price",
+        "original_price": "Original price"
+      },
+      "rewards_progress": {
+        "spend": "Spend",
+        "bag": "Your bag",
+        "free_shipping_html": "Spend <strong>{{ free_shipping_threshold }}</strong> to get free shipping"
+      }
+    },
+    "collection": {
+      "products": "products",
+      "product": "product",
+      "empty": "There are no products.",
+      "go_back": "Go back one step",
+      "sort_by": "Sort by",
+      "lowest_subscription_price_html": "Subscriptions start at <strong>{{ price }}</strong>",
+      "filters": {
+        "open_filers_menu_html": "Filter {{ _paginate_items_size }} products",
+        "close_filters": "Close filters",
+        "active_filters": "Filters Applied",
+        "clear": "Clear all",
+        "clear_filters": "clear all filters",
+        "filters": "Filters",
+        "active": "Filters Applied",
+        "filter_x_products": "Filter {{ count }} products",
+        "view_x_products": "Filter {{ count }} products",
+        "apply": "View products",
+        "show": "Show filters"
+      },
+      "pagination": {
+        "previous": "Load previous",
+        "more": "Load more"
+      },
+      "description": {
+        "about": "About"
+      }
+    },
+    "deals": {
+      "title": "Available offers",
+      "logged_out_title_html": " Everyone's hair journey is different.<br>That's why Hairburst members get to pick their own weekly rewards.",
+      "logged_out_list_item_1": "Discover new rewards every week",
+      "logged_out_list_item_2": "Select your favourits in your Hairburst account",
+      "logged_out_list_item_3": "Get reminders when fresh rewards are ready",
+      "logged_out_list_item_4": "Shop and your offers will automatically apply",
+      "logged_out_cta": "Join now"
+    },
+    "gift_card": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print",
+      "remaining_html": "{{ balance }} left",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "initial_value": "{{ value }}"
+    },
+    "list_collections": {
+      "title": "Collections",
+      "description": {
+        "one": "Browsing {{ count }} collection",
+        "other": "Browsing {{ count }} collections"
+      }
+    },
+    "page": {
+      "useful_links": "Useful links"
+    },
+    "contact_page": {
+      "form_submit": "Submit"
+    },
+    "password": {
+      "title": "Opening Soon",
+      "description": "This store is password protected.",
+      "form_aria_label": "Password form",
+      "form_password_label": "Password",
+      "form_password_placeholder": "Enter password",
+      "form_submit": "Submit",
+      "admin_link_html": "{{ text }} <a href=\"{{ link_url }}\">{{ link_text }}</a>"
+    },
+    "search": {
+      "no_results_html": "Your search for \"{{ terms }}\" did not yield any results.",
+      "results_for_html": "Your search for \"{{ terms }}\" revealed the following:",
+      "results_with_count": "Found: {{ count }} total results for \"{{ terms }}\"",
+      "results_suggestions_with_count": "{{ count }} suggested searches",
+      "results_collections_with_count": "{{ count }} collections",
+      "results_articles_with_count": "{{ count }} articles",
+      "results_pages_with_count": "{{ count }} pages",
+      "results_products_with_count": "{{ count }} products",
+      "title": "Search our store",
+      "placeholder": "I am looking for...",
+      "submit": "Search",
+      "search_open": "Search",
+      "search_no_result_prompt": "Search for \"{{ terms }}\"",
+      "reset": "Reset",
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or use a different word or phrase.",
+      "empty": "There are no results that match your query.",
+      "page": "Page",
+      "products": "Products",
+      "results_with_count_and_term": {
+        "one": "{{ count }} result found for “{{ terms }}”",
+        "other": "{{ count }} results found for “{{ terms }}”"
+      },
+      "search_for": "Search for “{{ terms }}”",
+      "suggestions": "Popular Suggestions",
+      "top_suggestions": "Top Suggestions",
+      "pages": "Pages",
+      "featured_collections": "Featured Collections",
+      "collections": "Collections",
+      "articles": "Articles"
+    },
+    "theme": "Theme",
+    "theme_preview": {
+      "copy": "Copy Preview Link"
+    }
+  },
+  "cookie": {
+    "cookie_policy_message_html": "{{ name }} use cookies to provide a better user experience and personalised ads / content. By clicking 'ACCEPT', you are agreeing to our Privacy and <a href=\"{{ root_url }}pages/privacy-policy\">Cookie Policy</a>. You can opt out by <a href=\"{{ root_url }}pages/privacy-policy\" data-cookie-bar-reject>clicking here</a>.",
+    "accept_text": "Accept"
+  },
+  "products": {
+    "product": {
+      "products": "Products",
+      "regular_price": "Regular price",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "on_sale": "On Sale",
+      "on_sale_from_html": "On Sale from {{ price }}",
+      "from_text_html": "From {{ price }}",
+      "quantity": "Quantity",
+      "quantity_decrease": "Decrease",
+      "quantity_increase": "Increase",
+      "add_to_cart": "Add to Cart",
+      "add": "Add",
+      "add_subscription": "Add subscription to basket",
+      "select": "Select",
+      "add_to_wishlist": "Add to wishlist",
+      "delivery_trust_point_html": "You could have this delivered by <strong>{{ delivery_date_est }}</strong>. This is based on Standard Delivery.",
+      "phone_trust_point_html": "If you’re looking to order large quantities, call us on <a href=\"{{ tel_phone }}\"><strong>{{ phone }}</strong></a> for more information.",
+      "details_trust_point_html": "View the <a href=\"{{ anchor }}\"><strong>product details</strong></a> below to learn more about this product.",
+      "complementary_products": "This product also works with the following:",
+      "size_guide": "Size guide",
+      "specification": "Specification",
+      "key_features": "Key features",
+      "key_benefits": "Key Benefits",
+      "key_ingredients": "Key Ingredients",
+      "downloads": "Downloads",
+      "faqs": "FAQs",
+      "description": "Description",
+      "top_features": "Top features",
+      "view_features": "View more features",
+      "information": "Information",
+      "information_heading": "Elit in in sed sagittis sapien vestibulum. Aliquam pharetra tellus orci purus tellus.",
+      "need_help": "Need help",
+      "help_heading_html": "Need help finding the right <strong>{{ category }}</strong> for your work site?",
+      "help_link_text": "Contact Us",
+      "alternative_kicker": "Alternatives",
+      "alternative_heading": "Alternatives To The {{ product_title }}",
+      "looking_for_this": "Looking for this but in {{ colour }}",
+      "reviews_anchor": "Read the reviews of this product",
+      "save": "Save",
+      "choose_an_option": "Get Started",
+      "usage": "Usage",
+      "size": "Size",
+      "view_reviews": "View our product reviews"
+    }
+  },
+  "breadcrumb": {
+    "aria_label": "Breadcrumb links"
+  },
+  "pagination": {
+    "aria_label": "Pagination links",
+    "previous_page": "Previous page",
+    "next_page": "Next page",
+    "page_with_number": "Page {{ number }}"
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Use the following gift card code online.",
+      "title": "Here's your {{ value }} gift card balance for {{ shop }}!",
+      "subtext": "Your gift card",
+      "gift_card_code": "Gift card code",
+      "shop_link": "Visit online store",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "qr_image_alt": "QR code — scan to redeem gift card",
+      "copy_code": "Copy gift card code",
+      "expiration_date": "Expires {{ expires_on }}",
+      "copy_code_success": "Code copied successfully",
+      "expired": "Expired",
+      "balance": "Balance"
+    }
+  },
+  "components": {
+    "swiper": {
+      "next": "Next slide",
+      "previous": "Previous slide"
+    }
+  },
+  "general": {
+    "telephone": "Telephone",
+    "email": "Email",
+    "address": "Address",
+    "follow_us": "Follow Us",
+    "office_hours": "Office hours",
+    "meta": {
+      "tags": "{{ tags }} ",
+      "pagze": "Page {{ page }}"
+    },
+    "search": {
+      "heading": "Search our store",
+      "results_with_count": "Found: {{ count }} results for \"{{ terms }}\""
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Share on Facebook",
+        "share_on_twitter": "Tweet on Twitter",
+        "share_on_pinterest": "Pin on Pinterest"
+      },
+      "links": {
+        "x": "X",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "linkedin": "LinkedIn",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "YouTube",
+        "vimeo": "Vimeo",
+        "tiktok": "TikTok",
+        "whatsapp": "WhatsApp",
+        "facebook_messenger": "Facebook Messenger"
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "nav_aria_label": "Site links",
+      "cart_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      },
+      "cart_title": "Cart"
+    },
+    "footer": {
+      "company": "Company",
+      "information": "Information",
+      "contact": "Contact",
+      "opening_hours": "Office hours:",
+      "customer": "Customer Services",
+      "copyright": "Registered in England with company number {{ company_number }} and VAT registration number {{ company_vat_number }}."
+    },
+    "featured_testimonials": {
+      "before": "Before",
+      "uses": "uses"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "TODO"
+    }
+  },
+  "forms": {
+    "name_label": "Name",
+    "name_placeholder": "Enter your name",
+    "first_name_placeholder": "Enter your first name",
+    "last_name_placeholder": "Enter your last name",
+    "email_label": "Email address",
+    "email_placeholder": "Enter your email address",
+    "telephone_placeholder": "Enter your telephone number",
+    "message_label": "Message",
+    "message_placeholder": "Enter your message",
+    "subject_label": "Subject",
+    "subject_placeholder": "Select a subject",
+    "company_placeholder": "Enter your company name",
+    "website_placeholder": "Enter your website URL",
+    "success": "Your message was sent successfully.",
+    "newsletter": {
+      "label": "Enter your email address",
+      "sign_up": "Sign up",
+      "success_message": "Thank you for signing up to our newsletter."
+    }
+  },
+  "vat": {
+    "vat": "VAT",
+    "on": "On",
+    "off": "Off",
+    "show_vat_prices": "Show VAT prices",
+    "ex_vat": "excl. VAT",
+    "inc_vat": "inc. VAT"
+  },
+  "navigation": {
+    "main_menu": "Menu",
+    "search_open": "Search",
+    "customer": "Account",
+    "wishlist": "View your wishlist",
+    "cart": "View your cart",
+    "account": "View your account",
+    "go_back": "Go back",
+    "close": "Close",
+    "shop_all": "Shop all",
+    "branch": "Branch",
+    "basket": "Basket",
+    "contact": "Contact",
+    "products": "Products"
+  },
+  "media": {
+    "image": "Image",
+    "video": "Video",
+    "youtube": "YouTube video player"
+  },
+  "buttons": {
+    "learn_more": "Learn more",
+    "read_more": "Read more",
+    "get_started": "Get started"
+  },
+  "reviews": {
+    "see_our_reviews_html": "See our <strong data-reviews-count></strong> reviews on "
+  },
+  "territory_switcher": {
+    "label": "territory-switcher"
+  },
+  "quiz": {
+    "validation": "Please answer the question to proceed to the next step.",
+    "results": {
+      "kicker": "Results",
+      "heading_html": "Here’s what we <em>recommend</em> for you",
+      "text": "If you want fuller looking hair, added volume or you are struggling to break through the no-grow zone, the Hairburst range can help repair and protect your hair from damage, contributing to longer, stronger hair growth.",
+      "summary": "Order Summary",
+      "growth_plan": "Your Hairburst Growth Plan",
+      "growth_plan_total": "Hairburst Growth Plan Total",
+      "continue_shopping": "Continue shopping"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{% liquid
+  assign product = block.settings.product
+  render 'file-css', _name: 'block-group-categories.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-category.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-product-ext.css', _load_type: 'defer'
+  render 'file-js', _name: 'block-group-categories.js', _load_type: 'defer'
+%}
+
+<div class="block-group-categories" {{ block.shopify_attributes }}>
+  <group-categories class="swiper">
+    <div class="swiper-wrapper">{% content_for 'blocks' %}</div>
+    <div class="swiper-controls">
+      <div class="swiper-pagination" data-ft-swiper-pagination></div>
+      <div class="swiper-navigation">
+        <button class="swiper-button-prev" aria-label="{{- 'components.swiper.previous' | t -}}" data-ft-swiper-prev>
+          {%- render 'element-icon', _icon: 'slider-arrow-left' -%}
+        </button>
+        <button class="swiper-button-next" aria-label="{{- 'components.swiper.next' | t -}}" data-ft-swiper-next>
+          {%- render 'element-icon', _icon: 'slider-arrow-right' -%}
+        </button>
+      </div>
+    </div>
+  </group-categories>
+  {%- if product != blank -%}
+    <div class="featured-product">
+      {%- render 'card-product-ext', _product: product -%}
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function() {
+    const checkAndOverride = () => {
+      const groupCategoriesElement = document.querySelector('group-categories');
+      if (groupCategoriesElement && window.theme && window.theme.Swiper) {
+        const originalInitSlider = Object.getPrototypeOf(groupCategoriesElement).initSlider;
+        Object.getPrototypeOf(groupCategoriesElement).initSlider = function() {
+          const sliderPagination = this.querySelector('[data-ft-swiper-pagination]');
+          const sliderNext = this.querySelector('[data-ft-swiper-next]');
+          const sliderPrev = this.querySelector('[data-ft-swiper-prev]');
+          const mqlMdMax = window.matchMedia(`(max-width: ${window.theme.breakpoints.xs}px)`);
+          const mqlMdMin = window.matchMedia(`(min-width: ${window.theme.breakpoints.xs}px)`);
+          
+          if (mqlMdMin.matches) {
+            if (this.sliders && this.sliders.length > 0) {
+              this.sliders.forEach((slider) => {
+                slider.destroy(true, true);
+              });
+              this.sliders = [];
+            }
+
+            const swiper = new window.theme.Swiper(this, {
+              slidesPerView: 1.2,
+              spaceBetween: 16,
+              slideClass: 'snippet-card-category',
+              watchSlidesProgress: true,
+              pagination: {
+                el: sliderPagination,
+                type: 'progressbar',
+                clickable: true,
+              },
+              navigation: {
+                nextEl: sliderNext,
+                prevEl: sliderPrev,
+              },
+              on: {
+                init: function() {
+                  const swiperInstance = this;
+                  const paginationEl = this.pagination.el;
+                  if (paginationEl) {
+                    paginationEl.style.cursor = 'pointer';
+                    const newPaginationEl = paginationEl.cloneNode(true);
+                    paginationEl.parentNode.replaceChild(newPaginationEl, paginationEl);
+                    newPaginationEl.addEventListener('click', function(e) {
+                      const rect = newPaginationEl.getBoundingClientRect();
+                      const clickPosition = e.clientX - rect.left;
+                      const progressBarWidth = rect.width;
+                      const clickPercentage = clickPosition / progressBarWidth;
+                      
+                      const totalSlides = swiperInstance.slides.length;
+                      const slidesPerView = swiperInstance.params.slidesPerView;
+                      const maxIndex = totalSlides - Math.ceil(slidesPerView);
+                      const targetIndex = Math.round(clickPercentage * maxIndex);
+                      swiperInstance.slideTo(targetIndex, 300);
+                    });
+                    swiperInstance.pagination.el = newPaginationEl;
+                  }
+                },
+                setTranslate: function() {
+                  const progress = this.progress;
+                  const progressFill = this.pagination.el?.querySelector('.swiper-pagination-progressbar-fill');
+                  if (progressFill) {
+                    progressFill.style.transform = `scaleX(${progress})`;
+                    progressFill.style.transformOrigin = 'left center';
+                  }
+                },
+                slideChange: function() {
+                  const progress = this.progress;
+                  const progressFill = this.pagination.el?.querySelector('.swiper-pagination-progressbar-fill');
+                  if (progressFill) {
+                    progressFill.style.transform = `scaleX(${progress})`;
+                    progressFill.style.transformOrigin = 'left center';
+                  }
+                }
+              },
+              breakpoints: {
+                [window.theme.breakpoints.sm]: {
+                  slidesPerView: Number({{ block.settings.swiper_num_mobile | plus: 0}}),
+                  spaceBetween: 20,
+                },
+                [window.theme.breakpoints.lg]: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 24,
+                },
+                [window.theme.breakpoints.xl]: {
+                  slidesPerView:  Number({{ block.settings.swiper_num_desktop | plus: 0}}),
+                  spaceBetween: 30,
+                },
+              },
+            });
+
+            if (!this.sliders) {
+              this.sliders = [];
+            }
+            this.sliders.push(swiper);
+          }
+          
+          if (mqlMdMax.matches) {
+            if (this.sliders && this.sliders.length > 0) {
+              this.sliders.forEach((slider) => {
+                slider.destroy(true, true);
+              });
+              this.sliders = [];
+            }
+          }
+        };
+        groupCategoriesElement.initSlider();
+      } else {
+        setTimeout(checkAndOverride, 100);
+      }
+    };
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', checkAndOverride);
+    } else {
+      checkAndOverride();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:blocks.group_categories.name",
+  "tag": null,
+  "settings":[
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:blocks.group_categories.settings.product.label"
+    },
+    {
+      "type": "range",
+      "id": "swiper_num_desktop",
+      "min": 2.5,
+      "max": 6.5,
+      "step": 0.5,
+      "label": "Swiper items on desktop",
+      "default": 3.5
+    },
+    {
+      "type": "range",
+      "id": "swiper_num_mobile",
+      "min": 1.5,
+      "max": 5.5,
+      "step": 0.5,
+      "label": "Swiper items on mobile",
+      "default": 1.5
+    }
+  ],
+  "blocks": [
+    { "type": "category" },
+    { "type": "page" }
+  ],
+  "presets": [
+    {
+      "name": "t:blocks.group_categories.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,774 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_3aQCGw": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_UP4LtA": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "RECLAIM CONTROL WITH <strong>ADVANCED+</strong>",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_RpcVUB": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>This is your 90-day journey to help you take back control of your hair health from the inside out. <br/>Find out more below and join our community who are reclaiming control of their hair health.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_UP4LtA",
+            "text_RpcVUB"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Concern_LP_169.png",
+            "image": "shopify://shop_images/Concern_LP_169.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "none"
+      }
+    },
+    "company_reviews_aBC7Bn": {
+      "type": "company-reviews",
+      "settings": {
+        "margin_bottom": "none"
+      }
+    },
+    "statistics_8E8FXw": {
+      "type": "statistics",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "statistic_cYB9fy": {
+              "type": "statistic",
+              "settings": {
+                "title": "1m+",
+                "text": "women trust us with their hair health."
+              },
+              "blocks": {}
+            },
+            "statistic_N4RXTY": {
+              "type": "statistic",
+              "settings": {
+                "title": "90",
+                "text": "days is all it takes to see a difference."
+              },
+              "blocks": {}
+            },
+            "statistic_wg9iKQ": {
+              "type": "statistic",
+              "settings": {
+                "title": "88%",
+                "text": "said their hair looked better."
+              },
+              "blocks": {}
+            },
+            "statistic_KaHbEX": {
+              "type": "statistic",
+              "settings": {
+                "title": "87%",
+                "text": "said the condition of their hair improved."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_cYB9fy",
+            "statistic_N4RXTY",
+            "statistic_wg9iKQ",
+            "statistic_KaHbEX"
+          ]
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_and_media_64yWzx": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_8QCWLc": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_tMxfGJ": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_47YbWw": {
+                  "type": "kicker",
+                  "settings": {
+                    "kicker": "Advanced+ Hair Formula",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "heading_HBxJix": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "Meet the formula that <em>changes everything.</em>",
+                    "heading_type": "h3",
+                    "heading_size": "md",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "heading_NaWjNT": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "The most powerful hair growth supplement on the market.",
+                    "heading_type": "h3",
+                    "heading_size": "xs",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_heJQTr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>With a unique blend of 22 powerful ingredients, including our in-house developed trademarked blends. It works from the inside out to support fuller, stronger, healthier hair by tackling the root causes of hair loss such as oxidative stress, increased cortisol, inflammatory responses and more.</p><p>Developed over five years alongside expert nutritionists, this potent formula doesn’t just maintain hair health, it transforms it.</p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_wRrJtg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li><strong>Contains our very own trademark blends Folishield & Trichoburst - formulated to support the foundation of healthy-looking hair and overall vitality.</strong></li><li><strong>Includes KSM-66® Ashwaganda with clinical research to support a reduction in serum cortisol to fight stress-related hair loss.</strong></li><li><strong>Combats inflammatory responses and oxidative stress to support scalp health at the follicle.</strong></li><li><strong>Includes natural sources of sulfur and amino acids to support keratin production for strong, resilient hair.</strong></li><li><strong>Helps maintain balanced hormone levels to support overall skin and cellular health.</strong></li><li><strong>Supports stronger roots and thicker re-growth.</strong></li><li><strong>Reduces breakage, thinning and weak strands.</strong></li><li><strong>Proven results in 90 days. Thousands already swear by it.</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 30
+                  },
+                  "blocks": {}
+                },
+                "group_anchors_MmDhYM": {
+                  "type": "group-anchors",
+                  "settings": {
+                    "margin_bottom": 0
+                  },
+                  "blocks": {
+                    "anchor_bKgghq": {
+                      "type": "anchor",
+                      "settings": {
+                        "anchor_url": "shopify://products/advanced-hair-formula",
+                        "title": "Shop now",
+                        "anchor_version": "main",
+                        "anchor_style": "tuna",
+                        "anchor_icon": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "anchor_bKgghq"
+                  ]
+                }
+              },
+              "block_order": [
+                "kicker_47YbWw",
+                "heading_HBxJix",
+                "heading_NaWjNT",
+                "text_heJQTr",
+                "text_wRrJtg",
+                "group_anchors_MmDhYM"
+              ]
+            },
+            "media_ciqweK": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/Meet_the_formula.png",
+                "image": "shopify://shop_images/Meet_the_formula.png",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_tMxfGJ",
+            "media_ciqweK"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_8QCWLc"
+      ],
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "text_BrXWJr": {
+      "type": "text",
+      "blocks": {
+        "group_content_GJBnie": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_z9QUjR": {
+              "type": "heading",
+              "settings": {
+                "heading": "Real results take commitment.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_7Renbx": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Reclaim control in 90 days, with a plan that’s easy to stick to.<br/>Visible results often begin around month 3, but true transformation takes time. <br/>Stay consistent with a subscription to support stronger regrowth and long-term hair health.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 2
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_z9QUjR",
+            "text_7Renbx"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_GJBnie"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jJLzPD": {
+      "type": "featured-products",
+      "blocks": {
+        "block_LUqiPH": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-hair-formula"
+            ],
+            "product_feed": "product-list",
+            "show_variants": true,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_LUqiPH"
+      ],
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "text_wA7iCi": {
+      "type": "text",
+      "blocks": {
+        "group_content_qWGYYf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_VngKAA": {
+              "type": "heading",
+              "settings": {
+                "heading": "Meet the women reclaiming control.",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_EKQNRH": {
+              "type": "text",
+              "settings": {
+                "text": "<p>We’re taking real women from our community on a 90-day journey to reclaim control of their hair health.<br/>With Advanced+, they’re confronting the root causes of hair loss and sharing every step with you.<br/>Their journeys are already in motion. Yours can start today.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 3
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_VngKAA",
+            "text_EKQNRH"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_qWGYYf"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_i44PzU": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_FXDbdx": {
+          "type": "block",
+          "settings": {
+            "title": "Priya",
+            "text": "<p>After having her son, Priya experienced severe postpartum hair loss triggered by hormonal shifts. As a new mum juggling identity loss and confidence struggles, she felt dismissed by doctors and overwhelmed by the emotional toll. Finding the right support helped her take control and start feeling like herself again.</p>",
+            "kicker": "Postpartum Hair Loss",
+            "image": "shopify://shop_images/Priya.png"
+          }
+        },
+        "block_yc3eGq": {
+          "type": "block",
+          "settings": {
+            "title": "Beth",
+            "text": "<p>Three years on from giving birth, Beth is still dealing with postpartum hair loss, stress-related shedding, and a dry, flaky scalp. As a new mum, navigating grief and putting herself last, the ongoing changes to her hair deeply impacted her confidence. Now, she’s reclaiming control to feel more like herself again.</p>",
+            "kicker": "Postpartum Hair Loss",
+            "image": "shopify://shop_images/Beth.png"
+          }
+        },
+        "block_4xFnpM": {
+          "type": "block",
+          "settings": {
+            "title": "Olivia",
+            "text": "<p>For Olivia, stress and an oily scalp have triggered noticeable hair loss leaving her confidence shaken. Once a major source of pride, her hair has become a daily struggle, with shedding that’s hard to ignore. Now approaching 30, she’s using this moment to prioritise herself, take control of her hair health, and feel confident in her own skin again.</p>",
+            "kicker": "Stress Related Hair Loss",
+            "image": "shopify://shop_images/Olivia.png"
+          }
+        },
+        "block_MWVdYE": {
+          "type": "block",
+          "settings": {
+            "title": "Helen",
+            "text": "<p>Now in her 40s, Helen has started noticing age-related hair loss. She’s noticed more shedding, thinner strands, and a loss of volume. As hormonal shifts begin to take their toll, her confidence has taken a hit. She’s now on a mission to take back control and feel like herself again, starting with her hair.</p>",
+            "kicker": "Hormonal Hair Loss",
+            "image": "shopify://shop_images/Helen.png"
+          }
+        },
+        "block_BX7qzD": {
+          "type": "block",
+          "settings": {
+            "title": "Danielle",
+            "text": "<p>As a busy midwife and mum of four, Danielle’s hair has taken a back seat—leaving her with thinning strands, stress-related shedding, and growth that’s completely stalled. Chronic stress, lack of routine, and years of over-processing have left it thin, damaged, and refusing to grow. She’s now focused on restoring her natural hair and confidence - not just for herself, but to set a healthy example for her daughters.</p>",
+            "kicker": "Stress Related Hair Loss",
+            "image": "shopify://shop_images/Danielle.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_FXDbdx",
+        "block_yc3eGq",
+        "block_4xFnpM",
+        "block_MWVdYE",
+        "block_BX7qzD"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "categories_Kj7bWE": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_Md7nRf": {
+              "type": "heading",
+              "settings": {
+                "heading": "What’s really causing hair loss?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 5
+              },
+              "blocks": {}
+            },
+            "text_light_p7mDAD": {
+              "type": "text-light",
+              "settings": {
+                "text": "Everyone’s hair story is different. But stress, postpartum and hormonal changes are often key players in what’s happening beneath the surface.",
+                "text_align": "start",
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_Md7nRf",
+            "text_light_p7mDAD"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "page_Bk9EFa": {
+              "type": "page",
+              "settings": {
+                "page": "stress-hair-loss-solutions",
+                "image": "shopify://shop_images/Stress_Page_Link.png",
+                "card_title": "Stress & Shedding",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_ANCAbJ": {
+              "type": "page",
+              "settings": {
+                "page": "postpartum-hair-loss-solutions",
+                "image": "shopify://shop_images/Postpartum_Page_Link.png",
+                "card_title": "Postpartum Hair Loss",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_MQawT4": {
+              "type": "page",
+              "settings": {
+                "page": "hormonal-hair-loss-solutions",
+                "image": "shopify://shop_images/Horonal_Page_Link.png",
+                "card_title": "Hormonal Hair Loss",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "page_Bk9EFa",
+            "page_ANCAbJ",
+            "page_MQawT4"
+          ]
+        }
+      },
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_testimonials_UcrMz4": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_NGEWD7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h3",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 1
+          },
+          "blocks": {}
+        },
+        "heading_DkYFEE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000 ★ ★ ★ ★ ★ reviews across our range.",
+            "heading_type": "h3",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 2
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_NGEWD7",
+        "heading_DkYFEE"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "lucy",
+          "jess",
+          "carabeaty",
+          "megan",
+          "anna-cherry",
+          "lauren_wwy",
+          "aimee",
+          "justine",
+          "amber",
+          "lauren"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_full_width_63tcBn": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": "#ffffff"
+          },
+          "blocks": {
+            "heading_H8GjXa": {
+              "type": "heading",
+              "settings": {
+                "heading": "RECLAIM CONTROL",
+                "heading_type": "h1",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 5
+              },
+              "blocks": {}
+            },
+            "text_light_kqyiUQ": {
+              "type": "text-light",
+              "settings": {
+                "text": "Because stress, hormones and postpartum shifts shouldn't write your hairs story.",
+                "text_align": "start",
+                "margin_bottom": 9
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_H8GjXa",
+            "text_light_kqyiUQ"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "medium",
+            "iframe_embed": "<div class=\"videowise-background videowise-background-component_6836e3c31c7f93005731e44f\" data-widget-id=\"6836e3c31c7f93005731e44f\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" poster=\"https://cdn2.videowise.com/converted/videos/1748427747500_ebba7d32-7285-4496-a913-825d3a303e70.webp\">\n  <source src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+            "media_type": "video",
+            "video_source": "iframe",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "content_position": "middle_left",
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_publications_jcDFGh": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_4FCtwn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_y6eWXG": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_GePrD9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_KgKrE8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_3YHiWj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_QVpph8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4FCtwn",
+        "logo_y6eWXG",
+        "logo_GePrD9",
+        "logo_KgKrE8",
+        "logo_3YHiWj",
+        "logo_QVpph8"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "lg"
+      }
+    },
+    "1749113378af46b0e4": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_WQJqkG": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_684183a80fd6e80059d43186\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_WQJqkG"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_3aQCGw",
+    "company_reviews_aBC7Bn",
+    "statistics_8E8FXw",
+    "text_and_media_64yWzx",
+    "text_BrXWJr",
+    "featured_products_jJLzPD",
+    "text_wA7iCi",
+    "custom_tabs_i44PzU",
+    "categories_Kj7bWE",
+    "featured_testimonials_UcrMz4",
+    "page_hero_full_width_63tcBn",
+    "featured_publications_jcDFGh",
+    "1749113378af46b0e4"
+  ]
+}

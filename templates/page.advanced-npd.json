@@ -1,0 +1,959 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_full_width_HWLXYX": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ULtwya": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "HAIR GROWTH FROM THE <strong>INSIDE-OUT.</strong>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_cwxEV9": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Advanced+ Hair Formula delivers 22 active ingredients, including 2 trademarked blends, <br/>to target the root causes of hair loss from within. </p><p>Combine with our Advanced+ Shampoo and Mask, to help rebuild bonds, reduce breakage, and protect hair fibre integrity.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ULtwya",
+            "text_cwxEV9"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/11_imagery.png",
+            "image": "shopify://shop_images/Untitled_design_4_bbe1f7ea-8ed7-48be-8c0f-aa499f652879.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero_full_width.name",
+      "settings": {
+        "content_position": "top_left",
+        "margin_bottom": "xs"
+      }
+    },
+    "company_reviews_aBC7Bn": {
+      "type": "company-reviews",
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "text_and_media_64yWzx": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_8QCWLc": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_tMxfGJ": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_47YbWw": {
+                  "type": "kicker",
+                  "settings": {
+                    "kicker": "Advanced+ Hair Formula",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "heading_HBxJix": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "OUR MOST <strong>ADVANCED FORMULA.</strong>",
+                    "heading_type": "h3",
+                    "heading_size": "md",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "heading_NaWjNT": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "Designed for women experiencing thinning, breakage or hair loss.",
+                    "heading_type": "h3",
+                    "heading_size": "xs",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_heJQTr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>With a unique blend of 22 powerful ingredients, including our in-house developed trademarked blends. It works from the inside out to support fuller, stronger, healthier hair by tackling the root causes of hair loss such as oxidative stress, increased cortisol, inflammatory responses and more.</p><p>Developed over five years alongside expert nutritionists, this potent formula doesn’t just maintain hair health, it transforms it.</p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_wRrJtg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li><strong>Rebalances hormones to reduce shedding</strong></li><li><strong>Lowers cortisol to fight stress-related hair loss</strong></li><li><strong>Combats inflammation + oxidative stress at the follicle</strong></li><li><strong>Supports stronger roots and thicker regrowth</strong></li><li><strong>Reduces breakage, thinning, and weak strands</strong></li><li><strong>Proven results in 90 days. Thousands already swear by it.</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 30
+                  },
+                  "blocks": {}
+                },
+                "group_anchors_MmDhYM": {
+                  "type": "group-anchors",
+                  "settings": {
+                    "margin_bottom": 0
+                  },
+                  "blocks": {
+                    "anchor_bKgghq": {
+                      "type": "anchor",
+                      "settings": {
+                        "anchor_url": "shopify://products/advanced-hair-formula",
+                        "title": "Shop now",
+                        "anchor_version": "main",
+                        "anchor_style": "tuna",
+                        "anchor_icon": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "anchor_bKgghq"
+                  ]
+                }
+              },
+              "block_order": [
+                "kicker_47YbWw",
+                "heading_HBxJix",
+                "heading_NaWjNT",
+                "text_heJQTr",
+                "text_wRrJtg",
+                "group_anchors_MmDhYM"
+              ]
+            },
+            "media_ciqweK": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/Meet_the_formula.png",
+                "image": "shopify://shop_images/Meet_the_formula.png",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_tMxfGJ",
+            "media_ciqweK"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_8QCWLc"
+      ],
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "ingredients_LybGpi": {
+      "type": "ingredients",
+      "blocks": {
+        "group_content_gNGwrH": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ftaJTp": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Formulated with our in-house trademarked blends, backed by specific research, ensuring quality, consistency, and proven results.",
+                "heading_type": "h2",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ftaJTp"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_gNGwrH"
+      ],
+      "name": "t:sections.ingredients.name",
+      "settings": {
+        "ingredients": [
+          "trichoburst",
+          "folishield"
+        ],
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_Ca3VYF": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_6ygziM": {
+          "type": "content-media",
+          "name": "t:blocks.content_and_media.name",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-left",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_4y98BC": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_YgnG6Y": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Advanced+ Shampoo & Mask",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "heading_HKmUNf": {
+                  "type": "heading",
+                  "name": "t:sections.all.heading.label",
+                  "settings": {
+                    "heading": "<strong>ENHANCE</strong> YOUR ROUTINE.",
+                    "heading_type": "h2",
+                    "heading_size": "sm",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "heading_k89c6N": {
+                  "type": "heading",
+                  "name": "t:sections.all.heading.label",
+                  "settings": {
+                    "heading": "Designed to repair damage, reduce breakage and restore strength.",
+                    "heading_type": "h2",
+                    "heading_size": "xs",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_WPB3e3": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<p>Our Advanced+ Shampoo and Leave-In Treatment Mask has been formulated to repair damage, reduce breakage, and restore hair strength.</p><p>Infused with active ingredients; Kerasylium™, SymProt In’Oat™ and KeraSym™ Shield, it helps rebuild hair bonds, smooth split ends, and protect against heat and humidity. </p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_q3WLCf": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<ul><li><strong>Repairs hair bonds and rebuilds stronger bonds</strong></li><li><strong>Reinforces bonds for more resilient hair</strong></li><li><strong>Can reduce hair breakage by up to 51%</strong></li><li><strong>Helps repair and reduce split ends up to 69%</strong></li><li><strong>Provides thermal protection up to 230°C</strong></li><li><strong>Provides cystine protection and helps repair up to 19% of cystine (an amino acid that plays a vital part in hair structure)</strong></li><li><strong>Reduces hair fall due to breakage</strong></li><li><strong>Supports anti-frizz and volume control</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "group_anchors_tHmDhD": {
+                  "type": "group-anchors",
+                  "name": "t:blocks.group_anchors.name",
+                  "settings": {
+                    "margin_bottom": 0
+                  },
+                  "blocks": {
+                    "anchor_hgtydF": {
+                      "type": "anchor",
+                      "name": "t:blocks.anchor.name",
+                      "settings": {
+                        "anchor_url": "shopify://products/advanced-bond-repair-duo",
+                        "title": "SHOP NOW",
+                        "anchor_version": "main",
+                        "anchor_style": "tuna",
+                        "anchor_icon": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "anchor_hgtydF"
+                  ]
+                }
+              },
+              "block_order": [
+                "kicker_YgnG6Y",
+                "heading_HKmUNf",
+                "heading_k89c6N",
+                "text_WPB3e3",
+                "text_q3WLCf",
+                "group_anchors_tHmDhD"
+              ]
+            },
+            "media_pjMbhp": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/11_imagery_1.png",
+                "image": "shopify://shop_images/11_imagery_1.png",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_4y98BC",
+            "media_pjMbhp"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_6ygziM"
+      ],
+      "name": "t:sections.text_and_media.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_BrXWJr": {
+      "type": "text",
+      "blocks": {
+        "group_content_GJBnie": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_z9QUjR": {
+              "type": "heading",
+              "settings": {
+                "heading": "SHOP OUR <strong>MOST POWERFUL</strong> FORMULA.",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_z9QUjR"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_GJBnie"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jJLzPD": {
+      "type": "featured-products",
+      "blocks": {
+        "block_LUqiPH": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-bond-repair-duo",
+              "advanced-plus-hair-mask",
+              "reparative-shampoo-for-damaged-hair",
+              "advanced-hair-formula"
+            ],
+            "product_feed": "product-list",
+            "show_variants": true,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_LUqiPH"
+      ],
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "page_hero_full_width_WXXyMq": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "large",
+            "iframe_embed": "<div class=\"videowise-background videowise-background-component_68d511c143b4bc0046544931\" data-widget-id=\"68d511c143b4bc0046544931\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/converted/videos/1758793303065_wid_NjhkNTBlNTczNGYyN2ZiZjFjNGQzN2Rh_h264c.mp4\" poster=\"https://cdn2.videowise.com/converted/videos/1758793330645_6ac2f811-5553-4fb4-82da-40f692d03dff.webp\">\n  <source src=\"https://cdn2.videowise.com/converted/videos/1758793303065_wid_NjhkNTBlNTczNGYyN2ZiZjFjNGQzN2Rh_h264c.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/converted/videos/1758793303065_wid_NjhkNTBlNTczNGYyN2ZiZjFjNGQzN2Rh_h264c.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+            "media_type": "video",
+            "video_source": "iframe",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero_full_width.name",
+      "settings": {
+        "content_position": "top_left",
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_HyKEEN": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_dYDeKg": {
+          "type": "content-media",
+          "name": "t:blocks.content_and_media.name",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_BrXYEB": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_jiNQ9F": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Postpartum Hair Loss",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "heading_APmFyT": {
+                  "type": "heading",
+                  "name": "t:sections.all.heading.label",
+                  "settings": {
+                    "heading": "Priya, 33.",
+                    "heading_type": "h2",
+                    "heading_size": "md",
+                    "text_align": "start",
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_Anrkb6": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<p>After having her son, Priya experienced severe postpartum hair loss triggered by hormonal shifts. As a new mum juggling identity loss and confidence struggles, she felt dismissed by doctors and overwhelmed by the emotional toll. </p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_hTjFmq": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<p><em><strong>\"I was skeptical to try Hairburst as they said it would take 90 days and there's a reason for it, because after 90 days you do notice either a complete stop in the hair fall or new hair growth.\"</strong></em></p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_hEiXq7": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<p>Priya has been taking Advanced+ Hair Formula since October 2024.</p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "group_anchors_VJTn3c": {
+                  "type": "group-anchors",
+                  "name": "t:blocks.group_anchors.name",
+                  "settings": {
+                    "margin_bottom": 0
+                  },
+                  "blocks": {
+                    "anchor_tkdYKB": {
+                      "type": "anchor",
+                      "name": "t:blocks.anchor.name",
+                      "settings": {
+                        "anchor_url": "shopify://products/advanced-hair-formula",
+                        "title": "SHOP NOW",
+                        "anchor_version": "main",
+                        "anchor_style": "tuna",
+                        "anchor_icon": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "anchor_tkdYKB"
+                  ]
+                }
+              },
+              "block_order": [
+                "kicker_jiNQ9F",
+                "heading_APmFyT",
+                "text_Anrkb6",
+                "text_hTjFmq",
+                "text_hEiXq7",
+                "group_anchors_VJTn3c"
+              ]
+            },
+            "media_9zWJAY": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/2_feb144a2-c2b2-48ac-bbbd-0677562858a3.png",
+                "image": "shopify://shop_images/2_feb144a2-c2b2-48ac-bbbd-0677562858a3.png",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_BrXYEB",
+            "media_9zWJAY"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_dYDeKg"
+      ],
+      "name": "t:sections.text_and_media.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "categories_Kj7bWE": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_Md7nRf": {
+              "type": "heading",
+              "settings": {
+                "heading": "What’s really causing hair loss?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 5
+              },
+              "blocks": {}
+            },
+            "text_light_p7mDAD": {
+              "type": "text-light",
+              "settings": {
+                "text": "Everyone’s hair story is different. But stress, postpartum and hormonal changes are often key players in what’s happening beneath the surface.",
+                "text_align": "start",
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_Md7nRf",
+            "text_light_p7mDAD"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "page_Bk9EFa": {
+              "type": "page",
+              "settings": {
+                "page": "stress-hair-loss-solutions",
+                "image": "shopify://shop_images/Stress_Page_Link.png",
+                "card_title": "Stress & Shedding",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_ANCAbJ": {
+              "type": "page",
+              "settings": {
+                "page": "postpartum-hair-loss-solutions",
+                "image": "shopify://shop_images/Postpartum_Page_Link.png",
+                "card_title": "Postpartum Hair Loss",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_MQawT4": {
+              "type": "page",
+              "settings": {
+                "page": "hormonal-hair-loss-solutions",
+                "image": "shopify://shop_images/Horonal_Page_Link.png",
+                "card_title": "Hormonal Hair Loss",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "page_Bk9EFa",
+            "page_ANCAbJ",
+            "page_MQawT4"
+          ]
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_testimonials_UcrMz4": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_NGEWD7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h3",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 1
+          },
+          "blocks": {}
+        },
+        "heading_DkYFEE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000 ★ ★ ★ ★ ★ reviews across our range.",
+            "heading_type": "h3",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 2
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_NGEWD7",
+        "heading_DkYFEE"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "lucy",
+          "jess",
+          "carabeaty",
+          "megan",
+          "anna-cherry",
+          "lauren_wwy",
+          "aimee",
+          "justine",
+          "amber",
+          "lauren"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_full_width_63tcBn": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": "#ffffff"
+          },
+          "blocks": {
+            "heading_H8GjXa": {
+              "type": "heading",
+              "settings": {
+                "heading": "RECLAIM CONTROL",
+                "heading_type": "h1",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 5
+              },
+              "blocks": {}
+            },
+            "text_light_kqyiUQ": {
+              "type": "text-light",
+              "settings": {
+                "text": "Because stress, hormones and postpartum shifts shouldn't write your hairs story.",
+                "text_align": "start",
+                "margin_bottom": 9
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_H8GjXa",
+            "text_light_kqyiUQ"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "medium",
+            "iframe_embed": "<div class=\"videowise-background videowise-background-component_6836e3c31c7f93005731e44f\" data-widget-id=\"6836e3c31c7f93005731e44f\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" poster=\"https://cdn2.videowise.com/converted/videos/1748427747500_ebba7d32-7285-4496-a913-825d3a303e70.webp\">\n  <source src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/converted/videos/1748427734491_wid_NjgzNmUzZDYxYzdmOTMwMDU3MzFlNjY4_h264c.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+            "media_type": "video",
+            "video_source": "iframe",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "content_position": "middle_left",
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_publications_jcDFGh": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_4FCtwn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_y6eWXG": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_GePrD9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_KgKrE8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_3YHiWj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_QVpph8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4FCtwn",
+        "logo_y6eWXG",
+        "logo_GePrD9",
+        "logo_KgKrE8",
+        "logo_3YHiWj",
+        "logo_QVpph8"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "lg"
+      }
+    },
+    "1749113378af46b0e4": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_WQJqkG": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_684183a80fd6e80059d43186\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_WQJqkG"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_full_width_HWLXYX",
+    "company_reviews_aBC7Bn",
+    "text_and_media_64yWzx",
+    "ingredients_LybGpi",
+    "text_and_media_Ca3VYF",
+    "text_BrXWJr",
+    "featured_products_jJLzPD",
+    "page_hero_full_width_WXXyMq",
+    "text_and_media_HyKEEN",
+    "categories_Kj7bWE",
+    "featured_testimonials_UcrMz4",
+    "page_hero_full_width_63tcBn",
+    "featured_publications_jcDFGh",
+    "1749113378af46b0e4"
+  ]
+}

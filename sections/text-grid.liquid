@@ -1,0 +1,72 @@
+{%- liquid
+  assign template_name = 'section-text-grid'
+
+  assign margin_bottom = section.settings.margin_bottom
+%}
+
+{%- render 'file-css', _name: 'section-text-grid.css' -%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% content_for 'block', type: 'group-content', id:'static-group-content' %}
+    <div class="grid">
+      {% content_for 'block', type: 'group-text-grid-blocks', id:'static-group-text-grid-blocks' %}
+      {% content_for 'block', type: 'media', id:'static-media' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.text_grid.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    { "type": "group-content" },
+    { "type": "media" },
+    { "type": "group-text-grid-blocks" }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text_grid.name"
+    }
+  ]
+}
+{% endschema %}

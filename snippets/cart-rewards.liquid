@@ -1,0 +1,295 @@
+{% liquid
+  assign cart_rewards_group = shop.metaobjects.cart_rewards.values
+  for entry in cart_rewards_group limit: 1
+    assign cart_rewards = entry.rewards.value
+  endfor
+
+  assign rewards_count = cart_rewards_group.count
+
+  if _cart.item_count == 0
+    break
+  endif
+
+  if rewards_count < 1
+    break
+  endif
+
+  render 'file-css', _name: 'snippet-cart-rewards.css'
+
+  assign total_price = _cart.total_price | money_without_currency
+  assign total_price_pence = _cart.total_price
+
+  for reward in cart_rewards limit: 1
+    assign threshold_01 = reward.threshold
+    assign threshold_01_pence = reward.threshold | floor | times: 100
+  endfor
+
+  if cart_rewards.count > 1
+    for reward in cart_rewards offset: 1 limit: 1
+      assign threshold_02 = reward.threshold
+      assign threshold_02_pence = reward.threshold | floor | times: 100
+    endfor
+  endif
+
+  if cart_rewards.count > 2
+    for reward in cart_rewards offset: 2 limit: 1
+      assign threshold_03 = reward.threshold
+      assign threshold_03_pence = reward.threshold | floor | times: 100
+    endfor
+  endif
+
+  if cart_rewards.count > 3
+    for reward in cart_rewards offset: 3 limit: 1
+      assign threshold_04 = reward.threshold
+      assign threshold_04_pence = reward.threshold | floor | times: 100
+    endfor
+  endif
+%}
+
+{% comment %} <pre>
+  cart_total: {{ total_price }}
+  total_price_pence: {{ total_price_pence }}
+  threshold_01_pence: {{ threshold_01_pence }}
+  threshold_02_pence: {{ threshold_02_pence }}
+  threshold_03_pence: {{ threshold_03_pence }}
+  threshold_04_pence: {{ threshold_04_pence }}
+</pre> {% endcomment %}
+
+<style>
+  {%- if total_price_pence >= threshold_02_pence -%}
+    .snippet-cart-rewards {
+      direction: rtl;
+    }
+
+    .snippet-cart-rewards > div{
+      direction: ltr;
+    }
+  {%- endif -%}
+</style>
+
+<div class="snippet-cart-rewards">
+  <div class="reward-items-progress">
+    <div class="progress-item">
+      <div class="icon-wrapper">
+        <div class="icon">{%- render 'element-icon', _icon: 'bag' -%}</div>
+      </div>
+    </div>
+    {%- for reward in cart_rewards limit: 4 -%}
+      {% liquid
+        assign threshold = reward.threshold
+        assign type_of_reward = reward.type_of_reward | handleize
+      %}
+      {% capture icon_type %}
+        {% liquid
+          if type_of_reward == 'shipping'
+            render 'element-icon', _icon: 'delivery'
+          elsif type_of_reward == 'discount'
+            render 'element-icon', _icon: 'discount'
+          elsif type_of_reward == 'gift'
+            render 'element-icon', _icon: 'tag'
+          endif
+        %}
+      {% endcapture %}
+      <div class="progress-item">
+        {%- if forloop.first == true %}
+          {% liquid
+            assign success_message_01 = reward.success_message
+            if total_price_pence >= threshold_01_pence
+              assign progress_01 = 100
+              assign show_success_message_01 = true
+            else
+              assign cart_threshold_difference_01 = threshold_01 | minus: total_price
+              assign threshold_cart_difference_01 = threshold_01 | minus: cart_threshold_difference_01
+              assign progress_01 = threshold_cart_difference_01 | divided_by: threshold_01 | times: 100
+            endif
+          %}
+          <progress class="progress-bar {{ forloop.index }}" value="{{- progress_01 -}}" max="100"></progress>
+        {%- endif -%}
+        {%- if forloop.index == 2 %}
+          {% liquid
+            assign success_message_02 = reward.success_message
+            if total_price_pence >= threshold_02_pence
+              assign progress_02 = 100
+              assign show_success_message_02 = true
+            else
+              assign threshold_difference_02 = threshold_02 | minus: threshold_01
+              assign cart_threshold_difference_02 = threshold_02 | minus: total_price
+              assign threshold_cart_difference_02 = threshold_difference_02 | minus: cart_threshold_difference_02
+              assign progress_02 = threshold_cart_difference_02 | divided_by: threshold_difference_02 | times: 100
+            endif
+          %}
+          <progress class="progress-bar {{ forloop.index }}" value="{{- progress_02 -}}" max="100"></progress>
+        {%- endif -%}
+        {%- if forloop.index == 3 %}
+          {% liquid
+            assign success_message_03 = reward.success_message
+            if total_price_pence >= threshold_03_pence
+              assign progress_03 = 100
+              assign show_success_message_03 = true
+            else
+              assign threshold_difference_03 = threshold_03 | minus: threshold_02
+              assign cart_threshold_difference_03 = threshold_03 | minus: total_price
+              assign threshold_cart_difference_03 = threshold_difference_03 | minus: cart_threshold_difference_03
+              assign progress_03 = threshold_cart_difference_03 | divided_by: threshold_difference_03 | times: 100
+            endif
+          %}
+          <progress class="progress-bar {{ forloop.index }}" value="{{- progress_03 -}}" max="100"></progress>
+        {%- endif -%}
+        {%- if forloop.index == 4 %}
+          {% liquid
+            assign success_message_04 = reward.success_message
+            if total_price_pence >= threshold_04_pence
+              assign progress_04 = 100
+              assign show_success_message_04 = true
+            else
+              assign threshold_difference = threshold_04 | minus: threshold_03
+              assign cart_threshold_difference = threshold_04 | minus: total_price
+              assign threshold_cart_difference = threshold_difference | minus: cart_threshold_difference
+              assign progress_04 = threshold_cart_difference | divided_by: threshold_difference | times: 100
+            endif
+          %}
+          <progress class="progress-bar {{ forloop.index }}" value="{{- progress_04 -}}" max="100"></progress>
+        {%- endif -%}
+        <div class="icon-wrapper">
+          <div class="icon">
+            {%- if forloop.first == true -%}
+              {%- if show_success_message_01 == true -%}
+                {%- render 'element-icon', _icon: 'verified' -%}
+              {%- else -%}
+                {{ icon_type }}
+              {%- endif -%}
+            {%- endif -%}
+            {%- if forloop.index == 2 -%}
+              {%- if show_success_message_02 == true -%}
+                {%- render 'element-icon', _icon: 'verified' -%}
+              {%- else -%}
+                {{ icon_type }}
+              {%- endif -%}
+            {%- endif -%}
+            {%- if forloop.index == 3 -%}
+              {%- if show_success_message_03 == true -%}
+                {%- render 'element-icon', _icon: 'verified' -%}
+              {%- else -%}
+                {{ icon_type }}
+              {%- endif -%}
+            {%- endif -%}
+            {%- if forloop.index == 4 -%}
+              {%- if show_success_message_04 == true -%}
+                {%- render 'element-icon', _icon: 'verified' -%}
+              {%- else -%}
+                {{ icon_type }}
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="reward-items-content">
+    <div class="reward-item">
+      <strong>{{- _cart.total_price | money -}}</strong>
+      <span>{{- 'template.cart.rewards_progress.bag' | t -}}</span>
+    </div>
+    {%- for reward in cart_rewards limit: 4 -%}
+      {% liquid
+        assign threshold = reward.threshold
+        assign message = reward.message
+        assign type_of_reward = reward.type_of_reward | handleize
+        assign success_message = reward.success_message
+        assign title = reward.title
+      %}
+      <div class="reward-item">
+        {%- if forloop.first == true %}
+          {% liquid
+            assign success_message_01 = reward.success_message
+            if total_price_pence >= threshold_01_pence
+              assign show_success_message_01 = true
+            else
+              assign to_spend_01 = threshold_01_pence | minus: total_price_pence
+            endif
+            assign to_spend_01 = to_spend_01 | money
+          %}
+        {%- endif -%}
+        {%- if forloop.index == 2 %}
+          {% liquid
+            assign success_message_02 = reward.success_message
+            if total_price_pence >= threshold_02_pence
+              assign show_success_message_02 = true
+            else
+              assign to_spend_02 = threshold_02_pence | minus: total_price_pence
+            endif
+            assign to_spend_02 = to_spend_02 | money
+          %}
+        {%- endif -%}
+        {%- if forloop.index == 3 %}
+          {% liquid
+            assign success_message_03 = reward.success_message
+            if total_price_pence >= threshold_03_pence
+              assign show_success_message_03 = true
+            else
+              assign to_spend_03 = threshold_03_pence | minus: total_price_pence
+            endif
+            assign to_spend_03 = to_spend_03 | money
+          %}
+        {%- endif -%}
+        {%- if forloop.index == 4 %}
+          {% liquid
+            assign success_message_04 = reward.success_message
+            if total_price_pence >= threshold_04_pence
+              assign show_success_message_04 = true
+            else
+              assign to_spend_04 = threshold_04_pence | minus: total_price_pence
+            endif
+            assign to_spend_04 = to_spend_04 | money
+          %}
+        {%- endif -%}
+
+        {% comment %} <span>{{- title -}}</span> {% endcomment %}
+        {%- if forloop.first == true -%}
+          {%- if show_success_message_01 == true -%}
+            <small>{{- reward.threshold | times: 100 | money -}}</small>
+          {%- else -%}
+            <span>
+              {{- 'template.cart.rewards_progress.spend' | t }}
+              {{ to_spend_01 -}}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if forloop.index == 2 -%}
+          {%- if show_success_message_02 == true -%}
+            <small>{{- reward.threshold | times: 100 | money -}}</small>
+          {%- else -%}
+            <span>
+              {{- 'template.cart.rewards_progress.spend' | t }}
+              {{ to_spend_02 -}}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if forloop.index == 3 -%}
+          {%- if show_success_message_03 == true -%}
+            <small>{{- reward.threshold | times: 100 | money -}}</small>
+          {%- else -%}
+            <span>
+              {{- 'template.cart.rewards_progress.spend' | t }}
+              {{ to_spend_03 -}}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if forloop.index == 4 -%}
+          {%- if show_success_message_04 == true -%}
+            <small>{{- reward.threshold | times: 100 | money -}}</small>
+          {%- else -%}
+            <span>
+              {{- 'template.cart.rewards_progress.spend' | t }}
+              {{ to_spend_04 -}}
+            </span>
+          {%- endif -%}
+        {%- endif -%}
+        <strong>{{- reward.title -}}</strong>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>

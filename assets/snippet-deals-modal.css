@@ -1,0 +1,59 @@
+.snippet-deals-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colour-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  height: calc(100vh - 2rem);
+  width: calc(100vw - 2rem);
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  transform: translateY(1rem);
+  transition-delay: 0s;
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 36rem;
+}
+.snippet-deals-modal[data-is-open=true] {
+  transition-delay: var(--transition-duration);
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+}
+.snippet-deals-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.snippet-deals-modal .modal-header .modal-title {
+  display: block;
+  font-size: 1.25rem;
+  font-family: var(--font-family-heading);
+}
+.snippet-deals-modal .modal-content .logged-out-title {
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+.snippet-deals-modal .modal-content .logged-out-list {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+}
+.snippet-deals-modal .modal-content .logged-out-list li {
+  margin: 0.5rem;
+}
+@media (min-width: 768px) {
+  .snippet-deals-modal .modal-header .modal-title {
+    font-size: 2rem;
+  }
+}

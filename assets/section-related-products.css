@@ -1,0 +1,26 @@
+.layout-related-products {
+  display: block;
+}
+.layout-related-products .swiper-slide {
+  width: -webkit-fit-content;
+  width: fit-content;
+  height: auto;
+}
+.layout-related-products .swiper-slide .snippet-card-product {
+  height: 100%;
+}
+.layout-related-products .swiper-btns {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.layout-related-products .swiper-btns svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+@media (max-width: 1279.98px) {
+  .layout-related-products .swiper {
+    overflow: visible;
+  }
+}

@@ -1,0 +1,27 @@
+{%- render 'tracking-google-tag-manager' with type: 'head' -%}
+{%- render 'tracking-bing-ads' -%}
+
+{%- if template == 'index' -%}
+  {% assign verification_google_codes = settings.google_site_verification | split: ',' %}
+  {%- if verification_google_codes.size > 0 -%}
+    {%- for verification_code in verification_google_codes -%}
+      <meta name="google-site-verification" content="{{ verification_code }}">
+    {%- endfor -%}
+  {%- elsif settings.google_site_verification.size > 0 -%}
+    <meta name="google-site-verification" content="{{ settings.google_site_verification }}">
+  {%- endif -%}
+
+  {% assign verification_bing_codes = settings.bing_site_verification | split: ',' %}
+  {%- if verification_bing_codes.size > 1 -%}
+    {%- for verification_code in verification_bing_codes -%}
+      <meta name="msvalidate.01" content="{{ verification_code }}">
+    {%- endfor -%}
+  {%- elsif settings.bing_site_verification != blank -%}
+    <meta name="msvalidate.01" content="{{ settings.bing_site_verification }}">
+  {%- endif -%}
+{%- endif -%}
+
+{%- if settings.use_additional_scripts == true -%}
+  {% assign additional_scripts = settings.additional_scripts %}
+  {{- additional_scripts -}}
+{%- endif %}

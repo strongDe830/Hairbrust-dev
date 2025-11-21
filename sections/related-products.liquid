@@ -1,0 +1,111 @@
+{%- liquid
+  assign template_name = 'section-related-products'
+
+  assign heading = section.settings.heading
+  assign use_add_to_cart_btn = section.settings.use_add_to_cart_btn
+  assign margin_bottom = section.settings.margin_bottom
+
+  assign use_vertical_slider = false
+  if template.name == 'cart'
+    assign product = cart.items[0].product
+    assign use_vertical_slider = true
+  endif
+%}
+
+{%- render 'file-css', _name: 'section-related-products.css', _load_type: 'defer' -%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+      {% content_for 'blocks' %}
+    {%-
+      render 'layout-related-products',
+      _product_limit: section.settings.product_limit,
+      _section: section,
+      _product: product,
+      _use_vertical_slider: use_vertical_slider,
+      _use_add_to_cart_btn: use_add_to_cart_btn,
+      _default_product: section.settings.default_product
+    -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.related_products.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "t:sections.related_products.settings.product_limit.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_add_to_cart_btn",
+      "label": "t:sections.all.use_add_to_cart_btn.label",
+      "default": false
+    },
+    {
+      "type": "product",
+      "id": "default_product",
+      "label": "t:sections.related_products.settings.default_product.label",
+      "info": "t:sections.related_products.settings.default_product.info"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [{ "type": "heading" }],
+  "presets": [
+    {
+      "name": "t:sections.related_products.name",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "You may also like"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

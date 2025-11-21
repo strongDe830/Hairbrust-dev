@@ -1,0 +1,31 @@
+{%- if block.settings.image != blank -%}
+  <div class="block-badge">
+    {{- block.settings.text -}}
+    {{-
+      block.settings.image
+      | image_url: width: 240
+      | image_tag: alt: block.settings.image.alt, loading: 'lazy', fetchpriority: 'auto'
+    -}}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:blocks.badge.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label",
+      "info": "t:blocks.badge.settings.image.info"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.badge.name" }]
+}
+{% endschema %}

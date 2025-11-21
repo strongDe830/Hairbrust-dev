@@ -1,0 +1,21 @@
+.snippet-data-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+.snippet-data-prices,
+.snippet-data-prices * {
+  white-space: nowrap;
+}
+.snippet-data-prices .current {
+  font-weight: 500;
+}
+.snippet-data-prices .was {
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.snippet-data-prices:has(.from) .current {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}

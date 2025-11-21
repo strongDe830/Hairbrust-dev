@@ -1,0 +1,26 @@
+.section-main-blog .container {
+  max-width: 64rem;
+}
+.section-main-blog .header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-main-blog .header .c-rte {
+  margin-bottom: 2rem;
+}
+.section-main-blog .grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .section-main-blog .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .section-main-blog .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

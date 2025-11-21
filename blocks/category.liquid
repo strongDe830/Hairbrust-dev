@@ -1,0 +1,16 @@
+{%- render 'card-category', _collection: block.settings.collection -%}
+
+{% schema %}
+{
+  "name": "t:blocks.category.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:blocks.category.settings.category.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.category.name" }]
+}
+{% endschema %}

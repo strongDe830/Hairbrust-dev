@@ -1,0 +1,24 @@
+{% liquid
+  assign heading_default = 'accessibility.complementary_products' | t
+  assign heading = _settings.heading | default: heading_default
+  assign product_limit = _settings.product_limit
+
+  render 'file-css', _name: 'snippet-card-product-add-on.css', _load_type: 'defer'
+  render 'file-js', _name: 'snippet-layout-complimentary-products.js', _load_type: 'defer'
+%}
+
+<complimentary-products
+  class="layout-complimentary-products"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ _section.id }}&product_id={{ _product.id }}&limit={{- product_limit -}}&intent=complementary"
+>
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    {%- if heading != blank -%}
+      <h2 class="u-heading-xs">{{- heading -}}</h2>
+    {%- endif -%}
+    <div class="products">
+      {%- for product in recommendations.products -%}
+        {%- render 'card-product-add-on', _product: product, _quick_add: true -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</complimentary-products>

@@ -1,0 +1,17 @@
+.section-subscription-products {
+  scroll-margin-top: 4rem;
+}
+.section-subscription-products .wrapper {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .section-subscription-products .wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .section-subscription-products .wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

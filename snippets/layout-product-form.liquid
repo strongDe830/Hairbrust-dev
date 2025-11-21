@@ -1,0 +1,295 @@
+{% liquid
+  assign template_name = 'snippet-layout-product-form'
+  assign product_form_id = 'product-form-' | append: _section.id
+  assign variant = _product.selected_or_first_available_variant
+  assign _current_variant_id = variant.id
+
+  assign additional_review_products = _product.metafields.custom.additional_review_products
+  assign product_skus = product.variants | map: 'sku' | join: ';' | append: additional_review_products | prepend: ';'
+  assign lozenges = product.metafields.custom.product_lozenges.value
+  assign trust_points = product.metafields.custom.trust_points.value
+  assign short_desc = product.metafields.custom.short_description | metafield_tag
+  assign product_information = product.metafields.custom.product_information.value
+  assign force_out_of_stock = product.metafields.custom.force_out_of_stock
+  assign alt_variant = product.metafields.custom.alternative_purchase_option.value
+
+  assign free_gift = variant.metafields.custom.free_gift.value
+
+  assign disclaimer = section.blocks | where: 'type', 'disclaimer' | first
+  assign complementary_blocks = _section.blocks | where: 'type', 'complementary'
+
+  assign available = false
+  if variant.inventory_policy == 'continue' or variant.available
+    assign available = true
+  endif
+
+  assign bundle_products = product.metafields.bundle.bundle_products.value
+  if bundle_products != blank
+    assign bundle_array = '' | split: ''
+    for bundle_product in bundle_products
+      assign nested_bundle_products = bundle_product.metafields.bundle.bundle_products.value
+      if nested_bundle_products != blank
+        for nested_product in nested_bundle_products
+          assign nested_bundle_skus = nested_product.variants | map: 'sku' | append: ',' | split: ','
+          assign bundle_array = bundle_array | concat: nested_bundle_skus | join: ','
+        endfor
+      else
+        assign bundle_skus = bundle_product.variants | map: 'sku' | append: ',' | split: ','
+        assign bundle_array = bundle_array | concat: bundle_skus | join: ','
+      endif
+    endfor
+    assign product_skus = bundle_array | uniq | remove: '[' | remove: ']' | remove: '\' | replace: ',', ';' | remove: '"' | append: additional_review_products
+  endif
+
+  assign bogo_this_variant_enabled = false
+  assign bogo_shop_sale_enabled = false
+  assign bogo_sale_excluded_variants = ''
+  assign bogo_enabled = shop.metaobjects.bogo_sale_enabled_.values
+  for entry in bogo_enabled limit: 1
+    assign bogo_shop_sale_enabled = entry.enabled
+  endfor
+
+  assign bogo_excluded_variants = shop.metaobjects.bogo_sale_excluded_variants.values
+  for entry in bogo_excluded_variants limit: 1
+    assign bogo_sale_excluded_variants = entry.variants.value
+  endfor
+
+  if bogo_shop_sale_enabled == true
+    assign bogo_this_variant_enabled = true
+    for excluded_variant in bogo_sale_excluded_variants
+      if excluded_variant.id == _current_variant_id
+        assign bogo_this_variant_enabled = false
+      endif
+    endfor
+  endif
+
+  render 'file-css', _name: 'snippet-layout-product-form.css'
+  render 'file-js', _name: 'snippet-layout-product-form.js', _load_type: 'defer'
+  render 'file-js', _name: 'snippet-data-product-variants.js', _load_type: 'defer'
+%}
+
+<product-form
+  class="{{ template_name }}"
+  id="layout-product-form-{{section.id}}"
+>
+  {%- form 'product', product, id: product_form_id, data-product-form: '' -%}
+    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+    <input
+      type="number"
+      name="quantity"
+      class="form-input"
+      value="1"
+      data-cart-line-item-el="quantity"
+      hidden
+    >
+    {% if free_gift != blank %}
+      <div data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}" hidden></div>
+    {% endif %}
+    
+    <div id="bogo-{{- section.id -}}" data-bogof hidden>
+      {% if bogo_this_variant_enabled %}
+        <div data-bogo-enabled hidden></div>
+        <input type="hidden" name="properties[__bogof]" value="__bogof">
+      {% endif %}
+    </div>
+
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+
+        {%- when 'heading' -%}
+          <h1 class="u-heading-md product-title" id="product-form-title-{{ _section.id }}">{{- _product.title }}</h1>
+          <a
+            href="#product-reviews"
+            aria-label="{{- 'products.product.view_reviews' | t -}}"
+            class="ruk_rating_snippet"
+            data-sku="{{- product_skus -}}"
+          ></a>
+
+        {%- when 'short_desc' -%}
+          {% if short_desc != blank %}
+            <div class="product-short-desc">
+              <p>{{ short_desc }}</p>
+              {%- if product_information != blank -%}
+                <a href="#product-info" class="read-more">{{- 'buttons.read_more' | t -}}</a>
+              {%- endif -%}
+            </div>
+          {% endif %}
+
+        {%- when 'price' -%}
+          {%- unless _product.options contains 'Subscription Option' -%}
+            {%- render 'data-prices', _product: product, _variant: variant, _section: section -%}
+          {%- endunless -%}
+
+        {%- when 'trust_points' -%}
+          {% if trust_points.count > 0 %}
+            <ul class="trust-points">
+              {% for trust_point in trust_points %}
+                {% liquid
+                  assign named_bg_colour = trust_point.background_colour
+                  assign background_colour = blank
+                  case named_bg_colour
+                    when 'Peep Pink'
+                      assign background_colour = 'we-peep'
+                    when 'Tuna Grey'
+                      assign background_colour = 'tuna'
+                    when 'Gallery White'
+                      assign background_colour = 'gallery'
+                  endcase
+                %}
+                <li
+                  {% if background_colour != blank %}
+                    class="alt {{ background_colour }}"
+                  {% endif %}
+                >
+                  {% if trust_point.icon != blank %}
+                    {{ trust_point.icon | image_url: width: 80 | image_tag: class: 'icon', loading: 'lazy' }}
+                  {% endif %}
+                  {{ trust_point.text }}
+                  {% if background_colour != blank and trust_point.extra_text %}
+                    <span class="extra-text">{{ trust_point.extra_text }}</span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        {%- when 'variants' -%}
+          {%- render 'data-product-variants',
+            _product: _product,
+            _product_form_id: product_form_id,
+            _selected_variant: variant,
+            _current_variant_id: _current_variant_id,
+            _section: _section,
+            _alt_variant: alt_variant
+          -%}
+
+        {%- when 'lozenges' -%}
+          {% if lozenges.count > 0 %}
+            <ul class="c-lozenges">
+              {% for lozenge in lozenges %}
+                {% liquid
+                  assign named_bg_colour = lozenge.background_colour
+                  assign background_colour = blank
+                  case named_bg_colour
+                    when 'Peep Pink'
+                      assign background_colour = 'we-peep'
+                    when 'Tuna Grey'
+                      assign background_colour = 'tuna'
+                    when 'Gallery White'
+                      assign background_colour = 'gallery'
+                  endcase
+                  assign border = lozenge.border | default: false
+                %}
+                <li class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        {%- when 'customer_q_and_a' -%}
+          {%- if block.settings.question != blank and block.settings.answer != blank -%}
+            <div class="product-q-and-a" {{ block.shopify_attributes }}>
+              <div class="product-q-and-a_question">
+                {{- block.settings.question -}}
+              </div>
+              <div class="product-q-and-a__answer">
+                {{- block.settings.answer -}}
+              </div>
+            </div>
+          {%- endif -%}
+
+        {%- when 'buy_button' -%}
+          <button
+            class="c-btn main tuna add-to-basket"
+            data-product-add-to-cart
+            data-product-submit-button
+            {% if available == false or force_out_of_stock == true %}
+              disabled
+            {% endif %}
+            id="submit-button-{{ _section.id }}"
+          >
+            {%- if available == false or force_out_of_stock == true -%}
+              <span data-product-add-to-cart-text>{{- 'products.product.sold_out' | t -}}</span>
+            {%- else -%}
+              <span data-product-add-to-cart-text>{{- 'products.product.add_to_cart' | t -}}</span>
+            {%- endif -%}
+          </button>
+
+        {%- when 'alt_purchase_option' -%}
+          {%- if alt_variant and alt_variant.available -%}
+            <div class="alt-purchase" {{ block.shopify_attributes }}>
+              <button
+                type="button"
+                class="alt-purchase__button"
+                data-alt-buy-now
+                data-alt-variant-id="{{ alt_variant.id }}"
+              >
+                <span>{{ alt_variant.title }}</span>
+                <span class="alt-purchase__separator">-</span>
+                <span>{{ alt_variant.price | money }}</span>
+                <span class="alt-purchase__separator">-</span>
+                Buy Now
+              </button>
+            </div>
+          {%- endif -%}
+
+        {%- when 'disclaimer' -%}
+          {% if disclaimer.settings.text != blank %}
+            <span class="disclaimer">{{ disclaimer.settings.text }}</span>
+          {% endif %}
+      {%- endcase -%}
+    {%- endfor -%}
+  {%- endform -%}
+
+  {%- for block in complementary_blocks -%}
+    {%- render 'layout-complimentary-products', _settings: block.settings, _section: _section, _product: _product -%}
+  {%- endfor -%}
+</product-form>
+
+{%- assign preselected_variant = product.metafields.custom.default_selected_variant.value -%}
+{%- if preselected_variant and product.selected_variant == blank -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const variantInput = document.querySelector('#{{ product_form_id }} input[data-variant-id="{{ preselected_variant.id }}"]');
+      
+      if (variantInput) {
+        setTimeout(function() {
+          variantInput.checked = true;
+          variantInput.dispatchEvent(new Event('change', { bubbles: true }));
+        }, 50);
+      }
+    });
+  </script>
+{%- endif -%}
+
+{%- if alt_variant and alt_variant.available -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const productFormContainer = document.querySelector('#layout-product-form-{{ section.id }}');
+      if (!productFormContainer) return;
+
+      const altBuyButton = productFormContainer.querySelector('[data-alt-buy-now]');
+      if (!altBuyButton) return;
+
+      altBuyButton.addEventListener('click', function () {
+        const variantId = this.dataset.altVariantId;
+        const mainForm = document.querySelector('#{{ product_form_id }}');
+
+        if (mainForm && variantId) {
+          const altVariantRadio = mainForm.querySelector(`[data-variant-id="${variantId}"]`);
+          const mainAddToCartButton = mainForm.querySelector('[data-product-add-to-cart]');
+
+          if (altVariantRadio && mainAddToCartButton) {
+            altVariantRadio.checked = true;
+            altVariantRadio.dispatchEvent(new Event('change', { bubbles: true }));
+
+            setTimeout(function () {
+              mainAddToCartButton.click();
+            }, 250);
+          }
+        }
+      });
+    });
+  </script>
+{%- endif -%}

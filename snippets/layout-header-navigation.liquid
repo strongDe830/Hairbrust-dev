@@ -1,0 +1,171 @@
+{%- if _main_menu != blank -%}
+  <nav class="navigation" data-site-header-navigation>
+    <div class="navigation-header">
+      <button class="c-btn navigation-go-back" data-site-header-el="navigationGoBackBtn" data-navigation-go-back>
+        {%- render 'element-icon', _icon: 'arrow-left' -%}
+        {{- 'navigation.go_back' | t -}}
+      </button>
+      <button
+        class="navigation-close c-btn"
+        aria-label="{{- 'navigation.close' | t -}}"
+        data-site-header-el="navigationCloseBtn"
+      >
+        {%- render 'element-icon', _icon: 'close' -%}
+      </button>
+    </div>
+    <ul class="tier-one-navigation" data-navigation-tier-one>
+      {%- for link in linklists[_main_menu].links -%}
+        {% liquid
+          assign dropdown_blocks = _dropdown_blocks | map: 'settings' | where: 'title', link.title
+        %}
+        <li
+          {% if link.links != blank %}
+            class="links"
+          {% endif %}
+        >
+          <a
+            href="{{- link.url -}}"
+            class="navigation-item tier-one-navigation-item"
+            title="{{ link.title | escape }}"
+            {%- if link.links != blank or dropdown_blocks.size > 0 -%}
+              data-site-header-el="navigationTierOneItem"
+            {%- endif -%}
+          >
+            {{- link.title -}}
+          </a>
+          {%- if link.links != blank or dropdown_blocks.size > 0 -%}
+            <div class="dropdown tier-two">
+              {%- if link.links != blank -%}
+                <p class="tier-heading">{{- link.title -}}</p>
+                <ul class="tier-two-navigation">
+                  {%- for childlink in link.links -%}
+                    <li>
+                      <a
+                        href="{{- childlink.url -}}"
+                        class="navigation-item tier-two-navigation-item"
+                        title="{{ childlink.title | escape }}"
+                        {%- if childlink.links != blank -%}
+                          data-site-header-el="navigationTierTwoItem"
+                        {%- endif -%}
+                      >
+                        {{- childlink.title -}}
+                      </a>
+                      {%- if childlink.links != blank -%}
+                        <div class="dropdown tier-three">
+                          <small class="tier-one-title">{{- link.title -}}</small>
+                          <p class="tier-heading">{{- childlink.title -}}</p>
+                          <ul class="tier-three-navigation">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a
+                                  href="{{ grandchildlink.url }}"
+                                  class="navigation-item tier-three-navigation-item"
+                                  title="{{ grandchildlink.title | escape }}"
+                                >
+                                  {{- grandchildlink.title | escape -}}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- elsif dropdown_blocks.size > 0 -%}
+                {% liquid
+                  assign link_handle = link.url | split: '/' | last
+                  assign _collection = collections[link_handle]
+                  assign strapline = _collection.metafields.custom.strapline
+                  assign highlights = _collection.metafields.custom.highlights.value
+                %}
+                <div class="dropdown-content">
+                  <p class="tier-heading">{{- link.title -}}</p>
+                  {%- if strapline != blank -%}
+                    <p class="u-text-md strapline">
+                      {{-
+                        strapline
+                        | metafield_tag
+                        | remove: '<div class="metafield-rich_text_field">'
+                        | remove: '</div>'
+                        | remove: '<p>'
+                        | remove: '</p>'
+                      -}}
+                    </p>
+                  {%- endif -%}
+                  {%- if highlights != blank -%}
+                    <ul class="c-check-list">
+                      {%- for highlight in highlights -%}
+                        <li class="">{{- highlight -}}</li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                  <a href="{{- link.url -}}" class="c-btn main we-peep">
+                    {% liquid
+                      for block in dropdown_blocks limit: 1
+                        assign anchor_text = block.anchor_text
+                      endfor
+
+                      if anchor_text != blank
+                        assign anchor_text = anchor_text
+                      else
+                        assign anchor_text = 'buttons.get_started' | t
+                      endif
+                      echo anchor_text
+                    %}
+                  </a>
+                </div>
+                {%- if _collection.products.size > 0 -%}
+                  <div class="tier-products">
+                    <p class="u-uppercase-md">{{- 'navigation.products' | t -}}</p>
+                    <ul class="products">
+                      {%- for product in _collection.products limit: 6 -%}
+                        <li>
+                          <a href="{{- product.url -}}" class="c-btn">
+                            {%- if product.featured_image != blank -%}
+                              {{-
+                                product.featured_image
+                                | image_url: width: 152
+                                | image_tag: alt: product.title, loading: 'lazy'
+                              -}}
+                            {%- else -%}
+                              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+                            {%- endif -%}
+                            {{- product.title -}}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                {%- endif -%}
+                {%- for block in dropdown_blocks limit: 1 -%}
+                  {% liquid
+                    assign promotion = block.promotion
+                    render 'card-promotion', _settings: promotion
+                  %}
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+      {%- if _quiz_anchor_text != blank and _quiz_anchor_url != blank -%}
+        <li class="hair-quiz-anchor">
+          <a href="{{- _quiz_anchor_url -}}" class="c-btn main we-peep">
+            {{- _quiz_anchor_text -}}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+    <div class="contact">
+      <span>{{- 'navigation.contact' | t -}}</span>
+      <a href="mailto:{{- settings.support_email -}}" class="c-btn email">
+        {{- settings.support_email -}}
+      </a>
+      <dl>
+        <dt>{{- 'general.office_hours' | t -}}</dt>
+        <dd>{{- settings.opening_hours -}}</dd>
+      </dl>
+    </div>
+  </nav>
+{%- endif -%}

@@ -1,0 +1,41 @@
+<div class="snippet-data-cart-totals">
+  {% comment %}
+    {%- if cart.total_discount > 0 -%}
+
+      <dl class="discounts">
+        <strong class="u-text-md">{{- 'template.cart.discounts' | t -}}</strong>
+        {% for discount_application in cart.discount_applications %}
+          <dt><small>{{- discount_application.title -}}</small></dt>
+          <dd><small>{{- discount_application.total_allocated_amount | money -}}</small></dd>
+        {% endfor %}
+      </dl>
+    {%- endif -%}
+  {% endcomment %}
+  <dl>
+    <dt>
+      <strong class="u-text-md">{{- 'template.cart.total' | t -}}</strong>
+    </dt>
+    <dd>
+      <strong class="u-text-md">{{- cart.total_price | money -}}</strong>
+    </dd>
+    {%- if cart.total_discount > 0 -%}
+      <dt>
+        <small>{{- 'template.cart.subtotal' | t -}}</small>
+      </dt>
+      <dd>
+        <small>{{- cart.items_subtotal_price | money -}}</small>
+      </dd>
+      {% for discount_application in cart.discount_applications %}
+        <dt>
+          <small>{{- 'template.cart.discount' | t }}: {{ discount_application.title -}}</small>
+        </dt>
+        <dd>
+          <small>
+            -{{- discount_application.total_allocated_amount | money -}}
+          </small>
+        </dd>
+      {% endfor %}
+    {% endif -%}
+  </dl>
+  <small>{{- 'template.cart.shipping_at_checkout' | t -}}</small>
+</div>

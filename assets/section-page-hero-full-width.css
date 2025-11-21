@@ -1,0 +1,85 @@
+.section-page-hero-full-width .container {
+  position: relative;
+  max-width: calc(var(--container-max-width) * 1.2);
+}
+.section-page-hero-full-width .container .block-container.top-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.section-page-hero-full-width .container .block-container.top-center {
+  justify-content: center;
+  align-items: flex-start;
+}
+.section-page-hero-full-width .container .block-container.top-right {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.section-page-hero-full-width .container .block-container.middle-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+.section-page-hero-full-width .container .block-container.middle-center {
+  justify-content: center;
+  align-items: center;
+}
+.section-page-hero-full-width .container .block-container.middle-right {
+  justify-content: flex-end;
+  align-items: center;
+}
+.section-page-hero-full-width .container .block-container.bottom-left {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.section-page-hero-full-width .container .block-container.bottom-center {
+  justify-content: center;
+  align-items: flex-end;
+}
+.section-page-hero-full-width .container .block-container.bottom-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.section-page-hero-full-width .container .section-media {
+  position: relative;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+}
+.section-page-hero-full-width .container .section-media .block-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.section-page-hero-full-width .container .section-media .block-media * {
+  max-height: 50rem;
+  height: 100%;
+  object-fit: cover;
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .section-page-hero-full-width .container {
+    max-width: var(--tablet-max-width);
+  }
+}
+@media (min-width: 1024px) {
+  .section-page-hero-full-width .container .block-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 6rem;
+    z-index: 1;
+  }
+  .section-page-hero-full-width .container .block-container .block-group-content {
+    max-width: 40rem;
+  }
+}
+@media (max-width: 1023.98px) {
+  .section-page-hero-full-width .container {
+    display: grid;
+    gap: 2rem;
+    margin: 0 auto;
+  }
+  .section-page-hero-full-width .container .block-container {
+    order: 1;
+  }
+}

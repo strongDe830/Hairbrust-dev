@@ -1,0 +1,208 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "lozenges_t9HDwW": {
+          "type": "lozenges",
+          "settings": {}
+        },
+        "heading_QXTMTw": {
+          "type": "heading",
+          "settings": {}
+        },
+        "short_desc_cBzCTP": {
+          "type": "short_desc",
+          "settings": {
+            "text": ""
+          }
+        },
+        "price_cDEyjC": {
+          "type": "price",
+          "settings": {}
+        },
+        "trust_points_L6hgK7": {
+          "type": "trust_points",
+          "settings": {}
+        },
+        "recharge_subscriptions_subscription_widget_EzLtJq": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "variants_QqyznA": {
+          "type": "variants",
+          "settings": {}
+        },
+        "buy_button_CqAMED": {
+          "type": "buy_button",
+          "settings": {}
+        },
+        "disclaimer_k6BUJH": {
+          "type": "disclaimer",
+          "settings": {
+            "text": "<p> Free shipping on orders over £45.  <a href=\"/pages/contact\" title=\"Contact\">Click here</a> for more information. Please note orders made over the bank holiday will be shipped on Tuesday. </p>"
+          }
+        },
+        "complementary_jG7QHC": {
+          "type": "complementary",
+          "settings": {
+            "heading": "Works well with",
+            "product_limit": 10
+          }
+        }
+      },
+      "block_order": [
+        "lozenges_t9HDwW",
+        "heading_QXTMTw",
+        "short_desc_cBzCTP",
+        "price_cDEyjC",
+        "trust_points_L6hgK7",
+        "recharge_subscriptions_subscription_widget_EzLtJq",
+        "variants_QqyznA",
+        "buy_button_CqAMED",
+        "disclaimer_k6BUJH",
+        "complementary_jG7QHC"
+      ],
+      "settings": {
+        "use_sticky_product": true,
+        "disclaimer": "<p>Free shipping on subscription orders.  <a href=\"/pages/contact\" title=\"Contact\">Click here</a> for more information.</p>"
+      }
+    },
+    "product_information_HQXiA4": {
+      "type": "product-information",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": false,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "video_testimonial_fwx6cQ": {
+      "type": "video-testimonial",
+      "settings": {
+        "testimonial_object": "",
+        "margin_bottom": "none"
+      }
+    },
+    "timeline": {
+      "type": "timeline",
+      "settings": {
+        "timeline_cards": [],
+        "margin_bottom": "md"
+      }
+    },
+    "bundles": {
+      "type": "bundle-products",
+      "blocks": {
+        "group_content_4JDLpY": {
+          "type": "group-content",
+          "disabled": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_UFpVPV": {
+              "type": "heading",
+              "settings": {
+                "heading": "What's Inside?",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_UFpVPV"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_4JDLpY"
+      ],
+      "settings": {
+        "product_list": "{{ product.metafields.bundle.bundle_products.value }}",
+        "margin_bottom": "md"
+      }
+    },
+    "related_products_yLm4ry": {
+      "type": "related-products",
+      "blocks": {
+        "heading_KtgaQ9": {
+          "type": "heading",
+          "settings": {
+            "heading": "You may also like",
+            "heading_type": "h2",
+            "heading_size": "md",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_KtgaQ9"
+      ],
+      "settings": {
+        "product_limit": 8,
+        "use_add_to_cart_btn": false,
+        "default_product": "",
+        "margin_bottom": "md"
+      }
+    },
+    "faqs_FhGg3P": {
+      "type": "faqs",
+      "blocks": {
+        "faq_group_qQb9d7": {
+          "type": "faq_group",
+          "repeater": "{{ product.metafields.custom.faq_groups.value }}",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "faq_group_qQb9d7"
+      ],
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "<h3>Have questions?</h3><p>Cras proin donec vitae adipiscing tincidunt diam. Nascetur arcu libero ultricies sed enim molestie eu sed nunc. </p><p><strong>Chat with our customer support team.8am - 4pm GMT.</strong></p><p><a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a></p>",
+        "contact_heading": "Have questions?",
+        "contact_text": "",
+        "margin_bottom": "md"
+      }
+    },
+    "reviews": {
+      "type": "main-product-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "product_information_HQXiA4",
+    "featured_testimonials",
+    "video_testimonial_fwx6cQ",
+    "timeline",
+    "bundles",
+    "related_products_yLm4ry",
+    "faqs_FhGg3P",
+    "reviews"
+  ]
+}

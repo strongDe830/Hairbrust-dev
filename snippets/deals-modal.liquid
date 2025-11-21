@@ -1,0 +1,39 @@
+{%- liquid
+    assign template_name = 'snippet-deals-modal'
+  
+    render 'file-css', _name: 'snippet-deals-modal.css', _load_type: 'defer'
+    render 'file-js', _name: 'snippet-deals-modal.js', _load_type: 'defer'
+  %}
+  
+  <deals-modal class="snippet-deals-modal" 
+    data-customer="{{ customer.email }}" 
+    data-placement="{{ settings.iterable_placement_id }}" 
+    data-key="{{ settings.iterable_api_key }}" 
+    data-jwt="{{ settings.iterable_jwt_endpoint }}">
+    <div class="modal-header">
+      <span class="modal-title">
+        {{- 'template.deals.title' | t -}}
+      </span>
+      <button class="c-btn close-btn" data-deals-modal-el="close">
+        {%- render 'element-icon', _icon: 'close' -%}
+      </button>
+    </div>
+    <div class="modal-content">
+      {%- if customer == blank -%}
+        <h2 class="logged-out-title">
+          {{- 'template.deals.logged_out_title_html' | t -}}
+        </h2>
+        <ul class="logged-out-list">
+          <li>{{- 'template.deals.logged_out_list_item_1' | t -}}</li>
+          <li>{{- 'template.deals.logged_out_list_item_2' | t -}}</li>
+          <li>{{- 'template.deals.logged_out_list_item_3' | t -}}</li>
+          <li>{{- 'template.deals.logged_out_list_item_4' | t -}}</li>
+        </ul>
+        <a href="/customer_authentication/login?return_to={{ request.path | url_encode }}" class="c-btn main tuna ">
+          {{- 'template.deals.logged_out_cta' | t -}}
+        </a>
+      {%- endif -%}
+    </div>
+  </deals-modal>
+  
+  {% render 'overlay', _data_attributes: 'data-deals-modal-external-el="overlay"' %}

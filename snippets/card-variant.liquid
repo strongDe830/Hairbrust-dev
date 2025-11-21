@@ -1,0 +1,143 @@
+{% liquid
+  assign _product = _variant.product
+  assign product_offer = _product.metafields.custom.product_offer
+
+  assign free_gift = _variant.metafields.custom.free_gift.value
+
+  assign additional_review_products = _product.metafields.custom.additional_review_products
+
+  assign product_skus = _variant.sku | append: additional_review_products | prepend: ';'
+  assign bundle_products = _product.metafields.bundle.bundle_products.value
+  if bundle_products != blank
+    assign bundle_array = '' | split: ''
+    for bundle_product in bundle_products
+      assign nested_bundle_products = bundle_product.metafields.bundle.bundle_products.value
+
+      if nested_bundle_products != blank
+        for nested_product in nested_bundle_products
+          assign nested_bundle_skus = nested_product.variants | map: 'sku' | append: ',' | split: ','
+          assign bundle_array = bundle_array | concat: nested_bundle_skus | join: ','
+        endfor
+      else
+        assign bundle_skus = bundle_product.variants | map: 'sku' | append: ',' | split: ','
+        assign bundle_array = bundle_array | concat: bundle_skus | join: ','
+      endif
+    endfor
+    assign product_skus = bundle_array | uniq | remove: '[' | remove: ']' | remove: '\' | replace: ',', ';' | remove: '"' | append: additional_review_products | prepend: ';'
+  endif
+
+  assign bogo_this_variant_enabled = false
+  assign bogo_shop_sale_enabled = false
+  assign bogo_sale_excluded_variants = ''
+
+  assign bogo_enabled = shop.metaobjects.bogo_sale_enabled_.values
+  for entry in bogo_enabled limit: 1
+    assign bogo_shop_sale_enabled = entry.enabled
+  endfor
+
+  assign bogo_excluded_variants = shop.metaobjects.bogo_sale_excluded_variants.values
+  for entry in bogo_excluded_variants limit: 1
+    assign bogo_sale_excluded_variants = entry.variants.value
+  endfor
+
+  if bogo_shop_sale_enabled == true
+    assign bogo_this_variant_enabled = true
+    for excluded_variant in bogo_sale_excluded_variants
+      if excluded_variant.id == _variant.id
+        assign bogo_this_variant_enabled = false
+      endif
+    endfor
+  endif
+%}
+
+<card-product class="snippet-card-product" data-product-id="{{ _product.id }}" data-variant-id="{{ _variant.id }}">
+  {% if bogo_this_variant_enabled %}
+    <div data-bogo-enabled hidden></div>
+  {% endif %}
+  {%- if product_offer != blank -%}
+    <div class="c-lozenge gallery">
+      {{- product_offer -}}
+    </div>
+  {%- endif -%}
+  <div class="card-image">
+    {%- if _variant.featured_image != blank -%}
+      {{-
+        _variant.featured_image
+        | image_url: width: 600
+        | image_tag:
+          widths: '320, 400, 500, 600',
+          alt: _variant.featured_image.alt,
+          loading: 'lazy',
+          class: 'featured-img'
+      -}}
+    {%- elsif _product.featured_image != blank -%}
+      {{-
+        _product.featured_image
+        | image_url: width: 600
+        | image_tag:
+          widths: '320, 400, 500, 600',
+          alt: _product.featured_image.alt,
+          loading: 'lazy',
+          class: 'featured-img'
+      -}}
+    {%- else -%}
+      {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+    {%- endif -%}
+  </div>
+  <div class="card-details">
+    <a href="{{- _product.url -}}?variant={{ _variant.id }}" class="stretched-link title">
+      {%- if _variant.title != 'Default Title' -%}
+        {{- _product.title -}} - {{ _variant.title }}
+      {%- else -%}
+        {{- _product.title -}}
+      {%- endif -%}
+    </a>
+    {%- render 'data-prices', _variant: _variant -%}
+    <a href="{{ _product.url }}?variant={{ _variant.id }}" class="rating">
+      <div
+        class="ruk_rating_snippet"
+        data-sku="{{ product_skus }}"
+      ></div>
+    </a>
+  </div>
+  {%- if _use_add_to_cart_btn == true -%}
+    {%- form 'product', _product, data-product-form: '', class: '' -%}
+      {% liquid
+        assign selected_selling_plan_id = ''
+        if _variant.selected_selling_plan_allocation
+          assign selected_selling_plan_id = _variant.selected_selling_plan_allocation.selling_plan.id
+        elsif _variant.selling_plan_allocations.size > 0
+          assign selected_selling_plan_id = _variant.selling_plan_allocations.first.selling_plan.id
+        endif
+      %}
+      {%- if selected_selling_plan_id != blank -%}
+        <input
+          type="hidden"
+          name="selling_plan"
+          value="{{ selected_selling_plan_id }}"
+        >
+      {%- endif -%}
+      {% if bogo_this_variant_enabled %}
+        <input type="hidden" name="properties[__bogof]" value="__bogof">
+      {% endif %}
+      <input name="id" value="{{ _variant.id }}" type="hidden" data-hidden-variant-id hidden>
+      {% if free_gift != blank %}
+        <div data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}" hidden></div>
+      {% endif %}
+      <button
+        class="c-btn main tuna fw centre"
+        {% if _variant.available != true -%}
+          disabled
+        {%- endif %}
+        type="submit"
+        data-product-add-to-cart
+      >
+        {%- if _variant.available == true -%}
+          {{- 'products.product.add_to_cart' | t -}}
+        {%- else -%}
+          {{- 'products.product.sold_out' | t -}}
+        {%- endif -%}
+      </button>
+    {% endform %}
+  {%- endif -%}
+</card-product>

@@ -1,0 +1,130 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_p6ffUy": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false
+          },
+          "blocks": {
+            "kicker_QzUVTE": {
+              "type": "kicker",
+              "settings": {
+                "kicker": "",
+                "background_colour": "we-peep"
+              }
+            },
+            "heading_WVtNnd": {
+              "type": "heading",
+              "settings": {
+                "heading": "<em>Healthy hair, on repeat</em>",
+                "heading_type": "h2",
+                "heading_size": "lg"
+              }
+            },
+            "group_anchors_ddq8hw": {
+              "type": "group-anchors",
+              "settings": {},
+              "blocks": {
+                "anchor_4WpmXF": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "",
+                    "title": "",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  }
+                }
+              },
+              "block_order": [
+                "anchor_4WpmXF"
+              ]
+            }
+          },
+          "block_order": [
+            "kicker_QzUVTE",
+            "heading_WVtNnd",
+            "group_anchors_ddq8hw"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          }
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "settings": {
+        "margin_bottom": "none"
+      }
+    },
+    "subscription_products_H8fKJd": {
+      "type": "subscription-products",
+      "settings": {
+        "margin_bottom": "md",
+        "product_list": []
+      }
+    },
+    "featured_testimonials": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": true,
+        "use_thumbnails": false,
+        "margin_bottom": "md"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "custom_css": [
+        ".layout-collection-hero {display: none;}"
+      ],
+      "settings": {
+        "use_2_col_grid": false
+      }
+    },
+    "faqs_nBFjhw": {
+      "type": "faqs",
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "<p>Gravida et pellentesque eget morbi urna faucibus ac. Vel gravida pellentesque pellentesque egestas ante cum. Ac lobortis sed donec mattis tellus enim rhoncus.</p>",
+        "contact_heading": "Have questions?",
+        "contact_text": "<p>Cras proin donec vitae adipiscing tincidunt diam. Nascetur arcu libero ultricies sed enim molestie eu sed nunc. </p><p><strong>Chat with our customer support team.<br/>8am - 4pm GMT.</strong></p><p><a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a></p>",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "page_hero_p6ffUy",
+    "subscription_products_H8fKJd",
+    "featured_testimonials",
+    "main",
+    "faqs_nBFjhw"
+  ]
+}

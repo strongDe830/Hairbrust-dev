@@ -1,0 +1,168 @@
+#vw_channel h1,
+#vw_channel h2 {
+  --fluid-type-size: clamp(2.5rem, 0.5vw + 2.4rem, 3rem);
+  --fluid-type-max-width: 36ch;
+  --fluid-type-margin: 1ch;
+
+  font-family: var(--font-family-heading) !important;
+  font-size: var(--fluid-type-size) !important;
+  font-weight: var(--font-weight, 400) !important;
+  letter-spacing: var(--fluid-letter-spacing) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 1.5rem !important;
+  max-width: var(--fluid-type-max-width) !important;
+}
+
+#vw-root .vw-cmp__top-heading {
+  gap: 1rem !important;
+  margin-bottom: 1.75rem !important;
+}
+
+#vw-root p {
+}
+/* for channels */
+#vw_channel {
+  background: transparent !important;
+  min-height: auto !important;
+  padding-top: 0 !important;
+}
+.vw_channel_header .vw_header_container {
+  padding: 1rem !important;
+}
+.vw_header_hero_wrapper {
+  display: none;
+}
+#vw_channel .vw_channel_header_category_wrapper .vw_categories_wrapper {
+  width: 100% !important;
+  justify-content: center !important;
+}
+#vw_channel .vw_channel_header_category_wrapper {
+  min-height: unset !important;
+  margin-bottom: 10px !important;
+}
+#vw_channel .vw_channel_section .card_title {
+  display: none;
+}
+#vw_channel .vw_channel_header .vw_header_overlay {
+  display: none !important;
+}
+.vw_channel_header .vw_header_buttons_container {
+  margin: 0 !important;
+}
+.vw_channel_header .vw_header_title {
+  color: #343436 !important;
+}
+.vw_channel_header .vw_header_description {
+  font-size: 0.875rem !important;
+  line-height: 1.75 !important;
+  font-weight: 500 !important;
+  color: #343436 !important;
+  font-family: var(--font-family-base) !important;
+}
+#vw_channel .vw_channel_header_category_wrapper .breadcrumb {
+  color: #343436 !important;
+  border: 1px solid #343436 !important;
+  padding: 0.5rem 0.75rem !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  font-family: 'Manrope', serif !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+#vw_channel .vw_channel_header_category_wrapper .breadcrumb:not(.active) {
+  background: transparent !important;
+}
+#vw_channel .vw_channel_header_category_wrapper .breadcrumb:hover {
+  background-color: #f4d3d6 !important;
+}
+#vw_channel .vw_channel_video_card_wrapper.grid_card {
+  height: 35vw !important;
+  max-height: var(--ch_video_card_portrait_height) !important;
+  max-width: var(--ch_video_card_portrait_width) !important;
+  width: calc(35vw * var(--ch_video_card_portrait_aspect_ratio)) !important;
+}
+#vw_channel .vw_channel_section .vw_section_header.center .section_title,
+#vw_channel .vw_channel_section .vw_section_content_wrapper .section_description_wrapper {
+  display: none !important;
+}
+
+#vw_channel .vw_categories_wrapper {
+  height: auto !important;
+}
+
+#vw_channel .vw_categories_container {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+#vw_channel .vw_channel_header_category_wrapper {
+  padding-inline: 1rem !important;
+}
+
+#vw_channel .vw_channel_video_card_wrapper {
+  border-radius: 1rem !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+#vw_channel .vw_channel_video_card_wrapper.hovered {
+  outline: 0 !important;
+  transform: none !important;
+  border: 1px solid black !important;
+}
+
+#vw_channel .vw_video_autoplay_wrapper {
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+/* #vw_channel .section_next,
+#vw_channel .section_previous {
+  display: none !important;
+} */
+
+#vw_channel .vw_channel_section .section_scroll_slider_wrapper.section_next,
+#vw_channel .vw_channel_section .section_scroll_slider_wrapper.section_previous {
+  background: transparent !important;
+}
+
+#vw_channel .section_scroll_icon_wrapper {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: white;
+  border-radius: 100%;
+  display: grid !important;
+  place-content: center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+#vw_channel .section_scroll_icon_wrapper.hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#vw_channel .section_scroll_icon_wrapper svg {
+  height: 0.75rem !important;
+  width: 0.75rem !important;
+  background: transparent;
+}
+
+#vw_channel .section_scroll_icon_wrapper svg path {
+  stroke-width: 6px;
+}
+
+#vw_channel .vw_flex-start {
+  padding: 0 1rem !important;
+}
+/* collection tile */
+.vw--product-tile{
+    position: relative!important;
+    border-radius: var(--border-radius-sm);
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    overflow: hidden;
+    min-height:unset!important;
+}

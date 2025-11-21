@@ -1,0 +1,447 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "header": {
+      "nav_aria_label": "Collegamenti al sito",
+      "cart_count": {
+        "one": "{{ count }} elemento",
+        "other": "{{ count }} elementi"
+      },
+      "cart_title": "Carrello"
+    },
+    "footer": {
+      "company": "Azienda",
+      "information": "Informazioni",
+      "contact": "Contatto",
+      "opening_hours": "Orari di ufficio:",
+      "customer": "Servizio clienti",
+      "copyright": "Registrata in Inghilterra con numero di società {{ company_number }} e numero di registrazione IVA {{ company_vat_number }} ."
+    },
+    "featured_testimonials": {
+      "before": "Prima",
+      "uses": "usi"
+    }
+  },
+  "accessibility": {
+    "skip_to_text": "Vai al contenuto",
+    "skip_to_product_info": "Vai alle informazioni sul prodotto",
+    "close": "Vicino",
+    "vendor": "Fornitore:",
+    "error": "Errore",
+    "all": "Tutto",
+    "select": "Selezionare",
+    "refresh_page": "Scegliendo una selezione si ottiene un aggiornamento completo della pagina.",
+    "link_messages": {
+      "new_window": "Si apre in una nuova finestra.",
+      "external": "Apre un sito web esterno."
+    },
+    "loading": "Caricamento...",
+    "total_reviews": "recensioni totali",
+    "star_reviews_info": "{{ rating_value }} su {{ rating_max }} stelle",
+    "collapsible_content_title": "Contenuto comprimibile",
+    "complementary_products": "Prodotti complementari",
+    "from": "Da",
+    "includes": "Include"
+  },
+  "template": {
+    "404": {
+      "title": "Pagina non trovata",
+      "description_html": "Spiacenti, non siamo riusciti a trovare la pagina. <a href=\"&lt;span%20class='notranslate'&gt;{{%20url%20}}&lt;/span&gt;\">Clicca qui</a> per tornare alla home page."
+    },
+    "article": {
+      "meta_html": "Pubblicato <time datetime=\"&lt;span class='notranslate'&gt;{{ datetime }}&lt;/span&gt;\"> {{ date }}</time> di <span>{{ author }}</span>",
+      "tags_title": "Etichette",
+      "no_tags": "Spiacenti, non ci sono tag per questo blog.",
+      "subscribe_title": "Iscriviti",
+      "subscribe_link": "Iscriviti al nostro blog",
+      "read_more_title": "Leggi di più: {{ title }}",
+      "read_more": "Per saperne di più",
+      "author": "Autore",
+      "tags": "Etichette",
+      "related_articles": "Articoli correlati",
+      "comments": {
+        "one": "{{ count }} commento",
+        "other": "{{ count }} commenti"
+      },
+      "moderated": "Si prega di notare che i commenti devono essere approvati prima di essere pubblicati.",
+      "comment_form_title": "Lascia un commento",
+      "name": "Nome",
+      "email": "E-mail",
+      "message": "Commento",
+      "post": "Pubblica commento",
+      "back_to_blog": "Torna al blog",
+      "share": "Condividi questo articolo",
+      "success": "Il tuo commento è stato pubblicato con successo! Grazie!",
+      "success_moderated": "Il tuo commento è stato pubblicato con successo. Lo pubblicheremo a breve, poiché il nostro blog è moderato."
+    },
+    "blog": {
+      "description_html": "Visualizzazione di {{ count }} articoli del blog.",
+      "description_with_tag_html": "Visualizzazione di {{ count }} articoli del blog taggati con \" {{ tag }} \".",
+      "empty": "Spiacenti, non ci sono articoli pubblicati per questo blog.",
+      "tags_title": "Etichette",
+      "clear_tags": "Cancella i tag",
+      "no_tags": "Spiacenti, non ci sono tag per questo blog.",
+      "subscribe_title": "Iscriviti",
+      "subscribe_link": "Iscriviti al nostro blog"
+    },
+    "cart": {
+      "title": "Il tuo carrello",
+      "item_in_bag": "prodotto nel tuo carrello",
+      "items_in_bag": "prodotti nel tuo carrello",
+      "product_code": "Codice prodotto:",
+      "summary": "Riepilogo",
+      "remove": "Rimuovere",
+      "each": "ogni",
+      "continue_shopping": "Continua a fare acquisti",
+      "note_label": "Note",
+      "note_placeholder": "Istruzioni speciali per la consegna.",
+      "discounts": "Sconti",
+      "discount": "Sconto",
+      "subtotal": "Subtotale",
+      "vat_total": "I.V.A.",
+      "total": "Totale",
+      "delivery_from": "Consegna da",
+      "discount_code_html": "Hai un codice sconto? Applicalo al momento <a href=\"&lt;span%20class='notranslate'&gt;{{%20checkout_url%20}}&lt;/span&gt;\">del pagamento</a>",
+      "shipping": "Spedizione",
+      "shipping_at_checkout": "Codici sconto, dazi, tasse e spedizione al momento del pagamento",
+      "update": "Aggiornamento",
+      "checkout": "Pagamento",
+      "proceed_to_checkout": "Procedere al pagamento",
+      "clear": "Chiaro",
+      "empty": "Al momento il tuo carrello è vuoto.",
+      "cookies_required": "Abilita i cookie per utilizzare il carrello",
+      "item_quantity": "Quantità dell'articolo",
+      "savings": "Stai risparmiando",
+      "exc_vat": "IVA esclusa",
+      "inc_vat": "IVA inclusa",
+      "label": {
+        "product": "Prodotto",
+        "price": "Prezzo",
+        "quantity": "Quantità",
+        "total": "Totale",
+        "discounted_price": "Prezzo scontato",
+        "original_price": "Prezzo originale"
+      },
+      "rewards_progress": {
+        "spend": "Spendi",
+        "bag": "Il tuo carrello",
+        "free_shipping_html": "Spendi <strong>{{ free_shipping_threshold }}</strong> per ottenere la spedizione gratuita"
+      }
+    },
+    "collection": {
+      "products": "prodotti",
+      "product": "prodotto",
+      "empty": "Non ci sono prodotti.",
+      "go_back": "Torna indietro",
+      "sort_by": "Ordina per",
+      "lowest_subscription_price_html": "Gli abbonamenti partono da <strong>{{ price }}</strong>",
+      "filters": {
+        "open_filers_menu_html": "Filtra {{ _paginate_items_size }} prodotti",
+        "close_filters": "Chiudi filtri",
+        "active_filters": "Filtri applicati",
+        "clear": "Cancella tutto",
+        "clear_filters": "cancella tutti i filtri",
+        "filters": "Filtri",
+        "active": "Filtri applicati",
+        "filter_x_products": "Filtra {{ count }} prodotti",
+        "view_x_products": "Filtra {{ count }} prodotti",
+        "apply": "Visualizza i prodotti",
+        "show": "Mostra filtri"
+      },
+      "pagination": {
+        "previous": "Carica precedente",
+        "more": "Carica altro"
+      },
+      "description": {
+        "about": "Di"
+      }
+    },
+    "gift_card": {
+      "title": "Ecco la tua carta regalo da {{ value }} per {{ shop }} !",
+      "subtext": "Ecco la tua carta regalo!",
+      "disabled": "Disattiva",
+      "expired": "Scaduto il {{ expiry }}",
+      "active": "Scade il {{ expiry }}",
+      "redeem": "Utilizza questo codice al momento del pagamento per riscattare la tua carta regalo",
+      "shop_link": "Inizia a fare acquisti",
+      "print": "Stampa",
+      "remaining_html": "{{ balance }} rimanente",
+      "add_to_apple_wallet": "Aggiungi ad Apple Wallet"
+    },
+    "list_collections": {
+      "title": "Collezioni",
+      "description": {
+        "one": "Esplorazione della raccolta {{ count }}",
+        "other": "Esplorazione di {{ count }} raccolte"
+      }
+    },
+    "page": {
+      "useful_links": "Link utili"
+    },
+    "contact_page": {
+      "form_submit": "Invia"
+    },
+    "password": {
+      "title": "Prossima apertura",
+      "description": "Questo negozio è protetto da password.",
+      "form_aria_label": "Modulo password",
+      "form_password_placeholder": "Inserisci la password",
+      "form_submit": "Invia",
+      "admin_link_html": "{{ text }} <a href=\"&lt;span%20class='notranslate'&gt;{{%20link_url%20}}&lt;/span&gt;\">{{ link_text }}</a>",
+      "form_password_label": "Password"
+    },
+    "search": {
+      "no_results_html": "La ricerca di \" {{ terms }} \" non ha prodotto risultati.",
+      "results_for_html": "La ricerca di \" {{ terms }} \" ha rivelato quanto segue:",
+      "results_with_count": "Trovati: {{ count }} risultati totali per \" {{ terms }} \"",
+      "results_suggestions_with_count": "{{ count }} ricerche suggerite",
+      "results_collections_with_count": "{{ count }} raccolte",
+      "results_articles_with_count": "{{ count }} articoli",
+      "results_pages_with_count": "{{ count }} pagine",
+      "results_products_with_count": "{{ count }} prodotti",
+      "title": "Cerca nel nostro negozio",
+      "placeholder": "Sto cercando...",
+      "submit": "Ricerca",
+      "search_open": "Ricerca",
+      "search_no_result_prompt": "Cerca \" {{ terms }} \"",
+      "no_results": "Nessun risultato trovato per \" {{ terms }} \". Controlla l'ortografia o usa una parola o una frase diversa.",
+      "empty": "Non ci sono risultati che corrispondono alla tua query.",
+      "page": "Pagina",
+      "products": "Prodotti",
+      "results_with_count_and_term": {
+        "one": "{{ count }} risultati trovati per \" {{ terms }} \"",
+        "other": "{{ count }} risultati trovati per \" {{ terms }} \""
+      },
+      "search_for": "Cerca \" {{ terms }} \"",
+      "suggestions": "Suggerimenti popolari",
+      "top_suggestions": "Suggerimenti principali",
+      "pages": "Pagine",
+      "featured_collections": "Collezioni in evidenza",
+      "collections": "Collezioni",
+      "articles": "Articoli"
+    },
+    "theme": "Tema",
+    "theme_preview": {
+      "copy": "Copia collegamento di anteprima"
+    },
+    "deals": {
+      "title": "Offerte disponibili",
+      "logged_out_title_html": "Il percorso dei capelli di ognuno di noi è diverso.<br> Ecco perché i membri di Hairburst possono scegliere le proprie ricompense settimanali.",
+      "logged_out_list_item_1": "Scopri nuove ricompense ogni settimana",
+      "logged_out_list_item_2": "Seleziona i tuoi preferiti nel tuo account Hairburst",
+      "logged_out_list_item_3": "Ricevi promemoria quando sono disponibili nuovi premi",
+      "logged_out_list_item_4": "Fai acquisti e le tue offerte verranno applicate automaticamente",
+      "logged_out_cta": "Iscriviti ora"
+    }
+  },
+  "reviews": {
+    "see_our_reviews_html": "Vedi le <strong data-reviews-count></strong> recensioni su "
+  },
+  "territory_switcher": {
+    "label": "cambio di territorio"
+  },
+  "cookie": {
+    "cookie_policy_message_html": "{{ name }} utilizza i cookie per offrire una migliore esperienza utente e contenuti/annunci pubblicitari personalizzati. Cliccando su \"ACCETTA\", acconsenti alla nostra <a href=\"&lt;span%20class='notranslate'&gt;{{%20root_url%20}}&lt;/span&gt;pages/privacy-policy\">Informativa sulla privacy e sui cookie</a> . Puoi disattivare l'utilizzo dei cookie <a href=\"&lt;span%20class='notranslate'&gt;{{%20root_url%20}}&lt;/span&gt;pages/privacy-policy\" data-cookie-bar-reject>cliccando qui</a> .",
+    "accept_text": "Accettare"
+  },
+  "products": {
+    "product": {
+      "products": "Prodotti",
+      "regular_price": "Prezzo normale",
+      "sold_out": "Esaurito",
+      "unavailable": "Non disponibile",
+      "on_sale": "In vendita",
+      "on_sale_from_html": "In vendita da {{ price }}",
+      "from_text_html": "Da {{ price }}",
+      "quantity": "Quantità",
+      "quantity_decrease": "Diminuire",
+      "quantity_increase": "Aumento",
+      "add_to_cart": "Aggiungi al carrello",
+      "add": "Aggiungere",
+      "add_subscription": "Aggiungi l'abbonamento al carrello",
+      "select": "Selezionare",
+      "add_to_wishlist": "Aggiungi alla lista dei desideri",
+      "delivery_trust_point_html": "Potresti ricevere la consegna entro il giorno <strong>{{ delivery_date_est }}</strong> . La consegna si basa sulla Consegna Standard.",
+      "phone_trust_point_html": "Se desideri ordinare grandi quantità, chiamaci al <a href=\"&lt;span%20class='notranslate'&gt;{{%20tel_phone%20}}&lt;/span&gt;\"><strong>{{ phone }}</strong></a> per maggiori informazioni.",
+      "details_trust_point_html": "Per saperne di più su questo prodotto, consulta i <a href=\"&lt;span%20class='notranslate'&gt;{{%20anchor%20}}&lt;/span&gt;\"><strong>dettagli</strong></a> qui sotto.",
+      "complementary_products": "Questo prodotto funziona anche con i seguenti dispositivi:",
+      "size_guide": "Guida alle taglie",
+      "specification": "Specifiche",
+      "key_features": "Caratteristiche principali",
+      "key_benefits": "Vantaggi principali",
+      "key_ingredients": "Ingredienti chiave",
+      "downloads": "Scarica",
+      "faqs": "Domande frequenti",
+      "description": "Descrizione",
+      "top_features": "Caratteristiche principali",
+      "view_features": "Visualizza altre funzionalità",
+      "information": "Informazioni",
+      "information_heading": "Elit nel vestibolo di sed sagittis sapien. Aliquam pharetra tellus orci purus tellus.",
+      "need_help": "Hai bisogno di aiuto?",
+      "help_heading_html": "Hai bisogno di aiuto per trovare la <strong>{{ category }}</strong> giusta per il tuo cantiere?",
+      "help_link_text": "Contattaci",
+      "alternative_kicker": "Alternative",
+      "alternative_heading": "Alternative a {{ product_title }}",
+      "looking_for_this": "Cerco questo ma in {{ colour }}",
+      "reviews_anchor": "Leggi le recensioni di questo prodotto",
+      "save": "Salva",
+      "choose_an_option": "Scegli un'opzione:",
+      "usage": "Utilizzo",
+      "size": "Quantità",
+      "view_reviews": "Visualizza le recensioni dei nostri prodotti"
+    }
+  },
+  "breadcrumb": {
+    "aria_label": "Collegamenti breadcrumb"
+  },
+  "pagination": {
+    "aria_label": "Collegamenti di paginazione",
+    "previous_page": "Pagina precedente",
+    "next_page": "Pagina successiva",
+    "page_with_number": "Pagina {{ number }}"
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Utilizza il seguente codice regalo online.",
+      "title": "Ecco il saldo della tua carta regalo di {{ value }} per {{ shop }} !",
+      "subtext": "La tua carta regalo",
+      "gift_card_code": "Codice carta regalo",
+      "shop_link": "Visita il negozio online",
+      "add_to_apple_wallet": "Aggiungi ad Apple Wallet",
+      "qr_image_alt": "Codice QR: scansiona per riscattare la carta regalo",
+      "copy_code": "Copia il codice della carta regalo",
+      "expiration_date": "Scade {{ expires_on }}",
+      "copy_code_success": "Codice copiato correttamente",
+      "expired": "Scaduto",
+      "balance": "Bilancia"
+    }
+  },
+  "components": {
+    "swiper": {
+      "next": "Diapositiva successiva",
+      "previous": "Diapositiva precedente"
+    }
+  },
+  "general": {
+    "telephone": "Telefono",
+    "email": "E-mail",
+    "address": "Indirizzo",
+    "follow_us": "Seguici",
+    "office_hours": "Orari di ufficio",
+    "meta": {
+      "tags": "{{ tags }} ",
+      "pagze": "Pagina {{ page }}"
+    },
+    "search": {
+      "heading": "Cerca nel nostro negozio",
+      "results_with_count": "Trovati: {{ count }} risultati per \" {{ terms }} \""
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Condividi su Facebook",
+        "share_on_twitter": "Twitta su Twitter",
+        "share_on_pinterest": "Aggiungi su Pinterest"
+      }
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "FARE"
+    }
+  },
+  "forms": {
+    "name_label": "Nome",
+    "name_placeholder": "Inserisci il tuo nome",
+    "first_name_placeholder": "Inserisci il tuo nome",
+    "last_name_placeholder": "Inserisci il tuo cognome",
+    "email_label": "Indirizzo e-mail",
+    "email_placeholder": "Inserisci il tuo indirizzo email",
+    "telephone_placeholder": "Inserisci il tuo numero di telefono",
+    "message_label": "Messaggio",
+    "message_placeholder": "Inserisci il tuo messaggio",
+    "subject_label": "Soggetto",
+    "subject_placeholder": "Seleziona un argomento",
+    "company_placeholder": "Inserisci il nome della tua azienda",
+    "website_placeholder": "Inserisci l'URL del tuo sito web",
+    "success": "Il tuo messaggio è stato inviato con successo.",
+    "newsletter": {
+      "label": "Inserisci il tuo indirizzo email",
+      "sign_up": "Iscrizione"
+    }
+  },
+  "vat": {
+    "vat": "I.V.A.",
+    "on": "SU",
+    "off": "Spento",
+    "show_vat_prices": "Mostra i prezzi IVA",
+    "ex_vat": "IVA esclusa",
+    "inc_vat": "IVA inclusa"
+  },
+  "navigation": {
+    "search_open": "Ricerca",
+    "wishlist": "Visualizza la tua lista dei desideri",
+    "cart": "Visualizza il tuo carrello",
+    "account": "Visualizza il tuo account",
+    "go_back": "Torna indietro",
+    "close": "Vicino",
+    "shop_all": "Acquista tutto",
+    "branch": "Ramo",
+    "basket": "Cestino",
+    "contact": "Contatto",
+    "products": "Prodotti"
+  },
+  "media": {
+    "image": "Immagine",
+    "youtube": "Lettore video di YouTube"
+  },
+  "buttons": {
+    "learn_more": "Scopri di più",
+    "read_more": "Per saperne di più",
+    "get_started": "Inizia ora"
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "remove_chip": "Rimuovi elemento"
+      },
+      "payment": {
+        "crypto_modal": {
+          "error": {
+            "refresh": "Aggiorna",
+            "close": "vicino",
+            "sandbox_error": "Qualcosa è andato storto",
+            "web_component_error": "Si è verificato un problema durante il caricamento di questa pagina"
+          }
+        }
+      },
+      "thank_you": {
+        "thank_you_item_label": {
+          "one": "%{count} elemento",
+          "other": "%{count} elementi"
+        }
+      },
+      "order_summary": {
+        "total_savings": "Stai risparmiando"
+      }
+    }
+  },
+  "quiz": {
+    "validation": "Rispondi alla domanda per procedere al passaggio successivo.",
+    "results": {
+      "kicker": "Risultati",
+      "heading_html": "Ecco cosa ti <em>consigliamo</em>",
+      "text": "Se desideri capelli più folti, più volume o hai difficoltà a superare la zona di non crescita, la gamma Hairburst può aiutarti a riparare e proteggere i tuoi capelli dai danni, contribuendo a una crescita più lunga e forte.",
+      "summary": "Riepilogo dell'ordine",
+      "growth_plan": "Il tuo piano di crescita Hairburst",
+      "growth_plan_total": "Piano di crescita Hairburst totale"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{%- liquid
+  assign slide_type = block.settings.slide_type
+-%}
+
+{%- capture slide -%}
+  {%- case slide_type -%}
+    {%- when 'image' -%}
+      {%- if block.settings.image -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 1800 }}"
+          loading="lazy"
+          alt="{{ block.settings.image.alt | default: 'Carousel image' | escape }}"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+
+    {%- when 'video' -%}
+      {%- if block.settings.videowise_embed -%}
+        {{ block.settings.videowise_embed }}
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+  {%- endcase -%}
+{%- endcapture -%}
+
+{%- if block.settings.info_modal_title != blank or block.settings.info_modal_content != blank -%}
+  {%- capture modal -%}
+    <info-modal>
+      <button class="c-btn close-icon" data-modal-close>
+        {%- render 'element-icon', _icon: 'close' -%}
+      </button>
+      <div class="modal-content">
+        <div class="header">
+          <h3 class="u-heading-md heading">{{ block.settings.info_modal_title }}</h3>
+        </div>
+        <div>
+          {{ block.settings.info_modal_content }}
+        </div>
+      </div>
+    </info-modal>
+  {%- endcapture -%}
+{%- endif -%}
+
+{%- if slide != blank -%}
+  <div class="swiper-slide" {{ block.shopify_attributes }}>
+    {%- if block.settings.link != blank -%}
+      <a href="{{- block.settings.link -}}">
+    {%- endif -%}
+      {{- slide -}}
+    {%- if block.settings.link != blank -%}
+      </a>
+    {%- endif -%}
+    {%- if modal != blank -%}
+      <button type="button" class="c-btn open-modal" data-modal-open>
+        <span class="u-text-md">{{- block.settings.info_modal_button_label -}}</span>
+        {%- render 'element-icon', _icon: 'plus' -%}
+      </button>
+      {{- modal -}}
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Slide",
+  "tag": null,
+  "settings": [
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "select",
+      "id": "slide_type",
+      "label": "Content Type",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "video", "label": "Videowise Video" }
+      ],
+      "default": "image"
+    },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "liquid",
+      "id": "videowise_embed",
+      "label": "Videowise Embed Code",
+      "info": "Paste the entire embed code from Videowise."
+    },
+    {
+      "type": "header",
+      "content": "Info modal"
+    },
+    {
+      "type": "text",
+      "id": "info_modal_button_label",
+      "label": "Modal button label",
+      "default": "Learn more"
+    },
+    {
+      "type": "text",
+      "id": "info_modal_title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "info_modal_content",
+      "label": "Content"
+    }
+  ],
+  "presets": [{ "name": "Slide" }]
+}
+{% endschema %}

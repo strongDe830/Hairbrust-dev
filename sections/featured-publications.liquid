@@ -1,0 +1,135 @@
+{%- liquid
+  assign template_name = 'section-featured-publications'
+
+  assign heading = section.settings.heading
+  assign text = section.settings.text
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-featured-publications.css', _load_type: 'defer'
+  if section.blocks.size > 0
+    render 'file-js', _name: 'section-featured-publications.js', _load_type: 'defer'
+  endif
+
+%}
+
+<div class="{{- template_name }} u-space-below-{{- margin_bottom }}" data-section-type="{{- template_name -}}" data-section-id="{{ section.id }}">
+  <div class="container">
+    {%- if heading != blank -%}
+      <div class="section-heading">
+        <h2 class="u-heading-md centre heading">{{- heading -}}</h2>
+        {{- text -}}
+      </div>
+    {%- endif -%}
+    <featured-publications class="swiper overflow-visible">
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign image = block.settings.image
+            assign title = block.settings.title
+            assign image_alt = image.alt | default: title
+            assign url = block.settings.url
+          -%}
+          {%- capture logo -%}
+            {%- if image != blank -%}
+              {{- image | image_url: width: 256 | image_tag: alt: image_alt, loading: 'lazy' -}}
+            {%- else -%}
+              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+            {%- endif -%}
+          {%- endcapture -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            {%- if url != blank -%}
+              <a href="{{- url -}}" >{{- logo -}}</a>
+            {%- else -%}
+              {{- logo -}}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </featured-publications>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.featured_publications.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.all.heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.header_content.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "lg"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:sections.featured_publications.blocks.logo_block.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.all.header_content.content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.all.image.label",
+          "info": "t:sections.featured_publications.blocks.logo_block.settings.image.info"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.all.title.label"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:sections.all.url.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured_publications.name"
+    }
+  ]
+}
+{% endschema %}

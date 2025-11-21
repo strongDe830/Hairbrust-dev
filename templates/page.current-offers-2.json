@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "17448038974fe13355": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_4btKM6": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<link rel=\"preload\" href=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\" as=\"script\">\n  <script src=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\"></script>\n  <div id=\"videowise_stream_channel\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_4btKM6"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "page_hero_EwptNR": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_GjVMDN": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Your Best Hair, For Less",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_r3i6gj": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Don’t miss our latest offers on science-backed haircare. From vitamins to treatments, get everything you need for longer, stronger, healthier hair – and save while you do it.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_GjVMDN",
+            "text_r3i6gj"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Oct_BOGO_Banner_2.png",
+            "image": "shopify://shop_images/Oct_BOGO_Banner_2.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_KCwXq4": {
+      "type": "text",
+      "blocks": {
+        "group_content_DczFGK": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_DmbJH9": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Current Offers",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_frUjwR": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p><strong>Buy One Get One Free on </strong><em><strong>almost everything</strong></em><strong>. <br/></strong>Excluded product include: All vitamin subscriptions and 2 month supplies, Lash & Brow Enhancing Serum, Multi-Active Hair Growth Serum, Advanced+ Bond Repair Duo, Advanced+ Leave-In Treatment, Advanced+ Shampoo.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "text_UXwU38": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p><strong>Tiered gift with purchase (no codes needed)<br/></strong>Spend £50+ and receive a free Mini Shampoo<br/>Spend £80+ and receive a free Mini Shampoo & Conditioner duo<br/>Spend £100+ and receive a free Mini Shampoo & Conditioner duo & Mini Dry Shampoo </p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_DmbJH9",
+            "text_frUjwR",
+            "text_UXwU38"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_DczFGK"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "17448038974fe13355",
+    "page_hero_EwptNR",
+    "text_KCwXq4"
+  ]
+}

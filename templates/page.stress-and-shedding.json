@@ -1,0 +1,975 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_CwUYkq": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_c3Xaq7": {
+              "type": "heading",
+              "settings": {
+                "heading": "STRESS & <strong>SHEDDING.</strong>",
+                "heading_type": "h1",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_zzKyND": {
+              "type": "text",
+              "settings": {
+                "text": "<p>When life gets heavy, your hair feels it too.<br/><br/>Stress can disrupt your hormones, shorten your growth cycle, and lead to noticeable shedding. But this phase isn’t permanent—and we’re here to help you reclaim control.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_c3Xaq7",
+            "text_zzKyND"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Stress_Image.png",
+            "image": "shopify://shop_images/Stress_Image.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "none"
+      }
+    },
+    "statistics_8E8FXw": {
+      "type": "statistics",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "statistic_cYB9fy": {
+              "type": "statistic",
+              "settings": {
+                "title": "50%",
+                "text": "of women cite stress & anxiety as the primary cause of their hair loss."
+              },
+              "blocks": {}
+            },
+            "statistic_N4RXTY": {
+              "type": "statistic",
+              "settings": {
+                "title": "11 x",
+                "text": "Women with high-stress lifestyles are up to 11x more likely to experience hair loss."
+              },
+              "blocks": {}
+            },
+            "statistic_wg9iKQ": {
+              "type": "statistic",
+              "settings": {
+                "title": "Over 40%",
+                "text": "of women under significant stress report noticable hair shedding."
+              },
+              "blocks": {}
+            },
+            "statistic_KaHbEX": {
+              "type": "statistic",
+              "settings": {
+                "title": "Nearly 70%",
+                "text": "of women say their hair is crucial to their overall well-being and self esteem."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_cYB9fy",
+            "statistic_N4RXTY",
+            "statistic_wg9iKQ",
+            "statistic_KaHbEX"
+          ]
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_BrXWJr": {
+      "type": "text",
+      "blocks": {
+        "group_content_GJBnie": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_z9QUjR": {
+              "type": "heading",
+              "settings": {
+                "heading": "Real results take commitment.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_7Renbx": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Visible results often begin around month 3, but true transformation takes time.<br/>Stay consistent with a subscription to support stronger regrowth and long-term hair health.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_z9QUjR",
+            "text_7Renbx"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_GJBnie"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jJLzPD": {
+      "type": "featured-products",
+      "blocks": {
+        "block_LUqiPH": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-hair-formula"
+            ],
+            "product_feed": "product-list",
+            "show_variants": true,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_LUqiPH"
+      ],
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "text_3hV9xp": {
+      "type": "text",
+      "blocks": {
+        "group_content_rxKKLb": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_HCLtnb": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Enhance your routine.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_ccVJRF": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Our Advanced+ Shampoo and Leave-In Treatment Mask has been formulated to repair damage, reduce breakage, and restore hair strength.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_HCLtnb",
+            "text_ccVJRF"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_rxKKLb"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jhpRGm": {
+      "type": "featured-products",
+      "blocks": {
+        "block_NkXTcm": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-bond-repair-duo",
+              "advanced-plus-hair-mask",
+              "reparative-shampoo-for-damaged-hair"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_NkXTcm"
+      ],
+      "name": "t:sections.featured_products.name",
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "md"
+      }
+    },
+    "text_wA7iCi": {
+      "type": "text",
+      "blocks": {
+        "group_content_qWGYYf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_VngKAA": {
+              "type": "heading",
+              "settings": {
+                "heading": "Let’s get real about stress and hair loss.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_VngKAA"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_qWGYYf"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_i44PzU": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_FXDbdx": {
+          "type": "block",
+          "settings": {
+            "title": "How does stress actually affect my hair?",
+            "text": "<p>When you're stressed, your body produces more cortisol—a hormone that can disrupt the normal hair growth cycle. This can push more follicles into the shedding phase (telogen), causing noticeable hair loss. Stress can also trigger inflammation, affect nutrient absorption, and weaken the scalp, all of which impact hair health.</p>",
+            "kicker": "How does stress actually affect my hair?"
+          }
+        },
+        "block_yc3eGq": {
+          "type": "block",
+          "settings": {
+            "title": "Why am I shedding more during stressful times?",
+            "text": "<p>Stress sends your body into “survival mode,” prioritising essential functions over things like hair growth. This shift can cause a condition called telogen effluvium, where more hairs than usual enter the resting (and shedding) phase. You might notice more hair fall in the shower, on your pillow, or when brushing.</p>",
+            "kicker": "Why am I shedding more during stressful times?"
+          }
+        },
+        "block_4xFnpM": {
+          "type": "block",
+          "settings": {
+            "title": "Can stress-related hair loss be reversed?",
+            "text": "<p>Yes—stress-induced hair loss is usually temporary. Once the trigger (like chronic stress or burnout) is addressed, your hair growth cycle can rebalance. With the right support—nutrients, sleep, and stress management—your hair can recover and regrow over time.</p>",
+            "kicker": "Can stress-related hair loss be reversed?"
+          }
+        },
+        "block_MWVdYE": {
+          "type": "block",
+          "settings": {
+            "title": "What are the signs that stress is impacting my hair health?",
+            "text": "<p>Common signs include increased shedding, thinning at the temples or crown, dullness, and breakage. Some also experience scalp issues like dryness, flakiness, or sensitivity. These are all signals that your body—and your hair—need extra support.</p>",
+            "kicker": "What are the signs that stress is impacting my hair health?"
+          }
+        },
+        "block_Cj9ny8": {
+          "type": "block",
+          "settings": {
+            "title": "How can I support my hair to reduce the shedding?",
+            "text": "<p>Start by managing stress through sleep, movement, mindfulness or talking it out. Support your hair from within with a nutrient-rich diet that includes protein, biotin, zinc, and B vitamins. Avoid tight hairstyles or heat styling, and treat your scalp with care, exfoliate, hydrate and nourish it consistently. A targeted supplement can also help rebalance your hair growth cycle during high-stress periods.</p>",
+            "kicker": "How can I support my hair to reduce the shedding?"
+          }
+        }
+      },
+      "block_order": [
+        "block_FXDbdx",
+        "block_yc3eGq",
+        "block_4xFnpM",
+        "block_MWVdYE",
+        "block_Cj9ny8"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "video_testimonial_4jkyGt": {
+      "type": "video-testimonial",
+      "name": "Video Testimonial",
+      "settings": {
+        "testimonial_object": "advanced-olivia",
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_UcrMz4": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_NGEWD7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h3",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 1
+          },
+          "blocks": {}
+        },
+        "heading_DkYFEE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000 ★ ★ ★ ★ ★ reviews across our range.",
+            "heading_type": "h3",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 2
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_NGEWD7",
+        "heading_DkYFEE"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "lucy",
+          "jess",
+          "carabeaty",
+          "megan",
+          "anna-cherry",
+          "lauren_wwy",
+          "aimee",
+          "justine",
+          "amber",
+          "lauren"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "text_7cML4X": {
+      "type": "text",
+      "blocks": {
+        "group_content_YRMiTf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_NdhAGQ": {
+              "type": "heading",
+              "settings": {
+                "heading": "Advanced+ Hair Formula",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_gWtQyC": {
+              "type": "text",
+              "settings": {
+                "text": "<p>For women taking back control from stress - and restoring hair strength from the inside out.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_NdhAGQ",
+            "text_gWtQyC"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_YRMiTf"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_38b63E": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_GM3FAT": {
+          "type": "block",
+          "settings": {
+            "title": "Why we made Advanced+ Hair Formula",
+            "text": "<p>We set out to create the most advanced hair supplement on the market.</p><p><strong>Advanced+</strong> goes beyond standard vitamins with two powerful blends that target the root causes of poor hair health — like stress, inflammation, and oxidative damage.</p><p>It’s backed by science, built with expert nutritionists, and designed for women who want real, lasting results — not quick fixes.</p>",
+            "kicker": "Why we made Advanced+"
+          }
+        },
+        "block_jtYgQx": {
+          "type": "block",
+          "settings": {
+            "title": "Where it fits in your life",
+            "text": "<p>When stress is constant, your body feels it - and so does your hair. Advanced+ is your daily support system. Take 4 capsules a day with breakfast to help manage internal stress and support stronger, healthier hair from within. Consistency is key, visible results come in 90 days and beyond.</p>",
+            "kicker": "Where it fits in your life"
+          }
+        },
+        "block_iWenAY": {
+          "type": "block",
+          "settings": {
+            "title": "Why Advanced+ is different",
+            "text": "<p>This isn’t your average hair vitamin.</p><p><strong>Advanced+</strong> includes everything your body needs to support healthy hair growth - and more.</p><p>We started with the essentials (Biotin, Zinc, Selenium) and built on them with two unique, trademarked blends — <strong>Trichoburst™</strong> and <strong>Folishield™</strong> — designed to target the deeper, often overlooked triggers of stress-related hair loss: cortisol spikes, oxidative stress, and internal inflammation.</p>",
+            "kicker": "Why Advanced+ is different"
+          }
+        },
+        "block_exrgMe": {
+          "type": "block",
+          "settings": {
+            "title": "How it works",
+            "text": "<p><strong>Combats oxidative stress to keep hair in growth mode<br/></strong>Stress increases free radicals, which damage follicles and push hair into the shedding phase.</p><p><strong>Trichoburst™</strong> is packed with antioxidants and amino acids to fight back:</p><ul><li><strong>Vitamin E</strong> is known to calm and protect the scalp</li><li><strong>Amino acids </strong>help to rebuild the structure of the hair</li><li><strong>MSM </strong>supports keratin production for thicker, stronger strands</li><li><strong>CoQ10</strong> energises tired follicles and helps restart growth</li></ul><p><strong> </strong></p><p><strong>The result?</strong> Hair stays in the growth phase longer, giving it the chance to grow stronger and fuller.</p><p><strong>Reduces inflammation and restores balance<br/></strong>Stress throws your body out of balance — from hormone disruption to chronic inflammation.</p><p><strong>Folishield™</strong> helps restore calm from within:</p><ul><li><strong>Turmeric & black pepper</strong> help to reduce inflammation and improve absorption</li><li><strong>Ashwagandha & reishi mushroom</strong> help lower cortisol and manage stress</li><li><strong>Astaxanthin, resveratrol, elderberry</strong> protect follicles and support long-term regrowth</li><li><strong>Promotes homeostasis</strong> — helping your body reset, rebalance, and grow</li></ul><p>It’s everything your body needs to manage stress and everything your hair needs to thrive.</p><p></p><p></p><p> </p><p>It’s everything your body needs to feel supported and your hair needs to thrive.</p>",
+            "kicker": "How it works"
+          }
+        },
+        "block_pAdnqe": {
+          "type": "block",
+          "settings": {
+            "title": "What to expect",
+            "text": "<p>Hair doesn’t grow back overnight, but with consistency, you’ll see results.<br/>Take 4 capsules a day with food, stick with it for 90 days, and let the results speak for themselves.</p><ul><li>Visible results from real users in just 90 days</li><li>Stay on track & save with our subscription option<br/></li></ul>",
+            "kicker": "What to expect"
+          }
+        }
+      },
+      "block_order": [
+        "block_GM3FAT",
+        "block_jtYgQx",
+        "block_iWenAY",
+        "block_exrgMe",
+        "block_pAdnqe"
+      ],
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "text_grid_DtLayH": {
+      "type": "text-grid",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_RzREeJ": {
+              "type": "heading",
+              "settings": {
+                "heading": "Why choose Advanced+",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_RzREeJ"
+          ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "text_grid_block_aRKtq7": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_WRkyQj": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Expertly formulated over 5 years",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_wgbQeR": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Created with leading nutritionists to deliver the most effective results possible.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_WRkyQj",
+                "text_light_wgbQeR"
+              ]
+            },
+            "text_grid_block_wcPQ9m": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_tfNLxL": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Targets root causes of Hair Loss",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_6PffEx": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Goes beyond surface-level fixes to address hormonal imbalances, inflammation, and stress.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_tfNLxL",
+                "text_light_6PffEx"
+              ]
+            },
+            "text_grid_block_tVHiHe": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_Riy4d4": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Trusted by over 1 Million Women",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_HMVfnb": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Real stories. Real results. Millions of women have already taken back control.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_Riy4d4",
+                "text_light_HMVfnb"
+              ]
+            },
+            "text_grid_block_tGXa7Q": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_VM4kPf": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Powered by Evidence-based ingredients",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_FbRfez": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Our trademarked blends offer benefits no standard vitamin can match.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_VM4kPf",
+                "text_light_FbRfez"
+              ]
+            },
+            "text_grid_block_L6Tpbc": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_H4rzXm": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Made in the UK",
+                    "margin_bottom": 33
+                  },
+                  "blocks": {}
+                },
+                "text_light_q4VYhQ": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Vegan friendly and made to the highest standards right here in the UK",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_H4rzXm",
+                "text_light_q4VYhQ"
+              ]
+            },
+            "text_grid_block_HLwAwx": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_RRrPUh": {
+                  "type": "title",
+                  "settings": {
+                    "title": "90-day Guarantee",
+                    "margin_bottom": 33
+                  },
+                  "blocks": {}
+                },
+                "text_light_fK8fHe": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "We’re that confident. See results in 90 days — or your money back.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_RRrPUh",
+                "text_light_fK8fHe"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_aRKtq7",
+            "text_grid_block_wcPQ9m",
+            "text_grid_block_tVHiHe",
+            "text_grid_block_tGXa7Q",
+            "text_grid_block_L6Tpbc",
+            "text_grid_block_HLwAwx"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Why_choose_Advanced.png",
+            "image": "shopify://shop_images/Why_choose_Advanced.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_64yWzx": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_8QCWLc": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_tMxfGJ": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_47YbWw": {
+                  "type": "kicker",
+                  "settings": {
+                    "kicker": "Advanced+ Hair Formula",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "heading_HBxJix": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "Meet the formula that <em>changes everything.</em>",
+                    "heading_type": "h3",
+                    "heading_size": "md",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "heading_NaWjNT": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "The most powerful hair growth supplement on the market.",
+                    "heading_type": "h3",
+                    "heading_size": "xs",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_heJQTr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>With 22 clinically proven ingredients, it works from the inside out to support fuller, stronger, healthier hair by tackling the root causes of hair loss—stress, hormones, inflammation and more.</p><p>Developed over five years by expert nutritionists, this potent formula doesn’t just maintain hair health. It transforms it.</p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_wRrJtg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li><strong>Rebalances hormones to reduce shedding</strong></li><li><strong>Lowers cortisol to fight stress-related hair loss</strong></li><li><strong>Combats inflammation + oxidative stress at the follicle</strong></li><li><strong>Supports stronger roots and thicker regrowth</strong></li><li><strong>Reduces breakage, thinning, and weak strands</strong></li><li><strong>Proven results in 90 days. Thousands already swear by it.</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "kicker_47YbWw",
+                "heading_HBxJix",
+                "heading_NaWjNT",
+                "text_heJQTr",
+                "text_wRrJtg"
+              ]
+            },
+            "media_ciqweK": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/ADV_ff290d51-8f01-401e-992f-307988a85824.jpg",
+                "image": "shopify://shop_images/ADV_ff290d51-8f01-401e-992f-307988a85824.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_tMxfGJ",
+            "media_ciqweK"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_8QCWLc"
+      ],
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_publications_jcDFGh": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_4FCtwn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_y6eWXG": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_GePrD9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_KgKrE8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_3YHiWj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_QVpph8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4FCtwn",
+        "logo_y6eWXG",
+        "logo_GePrD9",
+        "logo_KgKrE8",
+        "logo_3YHiWj",
+        "logo_QVpph8"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_CwUYkq",
+    "statistics_8E8FXw",
+    "text_BrXWJr",
+    "featured_products_jJLzPD",
+    "text_3hV9xp",
+    "featured_products_jhpRGm",
+    "text_wA7iCi",
+    "custom_tabs_i44PzU",
+    "video_testimonial_4jkyGt",
+    "featured_testimonials_UcrMz4",
+    "text_7cML4X",
+    "custom_tabs_38b63E",
+    "text_grid_DtLayH",
+    "text_and_media_64yWzx",
+    "featured_publications_jcDFGh"
+  ]
+}

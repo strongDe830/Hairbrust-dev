@@ -1,0 +1,57 @@
+{% liquid
+  assign blog_handle = _blog.title | handleize
+  assign blog = blogs[blog_handle]
+  assign article = _article
+  assign articles = '' | split: ''
+  assign limit = 6
+
+  if article.tags.size > 0
+    for article_tag in article.tags
+      if articles.size >= limit
+        break
+      endif
+
+      paginate blog.articles by 100
+        for blog_article in blog.articles
+          if articles.size >= limit
+            break
+          endif
+
+          if blog_article.id != article.id and blog_article.tags contains article_tag
+            assign blog_article_array = blog_article | sort
+            assign articles = articles | concat: blog_article_array | uniq
+          endif
+        endfor
+      endpaginate
+    endfor
+  endif
+
+  if articles.size < limit
+    for blog_article in blog.articles
+      if articles.size >= limit
+        break
+      endif
+
+      if blog_article.id != article.id
+        assign blog_article_array = blog_article | sort
+        assign articles = articles | concat: blog_article_array | uniq
+      endif
+    endfor
+  endif
+
+  if articles.size < 1
+    break
+  endif
+
+  render 'file-css', _name: 'snippet-layout-related-articles.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-article.css', _load_type: 'defer'
+%}
+
+<div class="snippet-layout-related-articles">
+  <h3 class="u-heading-xs">{{- 'template.article.related_articles' | t -}}</h3>
+  <ul>
+    {%- for article in articles limit: 3 -%}
+      <li>{%- render 'card-article', _article: article -%}</li>
+    {%- endfor -%}
+  </ul>
+</div>

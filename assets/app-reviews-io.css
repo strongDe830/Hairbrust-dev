@@ -1,0 +1,11 @@
+#wrapper .ruk_rating_snippet {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+#wrapper .ruk_rating_snippet i {
+  font-size: 0.75rem;
+}
+#wrapper .ruk_rating_snippet .ruk-rating-snippet-count {
+  bottom: auto;
+}

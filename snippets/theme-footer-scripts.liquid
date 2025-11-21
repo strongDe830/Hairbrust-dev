@@ -1,0 +1,75 @@
+<script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/2b8836892962b4c6d9eb0a84b29f1ef3.js"></script>
+<link rel="stylesheet" href="https://widget.reviews.io/rating-snippet/dist.css">
+
+<script>
+  ratingSnippet('ruk_rating_snippet', {
+    store: 'naturalkik.myshopify.com',
+    mode: 'default',
+    color: '#343436',
+    linebreak: false,
+    text: '',
+    singularText: '',
+    lang: 'en',
+    usePolaris: false,
+    showEmptyStars: false,
+  });
+
+  document.addEventListener('ajaxContentLoaded', () => {
+    const wrapper = document.querySelector('#main-collection');
+    if(wrapper) {
+      const ratingElements = wrapper.querySelectorAll('.ruk_rating_snippet');
+      if(ratingElements.length > 0) {
+        ratingSnippet('ruk_rating_snippet', {
+          store: 'naturalkik.myshopify.com',
+          mode: 'default',
+          color: '#343436',
+          linebreak: false,
+          text: '',
+          singularText: '',
+          lang: 'en',
+          usePolaris: false,
+          showEmptyStars: false,
+        });
+      };
+    };
+  });
+</script>
+
+{%- if settings.ringside_enable -%}
+  <!-- Ringside - Custom Event Tracking -->
+  <script>
+    Shopify.analytics.publish('rsd_template_type', {
+      templateType: '{{ template.name }}'
+    });
+
+    // This needs to add in the stage of the hairquiz that the user is on
+    function sendHairquizAnalytics(stage) {
+      Shopify.analytics.publish('rsd_hairquiz', {
+        stage: stage
+      });
+    }
+
+    window.addEventListener("sendlaneForms", function(e) {
+      if (e.detail.type === 'submit') {
+        Shopify.analytics.publish('rsd_sendlane_submit', {});
+      }
+    });
+
+
+    {% if template.name == 'product' %}
+    Shopify.analytics.publish('rsd_product_stock', {
+      inStock: {{ product.available }}
+    });
+
+    var rsdProductVideo = document.querySelectorAll("video");
+    for (var i = 0; i < rsdProductVideo.length; i++) {
+      rsdProductVideo[i].addEventListener("play", function(event){
+        Shopify.analytics.publish('rsd_product_video_play', {
+          videoUrl: event.target.currentSrc
+        });
+      });
+    }
+    {% endif %}
+  </script>
+{%- endif -%}

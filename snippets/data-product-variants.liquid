@@ -1,0 +1,284 @@
+{%- liquid
+  assign selected_variant = _product.selected_or_first_available_variant
+-%}
+
+{%- unless _product.has_only_default_variant -%}
+  <variant-radios
+    data-section="{{ section.id }}"
+    data-url="{{ product.url }}"
+    id="data-product-variants-{{ section.id }}"
+    class="data-product-variants"
+    data-product-variants
+
+  >
+    {%- if product.tags contains 'bundle' -%}
+      <fieldset class="product-option-wrapper bundle">
+        <legend class="form-label">
+            <strong>{{- product.selected_or_first_available_variant.title }}</strong>
+        </legend>
+        <ul id="variant-list">
+          {% for variant in product.variants -%}
+            {%- liquid
+              assign is_alt_purchase_block_active = false
+              for block in _section.blocks
+                if block.type == 'alt_purchase_option'
+                  assign is_alt_purchase_block_active = true
+                  break
+                endif
+              endfor
+
+              assign is_hidden = false
+              if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == variant.id
+                assign is_hidden = true
+              endif
+
+              assign variant_disabled = true
+              if variant.available
+                assign variant_disabled = false
+              endif
+            -%}
+            <li {% if is_hidden %}hidden{% endif %}>
+              {%- capture input_id -%}
+                {{ section.id }}-{{ variant.id }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+              {%- capture input_name -%}
+                {{- variant.title | handleize -}}
+              {%- endcapture -%}
+              {%- capture input_dataset -%}
+                data-product-url="{{ variant.url }}"
+                data-variant-id="{{ variant.id }}"
+                data-option-value-id="{{ variant.id }}"
+              {%- endcapture -%}
+              {%- capture input_attributes -%}
+                {% if variant == selected_variant %}
+                  checked
+                {% endif %}
+                {% if variant_disabled == true %}
+                  class="disabled"
+                {% endif %}
+              {% endcapture %}
+              <input
+                type="radio"
+                name="{{- input_name -}}"
+                id="{{- input_id -}}"
+                value="{{- variant.title | escape -}}"
+                form="{{- _product_form_id -}}"
+                {{ input_attributes }}
+                {{ input_dataset }}
+              >
+              <label
+                for="{{- input_id -}}"
+                {% if variant.image != blank %}
+                  class="has-image"
+                {% endif %}
+              >
+                {{
+                  variant.image
+                  | image_url: width: '200x'
+                  | image_tag: class: 'image', loading: loading, alt: variant.image.alt
+                }}
+              </label>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </fieldset>
+    {%- else -%}
+      {%- for option in _product.options_with_values -%}
+        {%- if option.values.size > 1 -%}
+          {% assign downcase_option_name = option.name | downcase %}
+          <fieldset>
+            {% liquid
+              assign sub_option = false
+              assign option_index = forloop.index0
+
+              for option_value in option.values
+                if option_value.variant.selling_plan_allocations.size > 0
+                  assign sub_option = true
+                  break
+                endif
+              endfor
+            %}
+            <div class="product-option-wrapper {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
+              <legend class="form-label">
+                {% if sub_option %}
+                  {{- 'products.product.choose_an_option' | t -}}
+                {% else %}
+                  {{- option.name }}: <strong>{{- option.selected_value -}}</strong>
+                {% endif %}
+              </legend>
+              <ul id="variant-list">
+                {%- for value in option.values -%}
+                  {%- liquid
+                    assign option_disabled = true
+                    if value.available
+                      assign option_disabled = false
+                    endif
+
+                    assign is_alt_purchase_block_active = false
+                    for block in _section.blocks
+                      if block.type == 'alt_purchase_option'
+                        assign is_alt_purchase_block_active = true
+                        break
+                      endif
+                    endfor
+
+                    assign is_hidden = false
+                    if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                      assign is_hidden = true
+                    endif
+                  -%}
+                  {%- capture input_id -%}
+                    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+                  {%- endcapture -%}
+                  {%- capture input_name -%}
+                    {{ option.name }}-{{ option.position }}
+                  {%- endcapture -%}
+                  {%- capture input_dataset -%}
+                    data-product-url="{{ value.product_url }}"
+                    data-variant-id="{{ value.variant.id }}"
+                    data-option-value-id="{{ value.id }}"
+                  {%- endcapture -%}
+                  {%- capture input_attributes -%}
+                    {% if selected_variant.options[option_index] == value %}
+                      checked
+                    {% endif %}
+                    {% if option_disabled == true %}
+                      class="disabled"
+                    {% endif %}
+                  {% endcapture %}
+                  <li {% if is_hidden %}hidden{% endif %}>
+                    <input
+                      type="radio"
+                      name="{{- input_name -}}"
+                      id="{{- input_id -}}"
+                      value="{{- value | escape -}}"
+                      form="{{- _product_form_id -}}"
+                      {{ input_attributes }}
+                      {{ input_dataset }}
+                    >
+
+                      <label
+                        for="{{- input_id -}}"
+                        {% if value.variant.image != blank %}
+                          class="has-image"
+                        {% endif %}
+                      >
+                        {% if sub_option %}
+                          {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                          {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                          {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+
+                          {% if sub_object.lozenge_text != blank %}
+                            <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                          {% endif %}
+
+                          <div class="label__content">
+                            <div class="option-header">
+                              <div class="option-selector-title">
+                                <div class="checked-icon"></div>
+                                <span class="option-title">{{ value }}</span>
+                              </div>
+
+                              {% if sub_object.lozenge_text != blank %}
+                                <span class="lozenge">{{ sub_object.lozenge_text }}</span>
+                              {% endif %}
+                              {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                {% if value.variant.compare_at_price != blank and value.variant.compare_at_price != value.variant.price %}
+                                  <div class="option-saving">
+                                    {% liquid
+                                      assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
+                                      assign saving_percentage = 100 | minus: saving_ratio
+                                    %}
+                                    <span>
+                                      {{- 'products.product.save' | t }}
+                                      {{ saving_percentage }}%
+                                    </span>
+                                  </div>
+                                {% endif %}
+                              {%- endunless -%}
+                              <div class="prices">
+                                <span class="current">
+                                  {{- value.variant.price | money }}
+                                </span>
+                                {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                  {% if value.variant.compare_at_price != blank %}
+                                    <span class="was">
+                                      {{- value.variant.compare_at_price | money }}
+                                    </span>
+                                  {% endif %}
+                                {%- endunless -%}
+                              </div>
+                            </div>
+                            {% if sub_object.trust_points.value != blank %}
+                              <ul class="option-trust-points">
+                                {% for trust_point in sub_object.trust_points.value %}
+                                  <li>
+                                    {{
+                                      trust_point.icon
+                                      | image_url: width: 80
+                                      | image_tag: class: 'icon', loading: 'lazy'
+                                    }}
+                                    <span>{{ trust_point.text }}</span>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                              {% if free_gift != blank %}
+                                <div class="banner">
+                                  <span class="banner-text">
+                                    {% if free_gift_title != blank %}
+                                      {{ free_gift_title }}
+                                    {% else %}
+                                      Free gift worth {{ free_gift.price | money }}
+                                    {% endif %}
+                                  </span>
+                                </div>
+                                <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
+                                  <div class="free-gift">
+                                    {{-
+                                      free_gift.featured_image
+                                      | image_url: width: 600
+                                      | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
+                                    -}}
+                                    <div class="free-gift-info">
+                                      {{ free_gift.title }}
+                                      <div class="free-gift-pricing">
+                                        <span class="free-gift-free">Free</span>
+                                        <span class="free-gift-price">
+                                          Worth {{ free_gift.price | money }}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              {% endif %}
+                            {% endif %}
+                          </div> {% comment %} End of .label__content wrapper {% endcomment %}
+                        {% else %}
+                          {% if value.variant.image != blank %}
+                            {{
+                              value.variant.image
+                              | image_url: width: '200x'
+                              | image_tag: class: 'image', loading: loading, alt: value.variant.image.alt
+                            }}
+                          {% else %}
+                            <span>{{ value }}</span>
+                          {% endif %}
+                        {% endif %}
+                      </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </fieldset>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+    <script type="application/json" data-product-json-{{ section.id }}>
+      {{ _product | json }}
+    </script>
+  </variant-radios>
+  <script type="application/json" data-selected-variant>
+    {{ _product.selected_or_first_available_variant | json }}
+  </script>
+{%- endunless -%}

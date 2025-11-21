@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "use_cart_notes": false,
+        "use_upsell_products": false,
+        "margin_bottom": "md"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "blocks": {
+        "heading_g3ctRn": {
+          "type": "heading",
+          "settings": {
+            "heading": "You may also like",
+            "heading_type": "h2",
+            "heading_size": "xs"
+          }
+        }
+      },
+      "block_order": [
+        "heading_g3ctRn"
+      ],
+      "settings": {
+        "product_limit": 6,
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products"
+  ]
+}

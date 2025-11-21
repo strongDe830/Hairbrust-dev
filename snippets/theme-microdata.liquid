@@ -1,0 +1,16 @@
+{%- if template == 'index' -%}
+  {%- render 'data-json-ld', markup: 'organisation', product, collection, article, blog, page -%}
+  {%- render 'data-json-ld', markup: 'webpage', product, collection, article, blog, page -%}
+{% else %}
+  {%- render 'data-json-ld' with markup: 'breadcrumb', product, collection, article, blog, page -%}
+{%- endif -%}
+{%- if template contains 'contact' or template contains 'store' -%}
+  {%- render 'data-json-ld', markup: 'localbusiness', product, collection, article, blog, page -%}
+{%- endif %}
+
+{%- if product -%}
+  {%- render 'data-json-ld' with markup: 'product', product, collection, article, blog, page -%}
+{%- endif -%}
+{%- if article -%}
+  {%- render 'data-json-ld' with markup: 'blogpost', product, collection, article, blog, page -%}
+{%- endif -%}

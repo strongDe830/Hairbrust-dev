@@ -1,0 +1,20 @@
+{% liquid
+  assign anchor_style = _anchor_style | default: 'tuna'
+  assign anchor_version = _anchor_version | default: 'main'
+%}
+{%- if _anchor_text != blank and _anchor_url != blank -%}
+  <a
+    href="{{- _anchor_url -}}"
+    class="c-btn {{ anchor_version }} {{ anchor_style }} {{ _class }}"
+    {% if _target != blank %}
+      target="{{- _target -}}"
+    {% endif %}
+  >
+    {{- _anchor_text -}}
+    {% liquid
+      if _icon != 'none' or _icon != blank
+        render 'element-icon', _icon: _icon
+      endif
+    %}
+  </a>
+{%- endif -%}

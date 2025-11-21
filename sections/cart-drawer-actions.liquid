@@ -1,0 +1,28 @@
+{%- liquid
+  assign checkout_blocked = true
+
+  if cart.item_count > 0
+    assign checkout_blocked = false
+  endif
+-%}
+
+<div
+  id="{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  class="cart-drawer-actions"
+  data-quick-cart-actions
+>
+  {%- if cart.item_count > 0 -%}
+    {% if checkout_blocked == true %}
+      <button class="c-btn main black fw centre" disabled>
+        {{ 'template.cart.unable_to_checkout' | t }}
+      </button>
+    {% else %}
+      <a class="c-btn main tuna fw centre" aria-label="Checkout" href="{{- '/checkout' -}}">
+        {%- render 'element-icon', _icon: 'lock' -%}
+        {{ 'template.cart.proceed_to_checkout' | t }}
+      </a>
+
+    {% endif %}
+  {%- endif -%}
+</div>

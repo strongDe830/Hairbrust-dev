@@ -1,0 +1,22 @@
+.snippet-overlay {
+  background-color: var(--colour-black);
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  transition-delay: var(--transition-duration);
+}
+.snippet-overlay.js-is-visible {
+  opacity: 0.4;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.snippet-overlay[data-is-open=true] {
+  opacity: 0.4;
+  visibility: visible;
+  transition-delay: 0s;
+}

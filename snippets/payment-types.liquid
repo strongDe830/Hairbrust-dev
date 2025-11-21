@@ -1,0 +1,7 @@
+<ul class="c-payment-types {{ _class }}" role="list">
+  {%- for type in shop.enabled_payment_types -%}
+    <li>
+      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+    </li>
+  {%- endfor -%}
+</ul>

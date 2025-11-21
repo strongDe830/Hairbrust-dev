@@ -1,0 +1,123 @@
+{% liquid
+  assign item_image = _item.variant.featured_image | default: _item.product.featured_image
+
+  comment
+    assign show_edit_option = false
+    if product.selling_plan_groups.size > 0
+      assign show_edit_option = true
+      assign subscription_plan = _item.selling_plan_allocation.selling_plan
+    endif
+  endcomment
+  assign subscription_option = blank
+
+  if _item.product.selling_plan_groups.size > 0
+    for option in _item.product.options_with_values
+      for option_value in option.values
+        if option_value.variant.selling_plan_allocations.size > 0
+          assign subscription_options = option
+          break
+        endif
+      endfor
+    endfor
+
+    for option in subscription_options.values
+      if option.variant.id == _item.variant.id
+        assign subscription_option = option
+        break
+      endif
+    endfor
+  endif
+
+  assign current_variant = _item.product.selected_or_first_available_variant
+
+  assign bogo_this_variant_enabled = false
+  assign bogo_shop_sale_enabled = false
+  assign bogo_sale_excluded_variants = ''
+
+  assign bogo_enabled = shop.metaobjects.bogo_sale_enabled_.values
+  for entry in bogo_enabled limit: 1
+    assign bogo_shop_sale_enabled = entry.enabled
+  endfor
+
+  assign bogo_excluded_variants = shop.metaobjects.bogo_sale_excluded_variants.values
+  for entry in bogo_excluded_variants limit: 1
+    assign bogo_sale_excluded_variants = entry.variants.value
+  endfor
+
+  if bogo_shop_sale_enabled == true
+    assign bogo_this_variant_enabled = true
+    for excluded_variant in bogo_sale_excluded_variants
+      if excluded_variant.id == current_variant.id
+        assign bogo_this_variant_enabled = false
+      endif
+    endfor
+  endif
+%}
+
+<cart-line-item
+  data-key="{{ _item.key }}"
+  index="{{ _item.index | plus: 1 }}"
+  class="snippet-cart-line-item">
+  {% if bogo_this_variant_enabled %}
+    <div data-bogo-enabled hidden></div>
+  {% endif %}
+  <a href="{{- _item.url -}}" class="c-btn image" aria-label="{{ _item.product.title | handleize }}">
+    {% liquid
+      if item_image != blank
+        echo item_image | image_url: width: 320, height: 320, crop: 'center' | image_tag
+      else
+        echo 'image' | placeholder_svg_tag: 'placeholder-svg'
+      endif
+    %}
+  </a>
+  <div class="details">
+    <div class="title-price">
+      <a href="{{- _item.url -}}" class="c-btn title">{{- _item.product.title -}}</a>
+      {%- render 'data-prices', _type: 'cart', _item: _item -%}
+    </div>
+    {% if subscription_option != blank %}
+      <div class="subscription-selector-wrapper" data-subscription-selector-wrapper>
+        {% liquid
+          assign show_icon = false
+          if _item.variant.selling_plan_allocations.size > 0
+            assign show_icon = true
+          endif
+        %}
+        <button type="button" class="c-btn selected-option" data-subscription-selected>
+          {% if show_icon %}{%- render 'element-icon', _icon: 'refresh' -%}{% endif %}
+          {{ subscription_option.name }} <span>(Edit)</span>
+        </button>
+
+        <ul class="subscription-selector hidden" data-subscription-selector>
+          {%- for option in subscription_options.values -%}
+            {% liquid
+              assign selling_plan_id = blank
+
+              if option.variant.selling_plan_allocations.size > 0
+                assign selling_plan_id = option.variant.selling_plan_allocations[0].selling_plan.id
+              endif
+            %}
+            <li class="option {% if option.variant.id == _item.variant.id %} selected{%- endif -%}" data-subscription-variant-id="{{ option.variant.id }}" {% if selling_plan_id != blank %}data-selling-plan-id="{{ selling_plan_id }}"{% endif %}>
+              {{ option.name }} <span>{{ option.variant.price | money }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {% endif %}
+    {% comment %} {%- if _item.product.has_only_default_variant == false -%}
+      <ul class="options">
+        {%- for option in _item.options_with_values -%}
+          <li>
+            <small>{{- option.name }}: {{ option.value -}}</small>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%} {% endcomment %}
+    <div class="actions">
+      {%- render 'quantity', _qty: _item.quantity -%}
+      <button class="c-btn remove" data-cart-line-item-el="remove">
+        {{ 'template.cart.remove' | t -}}
+      </button>
+    </div>
+  </div>
+</cart-line-item>

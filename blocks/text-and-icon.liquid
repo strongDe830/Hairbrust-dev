@@ -1,0 +1,37 @@
+{% liquid
+  assign image_alt = block.settings.icon.alt | default: block.settings.text
+  assign icon = block.settings.icon
+%}
+<div class="block-text-and-icon c-rte">
+  {% liquid
+    if icon != blank
+      echo icon | image_url: width: 80 | image_tag: alt: image_alt, loading: 'eager'
+    else
+      render 'element-icon', _icon: 'check'
+    endif
+  %}
+  <p>
+    {{ block.settings.text }}
+  </p>
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.text_and_icon.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "icon",
+      "label": "t:sections.all.icon.label",
+      "info": "t:sections.all.icon.info"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "t:sections.all.text.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.text_and_icon.name" }]
+}
+{% endschema %}

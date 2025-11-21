@@ -1,0 +1,95 @@
+{%- liquid
+  assign template_name = 'section-page-hero'
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-page-hero.css'
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% comment %} {%- if request.page_type == 'collection' -%}
+      {% liquid
+        assign strapline = collection.metafields.custom.strapline | metafield_tag | remove: '<div class="metafield-rich_text_field">' | remove: '</div>' | remove: '<p>' | remove: '</p>'
+      %}
+      <div class="block-group-content">
+        <h1 class="u-heading-xs">{{- collection.title -}}</h1>
+        <h2 class="u-heading-lg">{{- strapline -}}</h2>
+        {{- collection.description -}}
+      </div>
+    {%- else -%}
+    {%- endif -%} {% endcomment %}
+    {% content_for 'block', type: 'group-content', id: 'static-group-content' %}
+    <div class="section-media">
+      {% content_for 'block', type: 'media', id: 'static-media' %}
+      {% content_for 'block', type: 'badge', id: 'static-badge' %}
+    </div>
+  </div>
+</div>
+
+{% comment %} <script>
+  const options = { method: 'GET', headers: { accept: 'application/json' } };
+
+  fetch(
+    'https://api.reviews.io/merchant/reviews?store=fr.hairburst.com&apikey=70c95a749912105e1468ec7fb99f610d&min_rating=4',
+    options
+  )
+    .then((res) => res.json())
+    {% comment %} .then(res => console.log(res)) {% endcomment %}
+    .then((data) => {
+      const reviews = data.stats.average_rating;
+      console.log('reviews', reviews);
+    })
+    .catch((err) => console.error(err));
+</script> {% endcomment %}
+
+{% schema %}
+{
+  "name": "t:sections.page_hero.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [{ "type": "group-content" }, { "type": "media" }, { "type": "badge" }],
+  "presets": [
+    {
+      "name": "t:sections.page_hero.name"
+    }
+  ]
+}
+{% endschema %}

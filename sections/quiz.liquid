@@ -1,0 +1,274 @@
+{% liquid
+  assign quiz = shop.metafields.global.quiz.value
+  assign template_name = 'section-quiz'
+
+  assign quizContent = shop.metaobjects.quiz_content.values
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-quiz.css'
+  render 'file-css', _name: 'snippet-layout-quiz-content.css'
+  render 'file-css', _name: 'snippet-card-product-quiz.css'
+%}
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <quiz-form data-form-data="{{ quiz | json | escape }}">
+      <header>
+        <button class="c-btn" data-quiz-form-el="prev">
+          {%- render 'element-icon', _icon: 'arrow-left' -%}
+          Previous
+        </button>
+        <a href="/" class="c-btn" data-quiz-form-el="reset">Exit</a>
+      </header>
+      <div class="wrapper">
+        <progress id="progressBar" data-quiz-form-el="progressBar" value="20" max="100"></progress>
+
+        {% for step in quiz.steps %}
+          {% liquid
+            assign contentAlignment = step.contentAlignment
+            assign has_content = ''
+            assign questionAlignment = step.questionAlignment
+
+            assign step_alignment = 'center'
+
+            if step.sideStepcontentId != blank
+              assign has_content = 'has-content'
+            endif
+
+            if questionAlignment == 'left'
+              assign questionAlignment = 'flex-start'
+            elsif questionAlignment == 'right'
+              assign questionAlignment = 'self-end'
+            endif
+
+            if contentAlignment == 'left'
+              assign contentAlignment = 'flex-start'
+            elsif contentAlignment == 'right'
+              assign contentAlignment = 'self-end'
+            endif
+          %}
+          <quiz-step
+            data-conditional-logic="{{ step.conditionalLogic | json | escape }}"
+            class="{{ step_alignment }} {{ has_content }}"
+            data-requires-validation="{{ step.requiresValidation }}"
+          >
+            <div class="quiz-heading">
+              <p class="u-heading-lg " style="align-items: {{ questionAlignment }};">{{ step.title }}</p>
+              {%- if step.info != blank -%}
+                <p>{{- step.info -}}</p>
+              {%- endif -%}
+            </div>
+
+            <div class="questions">
+              {% for question in step.questions %}
+                <quiz-question
+                  key="{{ question.key }}"
+                  data-question-type="{{ question.type }}"
+                  {%- if step.maxOptionSelection -%}
+                    data-max-option-selection="{{ step.maxOptionSelection }}"
+                  {%- endif -%}
+                >
+                  {% case question.type %}
+                    {% when 'email' %}
+                      <div class="form-field">
+                        <label class="form-label email-label" for="{{ question.key }}">{{ question.label }}</label>
+                        <input
+                          class="form-input email-input"
+                          type="email"
+                          name="{{ question.key }}"
+                          id="{{ question.key }}"
+                          {% if question.required %}
+                            required
+                          {% endif %}
+                          data-id="{{ question.id }}"
+                        >
+                      </div>
+                    {% when 'number' %}
+                      <div class="form-field">
+                        <label class="form-label number-label" for="{{ question.label | handleize }}">
+                          {{- question.label -}}
+                        </label>
+                        <input
+                          class="form-input number-input"
+                          type="number"
+                          min="{{ question.min }}"
+                          max="{{ question.max }}"
+                          name="{{ question.key }}"
+                          id="{{ question.label | handleize }}"
+                          {% if question.required %}
+                            required
+                          {% endif %}
+                        >
+                      </div>
+                    {% when 'radio' %}
+                      {% for option in question.options %}
+                        {% assign input_id = question.key | append: '-' | append: option.label | handleize %}
+                        <div class="form-field">
+                          <input
+                            class="form-input"
+                            type="radio"
+                            name="{{ question.key }}"
+                            id="{{ input_id }}"
+                            value="{{ option.value }}"
+                            {% if option.default %}
+                              checked
+                            {% endif %}
+                            data-id="{{ option.id }}"
+                          >
+                          <label class="form-label stretched-link" for="{{ input_id }}">
+                            {{- option.label -}}
+                          </label>
+                        </div>
+                      {% endfor %}
+                    {% when 'select' %}
+                      <div class="form-field">
+                        <label for="{{ question.key }}">{{ question.label }}</label>
+                        <select
+                          class="form-input"
+                          name="{{ question.key }}"
+                          id="{{ question.key }}"
+                          {% if question.required %}
+                            required
+                          {% endif %}
+                        >
+                          {% for option in question.options %}
+                            <option
+                              value="{{ option.value }}"
+                              {% if option.default %}
+                                selected
+                              {% endif %}
+                              data-id="{{ option.id }}"
+                            >
+                              {{ option.label }}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    {% when 'text' %}
+                      <div class="form-field">
+                        <label class="form-label" for="{{ question.key }}">{{ question.label }}</label>
+                        <input
+                          class="form-input"
+                          type="text"
+                          name="{{ question.key }}"
+                          id="{{ question.key }}"
+                          {% if question.required %}
+                            required
+                          {% endif %}
+                          data-id="{{ question.id }}"
+                        >
+                      </div>
+                    {% when 'checkboxes' %}
+                      <label>{{ question.label }}</label>
+                      {% for option in question.options %}
+                        <div class="form-field">
+                          <input
+                            class="form-input"
+                            type="checkbox"
+                            name="{{ option.value }}"
+                            id="{{ option.label }}"
+                            {% if option.default %}
+                              checked
+                            {% endif %}
+                            data-id="{{ option.id }}"
+                          >
+                          <label class="form-label" for="{{ option.label }}">{{ option.label }}</label>
+                        </div>
+                      {% endfor %}
+                  {% endcase %}
+                </quiz-question>
+              {% endfor %}
+            </div>
+            {%- if step.isSideStepContent == true -%}
+              {% liquid
+                assign stepContentId = step.sideStepcontentId | escape
+              %}
+              {%- for content in quizContent -%}
+                {% liquid
+                  assign contentId = content.system.id | escape
+                %}
+                {%- if stepContentId == contentId -%}
+                  {%- render 'layout-quiz-content',
+                    _settings: content,
+                    isSideStepContent: step.isSideStepContent,
+                    contentAlignment: contentAlignment
+                  -%}
+                  {% break %}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- elsif step.isFullStepContent == true -%}
+              {%- for content in quizContent -%}
+                {%- if step.id == content.system.id -%}
+                  {%- render 'layout-quiz-content',
+                    _settings: content,
+                    isFullStepContent: step.isFullStepContent,
+                    contentAlignment: contentAlignment
+                  -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+            <div class="actions">
+              <button class="c-btn main tuna" data-quiz-form-el="next">
+                Next
+                {%- render 'element-icon', _icon: 'arrow-right' -%}
+              </button>
+              <div class="c-lozenge gallery" data-validation hidden>
+                {{- 'quiz.validation' | t -}}
+              </div>
+              <div class="c-lozenge gallery" data-validation-max-checks hidden>
+                {{ step.maxOptionSelectionText }}
+              </div>
+            </div>
+          </quiz-step>
+        {% endfor %}
+        <quiz-results hidden> Results </quiz-results>
+      </div>
+    </quiz-form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_content.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz"
+    }
+  ]
+}
+{% endschema %}

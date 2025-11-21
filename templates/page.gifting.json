@@ -1,0 +1,560 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "17448038974fe13355": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_4btKM6": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<link rel=\"preload\" href=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\" as=\"script\">\n  <script src=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\"></script>\n  <div id=\"videowise_stream_channel\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_4btKM6"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "page_hero_full_width_LEWhp3": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Gifting_HP_Banner.png",
+            "image": "shopify://shop_images/Gifting_header_-_desktop.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero_full_width.name",
+      "settings": {
+        "content_position": "top_left",
+        "margin_bottom": "xs"
+      }
+    },
+    "text_krPfAU": {
+      "type": "text",
+      "blocks": {
+        "group_content_DwCdff": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_Pab3Pt": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Great Hair Never Goes Out of Season",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 10
+              },
+              "blocks": {}
+            },
+            "text_MBYL9d": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>From stronger strands to thicker growth, give the gift of great hair this Christmas.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 10
+              },
+              "blocks": {}
+            },
+            "text_light_JirGCy": {
+              "type": "text-light",
+              "name": "t:blocks.text_light.name",
+              "settings": {
+                "text": "<em>From the UK's #1 Hair Growth Vitamin Brand.</em>",
+                "text_align": "center",
+                "margin_bottom": 2
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_Pab3Pt",
+            "text_MBYL9d",
+            "text_light_JirGCy"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_DwCdff"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "xs"
+      }
+    },
+    "text_RUDe6G": {
+      "type": "text",
+      "blocks": {
+        "group_content_dcEhtk": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_CAj6Fi": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Perfect for gifting.",
+                "heading_type": "h3",
+                "heading_size": "sm",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_3jnfg3": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Shop our bestsellers, trusted by millions for stronger, healthier hair.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 2
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_CAj6Fi",
+            "text_3jnfg3"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_dcEhtk"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_LnhCzK": {
+      "type": "featured-products",
+      "blocks": {
+        "block_cMmH3B": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-bond-repair-duo",
+              "advanced-hair-formula",
+              "multi-active-hair-growth-serum",
+              "strength-and-nourishment-essentials-1",
+              "long-and-healthy-hair-mask",
+              "longer-stronger-hair-trio",
+              "hairburst-volume-growth-elixir",
+              "chewable-hair-vitamins",
+              "hairburst-shampoo-conditioner-set",
+              "hairburst-lash-and-brow-growth-serum",
+              "shampoo-conditioner-for-oily-scalp-and-roots",
+              "chewable-hair-growth-starter-kit",
+              "minis-gift-set",
+              "reparative-shampoo-for-damaged-hair",
+              "advanced-plus-hair-mask",
+              "defined-curls"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_cMmH3B"
+      ],
+      "name": "t:sections.featured_products.name",
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "categories_RAWngK": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_PFEtc7": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Gifts for every budget.",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "start",
+                "margin_bottom": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_PFEtc7"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "category_8jADCY": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "gifts-under-40"
+              },
+              "blocks": {}
+            },
+            "category_yaCdif": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "gifts-under-60"
+              },
+              "blocks": {}
+            },
+            "category_MLHkik": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "gifts-under-100"
+              },
+              "blocks": {}
+            },
+            "category_cB867N": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "shop-all-1"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "category_8jADCY",
+            "category_yaCdif",
+            "category_MLHkik",
+            "category_cB867N"
+          ]
+        }
+      },
+      "name": "t:sections.categories.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "categories_Xq8Ay7": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_74JE88": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Gifts for every hair type.",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "start",
+                "margin_bottom": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_74JE88"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "category_a3FP8g": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "thinning-hair"
+              },
+              "blocks": {}
+            },
+            "category_RkVtz4": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "dry-damaged-hair-1"
+              },
+              "blocks": {}
+            },
+            "category_aVUqzB": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "oily-hair-1"
+              },
+              "blocks": {}
+            },
+            "category_Fdnn39": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "curly-hair-1"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "category_a3FP8g",
+            "category_RkVtz4",
+            "category_aVUqzB",
+            "category_Fdnn39"
+          ]
+        }
+      },
+      "custom_css": [],
+      "name": "t:sections.categories.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_products_gyYJ89": {
+      "type": "featured-products",
+      "blocks": {
+        "block_wpjNza": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "heatless-hair-curler",
+              "microfibre-hair-towel",
+              "baby-hair-tamer",
+              "hairburst-lash-and-brow-growth-serum",
+              "scalp-stimulating-massage-brush",
+              "refresh-volume-dry-shampoo",
+              "minis-gift-set",
+              "hairburst-roller-for-thinning-hair",
+              "exfoliating-scalp-scrub",
+              "hairburst-hair-smoothing-balm"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_wpjNza"
+      ],
+      "name": "t:sections.featured_products.name",
+      "settings": {
+        "heading": "Something a little extra.",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "none"
+      }
+    },
+    "statistics_HT7Tbw": {
+      "type": "statistics",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "statistic_GDekXg": {
+              "type": "statistic",
+              "name": "t:blocks.statistic.name",
+              "settings": {
+                "title": "1m+",
+                "text": "women trust us with their hair health."
+              },
+              "blocks": {}
+            },
+            "statistic_NznY93": {
+              "type": "statistic",
+              "name": "t:blocks.statistic.name",
+              "settings": {
+                "title": "90",
+                "text": "days is all it takes to see a difference."
+              },
+              "blocks": {}
+            },
+            "statistic_bFtJPN": {
+              "type": "statistic",
+              "name": "t:blocks.statistic.name",
+              "settings": {
+                "title": "98%",
+                "text": "noticed faster hair growth."
+              },
+              "blocks": {}
+            },
+            "statistic_Mqkh69": {
+              "type": "statistic",
+              "name": "t:blocks.statistic.name",
+              "settings": {
+                "title": "88%",
+                "text": "said their hair felt healthier."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_GDekXg",
+            "statistic_NznY93",
+            "statistic_bFtJPN",
+            "statistic_Mqkh69"
+          ]
+        }
+      },
+      "name": "t:sections.statistics.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_rib6hr": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_3Rwzcd": {
+          "type": "heading",
+          "name": "t:sections.all.heading.label",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 10
+          },
+          "blocks": {}
+        },
+        "text_light_DF733C": {
+          "type": "text-light",
+          "name": "t:blocks.text_light.name",
+          "settings": {
+            "text": "Over 6000   ★ ★ ★ ★ ★   reviews across our range.",
+            "text_align": "start",
+            "margin_bottom": 10
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_3Rwzcd",
+        "text_light_DF733C"
+      ],
+      "name": "t:sections.featured_testimonials.name",
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "aimee",
+          "lauren",
+          "ana",
+          "charlie",
+          "justine",
+          "megan",
+          "amber",
+          "jess",
+          "carabeaty",
+          "nicole",
+          "sabrina"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "xs"
+      }
+    }
+  },
+  "order": [
+    "17448038974fe13355",
+    "page_hero_full_width_LEWhp3",
+    "text_krPfAU",
+    "text_RUDe6G",
+    "featured_products_LnhCzK",
+    "categories_RAWngK",
+    "categories_Xq8Ay7",
+    "featured_products_gyYJ89",
+    "statistics_HT7Tbw",
+    "featured_testimonials_rib6hr"
+  ]
+}

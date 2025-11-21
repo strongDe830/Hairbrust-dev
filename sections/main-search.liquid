@@ -1,0 +1,173 @@
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- liquid
+  assign template_name = 'section-main-search'
+
+  assign pageUrl = contentForQuerystring | split: '"pageurl":"' | last | split: '"' | first | split: '.co.uk' | last | replace: '\/', '/' | replace: '%20', ' ' | replace: '\u0026', '&'
+  assign querystring = pageUrl | split: '?' | last
+  assign querystringParts = querystring | split: '&'
+
+  assign showFiltersOnLoad = false
+
+  for part in querystringParts
+    if part contains 'lastClicked=filter'
+      assign showFiltersOnLoad = true
+    endif
+  endfor
+
+  assign products_per_page = 24
+
+  assign use_add_to_cart_btn = section.settings.use_add_to_cart_btn
+  assign margin_bottom = section.settings.margin_bottom
+
+  assign search_types = results.types | join: '%2C'
+  assign search_terms = results.types | split: ' ' | join: '+'
+  assign base_url = routes.search_url | append: '?' | append: 'type=' | append: search_types | append: '&q=' | append: search_terms
+
+  if search.performed
+    assign heading = 'Search performed'
+  else
+    assign heading = 'Search'
+  endif
+
+  render 'file-js', _name: 'section-main-search.js', _load_type: 'async'
+  render 'file-css', _name: 'section-main-search.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-layout-store-filters.css', _load_type: 'defer'
+  render 'file-js', _name: 'snippet-layout-store-filters.js', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-article.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-category.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-page.css', _load_type: 'defer'
+%}
+
+<main-search
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+  data-search-ajax
+  data-search-infinite-results
+  data-paginate-by="{{ products_per_page }}"
+>
+  <div class="container">
+    {%- paginate search.results by products_per_page -%}
+      <header class="search-header">
+        <h1 class="u-heading-md">{{- heading -}}</h1>
+        {%- if search.performed -%}
+          <p id="search-description">
+            {% if search.results_count == 0 %}
+              {{ 'template.search.no_results_html' | t: terms: search.terms }}
+            {%- else -%}
+              {{ 'template.search.results_with_count' | t: count: search.results_count, terms: search.terms }}
+            {%- endif -%}
+          </p>
+        {% else %}
+          <p class="u-heading-xs">{{- 'template.search.empty' | t -}}</p>
+        {%- endif -%}
+        {% if search.results_count > 0 %}
+          <button
+            class="c-btn alt filters-open"
+            aria-controls="store-filters"
+            aria-expanded="false"
+            data-search-filters-open
+          >
+            {{- 'template.collection.filters.show' | t -}}
+            {%- render 'element-icon', _icon: 'chevron-right' -%}
+          </button>
+        {%- endif -%}
+      </header>
+
+      <div class="wrapper u-space-below-md">
+        {%- render 'layout-store-filters',
+          results: search,
+          _total_items: search.results_count,
+          _enable_ajax: true,
+          _showFiltersOnLoad: showFiltersOnLoad
+        -%}
+        {% if search.results_count > 0 %}
+          <div class="search-overlay{% if showFiltersOnLoad %} is-visible{% endif %}" data-search-overlay></div>
+          <div id="results-container">
+            {%- if paginate.previous -%}
+              {%- assign previous_url = paginate.previous.url | default: '#' -%}
+              <div class="pagination prev" data-search-pagination-less>
+                <a class="c-btn main spring" href="{{ previous_url | url }}" data-search-pagination-less-btn>
+                  {{- 'template.collection.pagination.previous' | t -}}
+                  {%- render 'element-icon', _icon: 'arrow-up' -%}
+                </a>
+              </div>
+            {%- endif -%}
+            <div class="grid" data-search-products>
+              {%- for search_item in search.results -%}
+                {% if search_item.object_type == 'product' %}
+                  {%- render 'card-product', _product: search_item, _use_add_to_cart_btn: use_add_to_cart_btn -%}
+                {% elsif search_item.object_type == 'article' -%}
+                  {%- render 'card-article', _article: search_item, _search_card: true -%}
+                {%- elsif search_item.object_type == 'page' -%}
+                  {%- render 'card-page', _page: search_item, _search_card: true -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- if paginate.next -%}
+              {%- assign next_url = paginate.next.url | default: '#' -%}
+              <div class="pagination next" data-search-pagination-more>
+                <a class="c-btn main spring" href="{{ next_url | url }}" data-search-pagination-more-btn>
+                  {{- 'template.collection.pagination.more' | t -}}
+                  {%- render 'element-icon', _icon: 'arrow-down' -%}
+                </a>
+              </div>
+            {%- endif -%}
+          </div>
+        {% elsif search.performed %}
+          <div data-search-empty>
+            <p class="u-heading-sm">{{- 'template.search.empty' | t -}}</p>
+          </div>
+        {% endif %}
+      </div>
+    {%- endpaginate -%}
+  </div>
+</main-search>
+
+{% schema %}
+{
+  "name": "t:sections.main_search.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_add_to_cart_btn",
+      "label": "t:sections.all.use_add_to_cart_btn.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

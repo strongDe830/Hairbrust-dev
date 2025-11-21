@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-quiz": {
+      "type": "quiz",
+      "custom_css": [
+        ".snippet-layout-quiz-content:before {opacity: 20%;}",
+        "header > [data-quiz-form-el=\"reset\"] {display: none;}",
+        "quiz-step:has(.isFullStepContent) {gap: 1rem;}"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-quiz"
+  ]
+}

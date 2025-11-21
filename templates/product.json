@@ -1,0 +1,244 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "lozenges_t9HDwW": {
+          "type": "lozenges",
+          "settings": {}
+        },
+        "heading_QXTMTw": {
+          "type": "heading",
+          "settings": {}
+        },
+        "short_desc_cBzCTP": {
+          "type": "short_desc",
+          "settings": {
+            "text": ""
+          }
+        },
+        "price_cDEyjC": {
+          "type": "price",
+          "settings": {}
+        },
+        "trust_points_L6hgK7": {
+          "type": "trust_points",
+          "settings": {}
+        },
+        "customer_q_and_a_tBQaLA": {
+          "type": "customer_q_and_a",
+          "disabled": true,
+          "settings": {
+            "question": "<p><strong>Spend more, save more. </strong></p>",
+            "answer": "<p>£10 off orders over £55 with code <strong>SAVE10</strong><br/>£20 off orders over £80 with code <strong>SAVE20</strong><br/>£30 off orders over £100  with code <strong>SAVE30</strong></p>"
+          }
+        },
+        "recharge_subscriptions_subscription_widget_EzLtJq": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "variants_QqyznA": {
+          "type": "variants",
+          "settings": {}
+        },
+        "buy_button_CqAMED": {
+          "type": "buy_button",
+          "settings": {}
+        },
+        "disclaimer_k6BUJH": {
+          "type": "disclaimer",
+          "settings": {
+            "text": "<p>Free shipping on all orders <strong>over £45</strong>. <a href=\"/pages/contact\" title=\"Contact\">Click here</a> for more information.</p>"
+          }
+        },
+        "trackingmore_pre_edd_QrbXpk": {
+          "type": "shopify://apps/trackingmore/blocks/pre_edd/697501da-0f8e-449b-9e65-4cf6ba8574c6",
+          "disabled": true,
+          "settings": {
+            "background": "linear-gradient(0deg, rgba(241, 241, 241, 1) 100%, rgba(0, 0, 0, 1) 100%)",
+            "iconColor": "#4a4a4a",
+            "color": "#000000",
+            "borderColor": "#c8c8c8"
+          }
+        },
+        "customer_q_and_a_bdQVAc": {
+          "type": "customer_q_and_a",
+          "disabled": true,
+          "settings": {
+            "question": "<p><strong>Want a free gift worth £25.99?</strong></p>",
+            "answer": "<p>Spend £60 and we’ll add our best selling Volume & Growth Elixir for <strong>free</strong>.</p><p>Build your basket to £60 to unlock your free gift.</p>"
+          }
+        },
+        "complementary_jG7QHC": {
+          "type": "complementary",
+          "settings": {
+            "heading": "Works well with",
+            "product_limit": 10
+          }
+        }
+      },
+      "block_order": [
+        "lozenges_t9HDwW",
+        "heading_QXTMTw",
+        "short_desc_cBzCTP",
+        "price_cDEyjC",
+        "trust_points_L6hgK7",
+        "customer_q_and_a_tBQaLA",
+        "recharge_subscriptions_subscription_widget_EzLtJq",
+        "variants_QqyznA",
+        "buy_button_CqAMED",
+        "disclaimer_k6BUJH",
+        "trackingmore_pre_edd_QrbXpk",
+        "customer_q_and_a_bdQVAc",
+        "complementary_jG7QHC"
+      ],
+      "settings": {
+        "use_sticky_product": true,
+        "disclaimer": "<p>Free shipping on subscription orders.  <a href=\"/pages/contact\" title=\"Contact\">Click here</a> for more information.</p>"
+      }
+    },
+    "product_information_HQXiA4": {
+      "type": "product-information",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": false,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "video_testimonial_fwx6cQ": {
+      "type": "video-testimonial",
+      "settings": {
+        "testimonial_object": "",
+        "margin_bottom": "none"
+      }
+    },
+    "timeline": {
+      "type": "timeline",
+      "settings": {
+        "timeline_cards": [],
+        "margin_bottom": "md"
+      }
+    },
+    "bundles": {
+      "type": "bundle-products",
+      "blocks": {
+        "group_content_4JDLpY": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_UFpVPV": {
+              "type": "heading",
+              "disabled": true,
+              "settings": {
+                "heading": "What's Included?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_UFpVPV"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_4JDLpY"
+      ],
+      "settings": {
+        "product_list": "{{ product.metafields.bundle.bundle_products.value }}",
+        "margin_bottom": "md"
+      }
+    },
+    "related_products_yLm4ry": {
+      "type": "related-products",
+      "blocks": {
+        "heading_KtgaQ9": {
+          "type": "heading",
+          "settings": {
+            "heading": "You may also like",
+            "heading_type": "h2",
+            "heading_size": "md",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_KtgaQ9"
+      ],
+      "settings": {
+        "product_limit": 8,
+        "use_add_to_cart_btn": false,
+        "default_product": "",
+        "margin_bottom": "md"
+      }
+    },
+    "reviews": {
+      "type": "main-product-reviews",
+      "settings": {}
+    },
+    "faqs_FhGg3P": {
+      "type": "faqs",
+      "blocks": {
+        "faq_group_KX8mjc": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "pdp-delivery-returns"
+          }
+        }
+      },
+      "block_order": [
+        "faq_group_KX8mjc"
+      ],
+      "settings": {
+        "heading": "",
+        "text": "<h4>Got questions? We’ve got answers.</h4><p><strong>Still unsure? </strong>Visit our <a href=\"https://help.hairburst.com/en-US?_gl=1*1cbhmza*_gcl_aw*R0NMLjE3NTE4ODMwODYuQ2p3S0NBanc0SzNEQmhCcUVpd0FZdEdfOUN0MTNkNlVILU0yQk9aTjV2WmlpZUx0c2UwWXBVaXBZVjNVbWNKV1hPRU9FQnRuNEI4VnpSb0N5dkVRQXZEX0J3RQ..*_gcl_au*MTk1NDQ0MjEyLjE3NTE2MTc2MzQ.\" title=\"https://help.hairburst.com/en-US?_gl=1*1cbhmza*_gcl_aw*R0NMLjE3NTE4ODMwODYuQ2p3S0NBanc0SzNEQmhCcUVpd0FZdEdfOUN0MTNkNlVILU0yQk9aTjV2WmlpZUx0c2UwWXBVaXBZVjNVbWNKV1hPRU9FQnRuNEI4VnpSb0N5dkVRQXZEX0J3RQ..*_gcl_au*MTk1NDQ0MjEyLjE3NTE2MTc2MzQ.\">help centre</a> or reach out to our customer support team on <a href=\"mailto:support@hairburst.com\">support@hairburst.com</a><strong>  </strong>and they will be happy to assist you with any questions or guidance you need to kickstart your hair growth journey. </p>",
+        "contact_heading": "",
+        "contact_text": "",
+        "margin_bottom": "md"
+      }
+    },
+    "1753281341700612b0": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "product_information_HQXiA4",
+    "featured_testimonials",
+    "video_testimonial_fwx6cQ",
+    "timeline",
+    "bundles",
+    "related_products_yLm4ry",
+    "reviews",
+    "faqs_FhGg3P",
+    "1753281341700612b0"
+  ]
+}

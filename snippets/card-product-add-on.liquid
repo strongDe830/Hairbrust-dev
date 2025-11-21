@@ -1,0 +1,58 @@
+{% liquid
+  assign current_variant = _product.selected_or_first_available_variant
+
+  assign bogo_this_variant_enabled = false
+  assign bogo_shop_sale_enabled = false
+  assign bogo_sale_excluded_variants = ''
+
+  assign bogo_enabled = shop.metaobjects.bogo_sale_enabled_.values
+  for entry in bogo_enabled limit: 1
+    assign bogo_shop_sale_enabled = entry.enabled
+  endfor
+
+  assign bogo_excluded_variants = shop.metaobjects.bogo_sale_excluded_variants.values
+  for entry in bogo_excluded_variants limit: 1
+    assign bogo_sale_excluded_variants = entry.variants.value
+  endfor
+
+  if bogo_shop_sale_enabled == true
+    assign bogo_this_variant_enabled = true
+    for excluded_variant in bogo_sale_excluded_variants
+      if excluded_variant.id == current_variant.id
+        assign bogo_this_variant_enabled = false
+      endif
+    endfor
+  endif
+%}
+<card-product class="snippet-card-product-add-on">
+  {% if bogo_this_variant_enabled %}
+    <div data-bogo-enabled hidden></div>
+  {% endif %}
+  {%- if _product.featured_image != blank -%}
+    {{- _product.featured_image | image_url: width: 320 | image_tag: alt: product.title, loading: 'lazy' -}}
+  {%- else -%}
+    {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+  {%- endif -%}
+  <div class="card-details">
+    <a href="{{- _product.url -}}" class="title {% if _quick_add != true %}stretched-link {% endif %}">{{- _product.title -}}</a>
+    <a href="{{ _product.url }}" class="rating">
+      <div
+        class="ruk_rating_snippet"
+        data-sku="{{ _product.variants | map: 'sku' | join: ';' }};{{ _product.variants | map: 'id' | join: ';' }}"
+      ></div>
+    </a>
+    {%- render 'data-prices', _product: _product -%}
+  </div>
+  {%- if _quick_add == true and current_variant.available == true -%}
+    {%- form 'product', product, data-product-form: '' -%}
+      {% if bogo_this_variant_enabled %}
+        <input type="hidden" name="properties[__bogof]" value="__bogof">
+      {% endif %}
+      <input name="id" value="{{ current_variant.id }}" type="hidden" data-hidden-variant-id hidden>
+      <button class="c-btn add-to-cart" aria-label="{{- 'products.product.add' | t -}}" data-product-add-to-cart>
+        {%- render 'element-icon', _icon: 'plus' -%}
+        <span>{{- 'products.product.add' | t -}}</span>
+      </button>
+    {%- endform -%}
+  {%- endif -%}
+</card-product>

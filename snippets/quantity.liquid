@@ -1,0 +1,14 @@
+<quantity-input class="c-qty">
+  <button class="c-btn" aria-label="{{- 'products.product.quantity_decrease' | t -}}" name="minus" type="button">
+    {%- render 'element-icon', _icon: 'minus' -%}
+  </button>
+  <input
+    type="number"
+    name="updates[]"
+    value="{{ _qty }}"
+    data-cart-line-item-el="quantity"
+  >
+  <button class="c-btn" aria-label="{{- 'products.product.quantity_increase' | t -}}" name="plus" type="button">
+    {%- render 'element-icon', _icon: 'plus' -%}
+  </button>
+</quantity-input>

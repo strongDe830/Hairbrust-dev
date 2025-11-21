@@ -1,0 +1,78 @@
+<div
+  class="snippet-layout-predictive-search"
+  role="dialog"
+  aria-modal="true"
+  aria-label="{{ 'template.search.title' | t }}"
+  data-predictive-search-wrapper
+  data-predictive-search-suggested-content-enabled="{{ settings.suggested_content_enabled }}"
+  data-predictive-search-types="{% if settings.resource_query %}query,{% endif %}{% if settings.resource_product %}product,{% endif %}{% if settings.resource_collection %}collection,{% endif %}{% if settings.resource_article %}article,{% endif %}{% if settings.resource_page %}page{% endif %}"
+  data-predictive-search-limit-all="{{ settings.resource_limit_all }}"
+  data-predictive-search-limit-each="{{ settings.resource_limit }}"
+  data-predictive-search-show-unavailable="{{ settings.show_unavailable }}"
+  data-routes-root-url="{{ routes.root_url }}"
+  data-routes-predictive-search-url="{{ routes.predictive_search_url }}"
+>
+  <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
+    <button class="c-btn close-btn" data-predictive-search-close-btn>
+      {%- render 'element-icon', _icon: 'close' -%}
+    </button>
+    <form
+      action="{{ routes.search_url }}"
+      method="get"
+      role="search"
+      class="search-form"
+    >
+      <div class="search-form-field">
+        <label class="sr-only" for="Search-In-Modal">{{ 'template.search.title' | t }}</label>
+        <input
+          class="search-input field-input form-input"
+          id="Search-In-Modal"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'template.search.title' | t }}"
+          {%- if settings.predictive_search_enabled -%}
+            role="combobox"
+            aria-expanded="false"
+            aria-owns="predictive-search-results"
+            aria-controls="predictive-search-results"
+            aria-haspopup="listbox"
+            aria-autocomplete="list"
+            autocorrect="off"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          {%- endif -%}
+        >
+        <input type="hidden" name="options[prefix]" value="last">
+        <button
+          type="reset"
+          class="c-btn reset-button"
+          {% if search.terms == blank %}
+            hidden
+          {% endif %}
+          aria-label="{{ 'template.search.reset' | t }}"
+        >
+          Clear
+        </button>
+        <button
+          class="c-btn submit-button"
+          type="submit"
+          aria-label="{{ 'template.search.submit' | t }}"
+        >
+          {%- render 'element-icon', _icon: 'search' -%}
+        </button>
+      </div>
+
+      {%- if settings.predictive_search_enabled -%}
+        <div
+          class="predictive-search"
+          tabindex="-1"
+          data-predictive-search
+        >
+        </div>
+        <span class="predictive-search-status sr-only" role="status" aria-hidden="true"></span>
+      {%- endif -%}
+    </form>
+  </predictive-search>
+</div>

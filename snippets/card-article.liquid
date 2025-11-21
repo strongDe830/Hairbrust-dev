@@ -1,0 +1,16 @@
+
+<article class="snippet-card-article {% if _type == 'search-item' %}is-search{%- endif -%}">
+  {%- if _article.image != blank -%}
+    {{- _article.image | image_url: width: 400 | image_tag: alt: _article.image.alt, loading: 'lazy' -}}
+  {%- else -%}
+    {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+  {%- endif -%}
+  <div class="card-details">
+    <h3 class="u-heading-xs title">
+      {{- _article.title -}}
+    </h3>
+    <a href="{{- _article.url -}}" class="c-btn alt spring stretched-link">
+      {{- 'template.article.read_more' | t -}}
+    </a>
+  </div>
+</article>

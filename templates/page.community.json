@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_r9JgBj": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_xkRQxL": {
+              "type": "heading",
+              "settings": {
+                "heading": "Stronger Hair, Stronger Community",
+                "heading_type": "h1",
+                "heading_size": "lg",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_light_KthNcq": {
+              "type": "text-light",
+              "settings": {
+                "text": "Join our Hairburst Community to connect with others on their journey to longer, stronger, healthier hair. As a member, you’ll unlock exclusive perks, VIP discounts, early access to new products, community events, and more.",
+                "text_align": "start"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_xkRQxL",
+            "text_light_KthNcq"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image": "shopify://shop_images/SHOP_ALL.jpg",
+            "image_size": "large",
+            "iframe_embed": "<div class=\"videowise-background videowise-background-component_67ed25f05445760058d9b7f7\" data-widget-id=\"67ed25f05445760058d9b7f7\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/converted/videos/1742901396192_wid_NjdlMjkwOTRjMzM2MDgwMDU4NGU1MTUy_h264c.mp4\" poster=\"https://cdn2.videowise.com/custom-videos/thumbnails/1742901426927_8dba556c-fed6-4ef3-8128-bb50f4604284.webp\">\n  <source src=\"https://cdn2.videowise.com/converted/videos/1742901396192_wid_NjdlMjkwOTRjMzM2MDgwMDU4NGU1MTUy_h264c.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/converted/videos/1742901396192_wid_NjdlMjkwOTRjMzM2MDgwMDU4NGU1MTUy_h264c.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+            "media_type": "video",
+            "video_source": "iframe",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "174366810680031945": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_47jXBQ": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<div class=\"reeview-app-widget\" id=\"reeview-app-widget_67f508f8bc85dd0057a11a81\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_47jXBQ"
+      ],
+      "settings": {}
+    },
+    "video_testimonial_B4r7nk": {
+      "type": "video-testimonial",
+      "settings": {
+        "testimonial_object": "",
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_PRnxKA": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_pgPzgY": {
+              "type": "heading",
+              "settings": {
+                "heading": "90 days to your best hair yet",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_light_JTFDjr": {
+              "type": "text-light",
+              "settings": {
+                "text": "Thousands of Hairburst lovers have taken the challenge—now it’s your turn! Commit to 90 days of Hairburst and see real, visible results. Track your journey, share your progress with our community, and get inspired by others doing the same. Ready to transform your hair? Let’s do this together!",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "group_anchors_pdrpFi": {
+              "type": "group-anchors",
+              "settings": {},
+              "blocks": {
+                "anchor_JHg7T7": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://collections/shop-all-hairburst",
+                    "title": "Take the 90-day challenge",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_JHg7T7"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_pgPzgY",
+            "text_light_JTFDjr",
+            "group_anchors_pdrpFi"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "promotion_dfKN6w": {
+      "type": "promotion",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start"
+          },
+          "blocks": {
+            "heading_ADDJaD": {
+              "type": "heading",
+              "settings": {
+                "heading": "Your 90-Day Plan, Personalised.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start"
+              },
+              "blocks": {}
+            },
+            "text_KETceR": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The best results start with the right routine. Use our routine builder to find the perfect Hairburst products for your hair type and goals.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            },
+            "group_anchors_QmQG9y": {
+              "type": "group-anchors",
+              "settings": {},
+              "blocks": {
+                "anchor_GE7RUf": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://collections",
+                    "title": "Build your routine.",
+                    "anchor_version": "main",
+                    "anchor_style": "we-peep",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_GE7RUf"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_ADDJaD",
+            "text_KETceR",
+            "group_anchors_QmQG9y"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/MOBILE_c889caf4-5747-4f9a-858f-e5da596335a3.jpg",
+            "image": "shopify://shop_images/DESKTOP_71535a36-973d-4bc6-8bff-e8ad715bac1d.jpg",
+            "image_size": "small",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "overlay": 0,
+        "colour": "black",
+        "margin_bottom": "sm"
+      }
+    },
+    "featured_testimonials_x9rVDA": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_MJBpck": {
+          "type": "heading",
+          "settings": {
+            "heading": "Loved by Millions. Proven by Results.",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start"
+          },
+          "blocks": {}
+        },
+        "text_light_fFN86p": {
+          "type": "text-light",
+          "settings": {
+            "text": "We’ve helped <strong>over 1 million women</strong> take control of their hair health—and they’re loving the difference:",
+            "text_align": "start"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_MJBpck",
+        "text_light_fFN86p"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "jess",
+          "lauren",
+          "lucy",
+          "amber",
+          "charlie",
+          "justine",
+          "aimee",
+          "carabeaty",
+          "sabrina",
+          "nicole",
+          "ana"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_r9JgBj",
+    "174366810680031945",
+    "video_testimonial_B4r7nk",
+    "page_hero_PRnxKA",
+    "promotion_dfKN6w",
+    "featured_testimonials_x9rVDA"
+  ]
+}

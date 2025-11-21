@@ -1,0 +1,35 @@
+{% liquid
+  assign heading = _collection.metafields.hero.heading
+%}
+
+<div class="layout-collection-hero">
+  <h1 class="u-heading-xs centre">{{- _collection.title -}}</h1>
+  {%- if heading != blank -%}
+    <h2 class="u-heading-lg main-heading centre">
+      {{-
+        heading
+        | metafield_tag
+        | remove: '<div class="metafield-rich_text_field">'
+        | remove: '</div>'
+        | remove: '<p>'
+        | remove: '</p>'
+      -}}
+    </h2>
+  {%- endif -%}
+  {%- if collection.description != blank -%}
+    <div class="c-rte">
+      {{- collection.description -}}
+    </div>
+  {%- endif -%}
+  {%- if _paginate_items_size > 0 -%}
+    <button
+      class="c-btn alt filters-open"
+      aria-controls="store-filters"
+      aria-expanded="false"
+      data-collection-filters-open
+    >
+      {{- 'template.collection.filters.show' | t -}}
+      {%- render 'element-icon', _icon: 'chevron-right' -%}
+    </button>
+  {%- endif -%}
+</div>

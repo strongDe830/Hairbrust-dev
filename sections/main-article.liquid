@@ -1,0 +1,85 @@
+{%- liquid
+  assign template_name = 'section-main-article'
+  assign show_related_articles = section.settings.show_related_articles
+
+  assign product_list = section.settings.product_list
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-main-article.css'
+%}
+
+
+<article
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-id="{{ section.id }}"
+  itemscope
+  itemtype="http://schema.org/BlogPosting"
+>
+  <div class="container">
+    <header class="header">
+      <a href="{{ blog.url }}" class="c-btn breadcrumb">
+        {%- render 'element-icon', _icon: 'arrow-left' -%}
+        {{- blog.title -}}
+      </a>
+      <h1 class="u-heading-lg heading">{{- article.title | escape -}}</h1>
+      {{-
+        article.image | image_url: width: 1024 | image_tag: widths: '400, 600, 800, 1024', alt: article.image.alt, fetchpriority: 'high'
+      -}}
+    </header>
+    <div class="wrapper">
+      <div class="c-rte">
+        {{- article.content -}}
+      </div>
+      {%- render 'layout-related-articles', _blog: blog, _article: article -%}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "t:sections.main_article.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_related_articles",
+      "label": "t:sections.main_article.settings.show_related_articles.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

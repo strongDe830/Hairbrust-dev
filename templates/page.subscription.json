@@ -1,0 +1,463 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_WTP9wR": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_8iVGFU": {
+              "type": "heading",
+              "settings": {
+                "heading": "Healthy hair, <em>on repeat</em>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_fg7iQj": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Hair doesn’t grow overnight — it grows in cycles. <br/>That’s why we always say: give it 90 days.<br/>It’s the point where you really start to see change.<br/>Our subscription makes it easy for you to stay consistent on your journey to longer, stronger and healthier hair.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_anchors_VPGrgR": {
+              "type": "group-anchors",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_drMbeq": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "#subscription-products",
+                    "title": "SHOP NOW",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_NUknKM": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "https://shopify.com/2649749/account",
+                    "title": "MANAGE SUBSCRIPTIONS",
+                    "anchor_version": "main",
+                    "anchor_style": "we-peep",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_drMbeq",
+                "anchor_NUknKM"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_8iVGFU",
+            "text_fg7iQj",
+            "group_anchors_VPGrgR"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/MOBILE_84b7d70a-7fa9-4734-bedb-c7de722484ff.jpg",
+            "image": "shopify://shop_images/DESKTOP_5bd086fd-e805-4ed3-9b30-af99a2465adf.jpg",
+            "image_size": "small",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_blocks_AWFJUt": {
+      "type": "text-blocks",
+      "blocks": {
+        "block_jAqkbC": {
+          "type": "block",
+          "settings": {
+            "title": "Choose your products",
+            "text": "Tailor your routine to your hair goals."
+          }
+        },
+        "block_pF7kXU": {
+          "type": "block",
+          "settings": {
+            "title": "Stay on track",
+            "text": "We’ll deliver straight to your door, exactly when you need it."
+          }
+        },
+        "block_7biQJp": {
+          "type": "block",
+          "settings": {
+            "title": "Love the results",
+            "text": "Stay consistent, see the transformation in <strong>90 days & beyond.</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "block_jAqkbC",
+        "block_pF7kXU",
+        "block_7biQJp"
+      ],
+      "settings": {
+        "heading": "Your hair routine, <em>made easy.</em>",
+        "text": "Building a routine is the key to better hair—but we know life gets busy. That’s why our subscription service makes it easy to stay on track, so you can grow your healthiest hair, hassle-free.",
+        "anchor_url": "",
+        "anchor_text": "",
+        "margin_bottom": "sm"
+      }
+    },
+    "text_blocks_NP4aLK": {
+      "type": "text-blocks",
+      "settings": {
+        "heading": "Subscriber Favourites",
+        "text": "Subscribe & save on your favourite hair and scalp products in 3 easy steps.",
+        "anchor_url": "",
+        "anchor_text": "",
+        "margin_bottom": "none"
+      }
+    },
+    "subscription_products_bWhgTw": {
+      "type": "subscription-products",
+      "settings": {
+        "margin_bottom": "md",
+        "product_list": [
+          "advanced-hair-formula",
+          "multi-active-hair-growth-serum",
+          "chewable-hair-vitamins",
+          "healthy-hair-vitamins",
+          "unicorn-vegan-hair-vitamins",
+          "hair-vitamins-for-women-35",
+          "pregnancy-hair-vitamins"
+        ]
+      }
+    },
+    "timeline_WnAHrk": {
+      "type": "timeline",
+      "blocks": {
+        "heading_ycrJ6y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Results happen when you commit to the right routine.",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        },
+        "text_light_hGexta": {
+          "type": "text-light",
+          "settings": {
+            "text": "Hair growth isn’t instant—it’s a journey. The secret? Sticking to the right routine. Our subscription makes it effortless, so you never miss a day and your hair gets the consistent nourishment it needs to grow longer, stronger, and healthier in just 90 days.",
+            "text_align": "centre",
+            "margin_bottom": 24
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_ycrJ6y",
+        "text_light_hGexta"
+      ],
+      "settings": {
+        "timeline_cards": [
+          "subscription-page-2-weeks",
+          "subscription-page-1-month",
+          "subscription-page-2-months",
+          "subscription-page-3-months-beyond"
+        ],
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_hVNxpM": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_eJ4xAM": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "glass",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_dEmTzi": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "heading_geQPj4": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "Get More Than Just Results",
+                    "heading_type": "h2",
+                    "heading_size": "lg",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_KL4NXB": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>A consistent routine is the key to stronger, healthier hair—but we’re making it even better. <br/><br/>Here’s why you’ll love it:</p><ul><li><strong>Save on every order - </strong>Exclusive subscriber savings, every time.</li><li><strong>Free gift with every order - </strong>A little something extra, just for you.</li><li><strong>Free delivery – </strong>Your routine, delivered without the extra cost.</li><li><strong>Money-back guarantee – </strong>See results in 90 days—or it’s on us.</li><li><strong>Pause or cancel anytime – </strong>You’re in control</li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "group_anchors_QN9QLw": {
+                  "type": "group-anchors",
+                  "settings": {
+                    "margin_bottom": 0
+                  },
+                  "blocks": {
+                    "anchor_PRHgcz": {
+                      "type": "anchor",
+                      "settings": {
+                        "anchor_url": "shopify://collections",
+                        "title": "Subscribe & Save",
+                        "anchor_version": "main",
+                        "anchor_style": "tuna",
+                        "anchor_icon": "none"
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "anchor_PRHgcz"
+                  ]
+                }
+              },
+              "block_order": [
+                "heading_geQPj4",
+                "text_KL4NXB",
+                "group_anchors_QN9QLw"
+              ]
+            },
+            "media_4TCekk": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/ADV_LIFESTYLE.jpg",
+                "image": "shopify://shop_images/ADV_LIFESTYLE.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_dEmTzi",
+            "media_4TCekk"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_eJ4xAM"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "promotion_3UtpKq": {
+      "type": "promotion",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_UGMYgf": {
+              "type": "heading",
+              "settings": {
+                "heading": "Not sure where to start?",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_light_enc3Ri": {
+              "type": "text-light",
+              "settings": {
+                "text": "Use our Routine Builder to find the perfect Hairburst subscription for your hair goals.",
+                "text_align": "start",
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_anchors_UBJTbk": {
+              "type": "group-anchors",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_HAMrGt": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://collections",
+                    "title": "Build your routine",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_HAMrGt"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_UGMYgf",
+            "text_light_enc3Ri",
+            "group_anchors_UBJTbk"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/MOBILE_c889caf4-5747-4f9a-858f-e5da596335a3.jpg",
+            "image": "shopify://shop_images/DESKTOP_71535a36-973d-4bc6-8bff-e8ad715bac1d.jpg",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "overlay": 0,
+        "colour": "black",
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_TXkEBz": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_Gdd9kH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Loved by Millions. Proven by Results.",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        },
+        "text_light_KMLjYf": {
+          "type": "text-light",
+          "settings": {
+            "text": "We’ve helped <strong>over 1 million women</strong> take control of their hair health—and they’re loving the difference:",
+            "text_align": "start",
+            "margin_bottom": 24
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_Gdd9kH",
+        "text_light_KMLjYf"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "lucy",
+          "ana",
+          "justine",
+          "lauren",
+          "carabeaty",
+          "amber",
+          "nicole",
+          "jess",
+          "aimee",
+          "kerri",
+          "sabrina",
+          "charlie"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_WTP9wR",
+    "text_blocks_AWFJUt",
+    "text_blocks_NP4aLK",
+    "subscription_products_bWhgTw",
+    "timeline_WnAHrk",
+    "text_and_media_hVNxpM",
+    "promotion_3UtpKq",
+    "featured_testimonials_TXkEBz"
+  ]
+}

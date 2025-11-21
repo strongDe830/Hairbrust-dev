@@ -1,0 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer.name",
+  "sections": {
+    "main-footer": {
+      "type": "main-footer",
+      "settings": {
+        "heading": "Longer, stronger, healthier hair",
+        "newsletter_heading": "Sign up to our newsletter to get all the latest news, updates and exclusive offers:",
+        "newsletter_text": "By clicking \"sign up\" you agree to receive marketing communications from Hairburst by email",
+        "opening_hours": "",
+        "information_menu": "information",
+        "shop_menu": "main-menu",
+        "policy_menu": "policies"
+      }
+    }
+  },
+  "order": ["main-footer"]
+}

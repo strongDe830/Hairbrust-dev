@@ -1,0 +1,11 @@
+.section-main-contact .container {
+  display: flex;
+  justify-content: center;
+}
+.section-main-contact .block-group-content {
+  text-align: center;
+}
+.section-main-contact .block-group-content,
+.section-main-contact .block-group-content * {
+  margin-inline: auto;
+}

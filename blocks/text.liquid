@@ -1,0 +1,126 @@
+<div id="shopify-block-{{- block.id -}}" class="{% if block.settings.full_width == false %}c-rte{% else %}full-width {% endif %} block-text u-text-{{- block.settings.text_size }} block-text {% if block.settings.use_icons_in_list == true %}use-icons-in-list{% endif %}">
+  {% liquid
+    if block.settings.use_icons_in_list == true
+      assign icon = 'icon-check.svg' | inline_asset_content
+      assign list_item = '<li>' | append: icon
+      if block.settings.text contains '<li class="metafield-single_line_text_field">'
+        echo block.settings.text | replace: '<li class="metafield-single_line_text_field">', list_item
+      else
+        echo block.settings.text | replace: '<li>', list_item
+      endif
+    else
+      echo block.settings.text | remove: '<div class="metafield-rich_text_field">' | remove: '</div>'
+    endif
+  %}
+</div>
+
+{%- if block.settings.margin_bottom > 0 -%}
+  <style>
+    #shopify-block-{{- block.id -}} {
+      margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
+      }
+  </style>
+{%- endif -%}
+
+{%- if block.settings.text_align != 'start' or block.settings.add_margin == true -%}
+  <style>
+    #shopify-block-{{- block.id -}} {
+        text-align: {{ block.settings.text_align }};
+      {%- if block.settings.text_align == 'center' -%}
+        margin-inline: auto;
+      {%- endif -%}
+      {%- if block.settings.text_align == 'end' -%}
+        margin-left: auto;
+      {%- endif -%}
+      {%- if block.settings.add_margin == true -%}
+        margin-bottom: 1.5rem;
+      {%- endif -%}
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:blocks.text.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.all.text.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_margin",
+      "label": "t:blocks.text.settings.add_margin.label"
+    },
+      {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": false,
+      "label": "t:blocks.text.settings.full_width.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "t:sections.all.text_size.label",
+      "options": [
+        
+        {
+          "value": "sm",
+          "label": "t:sections.all.text_size.options.small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.text_size.options.medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.text_size.options.large.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.text_size.options.extra_large.label"
+        }
+      ],
+      "default": "md"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "t:sections.all.text_align.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.justify_content.options.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.justify_content.options.centre.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.justify_content.options.right.label"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_icons_in_list",
+      "label": "t:blocks.text.settings.use_icons_in_list.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 24,
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.text.name" }]
+}
+{% endschema %}

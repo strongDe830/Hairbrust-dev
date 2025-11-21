@@ -1,0 +1,185 @@
+.section-main-footer {
+  background-color: var(--colour-white);
+}
+.section-main-footer .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 3rem var(--gutter);
+  color: var(--colour-tuna);
+}
+.section-main-footer .top {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.section-main-footer .top .heading {
+  margin-bottom: 0 !important;
+  width: -webkit-fit-content;
+  width: fit-content;
+  grid-area: title;
+}
+.section-main-footer .top .newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  grid-area: newsletter;
+  max-width: 30rem;
+}
+.section-main-footer .top .newsletter .newsletter-heading {
+  margin-bottom: 0;
+}
+.section-main-footer .top .newsletter form .form-container {
+  width: 100%;
+  display: flex;
+  gap: 0.25rem;
+  max-width: 26rem;
+}
+.section-main-footer .top .newsletter form .form-container input {
+  background-color: var(--colour-pampas);
+  padding: 1rem;
+  height: 3.313rem;
+}
+.section-main-footer .top .newsletter form .form-container button {
+  width: -webkit-fit-content;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  white-space: nowrap;
+}
+.section-main-footer .top .newsletter span {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: block;
+  margin-top: -1rem;
+}
+.section-main-footer .top .newsletter .c-social-links svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--colour-tuna);
+}
+.section-main-footer .top .switcher {
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+.section-main-footer .top .switcher .c-lang-switcher {
+  margin-left: 0;
+}
+.section-main-footer .top .switcher .c-lang-switcher span {
+  margin-top: 0;
+}
+.section-main-footer .top .menus {
+  grid-area: menus;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "contact contact" "information shop";
+  gap: 2.5rem;
+}
+.section-main-footer .top .menus .list-title {
+  opacity: 0.5;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.section-main-footer .top .menus .contact {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.section-main-footer .top .menus .contact > a {
+  line-height: 1.25rem;
+  color: var(--colour-tuna);
+  text-decoration: none;
+}
+.section-main-footer .top .menus .contact > a:hover {
+  text-decoration: underline;
+}
+.section-main-footer .top .menus .contact .opening-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.section-main-footer .top .menus .contact .opening-hours .opening-title {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 500;
+}
+.section-main-footer .top .menus ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.section-main-footer .top .menus ul.information {
+  grid-area: information;
+}
+.section-main-footer .top .menus ul.shop {
+  grid-area: shop;
+}
+.section-main-footer .top .menus ul li a {
+  color: var(--colour-tuna);
+  text-decoration: none;
+}
+.section-main-footer .top .menus ul li a:hover {
+  text-decoration: underline;
+}
+.section-main-footer .top .menus ul li.list-title {
+  margin-bottom: 0.25rem;
+}
+.section-main-footer .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.section-main-footer .bottom .legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.813rem;
+}
+.section-main-footer .bottom .legal .attribution-link a {
+  text-decoration: underline;
+  color: var(--colour-tuna);
+}
+.section-main-footer .bottom .payments-and-policies {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.section-main-footer .bottom .payments-and-policies ul.policies {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+.section-main-footer .bottom .payments-and-policies ul.policies li a {
+  color: var(--colour-tuna);
+  text-decoration: none;
+}
+.section-main-footer .bottom .payments-and-policies ul.policies li a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 1024px) {
+  .section-main-footer .container {
+    gap: 4rem;
+  }
+  .section-main-footer .top {
+    display: grid;
+    grid-template-areas: "title menus" "newsletter menus";
+    column-gap: 7.5rem;
+  }
+  .section-main-footer .top .menus {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "contact information shop";
+    gap: 5rem;
+  }
+  .section-main-footer .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .section-main-footer .bottom .payments-and-policies ul.policies {
+    justify-content: flex-end;
+  }
+}

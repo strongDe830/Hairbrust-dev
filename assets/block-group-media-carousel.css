@@ -1,0 +1,92 @@
+.section-media-carousel {
+  display: block;
+}
+.section-media-carousel .container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-areas: "heading" "carousel";
+  gap: 1.5rem;
+}
+.section-media-carousel .heading {
+  grid-area: heading;
+  margin: 0;
+}
+.section-media-carousel .wrapper {
+  grid-area: carousel;
+}
+.section-media-carousel .swiper-slide {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 9/16;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+}
+.section-media-carousel .swiper-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-media-carousel .swiper-slide .videowise-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.section-media-carousel .swiper-slide .videowise-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.section-media-carousel .swiper-slide .c-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+}
+.section-media-carousel .swiper .swiper-controls .swiper-btns {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.section-media-carousel .swiper .swiper-controls .swiper-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section-media-carousel .swiper .swiper-controls .swiper-btn svg {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+.section-media-carousel .swiper .swiper-controls .swiper-btn.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.section-media-carousel .square-slides .swiper-slide {
+  aspect-ratio: 1/1;
+  display: block;
+}
+@media (min-width: 768px) {
+  .section-media-carousel .heading {
+    padding: 0;
+  }
+  .section-media-carousel .swiper .swiper-controls .swiper-btns {
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 1024px) {
+  .section-media-carousel .swiper-slide {
+    border-radius: var(--border-radius-xl);
+  }
+}

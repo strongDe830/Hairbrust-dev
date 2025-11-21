@@ -1,0 +1,35 @@
+{%- liquid
+  if cart.item_count > 0
+    assign checkout_blocked = false
+  endif
+
+  render 'file-css', _name: 'snippet-cart-drawer.css'
+  render 'file-css', _name: 'snippet-data-cart-totals.css'
+  render 'file-css', _name: 'snippet-cart-line-item.css'
+-%}
+
+<script
+  src="{{ 'snippet-cart-drawer.js' | asset_url }}"
+  defer="defer"
+  type="module"
+></script>
+
+{% if template != 'cart' %}
+  <cart-drawer class="cart-drawer">
+    <div class="drawer-header">
+      {% section 'data-cart-count' %}
+      <button class="c-btn close-btn" data-cart-drawer-el="close">
+        {%- render 'element-icon', _icon: 'close' -%}
+      </button>
+    </div>
+    <div class="wrapper">
+      {% section 'cart-drawer-items' %}
+      <div class="cart-summary">
+        {% section 'cart-drawer-totals' %}
+        {% section 'cart-drawer-actions' %}
+      </div>
+      {% section 'cart-drawer-related-products' %}
+    </div>
+  </cart-drawer>
+  {% render 'overlay', _data_attributes: 'data-cart-drawer-external-el="overlay"' %}
+{% endif %}

@@ -1,0 +1,22 @@
+.section-main-article .container {
+  max-width: 64rem;
+}
+.section-main-article .breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+.section-main-article .breadcrumb svg {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+.section-main-article .header {
+  margin-bottom: 2rem;
+}
+.section-main-article .header img {
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+}

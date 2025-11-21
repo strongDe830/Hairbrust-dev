@@ -1,0 +1,975 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_CwUYkq": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_c3Xaq7": {
+              "type": "heading",
+              "settings": {
+                "heading": "POSTPARTUM <strong>HAIR LOSS.</strong>",
+                "heading_type": "h1",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_zzKyND": {
+              "type": "text",
+              "settings": {
+                "text": "<p>You’ve done the hard part—now it’s time to reclaim control.</p><p>Post-partum hair loss is common, but it doesn’t have to define you. We’re here to support your hair recovery and help you feel like <em>you</em> again.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_c3Xaq7",
+            "text_zzKyND"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Postpartum_Header.png",
+            "image": "shopify://shop_images/Postpartum_Header.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "none"
+      }
+    },
+    "statistics_8E8FXw": {
+      "type": "statistics",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "statistic_cYB9fy": {
+              "type": "statistic",
+              "settings": {
+                "title": "Over 90%",
+                "text": "of new mums experience postpartum hair loss."
+              },
+              "blocks": {}
+            },
+            "statistic_N4RXTY": {
+              "type": "statistic",
+              "settings": {
+                "title": "40-50%",
+                "text": "of new mums notice significant hair shedding."
+              },
+              "blocks": {}
+            },
+            "statistic_wg9iKQ": {
+              "type": "statistic",
+              "settings": {
+                "title": "2 months",
+                "text": "postpartum is where hair loss usually starts."
+              },
+              "blocks": {}
+            },
+            "statistic_KaHbEX": {
+              "type": "statistic",
+              "settings": {
+                "title": "5 months",
+                "text": "postpartum is where hair loss peaks."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_cYB9fy",
+            "statistic_N4RXTY",
+            "statistic_wg9iKQ",
+            "statistic_KaHbEX"
+          ]
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_BrXWJr": {
+      "type": "text",
+      "blocks": {
+        "group_content_GJBnie": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_z9QUjR": {
+              "type": "heading",
+              "settings": {
+                "heading": "Real results take commitment.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_7Renbx": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Visible results often begin around month 3, but true transformation takes time.<br/>Stay consistent with a subscription to support stronger regrowth and long-term hair health.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_z9QUjR",
+            "text_7Renbx"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_GJBnie"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jJLzPD": {
+      "type": "featured-products",
+      "blocks": {
+        "block_LUqiPH": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-hair-formula"
+            ],
+            "product_feed": "product-list",
+            "show_variants": true,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_LUqiPH"
+      ],
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "text_a8EmbE": {
+      "type": "text",
+      "blocks": {
+        "group_content_F9rcyq": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_fnQY6C": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Enhance your routine.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_9GY6j3": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Our Advanced+ Shampoo and Leave-In Treatment Mask has been formulated to repair damage, reduce breakage, and restore hair strength.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_fnQY6C",
+            "text_9GY6j3"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_F9rcyq"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_wiQDBP": {
+      "type": "featured-products",
+      "blocks": {
+        "block_ADpfgy": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-bond-repair-duo",
+              "advanced-plus-hair-mask",
+              "reparative-shampoo-for-damaged-hair"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_ADpfgy"
+      ],
+      "name": "t:sections.featured_products.name",
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "md"
+      }
+    },
+    "text_wA7iCi": {
+      "type": "text",
+      "blocks": {
+        "group_content_qWGYYf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_VngKAA": {
+              "type": "heading",
+              "settings": {
+                "heading": "Your postpartum hair questions—finally answered.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_VngKAA"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_qWGYYf"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_i44PzU": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_FXDbdx": {
+          "type": "block",
+          "settings": {
+            "title": "What is postpartum hair loss?",
+            "text": "<p>Postpartum hair loss is the excessive shedding many women experience after childbirth. While it can feel alarming, it’s a normal and temporary response to hormonal changes.</p>",
+            "kicker": "What is postpartum hair loss?"
+          }
+        },
+        "block_yc3eGq": {
+          "type": "block",
+          "settings": {
+            "title": "Why Does Postpartum Hair Loss Happen?",
+            "text": "<p>During pregnancy, high oestrogen levels keep hair in its growth phase longer—making it thicker. After giving birth, those hormone levels drop quickly, causing more hair follicles to shift into the shedding phase at once. Combined with stress, disrupted sleep, and nutrient depletion, this can lead to visible hair thinning.</p>",
+            "kicker": "Why Does Postpartum Hair Loss Happen?"
+          }
+        },
+        "block_4xFnpM": {
+          "type": "block",
+          "settings": {
+            "title": "When does postpartum hair loss start?",
+            "text": "<p>It typically begins around 2.9 months after childbirth and peaking at 5.1 months. Right when you think you're in the clear. This delay is totally normal and part of the natural hair growth cycle.</p>",
+            "kicker": "When does postpartum hair loss start?"
+          }
+        },
+        "block_MWVdYE": {
+          "type": "block",
+          "settings": {
+            "title": "How long does postpartum hair loss last?",
+            "text": "<p>Postpartum hair loss is temporary and for most women, postpartum hair loss improves by 12 months. With the right support, hair can recover even faster.</p>",
+            "kicker": "How long does postpartum hair loss last?"
+          }
+        },
+        "block_Cj9ny8": {
+          "type": "block",
+          "settings": {
+            "title": "What can I do to help postpartum hair loss?",
+            "text": "<p>Eat a nutrient-rich diet with protein, biotin, iron, and vitamins to nourish your hair from the inside. Consider a postpartum-safe supplement, be gentle with styling, and focus on scalp care. Managing stress and getting enough rest can also help reduce shedding. With time and consistency, your hair will recover.</p>",
+            "kicker": "What can I do to help postpartum hair loss?"
+          }
+        }
+      },
+      "block_order": [
+        "block_FXDbdx",
+        "block_yc3eGq",
+        "block_4xFnpM",
+        "block_MWVdYE",
+        "block_Cj9ny8"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "video_testimonial_QUkx3e": {
+      "type": "video-testimonial",
+      "name": "Video Testimonial",
+      "settings": {
+        "testimonial_object": "advanced-plus-priya",
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_testimonials_UcrMz4": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_NGEWD7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h3",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 1
+          },
+          "blocks": {}
+        },
+        "heading_DkYFEE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000 ★ ★ ★ ★ ★ reviews across our range.",
+            "heading_type": "h3",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 2
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_NGEWD7",
+        "heading_DkYFEE"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "lucy",
+          "jess",
+          "carabeaty",
+          "megan",
+          "anna-cherry",
+          "lauren_wwy",
+          "aimee",
+          "justine",
+          "amber",
+          "lauren"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "text_7cML4X": {
+      "type": "text",
+      "blocks": {
+        "group_content_YRMiTf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_NdhAGQ": {
+              "type": "heading",
+              "settings": {
+                "heading": "Advanced+ Hair Formula",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_gWtQyC": {
+              "type": "text",
+              "settings": {
+                "text": "<p>For postpartum women regaining strength, confidence and control - starting with their hair.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_NdhAGQ",
+            "text_gWtQyC"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_YRMiTf"
+      ],
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_38b63E": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_GM3FAT": {
+          "type": "block",
+          "settings": {
+            "title": "Why we made Advanced+ Hair Formula",
+            "text": "<p>We set out to create the most advanced hair supplement on the market.</p><p><strong>Advanced+</strong> goes beyond standard vitamins with two powerful blends that target the root causes of poor hair health — like stress, inflammation, and oxidative damage.</p><p>It’s backed by science, built with expert nutritionists, and designed for women who want real, lasting results — not quick fixes.</p>",
+            "kicker": "Why we made Advanced+"
+          }
+        },
+        "block_jtYgQx": {
+          "type": "block",
+          "settings": {
+            "title": "Where it fits in your life",
+            "text": "<p>You’re busy, tired, and adjusting to a new version of you. This is your daily reset. Just 4 capsules a day – ideally with breakfast – to help support your body and hair as they bounce back. Results take time, but with consistent use, you’ll see visible changes in 90 days and beyond.</p>",
+            "kicker": "Where it fits in your life"
+          }
+        },
+        "block_iWenAY": {
+          "type": "block",
+          "settings": {
+            "title": "Why Advanced+ is different",
+            "text": "<p>This isn’t your average hair vitamin. Advanced+ includes everything your body needs to support healthy hair growth — and more.</p><p>We took the essentials (Biotin, Zinc, Selenium), and enhanced them with two unique, trademarked blends — Trichoburst™ and Folishield™ — designed to target the root causes of hair loss: inflammation, oxidative stress, hormonal imbalance, and nutrient depletion.</p>",
+            "kicker": "Why Advanced+ is different"
+          }
+        },
+        "block_exrgMe": {
+          "type": "block",
+          "settings": {
+            "title": "How it works",
+            "text": "<p><strong>Combats oxidative stress to keep hair in growth mode<br/></strong>Post-birth, your body can experience high levels of oxidative stress — which damages follicles, weakens the scalp, and causes hair to fall out faster than usual.</p><p><strong>Trichoburst™</strong> is packed with antioxidants and amino acids to fight back:</p><ul><li><strong>Vitamin E</strong> is known to calms and repairs the scalp</li><li><strong>Amino acids </strong>are known to help rebuild hair from within for stronger regrowth</li><li><strong>MSM</strong> boosts keratin to thicken and strengthen strands</li><li><strong>CoQ10</strong> helps ‘wake up’ sluggish follicles and restart growth</li></ul><p><strong> </strong></p><p><strong>The result?</strong> Hair stays in the growth phase longer, giving it the chance to grow stronger and fuller.</p><p><strong>Reduces inflammation and restores balance<br/></strong>Hormonal hair loss is often linked to internal inflammation. That’s where Folishield™ comes in — a potent blend of adaptogens, antioxidants, and anti-inflammatories that protect your scalp and support healthy growth conditions.</p><ul><li><strong>Turmeric & black pepper</strong> help reduce inflammation</li><li><strong>Ashwagandha & reishi mushroom</strong> rebalance hormones and reduce shedding</li><li><strong>Astaxanthin, resveratrol, elderberry</strong> protect follicles and extend the growth cycle</li><li><strong>Supports homeostasis</strong> — bringing your body back into balance after birth</li></ul><p> </p><p>It’s everything your body needs to feel supported and your hair needs to thrive.</p>",
+            "kicker": "How it works"
+          }
+        },
+        "block_pAdnqe": {
+          "type": "block",
+          "settings": {
+            "title": "What to expect",
+            "text": "<p>Hair doesn’t grow back overnight, but with consistency, you’ll see results.<br/>Take 4 capsules a day with food, stick with it for 90 days, and let the results speak for themselves.</p><ul><li>Visible results from real users in just 90 days</li><li>Stay on track & save with our subscription option<br/></li></ul>",
+            "kicker": "What to expect"
+          }
+        }
+      },
+      "block_order": [
+        "block_GM3FAT",
+        "block_jtYgQx",
+        "block_iWenAY",
+        "block_exrgMe",
+        "block_pAdnqe"
+      ],
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "text_grid_DtLayH": {
+      "type": "text-grid",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_RzREeJ": {
+              "type": "heading",
+              "settings": {
+                "heading": "Why choose Advanced+",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_RzREeJ"
+          ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "text_grid_block_aRKtq7": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_WRkyQj": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Expertly formulated over 5 years",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_wgbQeR": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Created with leading nutritionists to deliver the most effective results possible.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_WRkyQj",
+                "text_light_wgbQeR"
+              ]
+            },
+            "text_grid_block_wcPQ9m": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_tfNLxL": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Targets root causes of Hair Loss",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_6PffEx": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Goes beyond surface-level fixes to address hormonal imbalances, inflammation, and stress.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_tfNLxL",
+                "text_light_6PffEx"
+              ]
+            },
+            "text_grid_block_tVHiHe": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_Riy4d4": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Trusted by over 1 Million Women",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_HMVfnb": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Real stories. Real results. Millions of women have already taken back control.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_Riy4d4",
+                "text_light_HMVfnb"
+              ]
+            },
+            "text_grid_block_tGXa7Q": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_VM4kPf": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Powered by Evidence-based ingredients",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_FbRfez": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Our trademarked blends offer benefits no standard vitamin can match.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_VM4kPf",
+                "text_light_FbRfez"
+              ]
+            },
+            "text_grid_block_L6Tpbc": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_H4rzXm": {
+                  "type": "title",
+                  "settings": {
+                    "title": "Made in the UK",
+                    "margin_bottom": 33
+                  },
+                  "blocks": {}
+                },
+                "text_light_q4VYhQ": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "Vegan friendly and made to the highest standards right here in the UK",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_H4rzXm",
+                "text_light_q4VYhQ"
+              ]
+            },
+            "text_grid_block_HLwAwx": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_RRrPUh": {
+                  "type": "title",
+                  "settings": {
+                    "title": "90-day Guarantee",
+                    "margin_bottom": 33
+                  },
+                  "blocks": {}
+                },
+                "text_light_fK8fHe": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "We’re that confident. See results in 90 days — or your money back.",
+                    "text_align": "start",
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_RRrPUh",
+                "text_light_fK8fHe"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_aRKtq7",
+            "text_grid_block_wcPQ9m",
+            "text_grid_block_tVHiHe",
+            "text_grid_block_tGXa7Q",
+            "text_grid_block_L6Tpbc",
+            "text_grid_block_HLwAwx"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Why_choose_Advanced.png",
+            "image": "shopify://shop_images/Why_choose_Advanced.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_64yWzx": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_8QCWLc": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_tMxfGJ": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "kicker_47YbWw": {
+                  "type": "kicker",
+                  "settings": {
+                    "kicker": "Advanced+ Hair Formula",
+                    "background_colour": "we-peep",
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "heading_HBxJix": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "Meet the formula that <em>changes everything.</em>",
+                    "heading_type": "h3",
+                    "heading_size": "md",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "heading_NaWjNT": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "The most powerful hair growth supplement on the market.",
+                    "heading_type": "h3",
+                    "heading_size": "xs",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_heJQTr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>With 22 clinically proven ingredients, it works from the inside out to support fuller, stronger, healthier hair by tackling the root causes of hair loss—stress, hormones, inflammation and more.</p><p>Developed over five years by expert nutritionists, this potent formula doesn’t just maintain hair health. It transforms it.</p>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "text_wRrJtg": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li><strong>Rebalances hormones to reduce shedding</strong></li><li><strong>Lowers cortisol to fight stress-related hair loss</strong></li><li><strong>Combats inflammation + oxidative stress at the follicle</strong></li><li><strong>Supports stronger roots and thicker regrowth</strong></li><li><strong>Reduces breakage, thinning, and weak strands</strong></li><li><strong>Proven results in 90 days. Thousands already swear by it.</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 5
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "kicker_47YbWw",
+                "heading_HBxJix",
+                "heading_NaWjNT",
+                "text_heJQTr",
+                "text_wRrJtg"
+              ]
+            },
+            "media_ciqweK": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/ADV_ff290d51-8f01-401e-992f-307988a85824.jpg",
+                "image": "shopify://shop_images/ADV_ff290d51-8f01-401e-992f-307988a85824.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_tMxfGJ",
+            "media_ciqweK"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_8QCWLc"
+      ],
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "featured_publications_jcDFGh": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_4FCtwn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_y6eWXG": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_GePrD9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_KgKrE8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_3YHiWj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_QVpph8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4FCtwn",
+        "logo_y6eWXG",
+        "logo_GePrD9",
+        "logo_KgKrE8",
+        "logo_3YHiWj",
+        "logo_QVpph8"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_CwUYkq",
+    "statistics_8E8FXw",
+    "text_BrXWJr",
+    "featured_products_jJLzPD",
+    "text_a8EmbE",
+    "featured_products_wiQDBP",
+    "text_wA7iCi",
+    "custom_tabs_i44PzU",
+    "video_testimonial_QUkx3e",
+    "featured_testimonials_UcrMz4",
+    "text_7cML4X",
+    "custom_tabs_38b63E",
+    "text_grid_DtLayH",
+    "text_and_media_64yWzx",
+    "featured_publications_jcDFGh"
+  ]
+}

@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-contact",
+      "blocks": {
+        "group_content_KW4Lti": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_JtUdTk": {
+              "type": "heading",
+              "settings": {
+                "heading": "We’re here, how can we <em>help</em>?",
+                "heading_type": "h1",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_4y3zec": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ac velit non consectetur enim aliquam ullamcorper ipsum. Morbi porttitor cum ut ultricies nibh amet vitae. Quam metus sapien senectus arcu a aliquam habitasse tellus. At tortor maecenas adipiscing accumsan. Amet at eget quam iaculis. Eget lacus sit nulla in.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_JtUdTk",
+            "text_4y3zec"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_KW4Lti"
+      ],
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "custom_code_Rhx3Mh": {
+      "type": "custom-code",
+      "settings": {
+        "html": "<script defer src=\"https://contact.gorgias.help/api/contact-forms/loader.js?v=3\" data-gorgias-loader-contact-form=\"\" data-gorgias-contact-form-uid=\"b0d7fwi2\"></script>",
+        "liquid": "",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "custom_code_Rhx3Mh"
+  ]
+}

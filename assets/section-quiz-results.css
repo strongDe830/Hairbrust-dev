@@ -1,0 +1,118 @@
+.section-quiz-results {
+  padding: 2.5rem 0;
+}
+.section-quiz-results .results-wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2.5rem;
+}
+.section-quiz-results .order-summary {
+  background-color: var(--colour-gallery);
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-self: start;
+}
+.section-quiz-results .order-summary .header span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.section-quiz-results .order-summary .header * {
+  margin: 0;
+}
+.section-quiz-results .order-summary hr {
+  border-color: var(--colour-ghost);
+}
+.section-quiz-results .order-summary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.section-quiz-results .order-summary ul li button {
+  text-align: start;
+  padding: 0;
+}
+.section-quiz-results .order-summary dl,
+.section-quiz-results .order-summary ul li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+.section-quiz-results .order-summary .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.section-quiz-results .order-summary .actions a {
+  display: flex;
+}
+.section-quiz-results .order-summary .subscriptions {
+  margin-top: 1rem;
+}
+.section-quiz-results .order-summary .subscriptions li {
+  gap: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+.section-quiz-results .order-summary .subscriptions li .product-price {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: end;
+  align-self: end;
+}
+.section-quiz-results .order-summary .subscriptions li .product-title {
+  grid-column: 1;
+  grid-row: 2;
+  padding-left: 1.25rem;
+}
+.section-quiz-results .order-summary .subscriptions li .subscription-note {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+.section-quiz-results .products {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1rem;
+}
+.section-quiz-results .subscription-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.section-quiz-results .subscription-note svg {
+  height: 0.75rem;
+  width: 0.75rem;
+  opacity: 0.8;
+}
+@media (min-width: 768px) {
+  .section-quiz-results .products {
+    grid-template-columns: 1fr 1fr;
+  }
+  .section-quiz-results .products.stacked {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  .section-quiz-results .results-wrapper {
+    max-width: 80vw;
+  }
+}
+@media (min-width: 1280px) {
+  .section-quiz-results {
+    padding: 2.5rem 0.5rem;
+  }
+  .section-quiz-results .results-wrapper {
+    grid-template-columns: 1fr 36%;
+    gap: 4.5rem;
+  }
+  .section-quiz-results .order-summary {
+    padding: 2rem;
+  }
+}

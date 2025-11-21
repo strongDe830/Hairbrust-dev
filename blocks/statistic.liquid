@@ -1,0 +1,24 @@
+<div class="block-statistic">
+  <span class="title">{{- block.settings.title -}}</span>
+  <p class="u-text-md">{{- block.settings.text -}}</p>
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.statistic.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:global.title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "t:global.text.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.statistic.name" }]
+}
+{% endschema %}

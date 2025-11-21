@@ -1,0 +1,222 @@
+{% liquid 
+  assign domains = shop.metafields.lang.domains
+  assign path = request.path
+%}
+{% if template.name == "product" %}
+  {% assign products_alts = product.metafields.custom.product_alternatives.value %}
+
+  {% if products_alts != blank %}
+    {% for product_alt in products_alts.json_id_list.value %}
+      {% assign product_alternate = all_products[product_alt.handle] %}
+      {% assign current_locale = localization.market.handle | upcase %}
+      <link 
+        rel="alternate" 
+        href="{{ product_alt.handle | escape }}" 
+        hreflang="{% if current_locale == product_alt.region %}x-default{% else %}{{ product_alt.language | escape }}-{{ product_alt.region | escape }}{% endif %}" />
+    {% endfor %}
+  {% else %}
+    {%- for domain in domains -%}
+      {% if domain.locales.size > 1 %}
+        {% for locale in domain.locales %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ locale | escape }}" />
+        {% endfor %}
+      {% else %}
+        {% if domain.enabled %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}" />
+        {% endif %}
+        {% if domain.x-default %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ domain.locale | escape }}"
+          />
+        {% endif %}
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+{%  elsif template.name == "collection" %}
+  {% assign collection_alts = collection.metafields.custom.collection_alternatives.value %}
+
+  {% if collection_alts != blank %}
+    {% for collection_alt in collection_alts.json_id_list.value %}
+      {% assign collection_alternate = collections[collection_alt.handle] %}
+      {% assign current_locale = localization.market.handle | upcase %}
+      <link 
+        rel="alternate" 
+        href="{{ collection_alt.handle | escape }}" 
+        hreflang="{% if current_locale == collection_alt.region %}x-default{% else %}{{ collection_alt.language | escape }}-{{ collection_alt.region | escape }}{% endif %}" />
+    {% endfor %}
+  {% else %}
+    {%- for domain in domains -%}
+      {% if domain.locales.size > 1 %}
+        {% for locale in domain.locales %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ locale | escape }}" />
+        {% endfor %}
+      {% else %}
+        {% if domain.enabled %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}" />
+        {% endif %}
+        {% if domain.x-default %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ domain.locale | escape }}"
+          />
+        {% endif %}
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+{% elsif template.name == "page" %}
+  {% assign page_alts = page.metafields.custom.page_alternatives.value %}
+
+  {% if page_alts != blank %}
+    {% for page_alt in page_alts.json_id_list.value %}
+      {% assign page_alternate = pages[page_alt.handle] %}
+      {% assign current_locale = localization.market.handle | upcase %}
+      <link 
+        rel="alternate" 
+        href="{{ page_alt.handle | escape }}" 
+        hreflang="{% if current_locale == page_alt.region %}x-default{% else %}{{ page_alt.language | escape }}-{{ page_alt.region | escape }}{% endif %}" />
+    {% endfor %}
+  {% else %}
+    {%- for domain in domains -%}
+      {% if domain.locales.size > 1 %}
+        {% for locale in domain.locales %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ locale | escape }}" />
+        {% endfor %}
+      {% else %}
+        {% if domain.enabled %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}" />
+        {% endif %}
+        {% if domain.x-default %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ domain.locale | escape }}"
+          />
+        {% endif %}
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+{% elsif template.name == "blog" %}
+  {% assign blog_alts = blog.metafields.custom.blog_alternatives.value %}
+
+  {% if blog_alts != blank %}
+    {% for blog_alt in blog_alts.json_id_list.value %}
+      {% assign blog_alternate = blogs[blog_alt.handle] %}
+      {% assign current_locale = localization.market.handle | upcase %}
+      <link 
+        rel="alternate" 
+        href="{{ blog_alt.handle | escape }}" 
+        hreflang="{% if current_locale == blog_alt.region %}x-default{% else %}{{ blog_alt.language | escape }}-{{ blog_alt.region | escape }}{% endif %}" />
+    {% endfor %}
+  {% else %}
+    {%- for domain in domains -%}
+      {% if domain.locales.size > 1 %}
+        {% for locale in domain.locales %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ locale | escape }}" />
+        {% endfor %}
+      {% else %}
+        {% if domain.enabled %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}" />
+        {% endif %}
+        {% if domain.x-default %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ domain.locale | escape }}"
+          />
+        {% endif %}
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+{% elsif template.name == "article" %}
+  {% assign article_alts = article.metafields.custom.article_alternatives.value %}
+
+  {% if article_alts != blank %}
+    {% for article_alt in article_alts.json_id_list.value %}
+      {% assign article_alternate = articles[article_alt.handle] %}
+      {% assign current_locale = localization.market.handle | upcase %}
+      <link 
+        rel="alternate" 
+        href="{{ article_alt.handle | escape }}" 
+        hreflang="{% if current_locale == article_alt.region %}x-default{% else %}{{ article_alt.language | escape }}-{{ article_alt.region | escape }}{% endif %}" />
+    {% endfor %}
+  {% else %}
+    {%- for domain in domains -%}
+      {% if domain.locales.size > 1 %}
+        {% for locale in domain.locales %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ locale | escape }}" />
+        {% endfor %}
+      {% else %}
+        {% if domain.enabled %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}" />
+        {% endif %}
+        {% if domain.x-default %}
+          <link 
+            rel="alternate" 
+            href="{{ domain.url | append: path }}" 
+            hreflang="{{ domain.locale | escape }}"
+          />
+        {% endif %}
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+{% else %}
+  {%- for domain in domains -%}
+    {% if domain.locales.size > 1 %}
+      {% for locale in domain.locales %}
+        <link 
+          rel="alternate" 
+          href="{{ domain.url | append: path }}" 
+          hreflang="{{ locale | escape }}" 
+        />
+      {% endfor %}
+    {% else %}
+      {% if domain.enabled %}
+        <link 
+          rel="alternate" 
+          href="{{ domain.url | append: path }}" 
+          hreflang="{% if domain.x-default %}x-default{% else %}{{ domain.locale | escape }}{% endif %}"
+        />
+      {% endif %}
+      {% if domain.x-default %}
+        <link 
+          rel="alternate" 
+          href="{{ domain.url | append: path }}" 
+          hreflang="{{ domain.locale | escape }}"
+        />
+      {% endif %}
+    {% endif %}
+  {%- endfor -%}
+{% endif %}

@@ -1,0 +1,51 @@
+{%- liquid
+  assign template_name = 'section-media-carousel'
+
+  assign margin_bottom = section.settings.margin_bottom
+%}
+
+<section
+  class="{{ template_name }} u-space-below-{{ margin_bottom }}"
+  data-section-type="{{ template_name }}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% content_for 'block', type: 'group-content', id: 'static-group-content'  %}
+    {% content_for 'block', type: 'group-media-carousel', id: 'static-group-carousel' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image & Video Carousel",
+  "settings": [
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "Bottom Spacing",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "xs",   "label": "Extra small" },
+        { "value": "sm",   "label": "Small" },
+        { "value": "md",   "label": "Medium" },
+        { "value": "lg",   "label": "Large" }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    { 
+      "type": "group-content"
+    },
+    { 
+      "type": "group-media-carousel"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image & Video Carousel",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

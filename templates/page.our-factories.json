@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "text_fjQFMw": {
+      "type": "text",
+      "blocks": {
+        "group_content_9XQgtk": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center"
+          },
+          "blocks": {
+            "heading_zyNQWm": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Our Factories",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "center"
+              },
+              "blocks": {}
+            },
+            "text_EKUqhA": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>When it comes to choosing where we make our products, we consider a number of different factors and focus our efforts on the areas that stand to deliver the biggest impact as we move towards sustainability - materials, design, waste, packaging, price, and the environment work of the factories. We recognise  our responsibility to everyone involved in the production of our products, including those we both directly and indirectly employ.</p>",
+                "add_margin": true,
+                "text_align": "center",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            },
+            "heading_enR8rE": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "100% Recyclable",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "center"
+              },
+              "blocks": {}
+            },
+            "text_XbFNTE": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>We’re constantly thinking of ways to be more environmentally friendly at our warehouse, that's why our new parcel boxes are now FSC certified and are 100% recyclable.</p>",
+                "add_margin": true,
+                "text_align": "center",
+                "use_icons_in_list": false
+              },
+              "blocks": {}
+            },
+            "heading_kWUf8t": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Our UK Warehouse is accredited with Ecovadis Bronze working towards Silver.",
+                "heading_type": "h2",
+                "heading_size": "sm",
+                "text_align": "center"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_zyNQWm",
+            "text_EKUqhA",
+            "heading_enR8rE",
+            "text_XbFNTE",
+            "heading_kWUf8t"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_9XQgtk"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    },
+    "text_and_media_Rd9HQr": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_GxFKhF": {
+          "type": "content-media",
+          "name": "t:blocks.content_and_media.name",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_WMmxkc": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start"
+              },
+              "blocks": {
+                "heading_rhHEbG": {
+                  "type": "heading",
+                  "name": "t:sections.all.heading.label",
+                  "settings": {
+                    "heading": "Here is a list of need-to-know on our factory facilities, manufacturers and the accreditations they hold:",
+                    "heading_type": "h2",
+                    "heading_size": "xs",
+                    "text_align": "start"
+                  },
+                  "blocks": {}
+                },
+                "text_RWcgRM": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<ul><li>All our vitamins and supplements (excluding our Vegan vitamins) are made in the UK.</li><li>Our vegan vitamins are made in the EU</li><li>Our UK warehouse recycles over 70% of general waste diverted from landfill and used for heat & power and other other types of energy (this applies to 58% of our cosmetic products)</li><li>We only work with GMP(good manufacturing practice)certified facilities combining premium ingredients with innovative actives, ensuring we create unique formulas, and quality products that satisfy our customers needs and are in keeping with the latest beauty trends</li><li>We've recently started working with a new US manufacture for our vitamins and supplements, meaning this will reduce our carbon footprint by localising production</li><li>We always look to manufacture locally where possible and have introduced warehouses located close to our busy customer territories to save on shipping times and our carbon footprint</li><li>We carefully follow regulations when formulating our products for different territories to ensure they are safe and fit for sale in each country</li><li>All products are put through necessary stability, compatibility and safety testing before being sold to customers</li><li>The majority of our cosmetic products are made at a 100% carbon neutral facility which we are extremely proud to work with.</li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_rhHEbG",
+                "text_RWcgRM"
+              ]
+            },
+            "media_eak9kf": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/1034729389-huge_1_1.jpg",
+                "image": "shopify://shop_images/1034729389-huge_1_1.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_WMmxkc",
+            "media_eak9kf"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_GxFKhF"
+      ],
+      "name": "t:sections.text_and_media.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "17448038974fe13355": {
+      "type": "apps",
+      "settings": {}
+    }
+  },
+  "order": [
+    "text_fjQFMw",
+    "text_and_media_Rd9HQr",
+    "17448038974fe13355"
+  ]
+}

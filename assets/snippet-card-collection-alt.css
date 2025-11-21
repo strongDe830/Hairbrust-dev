@@ -1,0 +1,24 @@
+.snippet-card-collection-alt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 0.75rem;
+  background-color: transparent;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+}
+.snippet-card-collection-alt img,
+.snippet-card-collection-alt svg {
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
+  border-radius: var(--border-radius-xs);
+}
+.snippet-card-collection-alt a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+.snippet-card-collection-alt a:hover, .snippet-card-collection-alt a:focus {
+  text-decoration: underline;
+}

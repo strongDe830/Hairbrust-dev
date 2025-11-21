@@ -1,0 +1,4 @@
+.block-media img, .block-media iframe, .block-media video {
+  display: block;
+  width: 100%;
+}

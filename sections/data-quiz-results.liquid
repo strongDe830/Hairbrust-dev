@@ -1,0 +1,125 @@
+{% capture contentForQuerystring %}{{ content_for_header }}{% endcapture %}
+{% assign pageUrl = contentForQuerystring | split: '"pageurl":"' | last | split: '"' | first | split: '?' | last %}
+
+{% if pageUrl != null %}
+  {% assign params = pageUrl | split: '\u0026' %}
+
+  {% for param in params %}
+    {% assign param_parts = param | split: '=' %}
+    {% assign param_key = param_parts[0] %}
+    {% assign param_value = param_parts[1] %}
+
+    {% if param_key == 'handles' %}
+      {% assign handles = param_value | split: '%2C' %}
+    {% elsif param_key == 'ids' %}
+      {% assign ids = param_value | split: '%2C' %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% liquid
+  render 'file-css', _name: 'section-quiz-results.css'
+%}
+
+<div
+  id="{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="data-quiz-results"
+  class="section-quiz-results"
+>
+  <div class="quiz-results">
+    <p class="u-heading-xs">{{- 'quiz.results.kicker' | t -}}</p>
+    <h2 class="u-heading-lg">{{- 'quiz.results.heading_html' | t -}}</h2>
+    <p>{{- 'quiz.results.text' | t -}}</p>
+    <div class="results-wrapper">
+      <div class="products stacked">
+        {% for handle in handles %}
+          {% assign product = all_products[handle] %}
+          {% assign id = ids[forloop.index0] | plus: 0 %}
+          {% assign variant = product.variants | where: 'id', id | first %}
+          {% if variant %}
+            {% render 'card-product-quiz', _product: product, _index: forloop.index0, _variant: variant %}
+          {% else %}
+
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="order-summary">
+        <div class="header">
+          <span class="u-uppercase-sm">{{- 'quiz.results.summary' | t -}}</span>
+          <h3 class="u-heading-xs">{{- 'quiz.results.growth_plan' | t -}}</h3>
+        </div>
+        <hr>
+
+        <ul>
+          {% assign total = 0 %}
+          {% for handle in handles %}
+            {% assign product = all_products[handle] %}
+            {% assign id = ids[forloop.index0] | plus: 0 %}
+            {% assign variant = product.variants | where: 'id', id | first %}
+
+            {% if variant %}
+              {% assign price = variant.price | plus: 0 %}
+              {% assign total = total | plus: price %}
+              <li>
+                <span class="product-title">{{ product.title }}</span>
+                <strong class="product-price">{{ price | money }}</strong>
+                {% unless forloop.index0 == 0 %}
+                  <button type="button" class="c-btn remove-item" data-variant-id="{{ variant.id }}">
+                    <small>Remove</small>
+                  </button>
+                {% endunless %}
+              </li>
+            {% else %}
+
+            {% endif %}
+          {% endfor %}
+        </ul>
+        <hr>
+        <div class="total">
+          <dl>
+            <dt class="total-label">{{- 'quiz.results.growth_plan_total' | t -}}</dt>
+            <dd>
+              <strong class="total-price">{{ total | money }}</strong>
+            </dd>
+          </dl>
+
+          <ul class="subscriptions">
+            {% for handle in handles %}
+              {% assign product = all_products[handle] %}
+              {% assign id = ids[forloop.index0] | plus: 0 %}
+              {% assign variant = product.variants | where: 'id', id | first %}
+              {% if variant %}
+                {% assign _variant = variant %}
+              {% endif %}
+              {% if _variant.selling_plan_allocations.size > 0
+                or _variant.metafields.custom.issubscription.value == true
+              %}
+                <li>
+                  <span class="product-title">{{ product.title }}</span>
+                  <strong class="product-price product-price-subscription">{{ _variant.price | money }}</strong>
+                  <small class="subscription-note">
+                    {%- render 'element-icon', _icon: 'refresh' -%}
+                    <span>
+                      {{- 'accessibility.includes' | t }}
+                      {{ _variant.title }}
+                    </span>
+                  </small>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="actions">
+          <form data-variant-ids="{{ ids | join: ',' }}">
+            <div class="prices"></div>
+            <button type="submit" class="c-btn main tuna fw centre">{{- 'products.product.add_to_cart' | t -}}</button>
+          </form>
+          <a href="{{- routes.root_url -}}" class="c-btn alt fw centre continue">
+            {{- 'quiz.results.continue_shopping' | t -}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

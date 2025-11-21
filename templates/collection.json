@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_KAWC8m": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_EbLBbq": {
+              "type": "heading",
+              "settings": {
+                "heading": "{{ closest.collection.metafields.custom.card_title.value }}",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_hQKAHp": {
+              "type": "text",
+              "settings": {
+                "text": "",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_EbLBbq",
+            "text_hQKAHp"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "{{ closest.collection.image }}",
+            "image": "{{ closest.collection.image }}",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "custom_css": [
+        "strong {font-weight: bolder;}",
+        ".c-lozenge > svg {display: none;}"
+      ],
+      "settings": {
+        "use_2_col_grid": true,
+        "use_add_to_cart_btn": true
+      }
+    },
+    "featured_testimonials": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": true,
+        "use_thumbnails": false,
+        "margin_bottom": "md"
+      }
+    },
+    "faqs_nBFjhw": {
+      "type": "faqs",
+      "disabled": true,
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "<p>Gravida et pellentesque eget morbi urna faucibus ac. Vel gravida pellentesque pellentesque egestas ante cum. Ac lobortis sed donec mattis tellus enim rhoncus.</p>",
+        "contact_heading": "Have questions?",
+        "contact_text": "<p>Cras proin donec vitae adipiscing tincidunt diam. Nascetur arcu libero ultricies sed enim molestie eu sed nunc. </p><p><strong>Chat with our customer support team.<br/>8am - 4pm GMT.</strong></p><p><a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a></p>",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "page_hero_KAWC8m",
+    "main",
+    "featured_testimonials",
+    "faqs_nBFjhw"
+  ]
+}

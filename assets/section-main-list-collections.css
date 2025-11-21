@@ -1,0 +1,14 @@
+.section-main-list-collections .grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .section-main-list-collections .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .section-main-list-collections .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,79 @@
+{%- liquid
+  assign template_name = 'section-main-page'
+
+  assign margin_bottom = section.settings.margin_bottom
+  assign useful_links = section.settings.useful_links
+  assign use_links_mobile = section.settings.use_links_mobile
+
+  render 'file-css', _name: 'section-main-page.css'
+%}
+
+{%- if use_links_mobile == false -%}
+  <style>
+    div[data-section-id="{{ section.id }}"] .useful-links {
+      @media (max-width: 767.98px) {
+        display: none;
+      }
+    }
+  </style>
+{%- endif -%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <h1 class="u-heading-md">{{- page.title -}}</h1>
+    <div class="c-rte">
+      {{- page.content -}}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main_page.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "t:sections.main_page.name"
+    }
+  ]
+}
+{% endschema %}

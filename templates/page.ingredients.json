@@ -1,0 +1,1063 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_JfHpVn": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "kicker_yQU4h8": {
+              "type": "kicker",
+              "settings": {
+                "kicker": "Hair Biology",
+                "background_colour": "gallery",
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
+            "heading_p9Mif9": {
+              "type": "heading",
+              "settings": {
+                "heading": "Hair Health: The Biology of Growth & Loss",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "heading_Y7CP9j": {
+              "type": "heading",
+              "settings": {
+                "heading": "We’ve studied the biology of hair growth for over a decade. So you get proven results, not empty promises.",
+                "heading_type": "h3",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kicker_yQU4h8",
+            "heading_p9Mif9",
+            "heading_Y7CP9j"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/SCIENCE_PAGE.png",
+            "image": "shopify://shop_images/SCIENCE_PAGE.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_LDQq7j": {
+      "type": "text",
+      "blocks": {
+        "group_content_jkCPjq": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "group_anchors_z6AzzR": {
+              "type": "group-anchors",
+              "name": "t:blocks.group_anchors.name",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_L73TWk": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#shopify-block-AQ0JaSWxZNTNVYlR1S__heading_ipeb3g",
+                    "title": "The Hair Growth Cycle",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_fLcErn": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#shopify-block-AdkF0UyttbnFkZWVKQ__heading_FfRPFR",
+                    "title": "Your Hair Growth Pathway",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_q78B8J": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#shopify-block-AMDZIZGpsaGQyVml5N__heading_b6rmHd",
+                    "title": "Your DHT & ECM explained",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_T3ijK8": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "disabled": true,
+                  "settings": {
+                    "anchor_url": "shopify://pages/science",
+                    "title": "Oxidative Stress",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_GrNxdJ": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#shopify-block-AVkFXQTdTYzcybXNHd__heading_R7kxQb",
+                    "title": "Root Causes of Hair Loss",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_L73TWk",
+                "anchor_fLcErn",
+                "anchor_q78B8J",
+                "anchor_T3ijK8",
+                "anchor_GrNxdJ"
+              ]
+            }
+          },
+          "block_order": [
+            "group_anchors_z6AzzR"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_jkCPjq"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "sm"
+      }
+    },
+    "text_3Pzn8b": {
+      "type": "text",
+      "blocks": {
+        "group_content_qxjNJ8": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ipeb3g": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Understanding the Hair Growth Cycle",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_8aLWge": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what<br/>your hair needs at every stage <strong>and how to combat phases of hair loss.</strong></p><p>That’s why our formulations work; because they’re designed to support your hair’s natural rhythm for stronger, healthier growth <strong>and target the root causes of thinning.</strong></p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ipeb3g",
+            "text_8aLWge"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_qxjNJ8"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "custom_tabs_GTdEBG": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_wMbhHN": {
+          "type": "block",
+          "settings": {
+            "title": "Anagen: The Growth Phase",
+            "text": "<p>This is the phase when your hair is actively growing with an average of half an inch per<br/>month. The longer your hair stays in this phase, the longer it will grow.</p><p><strong>What’s happening?</strong> Your follicles are working hard, producing new hair cells and pushing them out of the scalp. Around 85-90% of your hair is in this phase at any given time and this phase usually lasts around 3-5 years depending on age, gender and ethnicity.</p>",
+            "kicker": "3 - 5 years"
+          }
+        },
+        "block_nxbGt8": {
+          "type": "block",
+          "settings": {
+            "title": "Catagen: The Transition Phase",
+            "text": "<p>The second stage of your hair cycle is the shortest phase, think of this as a reset period. Your hair stops growing, but it’s still attached to the follicle as it prepares to shed.</p><p><strong>What’s happening?</strong> The follicle shrinks, cutting off the blood supply to the hair strand as it prepares for the next growth cycle. This phase affects around 5% of your hair at any given time and lasts approximately 2-3 weeks.</p>",
+            "kicker": "3 - 4 weeks"
+          }
+        },
+        "block_itkaj3": {
+          "type": "block",
+          "settings": {
+            "title": "Telogen: The Resting Phase",
+            "text": "<p>The third stage of the natural hair growth cycle is a resting period where strands remain in the follicles but are not actively growing.<br/><br/><strong>What’s happening?</strong> The follicle rests before it begins to shed, around 10-15% of your hair is in this phase at any given time and it usually lasts around 3 months. Sudden changes like stress, hormonal imbalances, nutritional deficiencies and rapid weight loss can cause hair strands to enter the telogen phase prematurely which can lead to increased hair loss. This condition is known as telogen effluvium.</p>",
+            "kicker": "3 - 4 months"
+          }
+        },
+        "block_tE8Tgj": {
+          "type": "block",
+          "settings": {
+            "title": "Exogen: Shedding Phase",
+            "text": "<p>During the last phase, hair begins to shed as new strands begin to grow in the follicle, this causes on average 50-100 hair strands to shed a day during this phase.</p><p><strong>What’s happening?</strong> Hair strands begin to shed as new follicle growth begins. This phase typically lasts around 2-5 months with on average 9% of hair being in this phase at any given time.</p>",
+            "kicker": "2 - 5 months"
+          }
+        }
+      },
+      "block_order": [
+        "block_wMbhHN",
+        "block_nxbGt8",
+        "block_itkaj3",
+        "block_tE8Tgj"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_LL87MG": {
+      "type": "text",
+      "blocks": {
+        "group_content_cbdJiR": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_FfRPFR": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Your Hair Growth Pathway",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_yVkcYj": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>The Wnt pathway is a group of signals your body uses to control how cells grow, divide, and function, especially in places like your skin and hair follicles. It plays a big role in starting and maintaining the hair growth cycle, helping to keep follicles active and healthy.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_FfRPFR",
+            "text_yVkcYj"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_cbdJiR"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "centre",
+        "justify_content": "centre",
+        "margin_bottom": "none"
+      }
+    },
+    "custom_tabs_iFx4q9": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_iMeNj4": {
+          "type": "block",
+          "settings": {
+            "title": "Your Wnt Pathway Explained",
+            "text": "<p>Think of the Wnt pathway as a road that carries growth signals to your hair follicles. When traffic is flowing smoothly, the signals get through, and your hair stays in a healthy growth cycle. But if there's a traffic jam, roadblock, or detour the signals can’t reach their destination which can then cause hair follicles to slow down or stay in a resting phase, eventually leading to thinning or hair loss.</p>",
+            "kicker": "Your Wnt Pathway Explained"
+          }
+        },
+        "block_Rd3dXB": {
+          "type": "block",
+          "settings": {
+            "title": "Wnt Road Blockers",
+            "text": "<p>Some of the “road blockers” that slow down the Wnt pathway are natural proteins in the body that act like stop signs for hair growth.</p><p>These include things like <strong>Dkk1, sFRPs, </strong>and <strong>SOST</strong> - they may sound complicated, but their job is simple: they tell your hair follicles to slow down or stop growing. These blockers can show up more when your scalp is dealing with inflammation, stress, hormonal changes, or skin issues like eczema and psoriasis. When too many of these blockers are active, they can make it harder for your hair to grow strong and healthy. </p><p>Think of the Wnt pathway like a road that sends “grow” messages to your hair. When the road is clear, your hair keeps growing strong. But things like stress and inflammation can put up stop signs (proteins like Dkk1 and SOST) that block the signals.</p><p>When that happens, hair growth slows down, and thinning can start.</p>",
+            "kicker": "Wnt Road Blockers"
+          }
+        },
+        "block_mKndTp": {
+          "type": "block",
+          "settings": {
+            "title": "How Hairburst Works",
+            "text": "<p>At Hairburst, our scalp treatments contain trademarked ingredients that encourage the production of R-spondin 1, this helps keep your Wnt pathway clear and supports longevity in the growth cycle. </p>",
+            "kicker": "How Hairburst Works"
+          }
+        }
+      },
+      "block_order": [
+        "block_iMeNj4",
+        "block_Rd3dXB",
+        "block_mKndTp"
+      ],
+      "name": "t:sections.custom_tabs.name",
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "text_Ya8efM": {
+      "type": "text",
+      "blocks": {
+        "group_content_UJcmJ4": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_b6rmHd": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Your DHT & ECM Explained",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_b6rmHd"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_UJcmJ4"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "custom_tabs_ripXnz": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_TCDNBT": {
+          "type": "block",
+          "settings": {
+            "title": "What is DHT?",
+            "text": "<p>DHT (dihydrotestosterone) is a type of hormone derived from testosterone, it’s produced when the enzyme 5-alpha-reductase converts testosterone into DHT.</p><p>It’s naturally present in both men and women, but in different amounts and plays an important role in the<br/>body, especially during development. </p>",
+            "kicker": "What is DHT?"
+          }
+        },
+        "block_DNhmh6": {
+          "type": "block",
+          "settings": {
+            "title": "DHT explained",
+            "text": "<p>In males, DHT is crucial for male characteristics during fetal growth and triggers changes during puberty like facial and body hair growth and voice deepening. In females, it exists in much lower levels and helps regulate hormone balance and support sexual health.</p><p>However, DHT is also one of the key hormones involved in hair loss, particularly in a condition called <strong>androgenetic alopecia, </strong>also known as male-pattern or female pattern hair loss.</p><p>When too much testosterone is converted into DHT, it can begin to affect the hair follicles on the scalp, especially in people who are more sensitive to it. DHT binds to androgen receptors in the follicles and can trigger a process called<strong> follicular miniaturisation</strong>. This is where the follicles gradually shrink, particularly in areas like the temples, crown, and mid-scalp, which causes hair to grow back thinner, shorter, and weaker with each cycle. Over time, the follicles can become so small that they no longer produce visible hair. DHT also <strong>shortens the anagen (growth) phase, </strong>causing hair to fall out sooner, and <strong>increases the telogen (resting) phase</strong>, so more hairs remain in the shedding stage, leading to noticeable thinning. <strong>However, not everyone responds to DHT the same way and your genetics play a major role in how sensitive your hair follicles are to its effects.</strong> </p><p>Because of this, we have prioritised including trademarked ingredients within our scalp treatments that have shown to imitate testosterone so that less DHT is converted, as well as slow down the production of enzyme 5-alpha-reductase to also reduce the conversion of DHT. This helps to reduce thinning, hair loss etc. Together, this helps minimise hair thinning, reduce shedding, and support healthier, fuller-looking hair.</p>",
+            "kicker": "DHT explained"
+          }
+        },
+        "block_yiDR7y": {
+          "type": "block",
+          "settings": {
+            "title": "What is ECM?",
+            "text": "<p>Your ECM is known as an extracellular matrix which acts as a supportive network that provides structure and stability to tissues, including the hair follicle. It’s made up of a complex mix of molecules that each play an important role. </p>",
+            "kicker": "ECM explained"
+          }
+        },
+        "block_KapDmH": {
+          "type": "block",
+          "settings": {
+            "title": "ECM explained",
+            "text": "<p>Structural proteins like <strong>collagen, elastin, </strong>and<strong> fibronectin</strong> give strength and flexibility to the surrounding tissue. <strong>Proteoglycans</strong> act like multitaskers that help cells stick together, sending important signals, and carrying growth factors where they’re needed. <strong>Laminin</strong> plays a key role by helping cells attach securely to the ECM, keeping everything in place and functioning properly.</p><p>The ECM also surrounds and supports the cells in tissue, acting like a kind of <strong>scaffolding or structural framework</strong> that holds everything together. Beyond support, it plays a crucial role in maintaining <strong>vascularisation</strong> by helping to form and stabilise the blood vessels that deliver oxygen and nutrients to the hair follicle. Without this steady supply, hair growth can slow down or weaken, making a healthy ECM essential for strong, thriving hair.</p><p>While everyone has an ECM, its composition and function can vary based on individual factors like age, genetics, and overall health. its quality and function decline with age or due to stress, inflammation, or hormonal factors (like DHT).</p><p>Changes in the ECM can contribute to hair loss. For example, the ECM may become damaged or altered due to aging, stress, nutritional deficiencies etc. which can affect hair growth and lead to thinning or loss of hair. At Hairburst, we use trademarked ingredients across our scalp </p>",
+            "kicker": "ECM explained"
+          }
+        }
+      },
+      "block_order": [
+        "block_TCDNBT",
+        "block_DNhmh6",
+        "block_yiDR7y",
+        "block_KapDmH"
+      ],
+      "name": "t:sections.custom_tabs.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "ingredients_KpwUrx": {
+      "type": "ingredients",
+      "blocks": {
+        "group_content_hCL3Bn": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_R7kxQb": {
+              "type": "heading",
+              "settings": {
+                "heading": "The Root of Hair Problems",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_ABnD8R": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Thinning, shedding, slow growth, breakage… sound familiar?<br/><br/>You’re not alone. If your hair isn’t behaving the way it used to, there’s a reason for it - actually, there are several. Stress, hormones, poor nutrition, age and even environmental damage can all disrupt your hair growth cycle, leaving you frustrated with weak, lifeless strands or even hair loss.</p><p>But here’s the good news: hair struggles aren’t permanent. Once you understand<br/>what’s really causing the issue, you can start combatting the root cause.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_R7kxQb",
+            "text_ABnD8R"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_hCL3Bn"
+      ],
+      "settings": {
+        "ingredients": [
+          "stress",
+          "hormones",
+          "nutrition",
+          "ageing",
+          "environmental-damage",
+          "skin-scalp-health"
+        ],
+        "margin_bottom": "md"
+      }
+    },
+    "statistics_nnhfgC": {
+      "type": "statistics",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_xYNhnW": {
+              "type": "heading",
+              "settings": {
+                "heading": "Clinically Proven, Customer-Approved",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_pGcFdq": {
+              "type": "text",
+              "settings": {
+                "text": "<p>We don’t just make claims—we prove them. Backed by <strong>over 10 years of research</strong>, our products contain <strong>clinically proven ingredients</strong> that deliver real results.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_xYNhnW",
+            "text_pGcFdq"
+          ]
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "statistic_mfM8ef": {
+              "type": "statistic",
+              "settings": {
+                "title": "88%",
+                "text": "of Advanced+ Hair Formula users said their hair looked healthier."
+              },
+              "blocks": {}
+            },
+            "statistic_6KrVit": {
+              "type": "statistic",
+              "settings": {
+                "title": "86%",
+                "text": "of Advanced+ Hair Formula users said their hair looked fuller."
+              },
+              "blocks": {}
+            },
+            "statistic_aD7WnB": {
+              "type": "statistic",
+              "settings": {
+                "title": "98%",
+                "text": "of Healthy Hair Vitamin users noticed faster hair growth."
+              },
+              "blocks": {}
+            },
+            "statistic_Gff9RT": {
+              "type": "statistic",
+              "settings": {
+                "title": "97%",
+                "text": "of Healthy Hair Vitamin users said their hair felt thicker."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_mfM8ef",
+            "statistic_6KrVit",
+            "statistic_aD7WnB",
+            "statistic_Gff9RT"
+          ]
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "timeline_fHKyer": {
+      "type": "timeline",
+      "blocks": {
+        "heading_93L9QA": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Science of Good Hair",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "center",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        },
+        "text_eNiQ3N": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hair growth isn’t just about products—it’s about understanding your hair’s natural cycle and giving it what it needs to thrive.</p><p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what your hair needs at every stage. That’s why our formulations work—because they’re designed to support your hair’s natural rhythm for stronger, healthier growth.</p>",
+            "add_margin": true,
+            "text_align": "center",
+            "use_icons_in_list": false,
+            "margin_bottom": 24
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_93L9QA",
+        "text_eNiQ3N"
+      ],
+      "disabled": true,
+      "settings": {
+        "timeline_cards": [
+          "hair-cycle-anagen",
+          "hair-cycle-catagen",
+          "hair-cycle-telegen"
+        ],
+        "margin_bottom": "md"
+      }
+    },
+    "text_kCA6LK": {
+      "type": "text",
+      "blocks": {
+        "group_content_V9pF8U": {
+          "type": "group-content",
+          "disabled": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_4CPmf6": {
+              "type": "heading",
+              "settings": {
+                "heading": "What’s Causing Your Hair Struggles?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_xRQFML": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Thinning, shedding, slow growth, breakage… sound familiar? You’re not alone. If your hair isn’t behaving the way it used to, there’s a reason for it—actually, there are several. But here’s the good news: hair struggles aren’t permanent. Once you understand what’s really causing the issue, you can start giving your hair exactly what it needs to thrive.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_4CPmf6",
+            "text_xRQFML"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_V9pF8U"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_PF3FiC": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_ECnieW": {
+          "type": "block",
+          "settings": {
+            "title": "Stress",
+            "text": "<p>Ever noticed more hair in the shower after a stressful few months? That’s because stress triggers Telogen Effluvium—a condition that forces too many hairs into the shedding phase too soon. High cortisol (your stress hormone) literally puts your hair into survival mode, prioritising essential functions over growth.</p>",
+            "kicker": "Stress",
+            "image": "shopify://shop_images/STRESS.jpg"
+          }
+        },
+        "block_MpzKgT": {
+          "type": "block",
+          "settings": {
+            "title": "Hormones",
+            "text": "<p>Hormonal changes—whether due to pregnancy, postpartum, perimenopause, or even the contraceptive pill—can throw your hair completely off track. DHT, a hormone linked to hair loss, can shrink follicles over time, making hair thinner and weaker.</p>",
+            "kicker": "Hormones",
+            "image": "shopify://shop_images/HORMONES_1.jpg"
+          }
+        },
+        "block_mdmx4a": {
+          "type": "block",
+          "settings": {
+            "title": "Nutrition",
+            "text": "<p>Your hair needs a <strong>constant supply of nutrients</strong> to grow strong, but modern diets often lack the essentials. If you’re low in <strong>biotin, zinc, selenium, or folic acid</strong>, your hair follicles don’t get the fuel they need—leading to weak, slow-growing strands that break before they reach their full potential.</p>",
+            "kicker": "Nutrition",
+            "image": "shopify://shop_images/NUTRITION.jpg"
+          }
+        },
+        "block_Cw6PH8": {
+          "type": "block",
+          "settings": {
+            "title": "Environmental Damage",
+            "text": "<p>Hard water, pollution, UV rays, excessive heat styling—your hair deals with <strong>a lot</strong> every single day. Over time, <strong>oxidative stress</strong> weakens your strands, causing dryness, breakage, and dullness.</p>",
+            "kicker": "Environmental Damage",
+            "image": "shopify://shop_images/ENVIRONMENT.jpg"
+          }
+        },
+        "block_zTyJgL": {
+          "type": "block",
+          "settings": {
+            "title": "Scalp Health",
+            "text": "<p>A <strong>dry, flaky, or oily scalp</strong> can mean clogged follicles, inflammation, and poor hair growth. A healthy scalp = the best possible environment for strong, thick hair to flourish.</p>",
+            "kicker": "Scalp Health",
+            "image": "shopify://shop_images/SCALP.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_ECnieW",
+        "block_MpzKgT",
+        "block_mdmx4a",
+        "block_Cw6PH8",
+        "block_zTyJgL"
+      ],
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "categories_hcrTAW": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ehTRQV": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "What's <em>your</em> hair dealing with?",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "center",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_kX3zby": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Whether it’s stress, hormones, or postpartum changes. Our Advanced+ Hair Formula gets to the root of it.</p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ehTRQV",
+            "text_kX3zby"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "page_yWQABT": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "stress-hair-loss-solutions",
+                "image": "shopify://shop_images/Stress_Page_Link.png",
+                "card_title": "",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_FgPTWG": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "hormonal-hair-loss-solutions",
+                "image": "shopify://shop_images/Horonal_Page_Link.png",
+                "card_title": "",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            },
+            "page_8fgJrV": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "postpartum-hair-loss-solutions",
+                "image": "shopify://shop_images/Postpartum_Page_Link.png",
+                "card_title": "",
+                "category": "",
+                "button_label": "Learn more"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "page_yWQABT",
+            "page_FgPTWG",
+            "page_8fgJrV"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "t:sections.categories.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_3VagAY": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_PHaxeV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h2",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        },
+        "heading_ET4pAY": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000   ★ ★ ★ ★ ★   reviews across our range",
+            "heading_type": "h5",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_PHaxeV",
+        "heading_ET4pAY"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "lucy",
+          "lauren",
+          "amber",
+          "kerri",
+          "charlie",
+          "justine",
+          "jess",
+          "carabeaty",
+          "aimee",
+          "sabrina",
+          "nicole",
+          "ana"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": false,
+        "margin_bottom": "md"
+      }
+    },
+    "text_BaEPNM": {
+      "type": "text",
+      "blocks": {
+        "group_content_ffjtcz": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_fim7AN": {
+              "type": "heading",
+              "settings": {
+                "heading": "Your Hair Growth Routine Starts Here",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_BwYKeb": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Great hair is all about <strong>consistency</strong>—but knowing what works for you is key. Our <strong>Routine Builder</strong> takes the guesswork out, creating a <strong>personalised Hairburst routine</strong> tailored to your hair goals. Build the right habits, use the right products, and watch your hair transform.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_anchors_PYwnLw": {
+              "type": "group-anchors",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_VHa4cP": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://collections/frontpage",
+                    "title": "Find your perfect routine",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_VHa4cP"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_fim7AN",
+            "text_BwYKeb",
+            "group_anchors_PYwnLw"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_ffjtcz"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    },
+    "timeline_78BHf9": {
+      "type": "timeline",
+      "blocks": {
+        "heading_nQDQaf": {
+          "type": "heading",
+          "name": "t:sections.all.heading.label",
+          "settings": {
+            "heading": "Understanding the Hair Growth Cycle",
+            "heading_type": "h2",
+            "heading_size": "md",
+            "text_align": "center",
+            "margin_bottom": 16
+          },
+          "blocks": {}
+        },
+        "text_y8CKzQ": {
+          "type": "text",
+          "name": "t:blocks.text.name",
+          "settings": {
+            "text": "<p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what<br/>your hair needs at every stage <strong>and how to combat phases of hair loss.</strong></p><p>That’s why our formulations work; because they’re designed to support your hair’s natural rhythm for stronger, healthier growth <strong>and target the root causes of thinning.</strong></p>",
+            "add_margin": false,
+            "text_align": "center",
+            "use_icons_in_list": false,
+            "margin_bottom": 24
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_nQDQaf",
+        "text_y8CKzQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.timeline.name",
+      "settings": {
+        "timeline_cards": [
+          "science-page-anagen-the-growth-phase",
+          "science-page-catagen-the-transition-phase",
+          "science-page-telogen-the-resting-phase",
+          "science-page-exogen-shedding-phase"
+        ],
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_JfHpVn",
+    "text_LDQq7j",
+    "text_3Pzn8b",
+    "custom_tabs_GTdEBG",
+    "text_LL87MG",
+    "custom_tabs_iFx4q9",
+    "text_Ya8efM",
+    "custom_tabs_ripXnz",
+    "ingredients_KpwUrx",
+    "statistics_nnhfgC",
+    "timeline_fHKyer",
+    "text_kCA6LK",
+    "custom_tabs_PF3FiC",
+    "categories_hcrTAW",
+    "featured_testimonials_3VagAY",
+    "text_BaEPNM",
+    "timeline_78BHf9"
+  ]
+}

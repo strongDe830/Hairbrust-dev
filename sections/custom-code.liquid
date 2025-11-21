@@ -1,0 +1,78 @@
+{%- liquid
+  assign template_name = 'section-custom-code'
+
+  assign margin_bottom = section.settings.margin_bottom
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {{- section.settings.html -}}
+    {{- section.settings.liquid -}}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_code.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "html",
+      "id": "html",
+      "label": "t:sections.all.html.label"
+    },
+    {
+      "type": "liquid",
+      "id": "liquid",
+      "label": "t:sections.all.liquid.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_code.name"
+    }
+  ]
+}
+{% endschema %}

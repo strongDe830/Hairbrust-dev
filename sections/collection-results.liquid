@@ -1,0 +1,45 @@
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+
+{%- assign pageUrl = contentForQuerystring
+  | split: '"pageurl":"'
+  | last
+  | split: '"'
+  | first
+  | split: '.myshopify.com'
+  | last
+  | replace: '\/', '/'
+  | replace: '%20', ' '
+  | replace: '\u0026', '&'
+-%}
+{% assign querystring = pageUrl | split: '?' | last %}
+{% assign paginate_value = querystring | split: 'paginateby=' | last | slice: 0, 2 | replace: '&', '' %}
+
+{%- paginate collection.products by paginate_value -%}
+  {%- if collection.products.size > 0 or search.results.size > 0 -%}
+    <div class="pagination prev" data-collection-pagination-less>
+      {%- if paginate.previous -%}
+        {%- assign previous_url = paginate.previous.url | default: '#' -%}
+        <a class="c-btn main tuna" href="{{ previous_url | url }}" data-collection-pagination-less-btn>
+          {{- 'template.collection.pagination.previous' | t -}}
+        </a>
+      {%- endif -%}
+    </div>
+    <div hidden data-split></div>
+    {%- for product in collection.products -%}
+      {%- render 'card-product', _product: product, _filters: collection.filters, _collection: collection, _use_add_to_cart_btn: true -%}
+    {%- endfor -%}
+    <div hidden data-split></div>
+    <div class="pagination next" data-collection-pagination-more>
+      {%- if paginate.next -%}
+        {%- assign next_url = paginate.next.url | default: '#' -%}
+        <a class="c-btn main tuna" href="{{ next_url | url }}" data-collection-pagination-more-btn>
+          {{- 'template.collection.pagination.more' | t -}}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <div class="s-collection__empty">
+      <p>{{ template.collection.empty }}</p>
+    </div>
+  {%- endif -%}
+{%- endpaginate -%}

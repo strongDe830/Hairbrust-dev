@@ -1,0 +1,18 @@
+{% liquid
+  if _collection.image != blank
+    assign image_alt = _collection.image.alt | default: _collection.title
+  endif
+  assign card_title = _collection.metafields.custom.card_title | default: _collection.title
+%}
+<div class="snippet-card-collection-alt">
+  {%- liquid
+    if _collection.image != blank
+      echo _collection.image | image_url: width: 600 | image_tag: alt: image_alt, loading: 'lazy'
+    else
+      echo 'image' | placeholder_svg_tag: 'placeholder-svg'
+    endif
+  -%}
+  <a href="{{- _collection.url -}}" class="c-btn title stretched-link">
+    {{- card_title -}}
+  </a>
+</div>

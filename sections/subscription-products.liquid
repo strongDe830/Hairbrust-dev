@@ -1,0 +1,73 @@
+{% liquid
+  assign template_name = 'section-subscription-products'
+
+  assign margin_bottom = section.settings.margin_bottom
+  assign products = section.settings.product_list
+
+  if request.page_type == 'collection'
+    assign products = collection.products
+  endif
+%}
+
+{% render 'file-css', _name: 'section-subscription-products.css' %}
+{% render 'file-css', _name: 'snippet-card-subscription-product.css' %}
+
+<div id="subscription-products" class="{{- template_name }} u-space-below-{{- margin_bottom }}" data-section-type="{{- template_name -}}" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="wrapper">
+      {% for product in products %}
+        {% render 'card-subscription-product', _product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.subscription_products.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "t:sections.subscription_products.settings.products.label"
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "t:sections.subscription_products.name",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

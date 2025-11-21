@@ -1,0 +1,158 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_full_width_8Q6CVd": {
+      "type": "page-hero-full-width",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "large",
+            "iframe_embed": "<div class=\"videowise-background videowise-background-component_6904a0c3c4ac6b0047cd8fea\" data-widget-id=\"6904a0c3c4ac6b0047cd8fea\">\n<video fetchpriority=\"high\" preload=\"none\" width=\"100%\" height=\"auto\" playsinline=\"true\" muted=\"true\" autoplay=\"true\" loop=\"\" src=\"https://cdn2.videowise.com/converted/videos/1761910994605_wid_NjkwNGEwZDI0NmVmZGE0ZjEwZjcxMjBk_h264c.mp4\" poster=\"https://cdn2.videowise.com/converted/videos/1761911001442_0a2114fe-70d5-44aa-b593-918a0f6e20e7.webp\">\n  <source src=\"https://cdn2.videowise.com/converted/videos/1761910994605_wid_NjkwNGEwZDI0NmVmZGE0ZjEwZjcxMjBk_h264c.mp4\" type=\"video/mp4\" media=\"(min-width: 768px)\"> \n  <source src=\"https://cdn2.videowise.com/converted/videos/1761910994605_wid_NjkwNGEwZDI0NmVmZGE0ZjEwZjcxMjBk_h264c.mp4\" type=\"video/mp4\" media=\"(max-width: 767px)\">  \n</source></source></video>\n</div>\n<script src=\"https://assets.videowise.com/videowise-bg.js.gz\">\n</script>",
+            "media_type": "video",
+            "video_source": "iframe",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero_full_width.name",
+      "settings": {
+        "content_position": "top_left",
+        "margin_bottom": "xs"
+      }
+    },
+    "174548279258397546": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_k4yWkX": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "438370",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 62,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_k4yWkX"
+      ],
+      "settings": {}
+    },
+    "featured_publications_xVxdqB": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_xLHqdP": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_wHqCR7": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_CtTLnm": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_PYgLcC": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_rnq8ir": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_weRhPA": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_xLHqdP",
+        "logo_wHqCR7",
+        "logo_CtTLnm",
+        "logo_PYgLcC",
+        "logo_rnq8ir",
+        "logo_weRhPA"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_full_width_8Q6CVd",
+    "174548279258397546",
+    "featured_publications_xVxdqB"
+  ]
+}

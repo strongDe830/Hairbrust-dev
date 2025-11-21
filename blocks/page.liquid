@@ -1,0 +1,45 @@
+
+{%- render 'card-category', 
+    _page: pages[block.settings.page],
+    image: block.settings.image,
+    card_title: block.settings.card_title,
+    category: block.settings.category,
+    button_label: block.settings.button_label
+-%}
+
+{% schema %}
+{
+  "name": "t:blocks.page.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:blocks.page.settings.page.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:blocks.page.settings.image.label"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "t:blocks.page.settings.card_title.label",
+      "info": "t:blocks.page.settings.card_title.info"
+    },
+    {
+      "type": "text",
+      "id": "category",
+      "label": "t:blocks.page.settings.category.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:blocks.page.settings.button_label.label",
+      "info": "t:blocks.page.settings.button_label.info"
+    },
+  ],
+  "presets": [{ "name": "t:blocks.page.name" }]
+}
+{% endschema %}

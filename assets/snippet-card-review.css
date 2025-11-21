@@ -1,0 +1,12 @@
+.snippet-card-review {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.snippet-card-review p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

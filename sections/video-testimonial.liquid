@@ -1,0 +1,114 @@
+{% liquid
+  assign template_name = 'section-video-testimonial'
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  assign testimonial_object = section.settings.testimonial_object
+
+  if testimonial_object == blank
+    if product and product.metafields.custom.testimonial_object.value != blank
+      assign testimonial_object = product.metafields.custom.testimonial_object.value
+    endif
+  endif
+%}
+
+{% if testimonial_object != blank %}
+  {% render 'file-css', _name: 'section-video-testimonial.css' %}
+
+  <video-testimonial class="{{- template_name }} u-space-below-{{- margin_bottom }}" data-section-type="{{- template_name -}}" data-section-id="{{ section.id }}">
+    <div class="container">
+      <div class="wrapper">
+        {% if testimonial_object.title != blank %}
+          <h2 class="u-heading-lg centre">{{ testimonial_object.title |  metafield_tag }}</h2>
+        {% endif %}
+        <div class="testimonial-wrapper">
+
+          <div class="testimonial-video video {% if testimonial_object.videowise_embed.value == blank %}paused{% endif %}" data-video-wrapper>
+            {% if testimonial_object.videowise_embed.value != blank %}
+              {{ testimonial_object.videowise_embed.value }}
+            {% else %}
+              {{ testimonial_object.video.value | video_tag: autoplay: false, loop: false, muted: false, controls: false, loading: 'lazy', image_size: '800x', id: 'video' }}
+              <div class="play-button-wrapper">
+                {% if testimonial_object.video_tagline != blank %}
+                  <span class="u-heading-lg">{{ testimonial_object.video_tagline }}</span>
+                {% endif %}
+                {% render 'icon-play' %}
+              </div>
+            {% endif %}
+          </div>
+          
+          <div class="testimonial-content">
+            {%- render 'element-icon', _icon: 'quote' -%}
+            <div class="quote-wrapper">
+              <blockquote>{{ testimonial_object.quote }}</blockquote>
+              <span class="quote-author">{{ testimonial_object.quote_author }}</span>
+            </div>
+            <ul class="c-lozenges">
+              {% for trust_point in testimonial_object.trust_points.value %}
+                <li class="c-lozenge we-peep border">
+                  {%- render 'element-icon', _icon: 'check' -%}
+                  {{ trust_point }}
+                </li>
+              {% endfor %}
+            </ul>
+            <span class="disclaimer">{{ testimonial_object.disclaimer }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </video-testimonial>
+
+  {% render 'file-js', _name: 'section-video-testimonial.js' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Video Testimonial",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "testimonial_object",
+      "metaobject_type": "product_video_testimonial",
+      "label": "t:sections.video_testimonial.settings.metaobject.label",
+      "info": "t:sections.video_testimonial.settings.metaobject.info",
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "Video Testimonial",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

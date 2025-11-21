@@ -1,0 +1,16 @@
+.section-text .container {
+  display: flex;
+  text-align: var(--text-align, center);
+}
+.section-text .block-group-anchors {
+  justify-content: var(--text-justification, center);
+}
+.section-text .block-text * {
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .section-text .container {
+    display: flex;
+    justify-content: var(--text-justification, center);
+  }
+}

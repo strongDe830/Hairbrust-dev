@@ -1,0 +1,40 @@
+{%- liquid
+  assign current_url_split = canonical_url | split: '/'
+  assign current_url_path = current_url_split[3]
+
+  assign open_above = false
+
+  if _open_above == true
+    assign open_above = true
+  endif
+
+  if current_url_split.size > 4
+    assign current_url_handle = current_url_split | last
+    assign current_url = '/' | append: current_url_path | append: '/' | append: current_url_handle
+  else
+    assign current_url = '/' | append: current_url_path
+  endif
+
+  assign current_domain_object = shop.metafields.lang.domains | where: 'iso_code', localization.country.iso_code | first
+  assign nav_flag_name = 'icon-flag-' | append: current_domain_object.iso_code | downcase
+-%}
+<territory-switcher class="c-lang-switcher {% if open_above %}open-above{% endif %}" data-territory-switcher>
+  <button class="switcher-toggle" id="{{- section.id -}}-{{- 'territory_switcher.label' | t -}}" type="button" aria-label="Territory Switcher" aria-controls="lang-switcher-dropdown" aria-expanded="false" data-territory-switcher-toggle>
+    <img src="{{- nav_flag_name | append: '.jpg' | asset_img_url: '50px' -}}" width="20px" height="20px" alt="{{ nav_flag_name }}" class="flag" loading="lazy" />
+    <span data-territory-switcher-value>{{ current_domain_object.country.short_name }}</span>
+  </button>
+  <div class="switcher-dropdown" id="lang-switcher-dropdown" aria-labelledby="{{- section.id -}}-{{- 'territory_switcher.label' | t -}}" data-territory-switcher-dropdown>
+    <ul role="menu">
+      {%- for domain in shop.metafields.lang.domains -%}
+        {%- if domain.locale == current_domain_object.locale or domain.enabled == false -%}{%- continue -%}{%- endif -%}
+        {% assign option_nav_flag_name = 'icon-flag-' | append: domain.iso_code | downcase %}
+        <li role="presentation">
+          <a href="{{ domain.url }}" role="menuitem">
+            <img src="{{- option_nav_flag_name | append: '.jpg' | asset_img_url: '50px' -}}" width="20px" height="20px" alt="{{ nav_flag_name }}" class="flag" loading="lazy" />
+            {{- domain.country.name | escape -}}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</territory-switcher>

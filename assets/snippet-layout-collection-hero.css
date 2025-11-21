@@ -1,0 +1,18 @@
+.collection-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collection-hero > h2 {
+  margin-bottom: 1rem;
+}
+.collection-hero button {
+  margin-top: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.collection-hero button > span {
+  display: inline-block;
+  margin-left: 1rem;
+}

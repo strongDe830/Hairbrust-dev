@@ -1,0 +1,49 @@
+{% liquid
+  if _collection
+    if _collection.image != blank
+      assign image = _collection.image 
+      assign image_alt = _collection.image.alt | default: _collection.title
+    endif
+    assign category = _collection.metafields.custom.category
+    assign card_title = _collection.metafields.custom.card_title | default: _collection.title
+    assign collection_icon = _collection.metafields.custom.new_collection_icon.value
+    assign url = _collection.url
+    assign button_label = 'buttons.get_started' | t
+  elsif _page
+    assign url = _page.url
+    if card_title == blank
+      assign card_title = _page.title
+    endif
+    if button_label == blank
+      assign button_label = 'buttons.get_started' | t
+    endif
+  endif
+%}
+<div class="snippet-card-category">
+  {%- if category != blank -%}
+    <div class="category-icon">
+       {%- liquid
+        if collection_icon != blank
+          echo collection_icon | image_url: width: 50 | image_tag: alt: image_alt, loading: 'lazy'
+        endif
+      -%}
+      {%- render 'element-icon', _icon: 'molecule' -%}
+    </div>
+    <div class="c-lozenge pampas xl">{{- category -}}</div>
+  {%- endif -%}
+  {%- liquid
+    if image != blank
+      echo image | image_url: width: 600 | image_tag: alt: image_alt, loading: 'lazy'
+    else
+      echo 'image' | placeholder_svg_tag: 'placeholder-svg'
+    endif
+  -%}
+  <h3 class="u-heading-md card-title">
+    <a href="{{- url -}}" class="c-btn stretched-link">
+      {{- card_title -}}
+    </a>
+  </h3>
+  <a href="{{- url -}}" class="c-btn main we-peep">
+    {{- button_label -}}
+  </a>
+</div>

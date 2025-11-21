@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_DpEEEc": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_EPCCEx": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "<em>Shop with </em>{{ closest.metaobject.test_influencer_landing_page.influencer_name.value }}",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_CVTpma": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Find all of {{ closest.metaobject.test_influencer_landing_page.influencer_name.value }}'s favourite products.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_EPCCEx",
+            "text_CVTpma"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image": "{{ closest.metaobject.test_influencer_landing_page.influencer_image.value }}",
+            "image_size": "small",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "featured_products_D8cPbM": {
+      "type": "featured-products",
+      "blocks": {
+        "block_mrrJXz": {
+          "type": "block",
+          "settings": {
+            "collection": "accessories",
+            "product_list": "{{ metaobject.favourite_products.value }}",
+            "product_feed": "product-list",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_mrrJXz"
+      ],
+      "name": "t:sections.featured_products.name",
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": false,
+        "margin_bottom": "md"
+      }
+    },
+    "subscription_products_xAefQL": {
+      "type": "subscription-products",
+      "name": "t:sections.subscription_products.name",
+      "settings": {
+        "margin_bottom": "md",
+        "product_list": "{{ metaobject.favourite_products.value }}"
+      }
+    }
+  },
+  "order": [
+    "page_hero_DpEEEc",
+    "featured_products_D8cPbM",
+    "subscription_products_xAefQL"
+  ]
+}

@@ -1,0 +1,170 @@
+{%- liquid
+  assign template_name = 'section-statistics'
+
+  assign margin_bottom = section.settings.margin_bottom
+%}
+
+{%- render 'file-css', _name: 'section-statistics.css' -%}
+{%- style -%}
+  .{{- template_name }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-left: {{ section.settings.padding_left | times: 0.75 | round: 0 }}px;
+    padding-right: {{ section.settings.padding_right | times: 0.75 | round: 0 }}px;
+    background-color:{{ section.settings.bg_color }};
+    border-radius:{{ section.settings.border_radius }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .{{- template_name }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .{{ section.settings.custom_class }} .block-statistic {
+      padding-left: 0;
+    }
+
+  }
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    .{{ section.settings.custom_class }} .section-statistics .block-group-content {
+      max-width: 100%;
+      margin-inline: auto;
+    }
+  }
+  @media (max-width:749px ) {
+    .{{- template_name }} {
+      padding: 2rem 1.25rem;
+    }
+
+    .{{ section.settings.custom_class }} .group-statistics-grid .block-statistic {
+      padding: 0;
+    }
+  }
+{%- endstyle -%}
+<div class=" u-space-below-{{- margin_bottom }} {{ section.settings.custom_class }}"  data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="{{- template_name }}" data-section-type="{{- template_name -}}">
+    {% content_for 'block', type: 'group-content', id:'static-group-content' %}
+    {% content_for 'block', type: 'group-statistics', id:'static-group-statistics' %}
+    {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.statistics.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "transparent"
+    },   
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add a custom class (e.g., 'text-center my-style') for further styling or scripting."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Left",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Right",
+      "default": 36
+    },
+  ],
+  "blocks": [
+    {
+      "type": "group-content",
+    },
+    {
+      "type": "group-statistics",
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.statistics.name"
+    }
+  ]
+}
+{% endschema %}

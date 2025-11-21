@@ -1,0 +1,88 @@
+{% comment %}
+  Theme CSS settings
+
+  Edit this file to match your theme's design system. This file is used to set global CSS variables and import the theme.css file.
+{% endcomment %}
+
+<style>
+  :root {
+    --colour-black: rgba(0, 0, 0, 1);
+    --colour-white: rgba(255, 255, 255, 1);
+    --colour-grey: #e5e5e5;
+    --colour-light-grey: #f8f8f8;
+    --colour-gallery: #f0f0f0;
+    --colour-tuna: #343436;
+    --colour-pampas: #f3efec;
+    --colour-pink: #f9445c;
+    --colour-we-peep: #f4d3d6;
+    --colour-light-peep: #FAF4F4;
+    --colour-ghost: #ccd1d7;
+    --colour-white-glass: #F8F4F2;
+
+    --colour-bg: var(--colour-pampas);
+
+    --form-success-background: var(--colour-white);
+    --form-success-foreground: var(--colour-black);
+    --form-error-background: var(--colour-black);
+    --form-error-foreground: var(--colour-white);
+
+    --font-family-base: 'Manrope', serif;
+    --font-family-heading: 'Manrope', serif;
+    --font-family-serif: 'Playfair Display', serif;
+    --font-size-base: 0.875rem;
+    --font-weight-base: 400;
+    --line-height-base: 1.5;
+    --letter-spacing-base: 0;
+
+    --transition-duration: 0.3s;
+    --transition-timing: ease-in-out;
+    --gutter: 1rem;
+    --space-sm: 3rem;
+    --space-md: 5rem;
+    --space-lg: 7rem;
+    --container-max-width: 1464px;
+    --tablet-max-width: 80vw;
+    --rte-max-width: 50rem;
+
+    --border-radius-xs: 0.25rem;
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 0.75rem;
+    --border-radius-lg: 1rem;
+    --border-radius-xl: 1.5rem;
+
+    --form-input-max-width: 22rem;
+
+    --swiper-pagination-bottom: 0;
+    --swiper-pagination-bullet-horizontal-gap: 0.75rem;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-size: 0.5rem;
+    --swiper-pagination-bullet-inactive-color: var(--colour-periwinkle-grey);
+    --swiper-pagination-color: var(--colour-cobalt);
+    --swiper-scrollbar-size: 1px;
+    --swiper-scrollbar-bg-color: #c2d0e9;
+    --swiper-scrollbar-drag-bg-color: var(--colour-shiraz);
+    --swiper-size: 2.25rem;
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap"
+  rel="stylesheet"
+>
+
+{% liquid
+  render 'file-css', _name: 'theme.css'
+  render 'file-css', _name: 'snippet-overlay.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-product.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-data-prices.css', _load_type: 'defer'
+  render 'file-css', _name: 'block-group-content.css', _load_type: 'defer'
+  render 'file-css', _name: 'block-media.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-promotion.css', _load_type: 'defer',
+  render 'file-css', _name: 'snippet-overlay.css', _load_type: 'defer'
+  render 'file-css', _name: 'app-reviews-io.css', _load_type: 'defer'
+  render 'file-css', _name: 'custom-videowise.css', _load_type: 'defer'
+%}
+{% comment %} {{ 'custom-videowise.css' | asset_url | stylesheet_tag: preload: true }} {% endcomment %}

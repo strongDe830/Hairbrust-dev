@@ -1,0 +1,49 @@
+{%- liquid
+  render 'file-css', _name: 'block-group-media-carousel.css', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-info-modal.css'
+  render 'file-js',  _name: 'block-group-media-carousel.js', _load_type: 'defer'
+%}
+
+{%- capture blocks -%}
+  {% content_for 'blocks' %}
+{%- endcapture -%}
+
+{%- if blocks != blank -%}
+  <div class="block-group-media-carousel{% if block.settings.square_slide %} square-slides{% endif %}" {{ block.shopify_attributes }}>
+    <group-media-carousel class="swiper" data-carousel-slider>
+      <div class="swiper-wrapper">
+        {{- blocks -}}
+      </div>
+      <div class="swiper-controls">
+        <div class="swiper-btns">
+          <button class="swiper-btn c-btn" aria-label="{{ 'components.swiper.previous' | t }}" data-carousel-prev>
+            {%- render 'element-icon', _icon: 'arrow-left' -%}
+          </button>
+          <button class="swiper-btn c-btn" aria-label="{{ 'components.swiper.next' | t }}" data-carousel-next>
+            {%- render 'element-icon', _icon: 'arrow-right' -%}
+          </button>
+        </div>
+      </div>
+    </group-media-carousel>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Group Media Carousel",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "square_slide",
+      "label": "Slide square aspect ratio"
+    }
+  ],
+  "blocks": [
+    { "type": "slide" }
+  ],
+  "presets": [
+    { "name": "Group Media Carousel" }
+  ]
+}
+{% endschema %}

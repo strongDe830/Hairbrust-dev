@@ -1,0 +1,123 @@
+{%- liquid
+  assign template_name = 'section-promotion'
+
+  assign colour = section.settings.colour
+  assign overlay = section.settings.overlay
+  assign margin_bottom = section.settings.margin_bottom
+%}
+
+{%- render 'file-css', _name: 'section-promotion.css' -%}
+
+{%- if colour == 'white' -%}
+  <style>
+    div[data-section-id="{{ section.id }}"] {
+      --p-colour: var(--colour-white);
+    }
+  </style>
+{%- endif -%}
+{%- if overlay != 0 -%}
+  <style>
+    div[data-section-id="{{ section.id }}"] .wrapper:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--colour-tuna);
+      opacity: {{ overlay | divided_by: '100.00' -}};
+      z-index: 5;
+    }
+  </style>
+{%- endif -%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <div class="wrapper">
+      {% content_for 'block', type: 'group-content', id: 'static-group-content' %}
+      {% content_for 'block', type: 'media', id: 'static-media' %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.promotion.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "label": "t:sections.all.overlay.label",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "colour",
+      "label": "t:sections.all.colour.label",
+      "options": [
+        {
+          "value": "black",
+          "label": "t:global.colours.black.label"
+        },
+        {
+          "value": "white",
+          "label": "t:global.colours.white.label"
+        }
+      ],
+      "default": "black"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group-content"
+    },
+    {
+      "type": "media"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.promotion.name"
+    }
+  ]
+}
+{% endschema %}

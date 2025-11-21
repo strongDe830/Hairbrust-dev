@@ -1,0 +1,11 @@
+{% liquid
+  assign featured_image = _page.metafields.custom.featured_image
+%}
+<div class="snippet-card-page">
+  {%- if featured_image != blank -%}
+    {{- featured_image | image_url: width: 420 | image_tag: alt: _page.title, loading: 'lazy' -}}
+  {%- endif -%}
+  <a href="{{ _page.url -}}" class="c-btn stretched-link">
+    {{- _page.title -}}
+  </a>
+</div>

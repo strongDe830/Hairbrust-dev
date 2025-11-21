@@ -1,0 +1,7 @@
+<div class="snippet-card-product-alt">
+  {%- if _product.featured_image != blank -%}
+    {{- _product.featured_image | image_url: width: 152 | image_tag: alt: product.title, loading: 'lazy' -}}
+  {%- endif -%}
+  <a href="{{- _product.url -}}" class="title stretched-link">{{- _product.title -}}</a>
+  {%- render 'data-prices', _product: _product, _is_search: _is_search -%}
+</div>

@@ -1,0 +1,378 @@
+{%- liquid
+  assign template_name = 'section-faqs'
+
+  assign heading = section.settings.heading
+  assign text = section.settings.text
+
+  assign contact_heading = section.settings.contact_heading
+  assign contact_text = section.settings.contact_text
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  assign faq_groups = section.blocks | map: 'settings'
+  assign override_faq_groups = false
+
+  if product.metafields.custom.faq_groups.value != blank
+    assign faq_groups = product.metafields.custom.faq_groups.value
+    assign override_faq_groups = true
+  endif
+
+  if collection.metafields.custom.faq_groups.value != blank
+    assign faq_groups = collection.metafields.custom.faq_groups.value
+    assign override_faq_groups = true
+  endif
+
+  render 'file-css', _name: 'section-faqs.css', _load_type: 'defer'
+  render 'file-js', _name: 'section-faqs.js', _load_type: 'defer'
+  render 'file-js', _name: 'tabs.js', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-info-modal.css', _load_type: 'defer'
+%}
+
+<section-faqs class="{{- template_name }} u-space-below-{{- margin_bottom }}" data-section-type="{{- template_name -}}" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="wrapper">
+      <div class="content">
+        {%- if heading != blank -%}
+          <h2 class="u-heading-md heading">{{ heading }}</h2>
+        {%- endif -%}
+        {%- if text != blank -%}
+          <div class="c-rte">{{ text }}</div>
+        {%- endif -%}
+        {%- if contact_heading != blank and contact_text != blank -%}
+          <h3 class="u-heading-xs heading">{{- contact_heading -}}</h3>
+          <div class="c-rte">{{- contact_text -}}</div>
+        {%- endif -%}
+      </div>
+      <div class="faq-groups">
+        <spark-tabs>
+          <div role="tablist" aria-label="Tab Menu" class="tab-menu">
+            {%- if section.blocks.size > 2 or faq_groups.count > 2 -%}
+              <button
+                class="tab-button"
+                aria-selected="true"
+                aria-controls="tab-all"
+                tabindex="0"
+                role="tab"
+              >
+                {{- 'accessibility.all' | t -}}
+              </button>
+            {%- endif -%}
+            {%- if override_faq_groups -%}
+              {%- for faq_group in faq_groups -%}
+                <button
+                    class="tab-button"
+                    aria-selected="false"
+                    aria-controls="tab-{{- faq_group.tab_title | handleize -}}"
+                    tabindex="{%- if section.blocks.size < 2 or faq_groups.count < 2 -%}{%- if forloop.first -%}0{%- else -%}-1{%- endif -%}{%- endif -%}"
+                    role="tab"
+                  >{{- faq_group.tab_title -}}</button>
+              {%- endfor -%}
+            {%- else -%}
+              {%- for block in section.blocks -%}
+                {%- assign faq_group = block.settings.faq_group_object -%}
+                <button
+                    class="tab-button"
+                    aria-selected="false"
+                    aria-controls="tab-{{- faq_group.tab_title | handleize -}}"
+                    tabindex="{%- if section.blocks.size < 2 -%}{%- if forloop.first -%}0{%- else -%}-1{%- endif -%}{%- endif -%}"
+                    role="tab"
+                  >
+                    {{- faq_group.tab_title -}}
+                  </button>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+          {%- if section.blocks.size > 2 or faq_groups.count > 2 -%}
+            <div
+              id="tab-all"
+              class="tab-content"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="tab-all"
+            >
+              {%- capture vt_objects -%}
+                {%- if override_faq_groups -%}
+                  {%- for faq_group in faq_groups -%}
+                    {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
+                      <div class="swiper-slide">
+                        <div class="video-faq">
+                          {{ vt_object.video.value | video_tag: autoplay: false, loop: false, muted: false, controls: true, loading: 'lazy', image_size: '800x', id: 'video' }}
+                          <div class="content">
+                            <p class="u-text-md">{{ vt_object.video_title }}</p>
+                            {% comment %} <button type="button" class="c-btn open-modal" data-{{- vt_object.video_title | handleize | remove: '-' -}}-external-el="open">
+                              View Transcript
+                            </button> {% endcomment %}
+                            <a href="{{ vt_object.transcript.value.url }}" class="transcript" download="transcript">View Transcript</a>
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- for block in section.blocks -%}
+                    {%- assign faq_group = block.settings.faq_group_object -%}
+                    {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
+                      <div class="swiper-slide">
+                        <div class="video-faq">
+                          {{ vt_object.video.value | video_tag: autoplay: false, loop: false, muted: false, controls: true, loading: 'lazy', image_size: '800x', id: 'video' }}
+                          <div class="content">
+                            <p class="u-text-md">{{ vt_object.video_title }}</p>
+                            <a href="{{ vt_object.transcript.value.url }}" class="u-uppercase-md" download="transcript">View Transcript</a>
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endcapture -%}
+              {%- capture faqs -%}
+                {%- if override_faq_groups -%}
+                  {%- for faq_group in faq_groups -%}
+                    {%- for faq in faq_group.faqs.value -%}
+                      <details class="c-details">
+                        <summary>{{ faq.question }}</summary>
+                        {{ faq.answer | metafield_tag }}
+                      </details>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- for block in section.blocks -%}
+                    {%- assign faq_group = block.settings.faq_group_object -%}
+                    {%- for faq in faq_group.faqs.value -%}
+                      <details class="c-details">
+                        <summary>{{ faq.question }}</summary>
+                        {{ faq.answer | metafield_tag }}
+                      </details>
+                    {%- endfor -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endcapture -%}
+
+              <div class="swiper videos" data-vt-swiper>
+                <div class="swiper-wrapper">
+                  {{ vt_objects }}
+                </div>
+                <div class="swiper-navigation">
+                  <button class="swiper-button-prev" aria-label="{{- 'components.swiper.previous' | t -}}"  data-vt-swiper-prev>
+                    {%- render 'element-icon', _icon: 'arrow-left' -%}
+                  </button>
+                  <button class="swiper-button-next" aria-label="{{- 'components.swiper.next' | t -}}" data-vt-swiper-next>
+                    {%- render 'element-icon', _icon: 'arrow-right' -%}
+                  </button>
+                </div>
+              </div>
+
+              <div class="faqs">
+                {{ faqs }}
+              </div>
+            </div>
+          {%- endif -%}
+          {%- if override_faq_groups -%}
+            {%- for faq_group in faq_groups -%}
+              <div
+                id="tab-{{- faq_group.tab_title | handleize -}}"
+                class="tab-content"
+                role="tabpanel"
+                tabindex="0"
+                aria-labelledby="tab-{{- faq_group.tab_title | handleize -}}"
+                {%- if section.blocks.size > 2 -%}
+                  hidden
+                {%- else -%}
+                  {%- unless forloop.first -%}
+                    hidden
+                  {%- endunless -%}
+                {%- endif -%}
+              >
+                <div class="swiper videos" data-vt-swiper>
+                  <div class="swiper-wrapper">
+                    {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
+                      <div class="swiper-slide">
+                        <div class="video-faq">
+                          {{ vt_object.video.value | video_tag: autoplay: false, loop: false, muted: false, controls: true, loading: 'lazy', image_size: '800x', id: 'video' }}
+                          <div class="content">
+                            <h3>{{ vt_object.video_title }}</h3>
+                            <a href="{{ vt_object.transcript.value.url }}" class="transcript-link" download="transcript">View Transcript</a>
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                  <div class="swiper-navigation">
+                    <button class="swiper-button-prev" data-vt-swiper-prev>
+                      {%- render 'element-icon', _icon: 'arrow-left' -%}
+                    </button>
+                    <button class="swiper-button-next" data-vt-swiper-next>
+                      {%- render 'element-icon', _icon: 'arrow-right' -%}
+                    </button>
+                  </div>
+                </div>
+                <div class="faqs">
+                  {%- for faq in faq_group.faqs.value -%}
+                    <details class="c-details">
+                      <summary>{{ faq.question }}</summary>
+                      {{ faq.answer | metafield_tag }}
+                    </details>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for block in section.blocks -%}
+              {%- assign faq_group = block.settings.faq_group_object -%}
+              <div
+                id="tab-{{- faq_group.tab_title | handleize -}}"
+                class="tab-content"
+                role="tabpanel"
+                tabindex="0"
+                aria-labelledby="tab-{{- faq_group.tab_title | handleize -}}"
+                {%- if section.blocks.size > 2 -%}
+                  hidden
+                {%- else -%}
+                  {%- unless forloop.first -%}
+                    hidden
+                  {%- endunless -%}
+                {%- endif -%}
+              >
+                <div class="swiper videos" data-vt-swiper>
+                  <div class="swiper-wrapper">
+                    {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
+                      <div class="swiper-slide">
+                        <div class="video-faq">
+                          {{ vt_object.video.value | video_tag: autoplay: false, loop: false, muted: false, controls: true, loading: 'lazy', image_size: '800x', id: 'video' }}
+                          <div class="content">
+                            <h3>{{ vt_object.video_title }}</h3>
+                            <a href="{{ vt_object.transcript.value.url }}" class="transcript-link" download="transcript">View Transcript</a>
+                          </div>
+                        </div>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                  <div class="swiper-navigation">
+                    <button class="swiper-button-prev" data-vt-swiper-prev>
+                      {%- render 'element-icon', _icon: 'arrow-left' -%}
+                    </button>
+                    <button class="swiper-button-next" data-vt-swiper-next>
+                      {%- render 'element-icon', _icon: 'arrow-right' -%}
+                    </button>
+                  </div>
+                </div>
+                <div class="faqs">
+                  {%- for faq in faq_group.faqs.value -%}
+                    <details>
+                      <summary>{{ faq.question }}</summary>
+                      {{ faq.answer | metafield_tag }}
+                    </details>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </spark-tabs>
+      </div>
+    </div>
+  </div>
+</section-faqs>
+
+{% comment %} {%- for faq_group in faq_groups -%}
+  {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
+    {% liquid
+      assign data_attribute = vt_object.video_title | handleize | remove: '-'
+      assign overlay_data_attribute = 'data-' | append: data_attribute | append: '-external-el="overlay"'
+    %}
+    <spark-popup identifier="{{- data_attribute -}}">
+      {{ vt_object.video_title }}
+    </spark-popup>
+
+    {% render 'overlay', _data_attributes: overlay_data_attribute %}
+  {%- endfor -%}
+{%- endfor -%} {% endcomment %}
+
+{%- schema -%}
+{
+  "name": "t:sections.faqs.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_content.content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.faqs.settings.heading.label",
+      "default": "t:sections.faqs.settings.heading.default"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.faqs.settings.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.faqs.header_contact.content"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "t:sections.faqs.settings.contact_heading.label",
+      "default": "t:sections.faqs.settings.contact_heading.default"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_text",
+      "label": "t:sections.faqs.settings.text.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "faq_group",
+      "name": "t:sections.faqs.blocks.faq_group.name",
+      "settings": [
+        {
+          "type": "metaobject",
+          "id": "faq_group_object",
+          "label": "t:sections.faqs.blocks.faq_group.settings.label",
+          "metaobject_type": "faq_group"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faqs.name"
+    }
+  ]
+}
+{%- endschema -%}

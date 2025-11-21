@@ -1,0 +1,45 @@
+{%- liquid
+  assign template_name = 'section-main-comms'
+
+  render 'file-css', _name: 'section-main-comms.css', _load_type: 'defer'
+
+  if section.blocks.size > 1
+    render 'file-js', _name: 'section-main-comms.js'
+  endif
+
+  if section.blocks.size < 1
+    break
+  endif
+%}
+
+<div
+  class="{{- template_name }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {%- if section.blocks.size > 1 -%}
+      <comms-bar class="swiper">
+        <div class="swiper-wrapper">
+    {%- endif -%}
+      {% content_for 'blocks' %}
+    {%- if section.blocks.size > 1 -%}
+        </div>
+      </comms-bar>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main_comms.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    }
+  ],
+  "blocks": [{ "type": "text-light" }]
+}
+{% endschema %}

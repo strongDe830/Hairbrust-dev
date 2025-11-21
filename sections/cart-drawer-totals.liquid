@@ -1,0 +1,10 @@
+<div
+  id="{{ section.id }}"
+  class="cart-totals"
+  data-section-id="{{ section.id }}"
+  data-section-type="cart-drawer-totals"
+>
+  {% if cart.item_count > 0 %}
+    {%- render 'data-cart-totals', _cart: cart -%}
+  {% endif %}
+</div>

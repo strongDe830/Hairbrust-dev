@@ -1,0 +1,31 @@
+<div class="block-group-anchors" {{ block.shopify_attributes }} id="shopify-block-{{- block.id -}}" >
+  {% content_for 'blocks' %}
+</div>
+
+{%- if block.settings.margin_bottom > 0 -%}
+  <style>
+    #shopify-block-{{- block.id -}} {
+      margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 | remove: '.0' -}}rem;
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:blocks.group_anchors.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 0,
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    }
+  ],
+  "blocks": [{ "type": "anchor" }],
+  "presets": [{ "name": "t:blocks.group_anchors.name" }]
+}
+{% endschema %}

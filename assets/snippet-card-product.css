@@ -1,0 +1,70 @@
+.snippet-card-product {
+  position: relative;
+  height: auto;
+  border-radius: var(--border-radius-lg);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--colour-white);
+}
+.snippet-card-product .c-lozenge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  max-width: calc(100% - 2rem);
+  border-radius: var(--border-radius-xs);
+  padding: 0.14rem 0.24rem;
+  font-size: 0.7rem;
+}
+.snippet-card-product .c-lozenge:not(:has(svg)) {
+  line-height: 1.25;
+}
+.snippet-card-product .card-image img {
+  border-radius: var(--border-radius-sm);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+}
+.snippet-card-product .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.snippet-card-product .card-details a {
+  color: var(--colour-text-base);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.25rem;
+}
+.snippet-card-product .card-details a:hover {
+  color: var(--colour-primary);
+}
+.snippet-card-product .card-details .snippet-data-prices {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.snippet-card-product .card-details .snippet-data-prices .current {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.snippet-card-product .card-details .snippet-data-prices .was {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.snippet-card-product form {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+}
+@media (max-width: 1023.98px) {
+  .snippet-card-product [data-product-add-to-cart] {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

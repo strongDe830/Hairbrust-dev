@@ -1,0 +1,1 @@
+(()=>{class e extends HTMLElement{constructor(){super(),this.initialiseRedirect()}initialiseRedirect(){const e=document.querySelector("[data-search-json]");if(e){const s=JSON.parse(e.innerHTML),t=e.dataset.searchJson,i=s.list.find((e=>e.skus.find((e=>e.toLowerCase()===t))));i&&(window.location.href=i.url)}}}customElements.define("main-search",e)})();

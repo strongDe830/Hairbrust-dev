@@ -1,0 +1,30 @@
+{% assign errors = '' %}
+
+{% if settings.show_bing_errors == true and settings.bing_ads_id.size < 1 %}
+	{% assign errors = errors | append: 'No bing ads code has been specified. You can get your bing ads code from your admin panel in bing ads. It should look like this 12345678' %}
+{% endif %}
+
+{% assign tracking_codes = settings.bing_ads_id | split: ',' %}
+
+{% for tracking_code in tracking_codes %}
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"{{ tracking_code }}"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+{% endfor %}
+
+{% comment %}
+=======================
+	Show Errors
+=======================
+{% endcomment %}
+{% if settings.show_bing_errors == true and errors.size > 1 %}
+  <div style="color:red; font-size: 1.7em; position: fixed; top: 0; left: 0; right: 0;z-index: 3000; border-bottom: #000; background: #000;">
+
+    {% assign array_errors = errors | split: '|' %}
+    <h1 style="font-size: 20pt;">Bing Ads Tracking: Errors</h1>
+
+    <ul>
+      {% for error in array_errors %}
+      <li style="color:red; font-size: 10pt;">{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

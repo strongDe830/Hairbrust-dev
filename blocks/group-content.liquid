@@ -1,0 +1,62 @@
+
+<div id="shopify-block-{{- block.id -}}"  class="block-group-content {% if block.settings.add_margin == true %}add-margin{% endif %}" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+<style>
+  #shopify-block-{{- block.id -}} {
+    text-align: {{ block.settings.text_align }};
+    {%- if block.settings.text_align == 'center' -%}
+      margin-inline: auto;
+    {%- endif -%}
+  }
+
+  {%- if block.settings.text_color != blank -%}
+    @media (min-width: 1024px) {
+      #shopify-block-{{- block.id -}} {
+        color: {{ block.settings.text_color }};
+      }
+    }
+  {%- endif -%}
+</style>
+
+{% schema %}
+{
+  "name": "t:blocks.group_content.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "add_margin",
+      "label": "t:blocks.group_content.settings.add_margin.label"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "t:sections.all.text_align.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.all.justify_content.options.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.all.justify_content.options.centre.label"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.all.justify_content.options.right.label"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:blocks.group_content.settings.text_color.label"
+    }
+  ],
+  "blocks": [{ "type": "kicker" }, { "type": "heading" }, { "type": "text-light" },  { "type": "text" }, { "type": "group-anchors" },  { "type": "strapline" }, { "type": "anchor" }],
+  "presets": [{ "name": "t:blocks.group_content.name" }]
+}
+{% endschema %}

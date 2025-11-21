@@ -1,0 +1,43 @@
+{% liquid
+  assign active_tag = request.path | split: '/' | last
+  render 'file-css', _name: 'snippet-layout-blog-filters.css', _load_type: 'defer'
+
+  assign use_filters = false
+
+  for tag in blog.all_tags
+    assign tag_split = tag | split: '_' | first
+    assign tag_split_handleize = tag_split | handleize
+    if tag_split_handleize contains 'category'
+      assign use_filters = true
+    endif
+  endfor
+%}
+{%- if use_filters == true -%}
+  <div class="snippet-layout-blog-filters">
+    <ul>
+      <li>
+        {%- if blog.url == request.path -%}
+          <span>All</span>
+        {%- else -%}
+          <a class="" href="{{ blog.url }}">All</a>
+        {%- endif -%}
+      </li>
+      {%- for tag in blog.all_tags -%}
+        {% liquid
+          assign tag_split = tag | split: '_' | first
+          assign tag_name = tag | split: '_' | last
+          assign tag_split_handleize = tag_split | handleize
+        %}
+        {%- if tag_split_handleize contains 'category' -%}
+          <li>
+            {%- if current_tags contains tag -%}
+              <span>{{- tag_name -}}</span>
+            {%- else -%}
+              {{ tag | split: '_' | last | link_to_tag: tag }}
+            {%- endif -%}
+          </li>
+        {% endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}

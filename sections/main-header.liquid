@@ -1,0 +1,134 @@
+{% liquid
+  assign template_name = 'section-main-header'
+
+  assign main_menu = section.settings.main_menu
+  assign quiz_anchor_text = section.settings.quiz_anchor_text
+  assign quiz_anchor_url = section.settings.quiz_anchor_url
+
+  assign dropdown_blocks = section.blocks | where: 'type', 'dropdown'
+
+
+  render 'file-css', _name: 'section-main-header.css'
+  render 'file-js', _name: 'section-main-header.js', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-layout-predictive-search.css', _load_type: 'defer'
+  render 'file-js', _name: 'snippet-layout-predictive-search.js', _load_type: 'async'
+  render 'file-css', _name: 'snippet-card-collection-alt.css', _load_type: 'dfefer'
+%}
+
+{%- capture theme_logo -%}
+  {{- 'logo-wordmark-primary.svg' | inline_asset_content -}}
+{%- endcapture -%}
+
+<site-header>
+  <div class="container">
+    <nav class="actions{% if settings.iterable_deals_modal %} has-deals{% endif %}">
+      <button
+        class="navigation-open c-btn"
+        aria-label="{{- 'navigation.main_menu' | t -}}"
+        data-site-header-el="navigationOpenBtn"
+      >
+        {%- render 'element-icon', _icon: 'menu' -%}
+        <span>{{- 'navigation.main_menu' | t -}}</span>
+      </button>
+      {%- if request.page_type != 'index' -%}
+        <a href="/" class="c-btn logo">
+          {{- theme_logo -}}
+        </a>
+      {%- else -%}
+        <div class="logo">
+          {{- theme_logo -}}
+        </div>
+      {%- endif -%}
+      <button
+        class="search-open c-btn toggle"
+        aria-label="{{- 'navigation.search_open' | t -}}"
+        data-site-header-el="searchToggleBtn"
+      >
+        {%- render 'element-icon', _icon: 'search' -%}
+      </button>
+      {%- if settings.iterable_deals_modal -%}
+        <button
+          class="deals-open c-btn toggle"
+          data-deals-modal-external-el="open"
+        >
+          {% render 'icon-letter' %}
+        </button>
+      {%- endif -%}
+      <a href="{{- routes.account_url -}}" aria-label="{{- 'navigation.account' | t -}}" class="c-btn user">
+        {%- render 'element-icon', _icon: 'user' -%}
+      </a>
+      <button
+        class="cart-open c-btn toggle"
+        aria-label="{{- 'navigation.basket' | t -}}"
+        data-cart-drawer-external-el="open"
+      >
+        <cart-count>{{ cart.item_count }}</cart-count>
+        {%- render 'element-icon', _icon: 'bag' -%}
+      </button>
+      <div class="switcher">
+        {% render 'territory-switcher' %}
+      </div>
+    </nav>
+    {%-
+      render 'layout-header-navigation',
+      _main_menu: main_menu,
+      _dropdown_blocks: dropdown_blocks,
+      _quiz_anchor_text: quiz_anchor_text,
+      _quiz_anchor_url: quiz_anchor_url,
+    -%}
+  </div>
+</site-header>
+
+{% schema %}
+{
+  "name": "t:sections.main_header.name",
+  "tag": "header",
+  "class": "section-main-header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "t:sections.main_header.settings.main_menu.label"
+    },
+    {
+      "type": "text",
+      "id": "quiz_anchor_text",
+      "label": "t:sections.main_header.settings.quiz_anchor_text.label"
+    },
+    {
+      "type": "url",
+      "id": "quiz_anchor_url",
+      "label": "t:sections.main_header.settings.quiz_anchor_url.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dropdown",
+      "name": "t:sections.main_header.blocks.dropdown.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.all.header_settings.content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.all.title.label",
+          "info": "t:sections.main_header.blocks.dropdown.settings.title.info"
+        },
+        {
+          "type": "text",
+          "id": "anchor_text",
+          "label": "t:blocks.anchor.settings.anchor_text.label",
+        },
+        {
+          "type": "metaobject",
+          "id": "promotion",
+          "label": "t:sections.main_header.blocks.dropdown.settings.promotion.label",
+          "metaobject_type": "promotion"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

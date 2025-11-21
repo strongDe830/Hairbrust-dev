@@ -1,0 +1,248 @@
+{% liquid
+  assign variant = _product.selected_or_first_available_variant
+
+  assign subscription_option = blank
+
+  if _product.selling_plan_groups.size > 0
+    for option in _product.options_with_values
+      for option_value in option.values
+        if option_value.variant.selling_plan_allocations.size > 0
+          assign subscription_option = option
+          break
+        endif
+      endfor
+    endfor
+  endif
+
+  if subscription_option != blank and subscription_option.values.size > 1
+    for value in subscription_option.values
+      assign sub_variant = value.variant
+      if sub_variant.selling_plan_allocations.size > 0
+        assign variant = sub_variant
+        break
+      endif
+    endfor
+  endif
+
+  assign bogo_this_variant_enabled = false
+  assign bogo_shop_sale_enabled = false
+  assign bogo_sale_excluded_variants = ''
+
+  assign bogo_enabled = shop.metaobjects.bogo_sale_enabled_.values
+  for entry in bogo_enabled limit: 1
+    assign bogo_shop_sale_enabled = entry.enabled
+  endfor
+
+  assign bogo_excluded_variants = shop.metaobjects.bogo_sale_excluded_variants.values
+  for entry in bogo_excluded_variants limit: 1
+    assign bogo_sale_excluded_variants = entry.variants.value
+  endfor
+
+  assign lozenges = _product.metafields.custom.product_lozenges.value
+%}
+<card-subscription-product class="snippet-card-subscription-product" data-product-id="{{ _product.id }}">
+  {% if lozenges.count > 0 %}
+    <ul class="c-lozenges">
+      {% for lozenge in lozenges %}
+        {% liquid
+          assign named_bg_colour = lozenge.background_colour
+
+          case named_bg_colour
+            when 'Peep Pink'
+              assign background_colour = 'we-peep'
+            when 'Tuna Grey'
+              assign background_colour = 'tuna'
+            when 'Gallery White'
+              assign background_colour = 'gallery'
+          endcase
+          assign border = lozenge.border | default: false
+        %}
+        <li class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <a href="{{- _product.url -}}" class="card-image">
+    {%- if _product.featured_image != blank -%}
+      {{-
+        _product.featured_image
+        | image_url: width: 600
+        | image_tag:
+          widths: '320, 400, 500, 600',
+          alt: _product.featured_image.alt,
+          loading: 'lazy',
+          class: 'featured-img'
+      -}}
+    {%- else -%}
+      {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+    {%- endif -%}
+  </a>
+  <div class="card-details">
+    <a href="{{- _product.url -}}" class="u-heading-sm title">
+      {{- _product.title -}}
+    </a>
+    <a href="{{ _product.url }}" class="rating">
+      <div
+        class="ruk_rating_snippet"
+        data-sku="{{ _product.variants | map: 'sku' | join: ';' }};{{ _product.variants | map: 'id' | join: ';' }}"
+      ></div>
+    </a>
+    <span class="strapline">{{ _product.metafields.custom.strapline }}</span>
+  </div>
+  {% if subscription_option != blank and subscription_option.values.size > 1 %}
+    {%- form 'product', _product, data-product-form: '', class: '' -%}
+      {%- if form.selling_plan -%}Current selling plan id: {{ form.selling_plan }}{%- endif -%}
+      {% comment %} <input name="id" value="{{ variant.id }}" type="hidden" data-hidden-variant-id hidden> {% endcomment %}
+      {% liquid
+        assign selected_selling_plan_id = ''
+        if variant.selected_selling_plan_allocation
+          assign selected_selling_plan_id = variant.selected_selling_plan_allocation.selling_plan.id
+        elsif variant.selling_plan_allocations.size > 0
+          assign selected_selling_plan_id = variant.selling_plan_allocations.first.selling_plan.id
+        endif
+      %}
+      {%- comment -%}
+        Only include selling_plan hidden input if variant actually has selling plans.
+      {%- endcomment -%}
+      <input
+        type="hidden"
+        name="selling_plan"
+        value="{{ selected_selling_plan_id }}"
+      >
+      <input
+        type="hidden"
+        name="id"
+        value="{{ variant.id }}"
+        data-hidden-variant-id
+      >
+      <div class="subscription-selector-wrapper">
+        <div
+          class="selected-option"
+          data-sub-option-open>
+          {% liquid
+            assign default_subscription_object = variant.metafields.custom.subscription_info.value
+
+            assign saving_ratio = variant.price | times: 100.0 | divided_by: variant.compare_at_price | round
+            assign saving_percentage = 100 | minus: saving_ratio
+          %}
+          <div class="selected-prices">
+            <span class="current" data-selected-current>
+              {{ variant.price | money }}
+            </span>
+            <span class="was" data-selected-was>
+              {{ variant.compare_at_price | money }}
+            </span>
+            <span data-selected-savings class="savings{% if saving_percentage == blank %} hidden{% endif %}">
+              {{ 'products.product.save' | t }}
+              {{ saving_percentage }}%
+            </span>
+          </div>
+          <div class="selected-info">
+            <span class="title" data-selected-title>{{ variant.title }}</span>
+            <span class="tagline {% if default_subscription_object == blank %}hidden{% endif %}" data-selected-tagline>
+              {{- default_subscription_object.tagline -}}
+            </span>
+            <span class="info {% if default_subscription_object == blank %}hidden{% endif %}" data-selected-info>
+              {% if variant.selling_plan_allocations.size > 0 %}
+                {{- 'Free shipping. Pause or cancel anytime.' -}}
+              {% endif %}
+            </span>
+          </div>
+          {% render 'element-icon', _icon: 'arrow-down' %}
+        </div>
+        <ul class="subscription-options hidden" data-sub-option-list>
+          {% for option in subscription_option.values %}
+            {% assign linked_subscription_object = option.variant.metafields.custom.subscription_info.value %}
+            {% assign free_gift = option.variant.metafields.custom.free_gift.value %}
+            {% liquid
+              if bogo_shop_sale_enabled == true
+                assign bogo_this_variant_enabled = true
+                for excluded_variant in bogo_sale_excluded_variants
+                  if excluded_variant.id == option.variant.id
+                    assign bogo_this_variant_enabled = false
+                  endif
+                endfor
+              endif
+
+              assign option_has_selling_plan = ''
+              if option.variant.selling_plan_allocations.size > 0
+                assign option_has_selling_plan = true
+                assign selling_plans = option.variant.selling_plan_allocations
+              endif
+
+              if option_has_selling_plan == true
+                for plan in selling_plans
+                  assign selling_plan_id = plan.selling_plan.id
+                endfor
+              endif
+            %}
+            <li
+              data-variant-id="{{ option.variant.id }}"
+              data-sub-option="{{ option.name }}"
+              {% if option_has_selling_plan == true %}
+                data-has-selling-plan="true"
+                data-selling-plan-id="{{- selling_plan_id -}}"
+              {% endif %}
+              {% if option.variant.id == variant.id %}
+                class="active"
+              {% endif %}
+              {% if free_gift != blank %}
+                data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}"
+              {% endif %}
+            >
+              {% if bogo_this_variant_enabled == true %}
+                <div data-bogo-enabled hidden></div>
+                <input type="hidden" name="properties[__bogof]" value="__bogof">
+              {% endif %}
+              <div class="variant-prices">
+                {% liquid
+                  assign saving_ratio = option.variant.price | times: 100.0 | divided_by: option.variant.compare_at_price | round
+                  assign saving_percentage = 100 | minus: saving_ratio
+                %}
+                <span class="current" data-variant-current>
+                  {{ option.variant.price | money }}
+                </span>
+                <span class="was" data-variant-was>
+                  {%- if option.variant.compare_at_price != blank
+                    and option.variant.compare_at_price != option.variant.price
+                  -%}
+                    {{ option.variant.compare_at_price | money }}
+                  {%- endif -%}
+                </span>
+                <span data-variant-savings class="savings hidden">
+                  {% if saving_percentage != blank and saving_percentage > 0 %}
+                    {{ 'products.product.save' | t }}
+                    {{ saving_percentage }}%
+                  {% endif %}
+                </span>
+              </div>
+              <div class="variant-info">
+                <span class="title" data-variant-title>{{ option.name }}</span>
+                <span class="tagline" data-variant-tagline>{{ linked_subscription_object.tagline }}</span>
+                {% if linked_subscription_object != blank %}
+                  <span class="info" data-variant-info>
+                    {% if option.variant.selling_plan_allocations.size > 0 %}
+                      {{ 'Free shipping. Pause or cancel anytime.' }}
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <button
+        class="c-btn main primary tuna add-to-basket"
+        data-product-add-to-cart
+        data-product-submit-button
+        {% unless variant.available %}
+          disabled
+        {% endunless %}
+        id="submit-button-{{ _section.id }}"
+      >
+        <span class="add-to-basket-text">
+          {{- 'products.product.add_subscription' | t -}}
+        </span>
+      </button>
+    {% endform %}
+  {% endif %}
+</card-subscription-product>

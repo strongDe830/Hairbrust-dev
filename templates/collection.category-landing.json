@@ -1,0 +1,331 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_LNwYUy": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ygAVKy": {
+              "type": "heading",
+              "settings": {
+                "heading": "{{ closest.collection.title }}",
+                "heading_type": "h2",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "strapline_FYaNT7": {
+              "type": "strapline",
+              "disabled": true,
+              "settings": {
+                "text": "{{ closest.collection.metafields.custom.strapline | metafield_tag }}",
+                "heading_type": "h3",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_xDXUKL": {
+              "type": "text",
+              "disabled": true,
+              "settings": {
+                "text": "{{ closest.collection.description }}",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ygAVKy",
+            "strapline_FYaNT7",
+            "text_xDXUKL"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/Hairburst_24th_April25278-2.jpg",
+            "image": "shopify://shop_images/Hairburst_24th_April25278-2.jpg",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "product_comparison_9NVcVA": {
+      "type": "product-comparison",
+      "blocks": {
+        "group_content_8zczz3": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": true,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_mnkfwA": {
+              "type": "heading",
+              "settings": {
+                "heading": "Healthy hair starts from the inside, out.",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_D7aUkk": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>That’s why we take a whole-body approach with targeted nutrition to support growth where it’s needed most.</p><p>Every formula is powered by science-backed ingredients that have been designed to work in harmony with your body delivering real, visible results you can trust.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "heading_QkmGNx": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "Find the best subscription for you...",
+                "heading_type": "h2",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_mnkfwA",
+            "text_D7aUkk",
+            "heading_QkmGNx"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_8zczz3"
+      ],
+      "custom_css": [
+        "product-comparison .value-grid > div {font-size: 12px !important; color: inherit;}",
+        "product-comparison .value-grid > div {padding-left: 7px !important; padding-right: 7px !important;}"
+      ],
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "subscription_products": {
+      "type": "subscription-products",
+      "settings": {
+        "margin_bottom": "lg",
+        "product_list": []
+      }
+    },
+    "promotion_e9Brm8": {
+      "type": "promotion",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_MTkqfg": {
+              "type": "heading",
+              "settings": {
+                "heading": "Not sure where to start? Uncover what you need to support hair growth.",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "group_anchors_Kp9yXi": {
+              "type": "group-anchors",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_zAtLij": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://pages/contact",
+                    "title": "Take our quiz",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_UHJdQk": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "shopify://collections/vitamins",
+                    "title": "Shop by Concern",
+                    "anchor_version": "main",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                },
+                "anchor_KDLdiE": {
+                  "type": "anchor",
+                  "settings": {
+                    "anchor_url": "",
+                    "title": "",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_zAtLij",
+                "anchor_UHJdQk",
+                "anchor_KDLdiE"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_MTkqfg",
+            "group_anchors_Kp9yXi"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "overlay": 25,
+        "colour": "white",
+        "margin_bottom": "lg"
+      }
+    },
+    "featured_testimonials_WxU9zF": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "lg"
+      }
+    },
+    "featured_products_LmmQY6": {
+      "type": "featured-products",
+      "blocks": {
+        "block_UPVqKp": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-hair-formula",
+              "advanced-bond-repair-duo",
+              "chewable-hair-vitamins",
+              "hairburst-shampoo-conditioner-set",
+              "shampoo-conditioner-for-oily-scalp-and-roots",
+              "healthy-hair-vitamins",
+              "strength-and-nourishment-essentials-1",
+              "advanced-plus-hair-mask",
+              "reparative-shampoo-for-damaged-hair"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": "Bestsellers"
+          }
+        }
+      },
+      "block_order": [
+        "block_UPVqKp"
+      ],
+      "settings": {
+        "heading": "Bestsellers",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "lg"
+      }
+    },
+    "faqs_N673RC": {
+      "type": "faqs",
+      "disabled": true,
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "<p>Gravida et pellentesque eget morbi urna faucibus ac. Vel gravida pellentesque pellentesque egestas ante cum. Ac lobortis sed donec mattis tellus enim rhoncus.</p>",
+        "contact_heading": "Have questions?",
+        "contact_text": "<p>Cras proin donec vitae adipiscing tincidunt diam. Nascetur arcu libero ultricies sed enim molestie eu sed nunc. </p><p><strong>Chat with our customer support team.<br/>8am - 4pm GMT.</strong></p><p><a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a></p>",
+        "margin_bottom": "lg"
+      }
+    },
+    "video_testimonial_PchURW": {
+      "type": "video-testimonial",
+      "settings": {
+        "testimonial_object": "chewable-hair-vitamins-test",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "page_hero_LNwYUy",
+    "product_comparison_9NVcVA",
+    "subscription_products",
+    "promotion_e9Brm8",
+    "featured_testimonials_WxU9zF",
+    "featured_products_LmmQY6",
+    "faqs_N673RC",
+    "video_testimonial_PchURW"
+  ]
+}

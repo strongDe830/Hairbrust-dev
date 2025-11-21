@@ -1,0 +1,396 @@
+{% liquid
+  assign variant_images = _product.images | where: 'attached_to_variant?', true | map: 'src'
+
+  assign media_count = _product.media.size
+
+  assign media_default_size = 1024
+  assign media_widths = '400, 600, 800'
+
+  assign results_object = _product.metafields.custom.product_media_results.value
+  assign results_comparison = _product.metafields.custom.product_media_results_comparison.value
+
+  assign default_before_text = 'sections.featured_testimonials.before' | t
+%}
+
+{% comment %}
+  {% if results_object != blank %}
+    <style>
+      {%- if media_count > 3 -%}
+        @media (max-width: 1023.98px) {
+          product-media .swiper-slide:has(.results){
+            order: 3;
+          }
+        }
+        @media (min-width: 1024px) {
+          product-media .swiper-slide:has(.results){
+            grid-row: 4;
+          }
+        }
+      {%- else -%}
+
+      {%- endif -%}
+    </style>
+  {% endif %}
+{% endcomment %}
+
+<product-media class="layout-product-media" id="layout-product-media-{{ _section.id }}">
+  <div class="swiper lpm-slider" data-lpm-slider>
+    <div class="swiper-wrapper">
+      {%- if _product.selected_or_first_available_variant.featured_media != null -%}
+        {%- liquid
+          assign featured_media = product.selected_or_first_available_variant.featured_media
+          assign media_position = 1
+        %}
+        <div class="swiper-slide" data-media-id="{{ featured_media.id }}">
+          {{-
+            featured_media
+            | image_url: width: media_default_size
+            | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+          -}}
+        </div>
+      {%- endif -%}
+      {%- for media in _product.media -%}
+        {% liquid
+          if media.id == featured_media.id
+            continue
+          endif
+          for image in _product.images
+            assign skip_image = false
+            if image.src == media.image.src and image.attached_to_variant?
+              assign skip_image = true
+                break
+            endif
+          endfor
+          if skip_image
+            continue
+          endif
+        %}
+        {% unless media.id == _product.selected_or_first_available_variant.featured_media.id -%}
+          <div class="swiper-slide" data-media-id="{{ media.id }}">
+            {% liquid
+              case media.media_type
+                when 'model'
+                  echo media | model_viewer_tag: image_size: '1200x', toggleable: true
+                when 'video'
+                  echo media | media_tag: image_size: '1200x', autoplay: false, loop: false, controls: true, preload: 'none'
+                when 'external_video'
+                  if media.host == 'youtube'
+                    echo media | external_video_url: autoplay: false, loop: loop, playlist: media.external_id | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                  else
+                    echo media | external_video_url: autoplay: false, loop: loop | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                  endif
+                else
+                  if forloop.first == true
+                    assign loading = 'eager'
+                  else
+                    assign loading = 'lazy'
+                  endif
+                  echo media | image_url: width: media_default_size | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+              endcase
+            %}
+          </div>
+        {%- endunless -%}
+        {% if forloop.index == 3 %}
+          {% if results_object != blank %}
+            <div class="swiper-slide">
+              <div class="results">
+                <span class="results-heading">{{ results_object.heading }}</span>
+                <ul>
+                  {% for result in results_object.results.value %}
+                    {% liquid
+                      assign percentage = result | split: '%' | first | append: '%'
+                      assign text = result | split: '%' | last
+                    %}
+                    <li>
+                      <span>{{ percentage }}</span>
+                      <p>{{ text }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {%- endif -%}
+          {% if forloop.index == 3 and results_comparison != blank %}
+            {% liquid
+              assign caption_before = results_comparison.caption_before | default: default_before_text
+              assign image_before = results_comparison.image_before
+              assign caption_after = results_comparison.caption_after
+              assign image_after = results_comparison.image_after
+            %}
+            <div class="swiper-slide">
+              <div class="before-after-wrapper">
+                <span>{{ caption_before }}</span>
+                {{
+                  image_before
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_before
+                }}
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="before-after-wrapper">
+                <span>{{ caption_after }}</span>
+                {{
+                  image_after
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_after
+                }}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {% comment %}
+        {%- for media in _product.media offset: 3 -%}
+          <div class="swiper-slide" data-media-id="{{ media.id }}">
+            {% liquid
+              case media.media_type
+                when 'model'
+                  echo media | model_viewer_tag: image_size: '1200x', toggleable: true
+                when 'video'
+                  echo media | media_tag: image_size: '1200x', autoplay: false, loop: false, controls: true, preload: 'none'
+                when 'external_video'
+                  if media.host == 'youtube'
+                    echo media | external_video_url: autoplay: true, loop: loop, playlist: media.external_id | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                  else
+                    echo media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                  endif
+                else
+                  if forloop.first == true
+                    assign loading = 'eager'
+                  else
+                    assign loading = 'lazy'
+                  endif
+                  echo media | image_url: width: media_default_size | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+              endcase
+            %}
+          </div>
+        {%- endfor -%}
+      {% endcomment %}
+    </div>
+  </div>
+</product-media>
+{%- render 'file-js', _name: 'snippet-layout-product-media.js' -%}
+{% comment %}
+  <product-media class="layout-product-media" id="layout-product-media-{{ _section.id }}">
+    <div class="swiper lpm-slider" data-lpm-slider>
+      {% liquid
+        assign variant = _product.selected_or_first_available_variant
+        assign variant_media = variant.metafields.custom.image_gallery.value
+      %}
+      <div class="swiper-wrapper">
+        {% if _product.variants.size > 1 %}
+          {%- if _product.selected_or_first_available_variant.featured_media != null -%}
+            {%- liquid
+              assign featured_media = product.selected_or_first_available_variant.featured_media
+              assign media_position = 1
+            %}
+            <div class="swiper-slide" data-media-id="{{ featured_media.id }}" style="order: 1;">
+              {{-
+                featured_media
+                | image_url: width: media_default_size
+                | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+              -}}
+            </div>
+          {%- endif -%}
+          {%- for media in _product.media -%}
+            {% if media.id != _product.selected_or_first_available_variant.featured_media.id -%}
+              {% liquid
+                assign position = forloop.index
+
+                if _product.selected_or_first_available_variant.featured_media != null
+                  assign position = position | plus: 1
+
+                  if results_object != blank and forloop.index > 2
+                    assign position = position | plus: 1
+                  endif
+
+                  if results_comparison != blank and forloop.index > 2
+                    assign position = position | plus: 2
+                  endif
+                else
+                  if results_object != blank and forloop.index > 3
+                    assign position = position | plus: 1
+                  endif
+
+                  if results_comparison != blank and forloop.index > 3
+                    assign position = position | plus: 2
+                  endif
+                endif
+              %}
+              <div class="swiper-slide" data-media-id="{{ media.id }}" style="order: {{ position }};">
+                {% liquid
+                  case media.media_type
+                    when 'model'
+                      echo media | model_viewer_tag: image_size: '1200x', toggleable: true
+                    when 'video'
+                      echo media | media_tag: image_size: '1200x', autoplay: false, loop: false, controls: true, preload: 'none'
+                    when 'external_video'
+                      if media.host == 'youtube'
+                        echo media | external_video_url: autoplay: true, loop: loop, playlist: media.external_id | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                      else
+                        echo media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                      endif
+                    else
+                      if forloop.first == true
+                        assign loading = 'eager'
+                      else
+                        assign loading = 'lazy'
+                      endif
+                      echo media | image_url: width: media_default_size | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+                  endcase
+                %}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          {% if results_object != blank %}
+            <div
+              class="swiper-slide"
+              {% if _product.selected_or_first_available_variant.featured_media != null %}
+                style="order: 3;"
+              {% else %}
+                style="order: 4;"
+              {% endif %}
+            >
+              <div class="results">
+                <span class="results-heading">{{ results_object.heading }}</span>
+                <ul>
+                  {% for result in results_object.results.value %}
+                    {% liquid
+                      assign percentage = result | split: '%' | first | append: '%'
+                      assign text = result | split: '%' | last
+                    %}
+                    <li>
+                      <span>{{ percentage }}</span>
+                      <p>{{ text }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+          {% if results_comparison != blank %}
+            {% liquid
+              assign caption_before = results_comparison.caption_before | default: default_before_text
+              assign image_before = results_comparison.image_before
+              assign caption_after = results_comparison.caption_after
+              assign image_after = results_comparison.image_after
+            %}
+            <div
+              class="swiper-slide"
+              {% if _product.selected_or_first_available_variant.featured_media != null %}
+                style="order: 6;"
+              {% else %}
+                style="order: 5;"
+              {% endif %}
+            >
+              <div class="before-after-wrapper">
+                <span>{{ caption_before }}</span>
+                {{
+                  image_before
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_before
+                }}
+              </div>
+            </div>
+            <div class="swiper-slide" style="order: 6;">
+              <div class="before-after-wrapper">
+                <span>{{ caption_after }}</span>
+                {{
+                  image_after
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_after
+                }}
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          {%- for media in _product.media -%}
+            {% liquid
+              assign position = forloop.index
+              if results_object != blank and forloop.index > 3
+                assign position = position | plus: 1
+              endif
+
+              if results_comparison != blank and forloop.index > 3
+                assign position = position | plus: 2
+              endif
+            %}
+            <div class="swiper-slide" data-media-id="{{ media.id }}" style="order: {{ position }};">
+              {% liquid
+                case media.media_type
+                  when 'model'
+                    echo media | model_viewer_tag: image_size: '1200x', toggleable: true
+                  when 'video'
+                    echo media | media_tag: image_size: '1200x', autoplay: false, loop: false, controls: true, preload: 'none'
+                  when 'external_video'
+                    if media.host == 'youtube'
+                      echo media | external_video_url: autoplay: true, loop: loop, playlist: media.external_id | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                    else
+                      echo media | external_video_url: autoplay: true, loop: loop | external_video_tag: class: 'iframe-video', loading: 'lazy'
+                    endif
+                  else
+                    if forloop.first == true
+                      assign loading = 'eager'
+                    else
+                      assign loading = 'lazy'
+                    endif
+                    echo media | image_url: width: media_default_size | image_tag: widths: media_widths, class: 'image', loading: loading, alt: media.alt
+                endcase
+              %}
+            </div>
+          {%- endfor -%}
+          {% if results_object != blank %}
+            <div class="swiper-slide" style="order: 4;">
+              <div class="results">
+                <span class="results-heading">{{ results_object.heading }}</span>
+                <ul>
+                  {% for result in results_object.results.value %}
+                    {% liquid
+                      assign percentage = result | split: '%' | first | append: '%'
+                      assign text = result | split: '%' | last
+                    %}
+                    <li>
+                      <span>{{ percentage }}</span>
+                      <p>{{ text }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          {% endif %}
+          {% if results_comparison != blank %}
+            {% liquid
+              assign caption_before = results_comparison.caption_before | default: default_before_text
+              assign image_before = results_comparison.image_before
+              assign caption_after = results_comparison.caption_after
+              assign image_after = results_comparison.image_after
+            %}
+            <div class="swiper-slide" style="order: 5;">
+              <div class="before-after-wrapper">
+                <span>{{ caption_before }}</span>
+                {{
+                  image_before
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_before
+                }}
+              </div>
+            </div>
+            <div class="swiper-slide" style="order: 6;">
+              <div class="before-after-wrapper">
+                <span>{{ caption_after }}</span>
+                {{
+                  image_after
+                  | image_url: width: media_default_size
+                  | image_tag: widths: media_widths, class: 'image', loading: 'lazy', alt: caption_after
+                }}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    {%- render 'file-js', _name: 'snippet-layout-product-media.js' -%}
+  </product-media>
+{% endcomment %}

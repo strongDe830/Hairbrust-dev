@@ -1,0 +1,142 @@
+{% liquid
+  assign key_points = _product.metafields.custom.key_points.value
+  assign strapline = _product.metafields.custom.strapline
+  assign key_information_points = _product.metafields.custom.key_information_points.value
+
+  assign current_variant = _variant
+  assign highest_price = blank
+  assign highest_compare_at_price = blank
+
+  for variant in _product.variants
+    if highest_price == blank
+      assign highest_price = variant.price
+    endif
+    if highest_compare_at_price == blank
+      assign highest_compare_at_price = variant.compare_at_price
+    endif
+    if variant.price > highest_price
+      assign highest_price = variant.price
+      assign highest_price_compare_at = variant.compare_at_price
+    endif
+
+    if variant.compare_at_price > highest_compare_at_price
+      assign highest_compare_at_price = variant.compare_at_price
+    endif
+  endfor
+
+  assign additional_review_products = _product.metafields.custom.additional_review_products
+  assign product_skus = _product.variants | map: 'sku' | join: ';' | append: additional_review_products | prepend: ';'
+  assign bundle_products = _product.metafields.bundle.bundle_products.value
+  if bundle_products != blank
+    assign bundle_array = '' | split: ''
+    for bundle_product in bundle_products
+      assign nested_bundle_products = bundle_product.metafields.bundle.bundle_products.value
+
+      if nested_bundle_products != blank
+        for nested_product in nested_bundle_products
+          assign nested_bundle_skus = nested_product.variants | map: 'sku' | append: ',' | split: ','
+          assign bundle_array = bundle_array | concat: nested_bundle_skus | join: ','
+        endfor
+      else
+        assign bundle_skus = bundle_product.variants | map: 'sku' | append: ',' | split: ','
+        assign bundle_array = bundle_array | concat: bundle_skus | join: ','
+      endif
+    endfor
+    assign product_skus = bundle_array | uniq | remove: '[' | remove: ']' | remove: '\' | replace: ',', ';' | remove: '"' | append: additional_review_products | prepend: ';'
+  endif
+
+
+%}
+
+<div
+  class="snippet-card-product-quiz"
+  data-variant-id="{{ _variant.id }}"
+  data-price="{{ _variant.price }}"
+  data-index="{{ _index }}"
+>
+  <div class="image">
+    {%- if _product.featured_image != blank -%}
+      {{-
+        _product.featured_image
+        | image_url: width: 600
+        | image_tag:
+          widths: '320, 400, 500, 600',
+          alt: _product.featured_image.alt,
+          loading: 'lazy',
+          class: 'featured-img'
+      -}}
+    {%- else -%}
+      {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+    {%- endif -%}
+  </div>
+  <div class="card-content">
+    {%- if key_points != blank -%}
+      <ul class="c-lozenges">
+        {%- for key_point in key_points -%}
+          <li class="c-lozenge xs white">
+            {{ key_point }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <div class="card-details">
+      <a href="{{- _product.url -}}" class="u-heading-sm title">
+        {{- _product.title -}}
+      </a>
+      <a
+        href="#"
+        aria-label="{{- 'products.product.view_reviews' | t -}}"
+        class="ruk_rating_snippet"
+        data-sku="{{- product_skus -}}"
+      ></a>
+      {% if current_variant %}
+        {% assign price = current_variant.price | plus: 0 %}
+        {% assign total = total | plus: price %}
+        <div class="snippet-data-prices">
+          <span class="current">
+            <span class="money">{{ price | money }}</span>
+          </span>
+        </div>
+      {% else %}
+      {% endif %}
+      {% if _variant.metafields.custom.issubscription.value == true %}
+        <small class="subscription-note">
+          {%- render 'element-icon', _icon: 'refresh' -%}
+          {{ _variant.title }}
+        </small>
+      {% endif %}
+      {%- if strapline != blank -%}
+        <p class="strapline">{{ strapline }}</p>
+      {%- endif -%}
+      {%- if key_information_points != blank -%}
+        <ul class="key-information-points">
+          {%- for key_information_point in key_information_points -%}
+            <li>
+              <small>{{ key_information_point }}</small>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+    <div class="actions">
+      {% if _index == 0 %}
+        <div
+          class="c-btn main tuna select-toggle primary locked fw centre"
+        >
+          {% render 'element-icon', _icon: 'check' -%}
+          Selected
+        </div>
+      {% else %}
+        <button
+          type="button"
+          class="c-btn main tuna select-toggle selected"
+          data-selected="true"
+        >
+          {% render 'element-icon', _icon: 'check' -%}
+          <span>Selected</span>
+        </button>
+        <button type="button" class="c-btn alt remove-item" data-variant-id="{{ _variant.id }}">Remove</button>
+      {% endif %}
+    </div>
+  </div>
+</div>

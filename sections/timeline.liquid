@@ -1,0 +1,114 @@
+{% liquid
+  assign template_name = 'section-timeline'
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  if request.page_type == 'product'
+    assign timeline = product.metafields.content.timeline.value
+    assign timeline_cards = timeline.cards.value
+  else
+    assign timeline_cards = section.settings.timeline_cards
+  endif
+%}
+
+{% if timeline_cards != blank %}
+  {% render 'file-css', _name: 'section-timeline.css' %}
+
+  <timeline-cards
+    class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+    data-section-type="{{- template_name -}}"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="container">
+      <div class="wrapper">
+        {%- if request.page_type == 'product' and timeline.heading != blank -%}
+          <h2 class="u-heading-lg heading centre">
+            {{-
+              timeline.heading
+              | metafield_tag
+              | remove: '<div class="metafield-rich_text_field">'
+              | remove: '</div>'
+              | remove: '<p>'
+              | remove: '</p>'
+            -}}
+          </h2>
+        {%- else -%}
+          <div class="section-header">
+            {% content_for 'blocks' %}
+          </div>
+        {%- endif -%}
+        <div class="swiper" data-slider>
+          <div class="swiper-wrapper">
+            {% for card in timeline_cards %}
+              <div class="swiper-slide {% if forloop.first == true %} js-is-active {% endif -%}">
+                {% liquid
+                  echo card.media | media_tag: image_size: '800x', alt: 'text', loading: 'lazy', controls: false, muted: true
+                %}
+                <div class="card-wrapper">
+                  <span class="timeline-date">{{ card.timespan }}</span>
+                  <div class="card-content">
+                    <h3 class="u-heading-sm">{{ card.heading }}</h3>
+                    {{ card.text | metafield_tag }}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </timeline-cards>
+
+  {% render 'file-js', _name: 'section-timeline.js' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.timeline.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "metaobject_list",
+      "id": "timeline_cards",
+      "label": "t:sections.timeline.settings.timeline_cards.label",
+      "metaobject_type": "timeline_card",
+      "limit": 4
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [{ "type": "heading" }, { "type": "text" }, { "type": "text-light" }],
+  "presets": [
+    {
+      "name": "t:sections.timeline.name"
+    }
+  ]
+}
+{% endschema %}

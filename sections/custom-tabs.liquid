@@ -1,0 +1,148 @@
+{%- liquid
+  assign template_name = 'section-custom-tabs'
+
+  assign margin_bottom = section.settings.margin_bottom
+  assign has_image = false
+  for block in section.blocks
+    if block.settings.image != blank
+      assign has_image = true
+      break
+    endif
+  endfor
+
+  render 'file-js', _name: 'section-custom-tabs.js', _load_type: 'defer'
+  render 'file-css', _name: 'section-custom-tabs.css', _load_type: 'defer'
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}{% if has_image == false %} mobile-layout-on-desktop{% endif %}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <custom-tabs class="container">
+    <div class="swiper tabs-list" data-ct-slider-thumbs>
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {% liquid
+            assign title = block.settings.title
+            if title == blank
+              continue
+            endif
+          %}
+          <div class="swiper-slide">
+            <span class="u-uppercase-sm">{{- forloop.index -}}</span>
+            <span class="title">{{- title -}}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="swiper" data-ct-slider-main>
+      <div class="swiper-wrapper">
+        {%- for block in section.blocks -%}
+          {% liquid
+            assign kicker = block.settings.kicker
+            assign title = block.settings.title
+            assign text = block.settings.text
+            assign image = block.settings.image
+            assign image_alt = image.alt | default: title
+            if title == blank
+              continue
+            endif
+          %}
+          <div class="swiper-slide tab-content">
+            {%- if image != blank -%}
+              {{- image | image_url: width: 800 | image_tag: widths: '400, 600, 800', alt: image_alt, loading: 'lazy' -}}
+            {%- endif -%}
+            <div class="content">
+              <span class="c-lozenge we-peep kicker">{{- kicker -}}</span>
+              {{- block.settings.text -}}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="swiper-navigation">
+        <button class="swiper-button-prev" aria-label="{{- 'components.swiper.previous' | t -}}" data-ct-swiper-prev>
+          {%- render 'element-icon', _icon: 'arrow-left' -%}
+        </button>
+        <button class="swiper-button-next" aria-label="{{- 'components.swiper.next' | t -}}" data-ct-swiper-next>
+          {%- render 'element-icon', _icon: 'arrow-right' -%}
+        </button>
+      </div>
+    </div>
+  </custom-tabs>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom_tabs.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "t:sections.all.block.label",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.all.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.all.text.label"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "t:sections.all.kicker.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.all.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom_tabs.name"
+    }
+  ]
+}
+{% endschema %}

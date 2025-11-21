@@ -1,0 +1,186 @@
+{%- liquid
+  assign template_name = 'section-bundle-products'
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  if request.page_type == 'product'
+    assign product_list = product.metafields.bundle.bundle_products.value
+  else
+    assign product_list = section.settings.product_list
+  endif
+
+  render 'file-css', _name: 'section-bundle-products.css', _load_type: 'defer'
+%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% content_for 'blocks' %}
+    <div class="products">
+      {%- for product in product_list -%}
+        {% liquid
+          assign strapline = product.metafields.custom.strapline
+          assign short_description = product.metafields.custom.short_description
+          assign trust_points = product.metafields.custom.trust_points.value
+          assign key_ingredients = product.metafields.bundle.key_ingredients.value
+          assign product_size = product.metafields.custom.product_size
+          assign usage = product.metafields.custom.usage
+        %}
+
+        <details>
+          <summary>
+            {%- if product.featured_image != blank -%}
+              {{-
+                product.featured_image
+                | image_url: width: 600
+                | image_tag:
+                  widths: '320, 400, 500, 600',
+                  alt: product.featured_image.alt,
+                  loading: 'lazy',
+                  class: 'featured-img'
+              -}}
+            {%- else -%}
+              {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+            {%- endif -%}
+            <h3 class="u-heading-xs title">{{- product.title -}}</h3>
+            {%- if strapline != blank -%}
+              <span class="strapline">{{ strapline }}</span>
+            {%- endif -%}
+          </summary>
+          <div class="content">
+            {%- if short_description != blank -%}
+              {{ short_description | metafield_tag }}
+            {%- endif -%}
+            {% if trust_points.count > 0 %}
+              <div class="key-benefits">
+                <span class="u-uppercase-md column-heading">
+                  {{- 'products.product.key_benefits' | t -}}
+                </span>
+                <ul>
+                  {% for trust_point in trust_points %}
+                    {% liquid
+                      assign named_bg_colour = trust_point.background_colour
+                      assign background_colour = blank
+                      case named_bg_colour
+                        when 'Peep Pink'
+                          assign background_colour = 'we-peep'
+                        when 'Tuna Grey'
+                          assign background_colour = 'tuna'
+                        when 'Gallery White'
+                          assign background_colour = 'gallery'
+                      endcase
+
+                      if background_colour != blank
+                        continue
+                      endif
+                    %}
+                    <li class="">
+                      {{ trust_point.icon | image_url: width: 80 | image_tag: class: 'icon', loading: 'lazy' }}
+                      <p>{{ trust_point.text }}</p>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+            {%- if key_ingredients != blank -%}
+              <div class="key-ingredients">
+                <span class="u-uppercase-md column-heading">
+                  {{- 'products.product.key_ingredients' | t -}}
+                </span>
+                {%- for entry in key_ingredients -%}
+                  <p>
+                    <strong>{{- entry.name }}: </strong>
+                    {{-
+                      entry.summary
+                      | metafield_tag
+                      | remove: '<div class="metafield-rich_text_field">'
+                      | remove: '</div>'
+                      | remove: '<p>'
+                      | remove: '</p>'
+                    -}}
+                  </p>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+            {%- if product_size != null or usage != blank -%}
+              <dl class="key-information">
+                {%- if product_size != blank -%}
+                  <dt class="u-uppercase-md">{{- 'products.product.size' | t -}}</dt>
+                  <dd>{{- product_size -}}</dd>
+                {%- endif -%}
+                {%- if usage != blank -%}
+                  <dt class="u-uppercase-md">{{- 'products.product.usage' | t -}}</dt>
+                  <dd>{{- usage -}}</dd>
+                {%- endif -%}
+              </dl>
+            {%- endif -%}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.bundle_products.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_content.content"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "t:sections.all.product_list.label",
+      "info": "t:sections.all.product_list.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group-content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.bundle_products.name"
+    }
+  ]
+}
+{% endschema %}

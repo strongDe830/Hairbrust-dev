@@ -1,0 +1,38 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "17448038974fe13355": {
+      "type": "apps",
+      "blocks": {
+        "videowise_video_commerce_videowise_page_widgets_4btKM6": {
+          "type": "shopify://apps/videowise-video-commerce/blocks/videowise-page-widgets/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
+          "settings": {
+            "videowise_embed": "<link rel=\"preload\" href=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\" as=\"script\">\n  <script src=\"https://assets.videowise.com/videowise-live-streaming-channel-embed.js\"></script>\n  <div id=\"videowise_stream_channel\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "videowise_video_commerce_videowise_page_widgets_4btKM6"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main-page",
+    "17448038974fe13355"
+  ]
+}

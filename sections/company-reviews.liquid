@@ -1,0 +1,89 @@
+{%- liquid
+  assign template_name = 'section-company-reviews'
+  assign review_snippets_array = shop.metaobjects.review_snippets.values
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-company-reviews.css', _load_type: 'defer'
+  render 'file-js', _name: 'section-company-reviews.js', _load_type: 'defer'
+
+  if review_snippets.count < 1
+    break
+  endif
+%}
+
+<company-reviews
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <div class="wrapper">
+      <div class="review-stars">{{- 'review-stars.svg' | inline_asset_content -}}</div>
+      <div class="swiper" data-reviews-slider>
+        <div class="swiper-wrapper">
+          {%- for review in review_snippets_array -%}
+            <div class="swiper-slide">
+              <strong>"{{- review.title -}}"</strong>
+              {{- review.author -}}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="reviews-logo">
+        <p>{{- 'reviews.see_our_reviews_html' | t -}}</p>
+        {{- 'Trustpilot_logo.svg' | inline_asset_content -}}
+      </div>
+    </div>
+  </div>
+</company-reviews>
+
+
+{% schema %}
+{
+  "name": "t:sections.company_reviews.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name": "t:sections.company_reviews.name",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

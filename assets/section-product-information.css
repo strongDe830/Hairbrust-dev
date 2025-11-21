@@ -1,0 +1,184 @@
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.section-product-information .snippet-overlay {
+  z-index: 1900;
+}
+.section-product-information .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.section-product-information .marquee {
+  min-width: 100%;
+  display: flex;
+  width: 100%;
+}
+.section-product-information .marquee .marquee-content {
+  display: flex;
+  animation: marquee 10s linear infinite;
+  flex-shrink: 0;
+  gap: 3rem;
+  justify-content: space-around;
+  padding: 0 0.5rem;
+  width: -webkit-fit-content;
+  width: fit-content;
+  font-size: 1.5rem;
+  line-height: normal;
+  font-weight: 500;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+.section-product-information .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.section-product-information .wrapper > img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: var(--border-radius-xl);
+}
+.section-product-information .wrapper spark-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1;
+}
+.section-product-information .wrapper spark-tabs .tab-menu {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.25rem;
+  background-color: var(--colour-white);
+  width: -webkit-fit-content;
+  width: fit-content;
+  border-radius: var(--border-radius-md);
+  overflow-x: auto;
+  max-width: 100%;
+}
+.section-product-information .wrapper spark-tabs .tab-menu button {
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+          appearance: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  transition: all var(--transition-duration) var(--transition-timing) 0s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.section-product-information .wrapper spark-tabs .tab-menu button:focus {
+  outline: none;
+}
+.section-product-information .wrapper spark-tabs .tab-menu button:hover {
+  text-decoration: none;
+  outline: none;
+}
+.section-product-information .wrapper spark-tabs .tab-menu button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.section-product-information .wrapper spark-tabs .tab-menu button[aria-selected=true] {
+  color: var(--colour-white);
+  background-color: var(--colour-tuna);
+}
+.section-product-information .wrapper spark-tabs .tab-menu button:hover, .section-product-information .wrapper spark-tabs .tab-menu button:focus {
+  border-color: var(--colour-tuna);
+}
+.section-product-information .wrapper spark-tabs .tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.section-product-information .wrapper spark-tabs .tab-content > .heading, .section-product-information .wrapper spark-tabs .tab-content > p:last-of-type {
+  margin-bottom: 0;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li {
+  border-top: 1px solid var(--colour-tuna);
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal {
+  padding: 1.25rem 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: start;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal span,
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal p {
+  grid-column: 1;
+  margin: 0;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal .title {
+  grid-row: 1;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal p {
+  grid-row: 2;
+  margin: 0;
+}
+.section-product-information .wrapper spark-tabs .tab-content > ul > li .open-modal svg {
+  grid-column: 2;
+  justify-self: end;
+}
+.section-product-information info-modal .modal-content .header {
+  gap: 1.5rem;
+}
+.section-product-information info-modal .modal-content .header * {
+  margin: 0;
+}
+.section-product-information info-modal .modal-content .columns {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+}
+.section-product-information info-modal .modal-content .columns img {
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .section-product-information .container {
+    gap: 5rem;
+  }
+  .section-product-information .marquee .marquee-content {
+    font-size: 3.5rem;
+  }
+  .section-product-information .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 32rem;
+    gap: 5rem;
+  }
+  .section-product-information .wrapper spark-tabs {
+    padding: 2rem 0;
+  }
+  .section-product-information info-modal .modal-content .columns {
+    grid-template-columns: 50% 1fr;
+    gap: 2.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .section-product-information .wrapper {
+    max-width: 76rem;
+    margin-inline: auto;
+  }
+}

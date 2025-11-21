@@ -1,0 +1,736 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "page_hero_CwUYkq": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_c3Xaq7": {
+              "type": "heading",
+              "settings": {
+                "heading": "OILY <strong>SCALP.</strong>",
+                "heading_type": "h1",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_zzKyND": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Oily roots, limp lengths, or hair that never feels clean? We’ve got the solutions to help you reset your scalp and restore your healthiest hair yet with results that are backed by science.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_c3Xaq7",
+            "text_zzKyND"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "shopify://shop_images/11_imagery_7.png",
+            "image": "shopify://shop_images/Untitled_design_8_4b90acf0-b9e9-45cf-98d4-634a077e9ec9.png",
+            "image_size": "large",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_BrXWJr": {
+      "type": "text",
+      "blocks": {
+        "group_content_GJBnie": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_z9QUjR": {
+              "type": "heading",
+              "settings": {
+                "heading": "WHY A BALANCED <strong>SCALP MATTERS.</strong>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_7Renbx": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Your scalp is the foundation of healthy hair. When oil production is balanced, follicles can function at their best, producing stronger, thicker hair. But excess sebum can clog pores and trap dirt which creates an environment for scalp irritation and increased hair shedding.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_z9QUjR",
+            "text_7Renbx"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_GJBnie"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "text_and_media_64yWzx": {
+      "type": "text-and-media",
+      "blocks": {
+        "content_media_8QCWLc": {
+          "type": "content-media",
+          "settings": {
+            "background_colour": "white",
+            "layout_direction": "media-right",
+            "content_alignment": "middle"
+          },
+          "blocks": {
+            "group_content_tMxfGJ": {
+              "type": "group-content",
+              "settings": {
+                "add_margin": false,
+                "text_align": "start",
+                "text_color": ""
+              },
+              "blocks": {
+                "heading_HBxJix": {
+                  "type": "heading",
+                  "settings": {
+                    "heading": "A balanced scalp.",
+                    "heading_type": "h3",
+                    "heading_size": "lg",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_heJQTr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>A balanced scalp ensures the follicles are clear and open to allow hair to grow. </p><p><strong>Signs of a healthy scalp:</strong></p><ul><li><strong>Comfortable and irritation-free</strong></li><li><strong>No visible flakes or redness</strong></li><li><strong>Natural oil balance, not too dry or greasy</strong></li><li><strong>Hair feels clean and fresh for longer between washes</strong></li><li><strong>Minimal shedding and stronger-feeling strands</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                },
+                "heading_PJicHB": {
+                  "type": "heading",
+                  "name": "t:sections.all.heading.label",
+                  "settings": {
+                    "heading": "An oily scalp",
+                    "heading_type": "h3",
+                    "heading_size": "lg",
+                    "text_align": "start",
+                    "margin_bottom": 16
+                  },
+                  "blocks": {}
+                },
+                "text_Pqc4FX": {
+                  "type": "text",
+                  "name": "t:blocks.text.name",
+                  "settings": {
+                    "text": "<p>An oily scalp can clog follicles, leading to build-up and weaker growth.</p><p><strong>Signs of an oily scalp:</strong></p><ul><li><strong>Hair feels greasy or heavy soon after washing</strong></li><li><strong>Noticeable build-up on the scalp</strong></li><li><strong>Itchiness or irritation from excess oil</strong></li><li><strong>Strands that look flat or lack volume</strong></li><li><strong>More frequent need to wash your hair</strong></li></ul>",
+                    "add_margin": false,
+                    "text_align": "start",
+                    "use_icons_in_list": true,
+                    "margin_bottom": 24
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_HBxJix",
+                "text_heJQTr",
+                "heading_PJicHB",
+                "text_Pqc4FX"
+              ]
+            },
+            "media_ciqweK": {
+              "type": "media",
+              "settings": {
+                "image_mobile": "shopify://shop_images/IMG_4587.heic",
+                "image": "shopify://shop_images/IMG_4587.heic",
+                "image_size": "small",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_content_tMxfGJ",
+            "media_ciqweK"
+          ]
+        }
+      },
+      "block_order": [
+        "content_media_8QCWLc"
+      ],
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "text_wA7iCi": {
+      "type": "text",
+      "blocks": {
+        "group_content_qWGYYf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_VngKAA": {
+              "type": "heading",
+              "settings": {
+                "heading": "WHAT CAUSES AN <strong>OILY SCALP?</strong>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_VngKAA"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_qWGYYf"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "xs"
+      }
+    },
+    "custom_tabs_i44PzU": {
+      "type": "custom-tabs",
+      "blocks": {
+        "block_FXDbdx": {
+          "type": "block",
+          "settings": {
+            "title": "Overactive Sebaceous Glands",
+            "text": "<p>When your scalp’s oil glands go into overdrive, normally due to hormones, stress, or even genetics, you’re left with roots that feel greasy quickly.</p>",
+            "kicker": "Overactive Sebaceous Glands",
+            "image": "shopify://shop_images/11_imagery_9.png"
+          }
+        },
+        "block_yc3eGq": {
+          "type": "block",
+          "settings": {
+            "title": "Product Build Up",
+            "text": "<p>Using heavy conditioners or styling products can leave a residue that sits on your scalp, weighing hair down and making it look limp and lifeless.</p>",
+            "kicker": "Product Build Up",
+            "image": "shopify://shop_images/11_imagery_7.png"
+          }
+        },
+        "block_4xFnpM": {
+          "type": "block",
+          "settings": {
+            "title": "Over Washing",
+            "text": "<p>Shampooing too often can strip away natural oils, which tricks your scalp into producing even more, creating a frustrating oily cycle.</p>",
+            "kicker": "Over Washing",
+            "image": "shopify://shop_images/7_46e2c12b-8456-47b9-9166-109d952fe296.png"
+          }
+        },
+        "block_MWVdYE": {
+          "type": "block",
+          "settings": {
+            "title": "Under Washing",
+            "text": "<p>However, leaving too long between washes lets oil, sweat and dead skin build up on your scalp, clogging follicles and leaving hair flat and lifeless.</p>",
+            "kicker": "Under Washing",
+            "image": "shopify://shop_images/11_imagery_8.png"
+          }
+        },
+        "block_Cj9ny8": {
+          "type": "block",
+          "settings": {
+            "title": "Lifestyle Factors",
+            "text": "<p>From your diet and daily heat styling to the ever-changing weather, the way you live can easily tip your scalp’s oil balance out of sync.</p>",
+            "kicker": "Lifestyle Factors",
+            "image": "shopify://shop_images/8_3e829a3a-347c-477d-868c-23bb05b2e457.png"
+          }
+        }
+      },
+      "block_order": [
+        "block_FXDbdx",
+        "block_yc3eGq",
+        "block_4xFnpM",
+        "block_MWVdYE",
+        "block_Cj9ny8"
+      ],
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_7cML4X": {
+      "type": "text",
+      "blocks": {
+        "group_content_YRMiTf": {
+          "type": "group-content",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_NdhAGQ": {
+              "type": "heading",
+              "settings": {
+                "heading": "SHOP THE <strong>SOLUTION.</strong>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 1
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_NdhAGQ"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_YRMiTf"
+      ],
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "none"
+      }
+    },
+    "featured_products_jJLzPD": {
+      "type": "featured-products",
+      "blocks": {
+        "block_LUqiPH": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "product_list": [
+              "advanced-hair-formula",
+              "multi-active-hair-growth-serum",
+              "shampoo-conditioner-for-oily-scalp-and-roots",
+              "purify-balance",
+              "refresh-volume-dry-shampoo",
+              "exfoliating-scalp-scrub",
+              "balancing-hair-tonic"
+            ],
+            "product_feed": "product-list",
+            "show_variants": false,
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_LUqiPH"
+      ],
+      "settings": {
+        "heading": "",
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "categories_3cxEdP": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_CDRT8k": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "EXPLORE OUR<strong> FULL RANGE.</strong>",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_HGkLdE": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>We take a 3-step approach that targets scalp health from the inside-out.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_CDRT8k",
+            "text_HGkLdE"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "category_AmMTAW": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "vitamins"
+              },
+              "blocks": {}
+            },
+            "category_p4tmY6": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "flaky-scalp"
+              },
+              "blocks": {}
+            },
+            "category_jhUYkP": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "shampoos-conditioners"
+              },
+              "blocks": {}
+            },
+            "category_Kkeedk": {
+              "type": "category",
+              "name": "t:blocks.category.name",
+              "settings": {
+                "collection": "oily-hair"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "category_AmMTAW",
+            "category_p4tmY6",
+            "category_jhUYkP",
+            "category_Kkeedk"
+          ]
+        }
+      },
+      "name": "t:sections.categories.name",
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "text_Nrmy4r": {
+      "type": "text",
+      "blocks": {
+        "group_content_TY8c4x": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_tMxk4T": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "WHY WE RECOMMEND AT LEAST<strong> 90 DAYS.</strong>",
+                "heading_type": "h3",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_hYkrC4": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Hair grows in cycles, so results take time. In the first weeks, ingredients start to work to rebalance your scalp and strengthen hair at the root.</p><p>By month three, oil levels normalise, shedding slows and regrowth begins, but lasting change comes from staying consistent beyond 90 days.</p>",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_anchors_FdcQDF": {
+              "type": "group-anchors",
+              "name": "t:blocks.group_anchors.name",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "anchor_9KbX9a": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "https://www.hairburst.com/pages/subscription",
+                    "title": "COMMIT TODAY",
+                    "anchor_version": "main",
+                    "anchor_style": "white",
+                    "anchor_icon": "none"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_9KbX9a"
+              ]
+            }
+          },
+          "block_order": [
+            "heading_tMxk4T",
+            "text_hYkrC4",
+            "group_anchors_FdcQDF"
+          ]
+        }
+      },
+      "block_order": [
+        "group_content_TY8c4x"
+      ],
+      "name": "t:sections.text.name",
+      "settings": {
+        "text_align": "left",
+        "justify_content": "left",
+        "margin_bottom": "md"
+      }
+    },
+    "video_testimonial_4jkyGt": {
+      "type": "video-testimonial",
+      "disabled": true,
+      "name": "Video Testimonial",
+      "settings": {
+        "testimonial_object": "advanced-olivia",
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_UcrMz4": {
+      "type": "featured-testimonials",
+      "blocks": {
+        "heading_NGEWD7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real people, <em>real results</em>",
+            "heading_type": "h3",
+            "heading_size": "lg",
+            "text_align": "start",
+            "margin_bottom": 1
+          },
+          "blocks": {}
+        },
+        "heading_DkYFEE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Over 6000 ★ ★ ★ ★ ★ reviews across our range.",
+            "heading_type": "h3",
+            "heading_size": "xs",
+            "text_align": "start",
+            "margin_bottom": 2
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_NGEWD7",
+        "heading_DkYFEE"
+      ],
+      "settings": {
+        "featured_testimonial": [
+          "kerri",
+          "lucy",
+          "jess",
+          "carabeaty",
+          "megan",
+          "anna-cherry",
+          "lauren_wwy",
+          "aimee",
+          "justine",
+          "amber",
+          "lauren"
+        ],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "md"
+      }
+    },
+    "faqs_WDMtjT": {
+      "type": "faqs",
+      "blocks": {
+        "faq_group_tcBCEP": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "product-faqs"
+          }
+        }
+      },
+      "block_order": [
+        "faq_group_tcBCEP"
+      ],
+      "name": "t:sections.faqs.name",
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "",
+        "contact_heading": "Have questions?",
+        "contact_text": "",
+        "margin_bottom": "md"
+      }
+    },
+    "featured_publications_jcDFGh": {
+      "type": "featured-publications",
+      "blocks": {
+        "logo_4FCtwn": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Look_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_y6eWXG": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/DailyMail_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_GePrD9": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Elle_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_KgKrE8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Healthy_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_3YHiWj": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Harpers_Bazaar_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        },
+        "logo_QVpph8": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Cosmopolitan_Logo.png",
+            "title": "",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4FCtwn",
+        "logo_y6eWXG",
+        "logo_GePrD9",
+        "logo_KgKrE8",
+        "logo_3YHiWj",
+        "logo_QVpph8"
+      ],
+      "settings": {
+        "heading": "<em>As seen in...</em>",
+        "text": "",
+        "margin_bottom": "md"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "page_hero_CwUYkq",
+    "text_BrXWJr",
+    "text_and_media_64yWzx",
+    "text_wA7iCi",
+    "custom_tabs_i44PzU",
+    "text_7cML4X",
+    "featured_products_jJLzPD",
+    "categories_3cxEdP",
+    "text_Nrmy4r",
+    "video_testimonial_4jkyGt",
+    "featured_testimonials_UcrMz4",
+    "faqs_WDMtjT",
+    "featured_publications_jcDFGh"
+  ]
+}

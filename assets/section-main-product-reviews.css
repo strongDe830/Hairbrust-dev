@@ -1,0 +1,15 @@
+.section-main-product-reviews {
+  scroll-margin-top: 5rem;
+  scroll-snap-align: start;
+}
+.section-main-product-reviews .reviews-wrapper {
+  background-color: var(--colour-white);
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  padding: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .section-main-product-reviews .reviews-wrapper {
+    padding: 2.5rem;
+  }
+}

@@ -1,0 +1,35 @@
+{%- liquid
+  if _is_production == true or request.design_mode == true
+    continue
+  endif
+
+  render 'file-css', _name: 'snippet-preview-link.css'
+-%}
+
+<div class="snippet-preview-link">
+  <a
+    class="c-btn theme"
+    href="{{- shop.url -}}/?preview_theme_id={{- theme.id -}}"
+    title="{{ theme.id }}"
+  >
+    {{ 'template.theme' | t }}: {{ theme.name }}
+  </a>
+  <input type="text" value="{{- shop.url -}}/?preview_theme_id={{- theme.id -}}" id="preview_link" hidden data-theme-preview-link>
+  <button class="c-btn copy" aria-label="{{- 'template.theme_preview.copy' | t -}}" onclick="copyPreviewLink();">
+    {%- render 'element-icon', _icon: 'copy' -%}
+  </button>
+  <a href="{{- shop.url -}}/?preview_theme_id=" class="c-btn close" aria-label="{{- 'accessibility.close' | t -}}">
+    {%- render 'element-icon', _icon: 'close' -%}
+  </a>
+</div>
+
+<script>
+  function copyPreviewLink() {
+    const previewLinkURL = document.querySelector('[data-theme-preview-link]');
+
+    previewLinkURL.select();
+    previewLinkURL.setSelectionRange(0,99999);
+
+    navigator.clipboard.writeText(previewLinkURL.value);
+  }
+</script>

@@ -1,0 +1,106 @@
+.section-bundle-products .products {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1rem;
+}
+.section-bundle-products details {
+  --image-size: 4rem;
+  background-color: var(--colour-white-glass);
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+}
+.section-bundle-products details summary {
+  display: grid;
+  grid-template-columns: var(--image-size) 1fr;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.section-bundle-products details summary * {
+  margin: 0;
+}
+.section-bundle-products details summary:has(.strapline) img,
+.section-bundle-products details summary:has(.strapline) svg {
+  grid-row: 1/span 2;
+}
+.section-bundle-products details summary img,
+.section-bundle-products details summary svg {
+  grid-column: 1;
+  height: var(--image-size);
+  width: var(--image-size);
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+}
+.section-bundle-products details summary .title,
+.section-bundle-products details summary .strapline {
+  grid-column: 2;
+}
+.section-bundle-products details summary .strapline {
+  font-size: var(--font-size-base);
+}
+.section-bundle-products details .content {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 2rem;
+}
+.section-bundle-products details .content > .metafield-rich_text_field {
+  grid-row: 1;
+}
+.section-bundle-products details .content .column-heading {
+  display: block;
+  margin-bottom: 1rem;
+}
+.section-bundle-products details .content .key-benefits ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.section-bundle-products details .content .key-benefits ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-bundle-products details .content .key-benefits ul li img {
+  height: 1rem;
+  width: 1rem;
+}
+.section-bundle-products details .content .key-benefits ul li p {
+  margin: 0;
+}
+.section-bundle-products details .content .key-ingredients p {
+  margin-bottom: 1rem;
+}
+.section-bundle-products details .content .key-ingredients p:last-of-type {
+  margin: 0;
+}
+.section-bundle-products details .content .key-information dt {
+  margin-bottom: 1rem;
+}
+.section-bundle-products details .content .key-information dd:not(:last-of-type) {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .section-bundle-products details {
+    --image-size: 5rem;
+  }
+  .section-bundle-products details .content {
+    padding-left: calc(var(--image-size) + 1rem);
+    grid-template-columns: 32% 44% 1fr;
+    gap: 2.5rem;
+  }
+  .section-bundle-products details .content > .metafield-rich_text_field {
+    grid-column: 1/span 3;
+  }
+  .section-bundle-products details .content .key-benefits,
+.section-bundle-products details .content .key-ingredients,
+.section-bundle-products details .content .key-information {
+    grid-row: 2;
+  }
+}
+@media (max-width: 1023.98px) {
+  .section-bundle-products details summary .title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

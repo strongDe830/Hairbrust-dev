@@ -1,0 +1,1 @@
+customElements.get("spark-drawer")||customElements.define("spark-drawer",class extends window.Herd.SparkPopup{});

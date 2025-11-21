@@ -1,0 +1,26 @@
+{% liquid
+  assign image_alt = _settings.media.alt | default: _settings.heading
+  assign anchor = _settings.link.value
+  assign isSideStepContent = isSideStepContent
+  assign isFullStepContent = isFullStepContent
+  assign contentAlignment = contentAlignment
+%}
+
+{%- if isSideStepContent == true -%}
+  {%- assign cssClass = "isSideStepContent" -%}
+{%- elsif isFullStepContent == true -%}
+  {%- assign cssClass = "isFullStepContent" -%}
+{%- endif -%}
+
+<div class="snippet-layout-quiz-content {{ cssClass }}" style="align-items: {{ contentAlignment }};">
+  {% liquid
+    echo _settings.media | media_tag: image_size: '800x', alt: 'text', loading: 'lazy', controls: false, muted: true, autoplay: true
+  %}
+  <div class="card-content">
+    <p class="u-heading-sm heading-text-right">{{- _settings.heading -}}</p>
+    {{- _settings.text | metafield_tag -}}
+    <a href="{{- anchor.url -}}" class="c-btn alt">
+      {{- anchor.text -}}
+    </a>
+  </div>
+</div>

@@ -1,0 +1,307 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_hero_LNwYUy": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_ba9X49": {
+              "type": "heading",
+              "settings": {
+                "heading": "{{ closest.collection.title }}",
+                "heading_type": "h1",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "strapline_GwHV8k": {
+              "type": "strapline",
+              "settings": {
+                "text": "{{ closest.collection.metafields.custom.strapline | metafield_tag }}",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_e7pQNr": {
+              "type": "text",
+              "settings": {
+                "text": "{{ closest.collection.description }}",
+                "add_margin": false,
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_ba9X49",
+            "strapline_GwHV8k",
+            "text_e7pQNr"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "{{ closest.collection.image }}",
+            "image": "{{ closest.collection.image }}",
+            "image_size": "medium",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "margin_bottom": "sm"
+      }
+    },
+    "page_hero_CQFTBc": {
+      "type": "page-hero",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "center",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_hqWWUy": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "disabled": true,
+              "settings": {
+                "heading": "{{ closest.collection.title }}",
+                "heading_type": "h1",
+                "heading_size": "xs",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            },
+            "text_ThqpY7": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<h4>Black Friday Sale.</h4><p><strong>Buy one get one free, buy two get two free, buy three get three free </strong>offer across the range -<em>exclusions apply.</em></p>",
+                "add_margin": false,
+                "text_align": "center",
+                "use_icons_in_list": false,
+                "margin_bottom": 5
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_hqWWUy",
+            "text_ThqpY7"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {
+            "image_mobile": "{{ closest.collection.image }}",
+            "image": "{{ closest.collection.image }}",
+            "image_size": "medium",
+            "iframe_embed": "",
+            "media_type": "image",
+            "video_source": "shopify-upload",
+            "use_controls": false
+          },
+          "blocks": {}
+        },
+        "static-badge": {
+          "type": "badge",
+          "static": true,
+          "settings": {
+            "text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "name": "t:sections.page_hero.name",
+      "settings": {
+        "margin_bottom": "xs"
+      }
+    },
+    "main_collection_3wDzQE": {
+      "type": "main-collection",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "use_2_col_grid": true,
+        "use_add_to_cart_btn": true
+      }
+    },
+    "category_products_LyeLLw": {
+      "type": "category-products",
+      "custom_css": [
+        ".c-lozenge > svg {display: none;}",
+        ".c-lozenge {font-size: 0.7rem;}"
+      ],
+      "settings": {
+        "use_2_col_grid": true,
+        "use_add_to_cart_btn": true,
+        "margin_bottom": "md"
+      }
+    },
+    "featured_testimonials_WxU9zF": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": true,
+        "use_thumbnails": true,
+        "margin_bottom": "lg"
+      }
+    },
+    "categories_XFx7PB": {
+      "type": "categories",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "heading_PnHMFp": {
+              "type": "heading",
+              "settings": {
+                "heading": "More from Hairburst",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "margin_bottom": 16
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_PnHMFp"
+          ]
+        },
+        "static-group-categories": {
+          "type": "group-categories",
+          "static": true,
+          "settings": {
+            "product": ""
+          },
+          "blocks": {
+            "category_GbiJU4": {
+              "type": "category",
+              "settings": {
+                "collection": "bundles"
+              },
+              "blocks": {}
+            },
+            "category_nAVV8U": {
+              "type": "category",
+              "settings": {
+                "collection": "treatments"
+              },
+              "blocks": {}
+            },
+            "category_DDYnqf": {
+              "type": "category",
+              "settings": {
+                "collection": "accessories"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "category_GbiJU4",
+            "category_nAVV8U",
+            "category_DDYnqf"
+          ]
+        }
+      },
+      "settings": {
+        "margin_bottom": "md"
+      }
+    },
+    "faqs_N673RC": {
+      "type": "faqs",
+      "blocks": {
+        "faq_group_7MiqdY": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "chewable-hair-vitamins-test-product"
+          }
+        },
+        "faq_group_DCzfVJ": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "chewable-hair-vitamins-test-usage"
+          }
+        },
+        "faq_group_Kf64Bc": {
+          "type": "faq_group",
+          "settings": {
+            "faq_group_object": "chewable-hair-vitamins-test"
+          }
+        }
+      },
+      "block_order": [
+        "faq_group_7MiqdY",
+        "faq_group_DCzfVJ",
+        "faq_group_Kf64Bc"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Need to know a bit more?",
+        "text": "<p>Gravida et pellentesque eget morbi urna faucibus ac. Vel gravida pellentesque pellentesque egestas ante cum. Ac lobortis sed donec mattis tellus enim rhoncus.</p>",
+        "contact_heading": "Have questions?",
+        "contact_text": "<p>Cras proin donec vitae adipiscing tincidunt diam. Nascetur arcu libero ultricies sed enim molestie eu sed nunc. </p><p><strong>Chat with our customer support team.<br/>8am - 4pm GMT.</strong></p><p><a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a></p>",
+        "margin_bottom": "lg"
+      }
+    }
+  },
+  "order": [
+    "page_hero_LNwYUy",
+    "page_hero_CQFTBc",
+    "main_collection_3wDzQE",
+    "category_products_LyeLLw",
+    "featured_testimonials_WxU9zF",
+    "categories_XFx7PB",
+    "faqs_N673RC"
+  ]
+}

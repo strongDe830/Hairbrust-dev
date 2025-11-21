@@ -1,0 +1,54 @@
+{%- liquid
+  assign template_name = 'section-trust-points'
+
+  render 'file-css', _name: 'section-trust-points.css'
+
+  if section.blocks.size > 1
+    render 'file-js', _name: 'section-trust-points.js'
+  endif
+
+  assign page_handle = page.title | handle
+
+  if section.blocks.size < 1 or page_handle contains 'quiz'
+    break
+  endif
+%}
+
+<div
+  class="{{- template_name }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    <div class="wrapper">
+      {%- if section.blocks.size > 1 -%}
+        <trust-points class="swiper">
+          <div class="swiper-wrapper">
+      {%- endif -%}
+      {% content_for 'blocks' %}
+      {%- if section.blocks.size > 1 -%}
+        </div>
+        </trust-points>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.trust_points.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    }
+  ],
+  "blocks": [{ "type": "text-and-icon" }],
+  "presets": [
+    {
+      "name": "t:sections.trust_points.name"
+    }
+  ]
+}
+{% endschema %}

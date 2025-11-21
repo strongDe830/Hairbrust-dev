@@ -1,0 +1,25 @@
+.snippet-data-cart-totals {
+  width: 100%;
+}
+.snippet-data-cart-totals small {
+  opacity: 0.72;
+}
+.snippet-data-cart-totals dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 2rem;
+  margin-bottom: 0.5rem;
+}
+.snippet-data-cart-totals dl dl {
+  grid-column: 1/span 2;
+}
+.snippet-data-cart-totals dl dt {
+  grid-column: 1;
+}
+.snippet-data-cart-totals dl dd {
+  grid-column: 2;
+  text-align: end;
+}
+.snippet-data-cart-totals dl strong {
+  font-weight: 600;
+}

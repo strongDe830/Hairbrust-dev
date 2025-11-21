@@ -1,0 +1,99 @@
+.snippet-card-product-quiz {
+  display: grid;
+  border: 1px solid var(--colour-pampas);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem;
+  gap: 1.5rem;
+  align-content: start;
+  grid-template-rows: auto 1fr;
+}
+.snippet-card-product-quiz .card-content {
+  display: flex;
+  flex-direction: column;
+}
+.snippet-card-product-quiz .image {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  height: 100%;
+}
+.snippet-card-product-quiz .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.snippet-card-product-quiz .c-lozenges {
+  margin-bottom: 1rem;
+}
+.snippet-card-product-quiz a.title {
+  display: block;
+  color: var(--colour-tuna);
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+.snippet-card-product-quiz .ruk_rating_snippet:has(i) {
+  margin-bottom: 1.5rem;
+}
+.snippet-card-product-quiz .ruk_rating_snippet:empty {
+  display: none;
+}
+.snippet-card-product-quiz .snippet-data-prices {
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+.snippet-card-product-quiz .snippet-data-prices .current {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.snippet-card-product-quiz .snippet-data-prices .was {
+  font-size: 0.75rem;
+}
+.snippet-card-product-quiz .key-information-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.snippet-card-product-quiz .strapline {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.snippet-card-product-quiz .subscription-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+.snippet-card-product-quiz .subscription-note svg {
+  height: 0.75rem;
+  width: 0.75rem;
+  opacity: 0.8;
+}
+.snippet-card-product-quiz .actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
+}
+.snippet-card-product-quiz .select-toggle svg {
+  fill: var(--colour-we-peep) !important;
+}
+.snippet-card-product-quiz .select-toggle[data-selected=false] svg {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .snippet-card-product-quiz {
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: auto;
+  }
+  .snippet-card-product-quiz .card-content {
+    padding: 1.5rem 0;
+  }
+  .snippet-card-product-quiz .image img {
+    display: block;
+    aspect-ratio: unset;
+  }
+}

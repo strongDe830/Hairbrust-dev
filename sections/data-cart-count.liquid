@@ -1,0 +1,15 @@
+<div
+  id="{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="data-cart-count"
+  class="drawer-count"
+>
+  {% if cart.item_count > 0 %}
+    <span data-cart-count-integer aria-hidden="true">{{ cart.item_count }}</span>
+    {%- if cart.item_count < 2 -%}
+      {{ 'template.cart.item_in_bag' | t }}
+    {%- else -%}
+      {{ 'template.cart.items_in_bag' | t }}
+    {%- endif -%}
+  {%- endif -%}
+</div>

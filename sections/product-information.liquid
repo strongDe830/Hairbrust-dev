@@ -1,0 +1,176 @@
+{% liquid
+  assign template_name = 'section-product-information'
+
+  assign margin_bottom = section.settings.margin_bottom
+
+  assign product_information = product.metafields.custom.product_information.value
+
+  render 'file-css', _name: 'section-product-information.css'
+  render 'file-css', _name: 'snippet-info-modal.css'
+%}
+
+{% if product_information != blank %}
+  {% liquid
+    assign tabs = product_information.tabs.value
+  %}
+
+  <div
+    class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+    data-section-type="{{- template_name -}}"
+    data-section-id="{{ section.id }}"
+    id="product-info"
+  >
+    <div class="container">
+      <div class="marquee">
+        <div class="marquee-content">
+          {{ product_information.marquee_text }}
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          {{ product_information.marquee_text }}
+        </div>
+      </div>
+
+      <div class="wrapper">
+        {{-
+          product_information.image.value
+          | image_url: width: 800
+          | image_tag: widths: '320, 400, 600, 800', alt: product_information.image.value.alt, loading: 'lazy'
+        -}}
+
+        <spark-tabs>
+          <div role="tablist" aria-label="Tab Menu" class="tab-menu">
+            {% for tab in tabs %}
+              <button
+                class="tab-button"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-controls="tab-{{- tab.tab_title | handleize -}}-{{ forloop.index }}"
+                tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+                role="tab"
+              >
+                {{- tab.tab_title -}}
+              </button>
+            {% endfor %}
+          </div>
+          {% for tab in tabs %}
+            <div
+              id="tab-{{- tab.tab_title | handleize -}}-{{ forloop.index }}"
+              class="tab-content"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="tab-{{- tab.tab_title | handleize -}}-{{ forloop.index }}"
+              {% unless forloop.first -%}
+                hidden
+              {%- endunless %}
+            >
+              <h2 class="u-heading-md heading">{{- tab.title -}}</h2>
+              <p>{{ tab.text }}</p>
+              <ul class="tab-info-points">
+                {% for point in tab.info_points.value %}
+                  <li>
+                    {% if point.text != blank -%}
+                      <button
+                        type="button"
+                        class="c-btn open-modal"
+                        data-modal-open
+                      >
+                        <span class="u-heading-xs title">{{ point.title }}</span>
+                        <p class="subtitle">{{ point.subtitle }}</p>
+                        {%- render 'element-icon', _icon: 'plus' -%}
+                      </button>
+                    {%- else -%}
+                      <span class="open-modal">
+                        <span class="u-heading-xs title">{{ point.title }}</span>
+                        <p class="subtitle">{{ point.subtitle }}</p>
+                      </span>
+                    {%- endif -%}
+                    {% if point.text != blank -%}
+                      <info-modal>
+                        <button class="c-btn close-icon" data-modal-close>
+                          {%- render 'element-icon', _icon: 'close' -%}
+                        </button>
+                        <div class="modal-content">
+                          <div class="header">
+                            <h3 class="u-heading-md heading">{{- point.title -}}</h3>
+                            {% if point.subtext != blank %}
+                              <p>{{ point.subtext }}</p>
+                            {% endif %}
+                          </div>
+                          <hr>
+                          {% if point.next_to_image_text != blank and point.image != blank %}
+                            <div class="columns">
+                              {% if point.next_to_image_text != blank %}
+                                {{ point.next_to_image_text | metafield_tag }}
+                              {% endif %}
+                              {% if point.image != blank %}
+                                {{-
+                                  point.image
+                                  | image_url: width: 400
+                                  | image_tag: alt: point.image.alt, loading: 'lazy'
+                                -}}
+                              {% endif %}
+                            </div>
+                          {% endif %}
+                          {{ point.text | metafield_tag }}
+                          {%- if point.table != blank -%}
+                            <div class="c-table">{{ point.table -}}</div>
+                          {%- endif -%}
+                        </div>
+                      </info-modal>
+                    {%- endif -%}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        </spark-tabs>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.product_information.name",
+  "tag": "section",
+  "class": "overflow-hidden",
+  "settings": [
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "t:sections.product_information.name"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}

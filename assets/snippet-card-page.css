@@ -1,0 +1,27 @@
+.snippet-card-page {
+  height: 100%;
+  background-color: var(--colour-white);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 1rem;
+  position: relative;
+}
+.snippet-card-page:has(img) {
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+.snippet-card-page:has(img) img {
+  align-self: 1;
+  border-radius: var(--border-radius-sm);
+  height: auto;
+  width: 100%;
+  flex-grow: 1;
+  object-fit: cover;
+}
+.snippet-card-page a {
+  font-weight: 500;
+  color: inherit;
+  padding: 0.5rem;
+}

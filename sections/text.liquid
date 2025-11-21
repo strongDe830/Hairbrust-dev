@@ -1,0 +1,135 @@
+{%- liquid
+  assign template_name = 'section-text'
+
+  assign text_align = section.settings.text_align
+  assign justify_content = section.settings.justify_content
+  assign margin_bottom = section.settings.margin_bottom
+
+  render 'file-css', _name: 'section-text.css', _load_type: 'defer'
+%}
+
+{%- if justify_content != 'centre' -%}
+  <style>
+    div[data-section-id="{{ section.id }}"] {
+      {%- if justify_content == 'left' -%}
+        --text-justification: flex-start;
+      {%- elsif justify_content == 'right' -%}
+        --text-justification: flex-end;
+      {%- endif -%}
+    }
+  </style>
+{%- endif -%}
+
+{%- if text_align != 'center' -%}
+  <style>
+    div[data-section-id="{{ section.id }}"] {
+      {%- if text_align == 'left' -%}
+        --text-align: start;
+      {%- elsif text_align == 'right' -%}
+        --text-align: end;
+      {%- endif -%}
+    }
+  </style>
+{%- endif -%}
+
+<div
+  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  data-section-type="{{- template_name -}}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="container">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.text.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.header_settings.content"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "t:sections.all.text_align.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.justify_content.options.left.label"
+        },
+        {
+          "value": "centre",
+          "label": "t:sections.all.justify_content.options.centre.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.justify_content.options.right.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "justify_content",
+      "label": "t:sections.all.justify_content.label",
+      "info": "t:sections.all.justify_content.info",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.all.justify_content.options.left.label"
+        },
+        {
+          "value": "centre",
+          "label": "t:sections.all.justify_content.options.centre.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.all.justify_content.options.right.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "margin_bottom",
+      "label": "t:sections.all.spacing.margin_bottom.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.spacing.option_none.label"
+        },
+        {
+          "value": "xs",
+          "label": "t:sections.all.spacing.option_extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.spacing.option_small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.spacing.option_medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.spacing.option_large.label"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group-content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text.name"
+    }
+  ]
+}
+{% endschema %}

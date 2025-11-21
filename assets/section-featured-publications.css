@@ -1,0 +1,27 @@
+.section-featured-publications .section-heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-featured-publications .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.section-featured-publications .c-btn {
+  margin: 0 auto;
+}
+.section-featured-publications img {
+  height: 3rem;
+  width: auto;
+  max-width: 10rem;
+  object-fit: contain;
+}
+@media (max-width: 575.98px) {
+  .section-featured-publications .swiper-slide {
+    width: -webkit-fit-content;
+    width: fit-content;
+  }
+}
