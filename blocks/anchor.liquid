@@ -3,7 +3,9 @@
   _anchor_url: block.settings.anchor_url,
   _anchor_style: block.settings.anchor_style,
   _anchor_version: block.settings.anchor_version,
-  _icon: block.settings.anchor_icon
+  _icon: block.settings.anchor_icon,
+  button_position: block.settings.button_position,
+
 -%}
 
 {% schema %}
@@ -36,6 +38,22 @@
         }
       ],
       "default": "main"
+    },
+    {
+      "type": "select",
+      "id": "button_position",
+      "label": "Button position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
     },
     {
       "type": "select",

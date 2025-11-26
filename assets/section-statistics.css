@@ -1,9 +1,27 @@
 .section-statistics .block-group-content {
   margin-bottom: 2rem;
 }
+.section-statistics.horizontal-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.section-statistics.horizontal-layout div:last-of-type {
+  grid-row: 2;
+}
+
+.section-statistics.horizontal-layout div:last-of-type p {
+  margin-bottom: 0;
+}
 @media (min-width: 768px) and (max-width: 1023.98px) {
   .section-statistics .block-group-content {
     max-width: var(--tablet-max-width);
     margin-inline: auto;
+  }
+}
+@media(max-width: 768px) {
+  .section-statistics.horizontal-layout {
+    display: flex;
+    flex-direction: column;
   }
 }

@@ -1,0 +1,66 @@
+.group-progress-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.block-progress {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  align-items: center;
+}
+
+/* Progress icon */
+.block-progress .progress-icon {
+  position: relative;
+  z-index: 3;
+  background: white;
+  border-radius: 50%;
+  width: 25px;
+  padding: 6px; /* optional: gives a white circle behind */
+}
+
+/* Dotted line behind icons */
+.block-progress .timeline-dots {
+    flex: 1;
+    margin-left: 0px;
+    border-top: 2px dotted rgba(255, 255, 255, 0.5);
+    height: 0;
+}
+
+@media (max-width: 749px) {
+  .group-progress-grid {
+    display: flex;
+    flex-direction: column;
+    height: 84%;
+  }
+
+  .block-progress {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 16px;
+    align-items: center;
+    height: 100%;
+  }
+
+  .block-progress .progress-icon {
+    width: 25px;
+  }
+
+  .block-progress .timeline-dots {
+    border-right: 2px dotted rgba(255, 255, 255, 0.5);
+    height: 100%;
+  }
+
+   .block-progress:last-child .timeline-dots {
+    border-right: none;
+    height: 100%;
+  }
+
+
+}

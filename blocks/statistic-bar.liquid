@@ -1,0 +1,103 @@
+{% if block.settings.percentage > 0 and block.settings.text != blank %}
+    <div class="block-statistic">
+    <span class="title">{{- block.settings.percentage -}} %</span>
+    <p class="u-text-md">{{- block.settings.text -}}</p>
+    </div>
+    <div class="block-statistic__bar">
+        <div class="progress-bar-done" data-progress="loading" style="width: {{ block.settings.percentage }}%;"><span></span></div>
+    </div>
+{% endif %}
+
+<style>
+    .statistics-bar {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        display: flex;
+        width: 100%;
+    }
+    .statistics-bar group-statistics {
+        width: 100%;
+    }
+    .statistics-bar .group-statistics-grid {
+        flex-direction: column;
+        gap: 0;
+        background-color: #fff;
+        
+    }
+    .statistics-bar .block-statistic {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        border-radius: unset;
+        padding: 2rem 2rem 0.5rem 0;
+        align-items: center;
+    }
+    .block-statistic__bar {
+        background-color: #fff;
+        display: flex;
+        height: 8px;
+        width: 80%;
+        position: relative;
+        align-items: center;
+        margin-right: auto;
+    }
+    .progress-bar-done{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        background-color: {{ block.settings.color }};
+        height: 100%;
+        transition: 1s ease 0.3s;
+        max-width: 100%;
+    }
+    @media(max-width: 768px) {
+        .statistics-bar .group-statistics-grid {
+            display: flex;
+        }
+        .statistics-bar .block-statistic {
+            padding: 10px 10px 14px 10px !important;
+        }
+        .block-statistic__bar {
+            background-color: #fff;
+            display: flex;
+            height: 8px;
+            width: 100%;
+            position: relative;
+            align-items: center;
+            margin-right: auto;
+        }
+    }
+
+</style>
+
+{% schema %}
+{
+  "name": "t:blocks.statistic_bar.name",
+  "tag": null,
+  "settings": [    
+    {
+      "type": "range",
+      "id": "percentage",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:global.percentage.label",
+      "default": 85
+    },
+    {
+        "type": "color",
+        "id": "color",
+        "label": "Progress bar color",
+        "default": "#F4D3D7"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "t:global.text.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.statistic_bar.name" }]
+}
+{% endschema %}

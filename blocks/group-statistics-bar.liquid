@@ -4,7 +4,7 @@
   render 'file-js', _name: 'block-group-statistics.js', _load_type: 'defer'
 -%}
 
-<div class="u-space-below-{{- block.settings.margin_bottom }}  block-group-statistics" {{ block.shopify_attributes }}>
+<div class="statistics-bar u-space-below-{{- block.settings.margin_bottom }}  block-group-statistics" {{ block.shopify_attributes }}>
   <group-statistics class="{% if block.settings.block_layout  == 'carousel' %}swiper{% endif %}">
     <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-statistics-grid grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
       {% content_for 'blocks' %}
@@ -14,7 +14,7 @@
 
 {% schema %}
 {
-  "name": "t:blocks.group_statistics.name",
+  "name": "t:blocks.group_statistics_bar.name",
   "tag": null,
   "settings": [
     {
@@ -74,7 +74,7 @@
       "default": "md"
     }
   ],
-  "blocks": [{ "type": "statistic" }], 
-  "presets": [{ "name": "t:blocks.group_statistics.name" }]
+  "blocks": [{ "type": "statistic-bar" }],
+  "presets": [{ "name": "t:blocks.group_statistics_bar.name" }]
 }
 {% endschema %}

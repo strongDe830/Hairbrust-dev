@@ -57,6 +57,11 @@
 
 {%- if use_stacked_slides == true -%}
   <style>
+    #wrapper div[data-section-id="{{ section.id }}"] .js-stack-slides .swiper-slide {
+      background: #fff;
+      padding: 12px;
+      border-radius: 13px;
+    }
     @media (min-width: 1024px) and (max-width: 1279.98px) {
       #wrapper div[data-section-id="{{ section.id }}"] .container {
         max-width: 100%;
@@ -74,7 +79,7 @@
       }
 
       #wrapper div[data-section-id="{{ section.id }}"] .js-stack-slides .swiper-slide .slide-content {
-        padding: 0;
+        padding: 0 13px;
       }
     }
   </style>
@@ -129,20 +134,20 @@
               <div class="swiper-slide">
                 <div class="slide-content">
                   <div class="testimonial-content">
-                    <p class="name">{{ entry.name }}{% if entry.age != blank %}, {{ entry.age }}{% endif %}</p>
                     <blockquote>
                       {{
                         entry.text
                         | metafield_tag
                         | remove: '<div class="metafield-rich_text_field">'
                         | remove: '</div>'
-                      }}
+                      }}                      
                     </blockquote>
+                    <p class="name">{{ entry.name }}{% if entry.age != blank %}, {{ entry.age }}{% endif %}</p>
                   </div>
                   <ul class="c-lozenges">
                     {% for highlight in entry.highlights.value %}
                       <li class="c-lozenge we-peep border xl">
-                        {%- render 'element-icon', _icon: 'check' -%}
+                        {% comment %} {%- render 'element-icon', _icon: 'check' -%} {% endcomment %}
                         {{ highlight }}
                       </li>
                     {% endfor %}
@@ -162,7 +167,7 @@
                 </div>
                 <div class="slide-images">
                   <div class="before">
-                    <span class="c-lozenge white"> {{ entry.caption_before | default: default_before_text }}</span>
+                    <span class="c-lozenge light-peep"> {{ entry.caption_before | default: default_before_text }}</span>
                     {{
                       entry.image_before
                       | image_url: width: media_default_size
@@ -170,7 +175,7 @@
                     }}
                   </div>
                   <div class="after">
-                    <span class="c-lozenge white">{{ entry.caption_after }}</span>
+                    <span class="c-lozenge light-peep">{{ entry.caption_after }}</span>
                     {{
                       entry.image_after
                       | image_url: width: media_default_size
@@ -181,14 +186,16 @@
               </div>
             {% endfor %}
           </div>
-          <div class="swiper-navigation">
+          <div class="swiper-controls">
             <div class="swiper-pagination" data-ft-swiper-pagination></div>
-            <button class="swiper-button-prev" aria-label="{{- 'components.swiper.previous' | t -}}" data-ft-swiper-prev>
-              {%- render 'element-icon', _icon: 'arrow-left' -%}
-            </button>
-            <button class="swiper-button-next" aria-label="{{- 'components.swiper.next' | t -}}" data-ft-swiper-next>
-              {%- render 'element-icon', _icon: 'arrow-right' -%}
-            </button>
+            <div class="swiper-navigation">
+              <button class="swiper-button-prev" aria-label="{{- 'components.swiper.previous' | t -}}" data-ft-swiper-prev>
+                {%- render 'element-icon', _icon: 'slider-arrow-left' -%}
+              </button>
+              <button class="swiper-button-next" aria-label="{{- 'components.swiper.next' | t -}}" data-ft-swiper-next>
+                {%- render 'element-icon', _icon: 'slider-arrow-right' -%}
+              </button>
+            </div>
           </div>
         </div>
         {%- if use_statistics == true and use_stacked_slides != true -%}

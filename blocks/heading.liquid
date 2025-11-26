@@ -5,13 +5,12 @@
   {{- block.settings.heading -}}
 </{{ block.settings.heading_type }}>
 
-{%- if block.settings.margin_bottom > 0 -%}
   <style>
     #shopify-block-{{- block.id -}} {
         margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
+        color: {{ block.settings.text_color }};
       }
   </style>
-{%- endif -%}
 
 {%- if block.settings.text_align != 'start' -%}
   <style>
@@ -135,7 +134,12 @@
       "max": 40,
       "step": 1,
       "default": 16,
-      "label": "t:sections.all.margin_bottom.label"
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
     }
   ],
   "presets": [{ "name": "t:sections.all.heading.label" }]
