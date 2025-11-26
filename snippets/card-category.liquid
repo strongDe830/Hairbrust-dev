@@ -1,3 +1,4 @@
+
 {% liquid
   if _collection
     if _collection.image != blank
@@ -11,6 +12,12 @@
     assign button_label = 'buttons.get_started' | t
   elsif _page
     assign url = _page.url
+    assign card_title = block.settings.card_title | default: _page.title
+    assign description = block.settings.description | default: _page.excerpt
+    assign image = block.settings.image
+    assign image_alt = card_title
+    assign seperate_content = block.settings.seperate_content
+
     if card_title == blank
       assign card_title = _page.title
     endif
@@ -19,7 +26,7 @@
     endif
   endif
 %}
-<div class="snippet-card-category">
+<div class="snippet-card-category {% if seperate_content == true %}show_container{% endif %}">
   {%- if category != blank -%}
     <div class="category-icon">
        {%- liquid
@@ -38,12 +45,19 @@
       echo 'image' | placeholder_svg_tag: 'placeholder-svg'
     endif
   -%}
-  <h3 class="u-heading-md card-title">
-    <a href="{{- url -}}" class="c-btn stretched-link">
-      {{- card_title -}}
-    </a>
-  </h3>
-  <a href="{{- url -}}" class="c-btn main we-peep">
-    {{- button_label -}}
-  </a>
+  <div class="card-category-content">
+    <h3 class="u-heading-md card-title">
+      <a href="{{- url -}}" class="c-btn stretched-link">
+        {{- card_title -}}
+      </a>
+    </h3>
+    {% if description %}
+      <div class="card-description">{{ description }}</div>
+    {% endif %}
+    {% if button_label !=blank %}
+      <a href="{{- url -}}" class="c-btn main we-peep">
+        {{- button_label -}}
+      </a>
+    {% endif %}
+  </div>
 </div>

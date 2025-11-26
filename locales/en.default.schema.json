@@ -143,6 +143,9 @@
     "title": {
       "label": "Title"
     },
+    "percentage": {
+      "label":"Percentage"
+    },
     "versions": {
       "main": {
         "label": "Main"
@@ -224,12 +227,18 @@
           "label": "Card title",
           "info": "Use to override page title."
         },
+        "description": {
+          "label": "Description"
+        },
         "category": {
           "label": "Category"
         },
         "button_label": {
           "label": "Button label",
           "info": "Use to override default button label."
+        },
+        "button_url": {
+          "label": "Button url"
         }
       }
     },
@@ -298,14 +307,26 @@
     "group_products": {
       "name": "Group Products"
     },
+     "group_statistics_bar": {
+      "name": "Group Statistics with Bar"
+    },
     "group_statistics": {
       "name": "Group Statistics"
+    },
+     "statistic_bar": {
+      "name": "Statistic bar"
+    },
+    "group_progress": {
+      "name": "Group Progress"
     },
     "group_text_grid_blocks": {
       "name": "Group Text Grid Blocks"
     },
     "statistic": {
       "name": "Statistic"
+    },
+    "progress": {
+      "name": "Progress"
     },
     "strapline": {
       "name": "Strapline"

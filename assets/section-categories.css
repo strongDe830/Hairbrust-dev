@@ -112,6 +112,18 @@
   max-width: var(--container-max-width);
 }
 
+.relative {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .button-position {
+  position: absolute;
+  top: 20%;
+  right: 0;
+}
+}
+
 @media (max-width: 1440px) {
   .section-categories .block-group-categories .swiper-controls {
     max-width: var(--tablet-max-width);
@@ -124,4 +136,11 @@
     max-width: var(--tablet-max-width);
   }
   
+}
+
+@media (max-width: 767px) {
+  .button-position {
+    bottom: -14px;
+    left: 16px;
+  }
 }

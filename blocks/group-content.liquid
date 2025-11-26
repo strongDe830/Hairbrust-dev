@@ -1,5 +1,5 @@
 
-<div id="shopify-block-{{- block.id -}}"  class="block-group-content {% if block.settings.add_margin == true %}add-margin{% endif %}" {{ block.shopify_attributes }}>
+<div id="shopify-block-{{- block.id -}}"  class="block-group-content {% if block.settings.add_margin == true %}add-margin{% endif %} {% if block.settings.horizontal_layout == true %}horizontal-layout{% endif %}" {{ block.shopify_attributes }}>
   {% content_for 'blocks' %}
 </div>
 
@@ -29,6 +29,12 @@
       "type": "checkbox",
       "id": "add_margin",
       "label": "t:blocks.group_content.settings.add_margin.label"
+    },
+     {
+      "type": "checkbox",
+      "id": "horizontal_layout",
+      "label": "Horizontal layout",
+      "default": true
     },
     {
       "type": "select",

@@ -1,20 +1,18 @@
 {%- liquid
-  render 'file-css', _name: 'block-statistic.css', _load_type: 'defer'
-  render 'file-css', _name: 'block-group-statistics.css', _load_type: 'defer'
-  render 'file-js', _name: 'block-group-statistics.js', _load_type: 'defer'
+  render 'file-css', _name: 'block-progress.css', _load_type: 'defer'
 -%}
 
-<div class="u-space-below-{{- block.settings.margin_bottom }}  block-group-statistics" {{ block.shopify_attributes }}>
-  <group-statistics class="{% if block.settings.block_layout  == 'carousel' %}swiper{% endif %}">
-    <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-statistics-grid grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
+<div class="u-space-below-{{- block.settings.margin_bottom }}  block-group-progress" {{ block.shopify_attributes }}>
+  <group-progress class="{% if block.settings.block_layout  == 'carousel' %}swiper{% endif %}">
+    <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-progress-grid grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
       {% content_for 'blocks' %}
     </div>
-  </group-statistics>
+  </group-progress>
 </div>
 
 {% schema %}
 {
-  "name": "t:blocks.group_statistics.name",
+  "name": "t:blocks.group_progress.name",
   "tag": null,
   "settings": [
     {
@@ -74,7 +72,7 @@
       "default": "md"
     }
   ],
-  "blocks": [{ "type": "statistic" }], 
-  "presets": [{ "name": "t:blocks.group_statistics.name" }]
+  "blocks": [{ "type": "progress" }], 
+  "presets": [{ "name": "t:blocks.group_progress.name" }]
 }
 {% endschema %}

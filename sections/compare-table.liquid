@@ -1,0 +1,277 @@
+{%- liquid
+  assign template_name = 'compare-table-section'
+  render 'file-css', _name: 'section-table-compare.css', _load_type: 'defer'
+%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+{%- endstyle -%}
+
+
+<section class="{{- template_name }} section-{{ section.id }}-padding {{ section.settings.table_position }}"  data-section-type="section-compare-text" data-section-id="template--{{ section.id }}">
+  <div class="container">
+    
+    <!-- Left Column -->
+    <div class="compare-header" style=" text-align:{{ section.settings.text_align }}">
+      <span class="small_tag" >
+        {{ section.settings.small_heading }}
+      </span>
+      <h2>
+        {{ section.settings.main_heading }}
+      </h2>
+      <p class="sub_text" style=" text-align:{{ section.settings.text_align }}">
+        {{ section.settings.subtext }}
+      </p>
+
+      {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="compare-btn small-hide">
+        {{ section.settings.button_label }}
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- Table Layout -->
+    <div class="compare-list">
+        <div class="pricing__table">
+            <div class="pt__title">
+                <div class="pt__title__wrap">
+                <div class="pt__row"></div>
+                {% for row in section.blocks %}
+                    <div class="pt__row">
+                    {{ row.settings.row_label }}
+                    <span class="row_sub_title">{{ row.settings.row_sub_title }}</span>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="pt__option">
+              <div class="pt__option__slider swiper" id="pricingTableSlider">
+                <div class="pt__option_wrapper">
+                  <div class=" pt__option__item">
+                    <div class="pt__item {% if section.settings.col1_advanced %}recommend{% endif %}">
+                        <div class="pt__item__wrap">
+                          <div class="pt__row pt__heading">
+                            {{ section.settings.col1 }}
+                          </div>
+                            {% for row in section.blocks %}
+                                <div class="pt__row">
+                                  {% if row.settings.col1check %} 
+                                    {{- 'true.svg' | inline_asset_content -}}
+                                  {% else %} 
+                                      {{- 'false.svg' | inline_asset_content -}}
+                                  {% endif %}
+                                </div>
+                            {% endfor %}
+                            {% if section.settings.col1_advanced %}<div class="pt__row"></div>{% endif %}
+                        </div>
+                    </div>
+                  </div>
+                  <div class=" pt__option__item">
+                    <div class="pt__item {% if section.settings.col2_advanced %}recommend{% endif %}">
+                        <div class="pt__item__wrap">
+                          <div class="pt__row pt__heading">
+                            {{ section.settings.col2 }}
+                          </div>
+                          {% for row in section.blocks %}
+                              <div class="pt__row">
+                                {% if row.settings.col2check %} 
+                                    {{- 'true.svg' | inline_asset_content -}}
+                                {% else %} 
+                                  {{- 'false.svg' | inline_asset_content -}}
+                                {% endif %}
+                              </div>
+                          {% endfor %}
+                          {% if section.settings.col2_advanced %}<div class="pt__row"></div>{% endif %}
+                        </div>
+                    </div>
+                  </div>
+                  <div class=" pt__option__item">
+                    <div class="pt__item {% if section.settings.col3_advanced %}recommend{% endif %}">
+                      <div class="pt__item__wrap">
+                          <div class="pt__row pt__heading">
+                            {{ section.settings.col3 }}
+                          </div>
+                          {% for row in section.blocks %}
+                              <div class="pt__row">
+                                {% if row.settings.col3check %} 
+                                    {{- 'true.svg' | inline_asset_content -}}
+                                {% else %} 
+                                    {{- 'false.svg' | inline_asset_content -}}
+                                {% endif %}
+                              </div>
+                          {% endfor %}
+                          {% if section.settings.col3_advanced %}<div class="pt__row"></div>{% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+      {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="compare-btn large-up-hide medium-hide">
+        {{ section.settings.button_label }}
+      </a>
+      {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Comparison Table Section",
+  "class": "section",
+    "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "small_heading",
+      "label": "Small Heading",
+      "default": "Our Products"
+    },
+    {
+      "type": "richtext",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "<p>Find your formula.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subheading / Description",
+      "default": "One Formula That Replaces Your Entire Supplement Shelf with 22 premium ingredients."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Advanced+ Hair Formula"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+     {
+      "type": "select",
+      "id": "table_position",
+      "label": "Table Position",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "col1",
+      "label": "Column 1 Title",
+      "default": "Advanced+ Hair Formula"
+    },
+    { "type": "checkbox", "id": "col1_advanced", "label": "Column 1 is Advanced?", "default": true },
+    {
+      "type": "text",
+      "id": "col2",
+      "label": "Column 2 Title",
+      "default": "Chewable Hair Vitamins"
+    },
+    { "type": "checkbox", "id": "col2_advanced", "label": "Column 2 is Advanced?" },
+    {
+      "type": "text",
+      "id": "col3",
+      "label": "Column 3 Title",
+      "default": "Healthy Hair Vitamins"
+    },
+    { "type": "checkbox", "id": "col3_advanced", "label": "Column 3 is Advanced?" },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding_top",
+        "default": 36
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding_bottom",
+        "default": 36
+      }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Table Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "row_label",
+          "label": "Row Label",
+          "default": "Inflammation"
+        },
+        {
+          "type": "text",
+          "id": "row_sub_title",
+          "label": "Row Sub Title",
+          "default": "healthier scalp"
+        },
+        {
+          "type": "checkbox",
+          "id": "col1check",
+          "label": "Column 1 Check"
+        },
+        {
+          "type": "checkbox",
+          "id": "col2check",
+          "label": "Column 2 Check"
+        },
+        {
+          "type": "checkbox",
+          "id": "col3check",
+          "label": "Column 3 Check"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        { "type": "row", "settings": { "row_label": "Inflammation", "row_sub_title": "healthier scalp", "col1check": true, "col2check": false, "col3check": false }},
+        { "type": "row", "settings": { "row_label": "Stress", "row_sub_title": "stress response", "col1check": true, "col2check": false, "col3check": false }},
+        { "type": "row", "settings": { "row_label": "Hormones", "row_sub_title": "reducing shedding", "col1check": true, "col2check": false, "col3check": false }},
+        { "type": "row", "settings": { "row_label": "Ageing", "row_sub_title": "nourishing follicles", "col1check": true, "col2check": false, "col3check": false }},
+        { "type": "row", "settings": { "row_label": "Nutrition", "row_sub_title": "essential vitamins", "col1check": true, "col2check": true, "col3check": true }},
+        { "type": "row", "settings": { "row_label": "Metabolism", "row_sub_title": "nutrient uptake", "col1check": true, "col2check": true, "col3check": true }},
+        { "type": "row", "settings": { "row_label": "Key Ingredients", "row_sub_title": "A powerful blend", "col1check": true, "col2check": false, "col3check": false }}
+      ]
+    }
+  ]
+}
+{% endschema %}
