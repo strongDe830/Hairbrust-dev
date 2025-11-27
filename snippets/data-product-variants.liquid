@@ -371,21 +371,17 @@
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
   {% endif %}</div> {% endcomment %}
 <div class="free-image">
-{{ free_gift.value | json }}
 
-  {% assign gift_product = free_gift.value %}
+  {% assign gift_variant = free_gift %}
 
-  {% if gift_product.featured_media %}
-    {{ gift_product.featured_media | image_url: width: 500 | image_tag: loading: 'lazy' }}
+  {% if gift_variant.featured_media %}
+    {{ gift_variant.featured_media | image_url: width: 500 | image_tag: loading: 'lazy' }}
 
-  {% elsif gift_product.featured_image %}
-    {{ gift_product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
-
-  {% elsif gift_product.media.first %}
-    {{ gift_product.media.first | image_url: width: 500 | image_tag: loading: 'lazy' }}
+  {% elsif gift_variant.product.featured_image %}
+    {{ gift_variant.product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
 
   {% else %}
-    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ gift_product.title }}">
+    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ gift_variant.product.title }}">
   {% endif %}
 
 </div>
