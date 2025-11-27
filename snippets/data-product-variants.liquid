@@ -339,7 +339,7 @@
         {% endif %}
       </ul>
 
-     {%comment%} {% if free_gift %}
+      {% if free_gift %}
       <div class="free-gift-section">
         <div class="free-gift-title">
           {% if free_gift_title %}
@@ -365,41 +365,7 @@
           </div>
         </div>
       </div>
-      {% endif %}{% endcomment %}
-      {% if free_gift %}
-<div class="free-gift-section">
-
-  <div class="free-gift-card">
-
-    <!-- IMAGE -->
-    <div class="free-gift-image">
-      {% if free_gift.featured_media %}
-        {{
-          free_gift.featured_media.preview_image
-          | image_url: width: 400
-          | image_tag: loading: 'lazy', class: 'gift-img'
-        }}
       {% endif %}
-    </div>
-
-    <!-- CONTENT -->
-    <div class="free-gift-content">
-      <p class="gift-top-text">Free with your first order...</p>
-
-      <h4 class="gift-title">{{ free_gift.title }}</h4>
-
-      <div class="gift-pricing">
-        <span class="compare-at">{{ free_gift.compare_at_price | money }}</span>
-        <span class="actual-price">{{ free_gift.price | money }}</span>
-        <span class="free-badge">FREE</span>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-{% endif %}
-
     </div>
   {% endfor %}
 </div>
