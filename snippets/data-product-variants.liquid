@@ -375,22 +375,20 @@
   {% assign gift_product = free_gift.value %}
 
   {% if gift_product.featured_media %}
-    {{
-      gift_product.featured_media.preview_image
-      | image_url: width: 500
-      | image_tag: loading: 'lazy'
-    }}
-  {% elsif gift_product.image %}
-    {{
-      gift_product.image
-      | image_url: width: 500
-      | image_tag: loading: 'lazy'
-    }}
+    {{ gift_product.featured_media | image_url: width: 500 | image_tag: loading: 'lazy' }}
+
+  {% elsif gift_product.featured_image %}
+    {{ gift_product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
+
+  {% elsif gift_product.media.first %}
+    {{ gift_product.media.first | image_url: width: 500 | image_tag: loading: 'lazy' }}
+
   {% else %}
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ gift_product.title }}">
   {% endif %}
 
 </div>
+
 
   
           <div class="free-gift-info">
