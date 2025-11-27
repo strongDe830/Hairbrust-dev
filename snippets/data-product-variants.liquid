@@ -356,36 +356,21 @@
           {% endif %}
         </div>
 
-
-{{free_gift   | json }}
-{{free_gift.title }}
-DFGDFGFDGFD
-{{free_gift.featured_image}}
-
-
         <div class="free-gift-item">
 <div class="free-imag">
-  {% assign fg_gid = product.selected_or_first_available_variant.metafields.custom.free_gift %}
-  
-  {% comment %} Convert GID to numeric ID {% endcomment %}
-  {% assign fg_id = fg_gid | remove: "gid://shopify/Product/" %}
-  
-  {% comment %} Fetch product object {% endcomment %}
-  {% assign fg_product = all_products[fg_id] %}
+  {% assign fg_variant = product.selected_or_first_available_variant.metafields.custom.free_gift %}
+  {% assign fg_product = fg_variant.value %}
   
   {% if fg_product and fg_product.featured_media %}
     <img 
-      src="{{ fg_product.featured_media | image_url: width: 600 }}" 
+      src="{{ fg_product.featured_media | image_url: width: 600 }}"
       alt="{{ fg_product.title }}"
     >
   {% else %}
-    <!-- Debug -->
-    GID: {{ fg_gid }} <br>
-    Numeric ID: {{ fg_id }} <br>
-    Product: {{ fg_product }}
+    <!-- Debug output -->
+    {{ fg_product }}
   {% endif %}
 </div>
-
 
 
 
