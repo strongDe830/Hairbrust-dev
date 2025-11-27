@@ -376,15 +376,26 @@
 
     <div class="free-gift">
 
-      {% if gift_img %}
-        {{-
-          gift_img
-          | image_url: width: 600
-          | image_tag: widths: "320, 400, 500, 600", alt: free_gift_product.title, loading: "lazy", class: "featured-img"
-        -}}
-      {% else %}
-        <!-- No image available for this product -->
-      {% endif %}
+      {%- assign gift_img = nil -%}
+
+{%- if free_gift_product.featured_media -%}
+  {%- assign gift_img = free_gift_product.featured_media.preview_image -%}
+{%- elsif free_gift_product.featured_image -%}
+  {%- assign gift_img = free_gift_product.featured_image -%}
+{%- elsif free_gift_product.images.first -%}
+  {%- assign gift_img = free_gift_product.images.first -%}
+{%- endif -%}
+
+{% if gift_img %}
+  {{-
+    gift_img
+    | image_url: width: 600
+    | image_tag: widths: "320, 400, 500, 600", alt: free_gift_product.title, loading: "lazy", class: "featured-img"
+  -}}
+{% else %}
+  <!-- No image available -->
+{% endif %}
+
 
       <div class="free-gift-info">
         {{ free_gift_product.title }}
