@@ -350,11 +350,7 @@
         </div>
 
         <div class="free-gift-item">
-          {{
-            free_gift.featured_image
-            | image_url: width: 500
-            | image_tag: loading: 'lazy'
-          }}
+          
 {% if free_gift.featured_media %}
     {{
       free_gift.featured_media.preview_image
