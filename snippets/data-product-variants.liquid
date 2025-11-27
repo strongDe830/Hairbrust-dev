@@ -507,9 +507,10 @@ ul.benefits {
     border-bottom: 1px solid #F3EFEC;
 }
 .subscription-details .subscription_price_heading .price-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 200px;
 }
 .subscription-details .subscription_price_heading .price-box span.saving-tag {
     grid-row: span 2;
@@ -531,6 +532,7 @@ ul.benefits {
     line-height: 100%;
     letter-spacing: 0;
     margin-bottom: 5px;
+    margin-left: auto;
 }
 .subscription-details .subscription_price_heading .price-box  span.compare {
     text-align: right;
@@ -539,6 +541,9 @@ ul.benefits {
     line-height: 100%;
     letter-spacing: 0;
     color: #828282;
+    margin-left: auto;
+    display: block;
+    width: 100%;
 }
 .subscription-details .benefits {
     padding-left: 0;
