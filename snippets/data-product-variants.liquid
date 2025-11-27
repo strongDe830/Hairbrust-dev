@@ -356,22 +356,29 @@
                                   </span>
                                 </div>
                                 <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
-                                  <div class="free-gift">
-                                    {{-
-                                      free_gift.featured_image
-                                      | image_url: width: 600
-                                      | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
-                                    -}}
-                                    <div class="free-gift-info">
-                                      {{ free_gift.title }}
-                                      <div class="free-gift-pricing">
-                                        <span class="free-gift-free">Free</span>
-                                        <span class="free-gift-price">
-                                          Worth {{ free_gift.price | money }}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
+                                  {% assign fg_gid = free_gift %}
+{% assign fg_id = fg_gid | remove: "gid://shopify/Product/" %}
+{% assign free_gift_product = all_products[fg_id] %}
+
+<div class="free-gift">
+  {{-
+    free_gift_product.featured_image
+    | image_url: width: 600
+    | image_tag: widths: '320, 400, 500, 600', alt: free_gift_product.featured_image.alt, loading: 'lazy', class: 'featured-img'
+  -}}
+
+  <div class="free-gift-info">
+    {{ free_gift_product.title }}
+
+    <div class="free-gift-pricing">
+      <span class="free-gift-free">Free</span>
+      <span class="free-gift-price">
+        Worth {{ free_gift_product.price | money }}
+      </span>
+    </div>
+  </div>
+</div>
+
                                 </div>
                               {% endif %}
       {% if free_gift %}
