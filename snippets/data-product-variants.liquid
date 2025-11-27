@@ -372,18 +372,22 @@
   {% endif %}</div>{% endcomment %}
 <div class="free-imag">
 
-  {% assign fg_media = free_gift.featured_media %}
-  {% assign fg_image = free_gift.image %}
+  {% assign fg_media = free_gift.value.featured_media %}
+  {% assign fg_image = free_gift.value.image %}
+  {% assign fg_old = free_gift.value.featured_image %}
 
   {% if fg_media %}
     {{ fg_media.preview_image | image_url: width: 500 | image_tag }}
   {% elsif fg_image %}
     {{ fg_image | image_url: width: 500 | image_tag }}
+  {% elsif fg_old %}
+    {{ fg_old | image_url: width: 500 | image_tag }}
   {% else %}
-    
+    <img src="{{ 'no-image.png' | asset_url }}" alt="">
   {% endif %}
 
 </div>
+
 
   
           <div class="free-gift-info">
