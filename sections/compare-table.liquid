@@ -36,7 +36,7 @@
 {%- endstyle -%}
 
 
-<section class="{{- template_name }} section-{{ section.id }} {{ section.settings.table_position }} "  data-section-type="section-compare-text" data-section-id="template--{{ section.id }}">
+<section class="{{- template_name }} section-{{ section.id }} {{ section.settings.table_position }} compare-{{ section.settings.table_style }}"  data-section-type="section-compare-text" data-section-id="template--{{ section.id }}">
   <div class="container">
     
     <!-- Left Column -->
@@ -149,7 +149,7 @@
     </div>
     
     {% if section.settings.button_label != blank  %}
-      <a href="{{ section.settings.btn_position }}" class="compare-btn">
+      <a href="{{ section.settings.btn_position }}" class="compare-btn botom_btn">
         {{ section.settings.button_label }}
       </a>
     {% endif %}
