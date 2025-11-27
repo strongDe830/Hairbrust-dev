@@ -345,7 +345,36 @@
           {% endfor %}
         {% endif %}
       </ul>
-
+{% if free_gift != blank %}
+                                <div class="banner">
+                                  <span class="banner-text">
+                                    {% if free_gift_title != blank %}
+                                      {{ free_gift_title }}
+                                    {% else %}
+                                      Free gift worth {{ free_gift.price | money }}
+                                    {% endif %}
+                                  </span>
+                                </div>
+                                <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
+                                  <div class="free-gift">
+                                    {{-
+                                      free_gift.featured_image
+                                      | image_url: width: 600
+                                      | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
+                                    -}}
+                                    <div class="free-gift-info">
+                                      {{ free_gift.title }}
+                                      <div class="free-gift-pricing">
+                                        <span class="free-gift-free">Free</span>
+                                        <span class="free-gift-price">
+                                          Worth {{ free_gift.price | money }}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              {% endif %}
+      {% if free_gift %}
       
       <div class="free-gift-section">
         <div class="free-gift-title">
@@ -355,24 +384,7 @@
             Free gift worth {{ free_gift.price | money }}
           {% endif %}
         </div>
-        <div class="free-gift-itmss">
-          {{-
-            free_gift.featured_image
-            | image_url: width: 600
-            | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
-          -}}
-          <div class="free-gift-info">
-            {{ free_gift.title }}
-            <div class="free-gift-pricing">
-              <span class="free-gift-free">Free</span>
-              <span class="free-gift-price">
-                Worth {{ free_gift.price | money }}
-              </span>
-            </div>
-          </div>
-        </div>
-        </div>
-        </div>
+
         <div class="free-gift-item">
           <div class="free-imag>
 {% if free_gift.featured_image %}
@@ -384,8 +396,9 @@
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}</div>
-  
+  {% endif %}
+  </div>
+  </div>
           <div class="free-gift-info">
             <div>
               <span class="free">FREE</span>
