@@ -355,7 +355,16 @@
             | image_url: width: 500
             | image_tag: loading: 'lazy'
           }}
-
+{% if free_gift.featured_media %}
+    {{
+      free_gift.featured_media.preview_image
+      | image_url: width: 500
+      | image_tag: loading: 'lazy'
+    }}
+  {% else %}
+    <!-- Optional fallback -->
+    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
+  {% endif %}
           <div class="free-gift-info">
             <strong>{{ free_gift.title }}</strong>
             <div>
