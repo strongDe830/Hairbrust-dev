@@ -358,7 +358,7 @@
 
         <div class="free-gift-item">
     <div class="free-imag">
-   {% assign free_gift_variant = product.metafields.custom.free_gift.value %}
+   {% assign free_gift_variant = product.metafields.custom.free_gift %}
 {% assign free_gift_product = free_gift_variant.product %}
 
 {% if free_gift_product.featured_media %}
@@ -367,7 +367,6 @@
     alt="{{ free_gift_product.title }}"
   >
 {% endif %}
-
 </div>
 
 
