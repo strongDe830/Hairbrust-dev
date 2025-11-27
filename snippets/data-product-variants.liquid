@@ -269,12 +269,12 @@
                 {%- endfor -%}
               </ul>
             </div>{% endcomment %}
-          {% if sub_option %}
+{% if sub_option %}
 <div class="subscription-tabs">
   {% for value in option.values %}
     {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-    {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
-    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+    {% assign free_gift = value.variant.metafields.custom.free_gift %}
+    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title %}
 
     <div 
       class="subscription-tab {% if selected_variant.id == value.variant.id %}active{% endif %}"
@@ -282,7 +282,8 @@
       data-product-url="{{ value.product_url }}"
     >
       <div class="tab-image">
-        {{ value.variant.featured_image 
+        {{ 
+          value.variant.featured_image 
           | image_url: width: 200
           | image_tag: loading: 'lazy'
         }}
@@ -301,12 +302,14 @@
   {% endfor %}
 </div>
 {% endif %}
+
+
 {% if sub_option %}
 <div class="subscription-details-wrapper">
   {% for value in option.values %}
     {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-    {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
-    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+    {% assign free_gift = value.variant.metafields.custom.free_gift %}
+    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title %}
 
     <div 
       class="subscription-details {% if selected_variant.id == value.variant.id %}active{% endif %}"
@@ -329,7 +332,7 @@
       </div>
 
       <ul class="benefits">
-        {% if sub_object.trust_points.value %}
+        {% if sub_object.trust_points %}
           {% for trust_point in sub_object.trust_points.value %}
             <li>{{ trust_point.text }}</li>
           {% endfor %}
@@ -347,11 +350,13 @@
         </div>
 
         <div class="free-gift-item">
-          {{ free_gift.featured_image
+          {{
+            free_gift.featured_image
             | image_url: width: 500
             | image_tag: loading: 'lazy'
           }}
-          <div>
+
+          <div class="free-gift-info">
             <strong>{{ free_gift.title }}</strong>
             <div>
               <span class="free">FREE</span>
@@ -365,6 +370,7 @@
   {% endfor %}
 </div>
 {% endif %}
+
 
           </fieldset>
         {%- endif -%}
