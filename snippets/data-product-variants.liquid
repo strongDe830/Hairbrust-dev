@@ -350,20 +350,29 @@
         </div>
 
         <div class="free-gift-item">
-          {{
-            free_gift.featured_image
-            | image_url: width: 500
-            | image_tag: loading: 'lazy'
-          }}
 
-          <div class="free-gift-info">
-            <strong>{{ free_gift.title }}</strong>
-            <div>
-              <span class="free">FREE</span>
-              <span class="worth">Worth {{ free_gift.price | money }}</span>
-            </div>
-          </div>
-        </div>
+  {% if free_gift.featured_image %}
+    {{
+      free_gift.featured_image
+      | image_url: width: 500
+      | image_tag: loading: 'lazy'
+    }}
+  {% else %}
+    <!-- Optional fallback -->
+    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
+  {% endif %}
+
+  <div class="free-gift-info">
+    <strong>{{ free_gift.title }}</strong>
+
+    <div>
+      <span class="free">FREE</span>
+      <span class="worth">Worth {{ free_gift.price | money }}</span>
+    </div>
+  </div>
+
+</div>
+
       </div>
       {% endif %}
     </div>
