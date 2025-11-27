@@ -358,29 +358,22 @@
 
         <div class="free-gift-item">
 <div class="free-imag">
-<pre>
-VARIANT OBJECT:
-{{ product.selected_or_first_available_variant }}
+{% assign fg_gid = product.selected_or_first_available_variant.metafields.custom.free_gift %}
+{% assign fg_gid_str = fg_gid | replace: "gid://shopify/Product/", "" %}
+{% assign fg_product = all_products[fg_gid_str] %}
 
-RAW METAFIELD:
-{{ product.selected_or_first_available_variant.metafields.custom.free_gift }}
+{% if fg_product and fg_product.featured_media %}
+  <img 
+    src="{{ fg_product.featured_media | image_url: width: 600 }}"
+    alt="{{ fg_product.title }}"
+  >
+{% else %}
+  <!-- Debug -->
+  fg_gid: {{ fg_gid }} <br>
+  id: {{ fg_gid_str }} <br>
+  product: {{ fg_product }}
+{% endif %}
 
-RAW METAFIELD VALUE:
-{{ product.selected_or_first_available_variant.metafields.custom.free_gift.value }}
-</pre>
-
-  {% assign fg_variant = product.selected_or_first_available_variant.metafields.custom.free_gift %}
-  {% assign fg_product = fg_variant.value %}
-  
-  {% if fg_product and fg_product.featured_media %}
-    <img 
-      src="{{ fg_product.featured_media | image_url: width: 600 }}"
-      alt="{{ fg_product.title }}"
-    >
-  {% else %}
-    <!-- Debug output -->
-    {{ fg_product }}
-  {% endif %}
 </div>
 
 
