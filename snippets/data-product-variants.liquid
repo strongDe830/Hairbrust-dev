@@ -379,7 +379,7 @@
 {% endif %}
 
 
-      {% if free_gift %}
+   {% comment %}   {% if free_gift %}
       
       <div class="free-gift-section">
         <div class="free-gift-title">
@@ -401,7 +401,7 @@
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}
+  {% endif %} {% endcomment %}
   </div>
   </div>
           <div class="free-gift-info">
