@@ -404,8 +404,7 @@
     </div>
 
   </div>
-{% endif %}
-<div style="background:#111;color:#0f0;padding:10px;font-size:14px;">
+  <div style="background:#111;color:#0f0;padding:10px;font-size:14px;">
   <strong>DEBUG:</strong><br>
 
   free_gift (raw metafield): {{ free_gift }}<br>
@@ -420,6 +419,8 @@
     Image {{ forloop.index }}: {{ img | image_url }}
   {% endfor %}
 </div>
+
+{% endif %}
 
 
       {% if free_gift %}
