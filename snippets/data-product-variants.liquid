@@ -346,41 +346,61 @@
         {% endif %}
       </ul>
 {% if free_gift != blank %}
-                                <div class="banner">
-                                  <span class="banner-text">
-                                    {% if free_gift_title != blank %}
-                                      {{ free_gift_title }}
-                                    {% else %}
-                                      Free gift worth {{ free_gift.price | money }}
-                                    {% endif %}
-                                  </span>
-                                </div>
-                                <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
-                                  {% assign fg_gid = free_gift %}
-{% assign fg_id = fg_gid | remove: "gid://shopify/Product/" %}
-{% assign free_gift_product = all_products[fg_id] %}
-
-<div class="free-gift">
-  {{-
-    free_gift_product.featured_image
-    | image_url: width: 600
-    | image_tag: widths: '320, 400, 500, 600', alt: free_gift_product.featured_image.alt, loading: 'lazy', class: 'featured-img'
-  -}}
-
-  <div class="free-gift-info">
-    {{ free_gift_product.title }}
-
-    <div class="free-gift-pricing">
-      <span class="free-gift-free">Free</span>
-      <span class="free-gift-price">
-        Worth {{ free_gift_product.price | money }}
-      </span>
-    </div>
+  <div class="banner">
+    <span class="banner-text">
+      {% if free_gift_title != blank %}
+        {{ free_gift_title }}
+      {% else %}
+        Free gift worth {{ free_gift.price | money }}
+      {% endif %}
+    </span>
   </div>
-</div>
 
-                                </div>
-                              {% endif %}
+  <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
+
+    {%- assign fg_gid = free_gift -%}
+    {%- assign fg_id = fg_gid | remove: "gid://shopify/Product/" -%}
+    {%- assign free_gift_product = all_products[fg_id] -%}
+
+    {%- comment %}
+      SAFE image fallback:
+      1. featured_media
+      2. featured_image
+      3. first image in gallery
+    {%- endcomment %}
+
+    {%- assign gift_img = free_gift_product.featured_media
+      | default: free_gift_product.featured_image
+      | default: free_gift_product.images.first
+    -%}
+
+    <div class="free-gift">
+
+      {% if gift_img %}
+        {{-
+          gift_img
+          | image_url: width: 600
+          | image_tag: widths: "320, 400, 500, 600", alt: free_gift_product.title, loading: "lazy", class: "featured-img"
+        -}}
+      {% else %}
+        <!-- No image available for this product -->
+      {% endif %}
+
+      <div class="free-gift-info">
+        {{ free_gift_product.title }}
+
+        <div class="free-gift-pricing">
+          <span class="free-gift-free">Free</span>
+          <span class="free-gift-price">
+            Worth {{ free_gift_product.price | money }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+
       {% if free_gift %}
       
       <div class="free-gift-section">
