@@ -362,11 +362,11 @@
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
   {% endif %}
           <div class="free-gift-info">
-            <strong>{{ free_gift.title }}</strong>
             <div>
               <span class="free">FREE</span>
               <span class="worth">Worth {{ free_gift.price | money }}</span>
             </div>
+            <strong>{{ free_gift.title }}</strong>
           </div>
         </div>
       </div>
