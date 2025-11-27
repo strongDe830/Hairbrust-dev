@@ -336,7 +336,12 @@
       <ul class="benefits">
         {% if sub_object.trust_points %}
           {% for trust_point in sub_object.trust_points.value %}
-            <li>{{ trust_point.text }}</li>
+            <li>
+              <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.6375 7.9875L0 4.36875L0.95625 3.39375L3.6375 6.075L9.73125 0L10.6875 0.95625L3.6375 7.9875Z" fill="#1C1B1F"/>
+              </svg>
+              {{ trust_point.text }}
+            </li>
           {% endfor %}
         {% endif %}
       </ul>
@@ -492,5 +497,70 @@ ul.benefits {
 
 .subscription-tabs .tab-title {
     margin-top: 10px;
+}
+.subscription-details .subscription_price_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #F3EFEC;
+}
+.subscription-details .subscription_price_heading .price-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+.subscription-details .subscription_price_heading .price-box span.saving-tag {
+    grid-row: span 2;
+    margin-left: auto;
+    margin-right: 14px;
+    background: #FAF4F4;
+    padding: 5px 5px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    border-radius: 4px;
+}
+.subscription-details .subscription_price_heading .price-box span.price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+}
+.subscription-details .subscription_price_heading .price-box  span.compare {
+    text-align: right;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+}
+.subscription-details .benefits {
+    padding-left: 0;
+}
+.subscription-details .benefits {
+    padding-left: 0;
+    list-style: none;
+}
+.subscription-details .benefits li {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    margin-top: 8px;
+    display: grid;
+    align-items: center;
+    gap: 8px;
+    grid-template-columns: 14px 1fr;
+}
+.subscription-details .benefits li svg {
+    width: 100%;
+    height: auto;
 }
 </style>
