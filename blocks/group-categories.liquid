@@ -1,3 +1,25 @@
+{%- style -%}
+  .section-categories .block-{{ block.id }} .show_container img {
+    position: relative;
+    height: auto;
+  }
+
+ .section-categories.block-{{ block.id }} .show_container {
+    padding: 6px;
+    justify-content: start;
+    height: 530px;
+  }
+
+  
+   @media(min-width: 1285px) {
+ .section-categories .block-{{ block.id }} .show_container {
+    padding: 6px;
+    height: 450px;
+   }
+
+   }
+{%- endstyle -%}
+
 {% liquid
   assign product = block.settings.product
   render 'file-css', _name: 'block-group-categories.css', _load_type: 'defer'
@@ -6,7 +28,7 @@
   render 'file-js', _name: 'block-group-categories.js', _load_type: 'defer'
 %}
 
-<div class="block-group-categories" {{ block.shopify_attributes }}>
+<div class="block-group-categories block-{{ block.id }}" {{ block.shopify_attributes }}>
   <group-categories class="swiper">
     <div class="swiper-wrapper">{% content_for 'blocks' %}</div>
     <div class="swiper-controls">
@@ -29,123 +51,88 @@
 </div>
 
 <script>
-  (function() {
-    const checkAndOverride = () => {
-      const groupCategoriesElement = document.querySelector('group-categories');
-      if (groupCategoriesElement && window.theme && window.theme.Swiper) {
-        const originalInitSlider = Object.getPrototypeOf(groupCategoriesElement).initSlider;
-        Object.getPrototypeOf(groupCategoriesElement).initSlider = function() {
-          const sliderPagination = this.querySelector('[data-ft-swiper-pagination]');
-          const sliderNext = this.querySelector('[data-ft-swiper-next]');
-          const sliderPrev = this.querySelector('[data-ft-swiper-prev]');
-          const mqlMdMax = window.matchMedia(`(max-width: ${window.theme.breakpoints.xs}px)`);
-          const mqlMdMin = window.matchMedia(`(min-width: ${window.theme.breakpoints.xs}px)`);
-          
-          if (mqlMdMin.matches) {
-            if (this.sliders && this.sliders.length > 0) {
-              this.sliders.forEach((slider) => {
-                slider.destroy(true, true);
-              });
-              this.sliders = [];
-            }
+(function () {
+  const checkAndOverride = () => {
+    const groupCategoriesElement = document.querySelector('group-categories');
 
-            const swiper = new window.theme.Swiper(this, {
-              slidesPerView: 1.2,
-              spaceBetween: 16,
-              slideClass: 'snippet-card-category',
-              watchSlidesProgress: true,
-              pagination: {
-                el: sliderPagination,
-                type: 'progressbar',
-                clickable: true,
-              },
-              navigation: {
-                nextEl: sliderNext,
-                prevEl: sliderPrev,
-              },
-              on: {
-                init: function() {
-                  const swiperInstance = this;
-                  const paginationEl = this.pagination.el;
-                  if (paginationEl) {
-                    paginationEl.style.cursor = 'pointer';
-                    const newPaginationEl = paginationEl.cloneNode(true);
-                    paginationEl.parentNode.replaceChild(newPaginationEl, paginationEl);
-                    newPaginationEl.addEventListener('click', function(e) {
-                      const rect = newPaginationEl.getBoundingClientRect();
-                      const clickPosition = e.clientX - rect.left;
-                      const progressBarWidth = rect.width;
-                      const clickPercentage = clickPosition / progressBarWidth;
-                      
-                      const totalSlides = swiperInstance.slides.length;
-                      const slidesPerView = swiperInstance.params.slidesPerView;
-                      const maxIndex = totalSlides - Math.ceil(slidesPerView);
-                      const targetIndex = Math.round(clickPercentage * maxIndex);
-                      swiperInstance.slideTo(targetIndex, 300);
-                    });
-                    swiperInstance.pagination.el = newPaginationEl;
-                  }
-                },
-                setTranslate: function() {
-                  const progress = this.progress;
-                  const progressFill = this.pagination.el?.querySelector('.swiper-pagination-progressbar-fill');
-                  if (progressFill) {
-                    progressFill.style.transform = `scaleX(${progress})`;
-                    progressFill.style.transformOrigin = 'left center';
-                  }
-                },
-                slideChange: function() {
-                  const progress = this.progress;
-                  const progressFill = this.pagination.el?.querySelector('.swiper-pagination-progressbar-fill');
-                  if (progressFill) {
-                    progressFill.style.transform = `scaleX(${progress})`;
-                    progressFill.style.transformOrigin = 'left center';
-                  }
-                }
-              },
-              breakpoints: {
-                [window.theme.breakpoints.sm]: {
-                  slidesPerView: Number({{ block.settings.swiper_num_mobile | plus: 0}}),
-                  spaceBetween: 20,
-                },
-                [window.theme.breakpoints.lg]: {
-                  slidesPerView: 2.5,
-                  spaceBetween: 24,
-                },
-                [window.theme.breakpoints.xl]: {
-                  slidesPerView:  Number({{ block.settings.swiper_num_desktop | plus: 0}}),
-                  spaceBetween: 30,
-                },
-              },
-            });
+    if (groupCategoriesElement && window.theme && window.theme.Swiper) {
+      const proto = Object.getPrototypeOf(groupCategoriesElement);
 
-            if (!this.sliders) {
-              this.sliders = [];
-            }
-            this.sliders.push(swiper);
+      // prevent re-patching
+      if (proto._patched) return;
+      proto._patched = true;
+
+      const originalInitSlider = proto.initSlider;
+
+      proto.initSlider = function () {
+        const sliderPagination = this.querySelector('[data-ft-swiper-pagination]');
+        const sliderNext = this.querySelector('[data-ft-swiper-next]');
+        const sliderPrev = this.querySelector('[data-ft-swiper-prev]');
+        const mqlMdMax = window.matchMedia(`(max-width: ${window.theme.breakpoints.xs}px)`);
+        const mqlMdMin = window.matchMedia(`(min-width: ${window.theme.breakpoints.xs}px)`);
+
+        if (mqlMdMin.matches) {
+          if (this.sliders && this.sliders.length > 0) {
+            this.sliders.forEach((slider) => slider.destroy(true, true));
+            this.sliders = [];
           }
-          
-          if (mqlMdMax.matches) {
-            if (this.sliders && this.sliders.length > 0) {
-              this.sliders.forEach((slider) => {
-                slider.destroy(true, true);
-              });
-              this.sliders = [];
-            }
+
+          const swiper = new window.theme.Swiper(this, {
+            slidesPerView: 1.2,
+            spaceBetween: 8,
+            slideClass: 'snippet-card-category',
+
+            pagination: {
+              el: sliderPagination,
+              type: 'progressbar'
+            },
+
+            navigation: {
+              nextEl: sliderNext,
+              prevEl: sliderPrev,
+            },
+
+            breakpoints: {
+              [window.theme.breakpoints.sm]: {
+                slidesPerView: Number({{ block.settings.swiper_num_mobile | plus: 0 }}),
+              },
+              [window.theme.breakpoints.lg]: {
+                slidesPerView: 2.5,
+              },
+              [window.theme.breakpoints.xl]: {
+                slidesPerView: Number({{ block.settings.swiper_num_desktop | plus: 0 }}),
+              },
+            },
+          });
+
+          if (!this.sliders) this.sliders = [];
+          this.sliders.push(swiper);
+        }
+
+        // mobile destroy
+        if (mqlMdMax.matches) {
+          if (this.sliders && this.sliders.length > 0) {
+            this.sliders.forEach((slider) => slider.destroy(true, true));
+            this.sliders = [];
           }
-        };
-        groupCategoriesElement.initSlider();
-      } else {
-        setTimeout(checkAndOverride, 100);
-      }
-    };
-    
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', checkAndOverride);
+        }
+      };
+
+      // Trigger `initSlider` for already-rendered elements
+      document.querySelectorAll('group-categories').forEach(el => el.initSlider());
+
     } else {
-      checkAndOverride();
+      setTimeout(checkAndOverride, 100);
     }
-  })();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkAndOverride);
+  } else {
+    checkAndOverride();
+  }
+})();
+
 </script>
 
 {% schema %}

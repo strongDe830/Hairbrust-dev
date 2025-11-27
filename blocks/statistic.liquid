@@ -1,5 +1,21 @@
-<div class="block-statistic">
-  <span class="title">{{- block.settings.title -}}</span>
+{% style %}
+.block-{{ block.id }}.block-statistic {
+  background-color : {{ block.settings.background_color }};
+}
+
+.block-{{ block.id }}.block-statistic span, .block-{{ block.id }}.block-statistic p {
+  color: {{ block.settings.text_color }};
+}
+
+@media(max-width: 749px) {
+  .block-{{ block.id }} {
+    opacity: {{ block.settings.opacity_value }};
+  }
+}
+
+{% endstyle %}
+<div class="block-statistic block-{{ block.id }}">
+  <span class="title u-title-{{- block.settings.heading_size }}">{{- block.settings.title -}}</span>
   <p class="u-text-md">{{- block.settings.text -}}</p>
 </div>
 
@@ -13,10 +29,57 @@
       "id": "title",
       "label": "t:global.title.label"
     },
+       {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.heading_size.label",
+      "options": [
+        {
+          "value": "xs",
+          "label": "t:sections.all.heading_size.options.extra_small.label"
+        },
+        {
+          "value": "sm",
+          "label": "t:sections.all.heading_size.options.small.label"
+        },
+        {
+          "value": "md",
+          "label": "t:sections.all.heading_size.options.medium.label"
+        },
+        {
+          "value": "lg",
+          "label": "t:sections.all.heading_size.options.large.label"
+        },
+        {
+          "value": "xl",
+          "label": "t:sections.all.heading_size.options.extra_large.label"
+        }
+      ],
+      "default": "lg"
+    },
     {
       "type": "inline_richtext",
       "id": "text",
       "label": "t:global.text.label"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "range",
+      "id": "opacity_value",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Text opacity",
+      "default": 1
     }
   ],
   "presets": [{ "name": "t:blocks.statistic.name" }]
