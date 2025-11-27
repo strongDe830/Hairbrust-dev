@@ -346,37 +346,88 @@
         {% endif %}
       </ul>
 
-{% assign free_gift_product = value.variant.metafields.custom.free_gift.value %}
+{%- comment -%}
+  Robust free-gift resolver for variant metafield:
+  - Works if metafield is a Product object: value.variant.metafields.custom.free_gift.value
+  - Works if metafield is a product GID string (attempts all_products fallback)
+  - Safely resolves media -> preview_image when needed
+  - Prints debug panel only when no image found
+{%- endcomment -%}
 
-{% if free_gift_product %}
-  {% assign gift_img = free_gift_product.featured_media
-      | default: free_gift_product.featured_image
-      | default: free_gift_product.images.first
-  %}
+{%- assign raw_fg = value.variant.metafields.custom.free_gift -%}
 
-  <div class="free-gift">
-    {% if gift_img %}
-      {{
-        gift_img
-        | image_url: width: 600
-        | image_tag: widths: "320,400,500,600",
-          alt: free_gift_product.title,
-          loading: "lazy",
-          class: "featured-img"
-      }}
-    {% else %}
-      <!-- No image found on gift product -->
-    {% endif %}
+{%- comment -%} 1) Try the resolved product object from .value (recommended) {%- endcomment -%}
+{%- assign free_gift_product = raw_fg.value | default: nil -%}
 
+{%- comment -%}
+  2) If .value was empty but raw_fg contains a gid string (older theme behavior),
+     try to extract an ID and use all_products[handle_or_id].
+     Note: all_products reliably accepts product handles; some stores accept numeric IDs,
+     so we try both (handle lookup first if we can derive it).
+{%- endcomment -%}
+{%- if free_gift_product == nil and raw_fg != blank -%}
+  {%- assign raw_str = raw_fg | downcase -%}
+  {%- if raw_str contains 'gid://shopify/product/' -%}
+    {%- assign gid_num = raw_fg | remove: 'gid://shopify/Product/' | remove: 'gid://shopify/product/' -%}
+    {%- comment -%}
+      Attempt numeric-index lookup (may fail in some themes). Keep as fallback.
+    {%- endcomment -%}
+    {%- assign free_gift_product = all_products[gid_num] | default: nil -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%}
+  3) Final fallback: if still nil, try raw_fg assuming it's already a handle string.
+  (Sometimes metafield stores handles or the theme provides handle directly.)
+{%- endcomment -%}
+{%- if free_gift_product == nil and raw_fg != blank -%}
+  {%- assign maybe_handle = raw_fg | remove: 'gid://shopify/Product/' | remove: 'gid://shopify/product/' | remove: '/' -%}
+  {%- assign free_gift_product = all_products[maybe_handle] | default: nil -%}
+{%- endif -%}
+
+{%- comment -%} Now try to get a safe image object (image, not media) {%- endcomment -%}
+{%- assign gift_img = nil -%}
+{%- if free_gift_product %}
+  {%- if free_gift_product.featured_media %}
+    {%- assign gift_img = free_gift_product.featured_media.preview_image -%}
+  {%- elsif free_gift_product.featured_image %}
+    {%- assign gift_img = free_gift_product.featured_image -%}
+  {%- elsif free_gift_product.images and free_gift_product.images.size > 0 %}
+    {%- assign gift_img = free_gift_product.images.first -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%} OUTPUT: safe image + info {%- endcomment -%}
+<div class="free-gift-block">
+  {% if free_gift_product and gift_img %}
+    {{ gift_img
+      | image_url: width: 600
+      | image_tag: widths: "320,400,500,600",
+        alt: free_gift_product.title,
+        loading: "lazy",
+        class: "featured-img"
+    }}
     <div class="free-gift-info">
       <strong>{{ free_gift_product.title }}</strong>
-      <div class="free-gift-pricing">
-        <span class="free-gift-free">Free</span>
-        <span class="free-gift-price">Worth {{ free_gift_product.price | money }}</span>
-      </div>
+      <div>Worth {{ free_gift_product.price | money }}</div>
     </div>
-  </div>
-{% endif %}
+
+  {% else %}
+    <!-- DEBUG PANEL: only shown when no image found (remove after resolving) -->
+    <div style="background:#111;color:#fff;padding:10px;font-size:13px;">
+      <strong>FREE-GIFT DEBUG</strong><br>
+      raw_fg (raw metafield): {{ raw_fg }}<br>
+      free_gift_product present?: {{ free_gift_product != nil }}<br>
+      free_gift_product.handle: {{ free_gift_product.handle | default: 'N/A' }}<br>
+      free_gift_product.title: {{ free_gift_product.title | default: 'N/A' }}<br>
+      images_count: {{ free_gift_product.images | size | default: 0 }}<br>
+      featured_media: {{ free_gift_product.featured_media | default: 'N/A' }}<br>
+      NOTE: If raw_fg is a GID like "gid://shopify/Product/####" and handle/title are N/A,
+      Shopify could be returning only a string and not resolving to a product object in your theme.
+      If you see a GID here, reply with the raw_fg value and a screenshot of the metafield definition in admin.
+    </div>
+  {% endif %}
+</div>
 
 
    {% comment %}   {% if free_gift %}
