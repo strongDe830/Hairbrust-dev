@@ -357,34 +357,18 @@
         </div>
 
         <div class="free-gift-item">
-         {% comment %} <div class="free-imag>
+    <div class="free-imag>
 {% if free_gift.featured_image %}
-
-
     {{
       free_gift.featured_image
-      | image_url: width: 500
+      | img_url: 'master'
       | image_tag: loading: 'lazy'
     }}
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}</div> {% endcomment %}
-<div class="free-image">
+  {% endif %}</div>
 
-  {% assign gift_variant = free_gift %}
-
-  {% if gift_variant.featured_media %}
-    {{ gift_variant.featured_media | image_url: width: 500 | image_tag: loading: 'lazy' }}
-
-  {% elsif gift_variant.product.featured_image %}
-    {{ gift_variant.product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
-
-  {% else %}
-    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ gift_variant.product.title }}">
-  {% endif %}
-
-</div>
 
 
   
