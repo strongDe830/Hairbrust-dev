@@ -405,6 +405,21 @@
 
   </div>
 {% endif %}
+<div style="background:#111;color:#0f0;padding:10px;font-size:14px;">
+  <strong>DEBUG:</strong><br>
+
+  free_gift (raw metafield): {{ free_gift }}<br>
+  free_gift.value: {{ free_gift.value }}<br>
+  free_gift_product handle: {{ free_gift_product.handle }}<br>
+  featured_media: {{ free_gift_product.featured_media }}<br>
+  featured_media.preview_image: {{ free_gift_product.featured_media.preview_image }}<br>
+  featured_image: {{ free_gift_product.featured_image }}<br>
+  images count: {{ free_gift_product.images | size }}<br>
+
+  {% for img in free_gift_product.images %}
+    Image {{ forloop.index }}: {{ img | image_url }}
+  {% endfor %}
+</div>
 
 
       {% if free_gift %}
