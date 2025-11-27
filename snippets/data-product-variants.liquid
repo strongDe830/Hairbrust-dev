@@ -339,7 +339,7 @@
         {% endif %}
       </ul>
 
-      {% if free_gift %}
+     {%comment%} {% if free_gift %}
       <div class="free-gift-section">
         <div class="free-gift-title">
           {% if free_gift_title %}
@@ -350,31 +350,56 @@
         </div>
 
         <div class="free-gift-item">
+          {{
+            free_gift.featured_image
+            | image_url: width: 500
+            | image_tag: loading: 'lazy'
+          }}
 
-  {% if free_gift.featured_image %}
-    {{
-      free_gift.featured_image
-      | image_url: width: 500
-      | image_tag: loading: 'lazy'
-    }}
-  {% else %}
-    <!-- Optional fallback -->
-    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}
+          <div class="free-gift-info">
+            <strong>{{ free_gift.title }}</strong>
+            <div>
+              <span class="free">FREE</span>
+              <span class="worth">Worth {{ free_gift.price | money }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}{% endcomment %}
+      {% if free_gift %}
+<div class="free-gift-section">
 
-  <div class="free-gift-info">
-    <strong>{{ free_gift.title }}</strong>
+  <div class="free-gift-card">
 
-    <div>
-      <span class="free">FREE</span>
-      <span class="worth">Worth {{ free_gift.price | money }}</span>
+    <!-- IMAGE -->
+    <div class="free-gift-image">
+      {% if free_gift.featured_media %}
+        {{
+          free_gift.featured_media.preview_image
+          | image_url: width: 400
+          | image_tag: loading: 'lazy', class: 'gift-img'
+        }}
+      {% endif %}
     </div>
+
+    <!-- CONTENT -->
+    <div class="free-gift-content">
+      <p class="gift-top-text">Free with your first order...</p>
+
+      <h4 class="gift-title">{{ free_gift.title }}</h4>
+
+      <div class="gift-pricing">
+        <span class="compare-at">{{ free_gift.compare_at_price | money }}</span>
+        <span class="actual-price">{{ free_gift.price | money }}</span>
+        <span class="free-badge">FREE</span>
+      </div>
+    </div>
+
   </div>
 
 </div>
+{% endif %}
 
-      </div>
-      {% endif %}
     </div>
   {% endfor %}
 </div>
