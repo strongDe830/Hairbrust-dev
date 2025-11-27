@@ -358,16 +358,17 @@
 
         <div class="free-gift-item">
 <div class="free-imag">
-  {% assign free_gift_product = product.metafields.custom.free_gift.value %}
+  {% assign fg_variant = product.selected_or_first_available_variant.metafields.custom.free_gift %}
+  {% assign fg_product = fg_variant.value %}
   
-  {% if free_gift_product and free_gift_product.featured_media %}
-    <img
-      src="{{ free_gift_product.featured_media | image_url: width: 600 }}"
-      alt="{{ free_gift_product.title }}"
+  {% if fg_product and fg_product.featured_media %}
+    <img 
+      src="{{ fg_product.featured_media | image_url: width: 600 }}"
+      alt="{{ fg_product.title }}"
     >
   {% else %}
-    <!-- debug -->
-    {{ free_gift_product }}
+    <!-- Debug output -->
+    {{ fg_product }}
   {% endif %}
 </div>
 
