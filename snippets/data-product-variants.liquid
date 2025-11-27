@@ -358,13 +358,11 @@
 
         <div class="free-gift-item">
     <div class="free-imag>
-{% if free_gift.featured_image %}
+
     
     <img src="{{ free_gift.featured_image | img_url: 'master' }}">
-  {% else %}
-    <!-- Optional fallback -->
-    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}</div>
+ 
+</div>
 
 
 
