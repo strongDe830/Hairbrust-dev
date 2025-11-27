@@ -98,7 +98,7 @@
                 endif
               endfor
             %}
-            <div class="product-option-wrapper test {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
+           {% comment %} <div class="product-option-wrapper test {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
               <legend class="form-label">
                 {% if sub_option %}
                   {{- 'products.product.choose_an_option' | t -}}
@@ -268,7 +268,104 @@
                   </li>
                 {%- endfor -%}
               </ul>
+            </div>{% endcomment %}
+          {% if sub_option %}
+<div class="subscription-tabs">
+  {% for value in option.values %}
+    {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+    {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+
+    <div 
+      class="subscription-tab {% if selected_variant.id == value.variant.id %}active{% endif %}"
+      data-variant-id="{{ value.variant.id }}"
+      data-product-url="{{ value.product_url }}"
+    >
+      <div class="tab-image">
+        {{ value.variant.featured_image 
+          | image_url: width: 200
+          | image_tag: loading: 'lazy'
+        }}
+      </div>
+
+      <div class="tab-title">{{ value }}</div>
+
+      {% if sub_object.lozenge_text %}
+        <div class="tab-lozenge">{{ sub_object.lozenge_text }}</div>
+      {% endif %}
+
+      {% if free_gift %}
+        <div class="free-gift-badge">+ FREE GIFT</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% if sub_option %}
+<div class="subscription-details-wrapper">
+  {% for value in option.values %}
+    {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+    {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+
+    <div 
+      class="subscription-details {% if selected_variant.id == value.variant.id %}active{% endif %}"
+      data-details-id="{{ value.variant.id }}"
+    >
+      <h3>{{ value }}</h3>
+
+      <div class="price-box">
+        {% unless value.variant.compare_at_price == value.variant.price %}
+          {% assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round %}
+          {% assign saving_percentage = 100 | minus: saving_ratio %}
+          <span class="saving-tag">Save {{ saving_percentage }}%</span>
+        {% endunless %}
+
+        <span class="price">{{ value.variant.price | money }}</span>
+
+        {% if value.variant.compare_at_price %}
+          <span class="compare">{{ value.variant.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+
+      <ul class="benefits">
+        {% if sub_object.trust_points.value %}
+          {% for trust_point in sub_object.trust_points.value %}
+            <li>{{ trust_point.text }}</li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+
+      {% if free_gift %}
+      <div class="free-gift-section">
+        <div class="free-gift-title">
+          {% if free_gift_title %}
+            {{ free_gift_title }}
+          {% else %}
+            Free gift worth {{ free_gift.price | money }}
+          {% endif %}
+        </div>
+
+        <div class="free-gift-item">
+          {{ free_gift.featured_image
+            | image_url: width: 500
+            | image_tag: loading: 'lazy'
+          }}
+          <div>
+            <strong>{{ free_gift.title }}</strong>
+            <div>
+              <span class="free">FREE</span>
+              <span class="worth">Worth {{ free_gift.price | money }}</span>
             </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+
           </fieldset>
         {%- endif -%}
       {%- endfor -%}
@@ -282,3 +379,72 @@
     {{ _product.selected_or_first_available_variant | json }}
   </script>
 {%- endunless -%}
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".subscription-tab");
+  const details = document.querySelectorAll(".subscription-details");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      let variantId = tab.dataset.variantId;
+
+      // Activate tab
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      // Activate content
+      details.forEach(d => {
+        d.classList.toggle("active", d.dataset.detailsId === variantId);
+      });
+
+      // Update actual variant selection
+      document.querySelector(`input[data-variant-id="${variantId}"]`)?.click();
+    });
+  });
+});
+
+</script>
+<style>
+.subscription-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.subscription-tab {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  min-width: 150px;
+  position: relative;
+}
+
+.subscription-tab.active {
+  border-color: #c89;
+  box-shadow: 0 0 0 2px #c89 inset;
+}
+
+.free-gift-badge {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e8c2d0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.subscription-details {
+  display: none;
+}
+
+.subscription-details.active {
+  display: block;
+}
+</style>
