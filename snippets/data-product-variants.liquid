@@ -357,7 +357,7 @@
         </div>
 
         <div class="free-gift-item">
-        {% comment %}  <div class="free-imag>
+         {% comment %} <div class="free-imag>
 {% if free_gift.featured_image %}
 
 
@@ -369,25 +369,28 @@
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}</div>{% endcomment %}
+  {% endif %}</div> {% endcomment %}
 <div class="free-imag">
 
-  {% assign fg_media = free_gift.value.featured_media %}
-  {% assign fg_image = free_gift.value.image %}
-  {% assign fg_old = free_gift.value.featured_image %}
+  {% assign gift_product = free_gift.value %}
 
-  {% if fg_media %}
-    {{ fg_media.preview_image | image_url: width: 500 | image_tag }}
-  {% elsif fg_image %}
-    {{ fg_image | image_url: width: 500 | image_tag }}
-  {% elsif fg_old %}
-    {{ fg_old | image_url: width: 500 | image_tag }}
+  {% if gift_product.featured_media %}
+    {{
+      gift_product.featured_media.preview_image
+      | image_url: width: 500
+      | image_tag: loading: 'lazy'
+    }}
+  {% elsif gift_product.image %}
+    {{
+      gift_product.image
+      | image_url: width: 500
+      | image_tag: loading: 'lazy'
+    }}
   {% else %}
-    <img src="{{ 'no-image.png' | asset_url }}" alt="">
+    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ gift_product.title }}">
   {% endif %}
 
 </div>
-
 
   
           <div class="free-gift-info">
