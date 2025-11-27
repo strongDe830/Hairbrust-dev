@@ -98,7 +98,7 @@
                 endif
               endfor
             %}
-            <div class="product-option-wrapper {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
+            <div class="product-option-wrapper test {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
               <legend class="form-label">
                 {% if sub_option %}
                   {{- 'products.product.choose_an_option' | t -}}
