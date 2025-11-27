@@ -357,7 +357,7 @@
         </div>
 
         <div class="free-gift-item">
-          <div class="free-imag>
+        {% comment %}  <div class="free-imag>
 {% if free_gift.featured_image %}
 
 
@@ -369,7 +369,23 @@
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}</div>
+  {% endif %}</div>{% endcomment %}
+<div class="free-imag">
+
+  {% assign fg_media = free_gift.featured_media %}
+  {% assign fg_image = free_gift.image %}
+
+  {% if fg_media %}
+    {{ fg_media.preview_image | image_url: width: 500 | image_tag }}
+  {% elsif fg_image %}
+    {{ fg_image | image_url: width: 500 | image_tag }}
+  {% else %}
+    <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
+  {% endif %}
+
+</div>
+
+  
           <div class="free-gift-info">
             <div>
               <span class="free">FREE</span>
