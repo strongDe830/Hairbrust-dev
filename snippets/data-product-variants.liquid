@@ -345,81 +345,37 @@
           {% endfor %}
         {% endif %}
       </ul>
-{% if free_gift != blank %}
-  <div class="banner">
-    <span class="banner-text">
-      {% if free_gift_title != blank %}
-        {{ free_gift_title }}
-      {% else %}
-        Free gift worth {{ free_gift.price | money }}
-      {% endif %}
-    </span>
-  </div>
 
-  <div class="free-gift-wrapper tet">
+{% assign free_gift_product = value.variant.metafields.custom.free_gift.value %}
 
-    {%- comment %}
-      Convert metafield GID → Product object
-    {%- endcomment %}
-    {% assign fg_gid = free_gift.value | default: free_gift %}
-    {% assign fg_id = fg_gid | remove: "gid://shopify/Product/" %}
-    {% assign free_gift_product = all_products[fg_id] %}
+{% if free_gift_product %}
+  {% assign gift_img = free_gift_product.featured_media
+      | default: free_gift_product.featured_image
+      | default: free_gift_product.images.first
+  %}
 
-    {%- comment %}
-      SAFE IMAGE PICKER (no errors EVER)
-    {%- endcomment %}
-    {% assign gift_img = nil %}
-
-    {% if free_gift_product.featured_media %}
-      {% assign gift_img = free_gift_product.featured_media.preview_image %}
-    {% elsif free_gift_product.featured_image %}
-      {% assign gift_img = free_gift_product.featured_image %}
-    {% elsif free_gift_product.images.first %}
-      {% assign gift_img = free_gift_product.images.first %}
+  <div class="free-gift">
+    {% if gift_img %}
+      {{
+        gift_img
+        | image_url: width: 600
+        | image_tag: widths: "320,400,500,600",
+          alt: free_gift_product.title,
+          loading: "lazy",
+          class: "featured-img"
+      }}
+    {% else %}
+      <!-- No image found on gift product -->
     {% endif %}
 
-    <div class="free-gift">
-
-      {% if gift_img %}
-        {{
-          gift_img
-          | image_url: width: 600
-          | image_tag: widths: "320,400,500,600",
-            alt: free_gift_product.title,
-            loading: "lazy",
-            class: "featured-img"
-        }}
-      {% endif %}
-
-      <div class="free-gift-info">
-        {{ free_gift_product.title }}
-
-        <div class="free-gift-pricing">
-          <span class="free-gift-free">Free</span>
-          <span class="free-gift-price">
-            Worth {{ free_gift_product.price | money }}
-          </span>
-        </div>
+    <div class="free-gift-info">
+      <strong>{{ free_gift_product.title }}</strong>
+      <div class="free-gift-pricing">
+        <span class="free-gift-free">Free</span>
+        <span class="free-gift-price">Worth {{ free_gift_product.price | money }}</span>
       </div>
     </div>
-
   </div>
-  <div style="background:#111;color:#0f0;padding:10px;font-size:14px;">
-  <strong>DEBUG:</strong><br>
-
-  free_gift (raw metafield): {{ free_gift }}<br>
-  free_gift.value: {{ free_gift.value }}<br>
-  free_gift_product handle: {{ free_gift_product.handle }}<br>
-  featured_media: {{ free_gift_product.featured_media }}<br>
-  featured_media.preview_image: {{ free_gift_product.featured_media.preview_image }}<br>
-  featured_image: {{ free_gift_product.featured_image }}<br>
-  images count: {{ free_gift_product.images | size }}<br>
-
-  {% for img in free_gift_product.images %}
-    Image {{ forloop.index }}: {{ img | image_url }}
-  {% endfor %}
-</div>
-
 {% endif %}
 
 
