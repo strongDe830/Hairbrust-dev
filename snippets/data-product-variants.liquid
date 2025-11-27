@@ -358,9 +358,11 @@
 
         <div class="free-gift-item">
           
-{% if free_gift.featured_media %}
+{% if free_gift.featured_image %}
+
+
     {{
-      free_gift.featured_media.preview_image
+      free_gift.featured_image
       | image_url: width: 500
       | image_tag: loading: 'lazy'
     }}
@@ -454,10 +456,18 @@ document.addEventListener("DOMContentLoaded", function () {
   min-width: 150px;
   position: relative;
 }
-.free-gift-section {
+.subscription-details .free-gift-section {
     background: #a0686429;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.subscription-details .free-gift-section .free-gift-title {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #7A7A7A;
+    margin-bottom: 2px;
 }
 ul.benefits {
     margin-bottom: 20px;
@@ -568,4 +578,36 @@ ul.benefits {
     width: 100%;
     height: auto;
 }
+
+/* Best Seller Css Start */
+.c-lozenges .c-lozenge.we-peep {
+    background: #FFFFFF;
+    border-radius: 5px;
+    color: #A06864;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    border: 0;
+}
+.c-lozenges li.c-lozenge.tuna {
+    background-color: #E8CFCD38;
+    border-radius: 5px;
+    color: #A06864;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    border: 0;
+}
+.snippet-layout-product-form .product-title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+}
+/* Best Seller Css End */
 </style>
