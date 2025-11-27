@@ -355,27 +355,25 @@
             Free gift worth {{ free_gift.price | money }}
           {% endif %}
         </div>
-<div class="free-gift-itmss">
-                                    {{-
-                                      free_gift.featured_image
-                                      | image_url: width: 600
-                                      | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
-                                    -}}
-                                    <div class="free-gift-info">
-                                      {{ free_gift.title }}
-                                      <div class="free-gift-pricing">
-                                        <span class="free-gift-free">Free</span>
-                                        <span class="free-gift-price">
-                                          Worth {{ free_gift.price | money }}
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
+        <div class="free-gift-itmss">
+          {{-
+            free_gift.featured_image
+            | image_url: width: 600
+            | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
+          -}}
+          <div class="free-gift-info">
+            {{ free_gift.title }}
+            <div class="free-gift-pricing">
+              <span class="free-gift-free">Free</span>
+              <span class="free-gift-price">
+                Worth {{ free_gift.price | money }}
+              </span>
+            </div>
+          </div>
+        </div>
         <div class="free-gift-item">
           <div class="free-imag>
 {% if free_gift.featured_image %}
-
-
     {{
       free_gift.featured_image
       | image_url: width: 500
