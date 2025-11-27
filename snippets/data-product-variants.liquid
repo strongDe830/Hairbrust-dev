@@ -357,7 +357,7 @@
         </div>
 
         <div class="free-gift-item">
-          
+          <div class="free-img>
 {% if free_gift.featured_image %}
 
 
@@ -369,7 +369,7 @@
   {% else %}
     <!-- Optional fallback -->
     <img src="{{ 'no-image.png' | asset_url }}" alt="{{ free_gift.title }}">
-  {% endif %}
+  {% endif %}</div>
           <div class="free-gift-info">
             <div>
               <span class="free">FREE</span>
