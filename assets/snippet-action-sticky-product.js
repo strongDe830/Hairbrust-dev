@@ -1,1 +1,68 @@
-(()=>{class t extends HTMLElement{constructor(){super(),this.initAnchorBtn(),this.initStickyActions()}setupListerners(){}initAnchorBtn(){const t=this.querySelector("[data-variant-anchor]"),e=document.querySelector("[data-product-variants]");t&&t.addEventListener("click",(function(){e.scrollIntoView({block:"end"})}))}initStickyActions(){const t=document.querySelector("[data-product-form]"),e=this.querySelector("[data-asp-add-to-cart]"),i=this,n=document.querySelector("[data-product-submit-button]");if(e){const c={root:null,rootMargin:"8px",threshold:0};function o(t,e){t.forEach((t=>{0===t.intersectionRatio?i.classList.add("is-visible"):i.classList.remove("is-visible")}))}e.addEventListener("click",(function(){n.click()}));new IntersectionObserver(o,c).observe(t)}}}customElements.define("sticky-product",t)})();
+(() => {
+
+  class StickyProduct extends HTMLElement {
+    constructor() {
+      super();
+      this.init();
+      this.observeAjaxUpdates();
+    }
+
+    init() {
+      this.productForm = document.querySelector("[data-product-form]");
+      this.stickyBtn = this.querySelector("[data-asp-add-to-cart]");
+      this.mainBtn = document.querySelector("[data-product-submit-button]");
+
+      if (this.stickyBtn && this.mainBtn) {
+        this.stickyBtn.addEventListener("click", () => {
+          this.mainBtn.click();
+        });
+      }
+    }
+
+    // 👉 Track AJAX updates via MutationObserver
+    observeAjaxUpdates() {
+      const target = document.querySelector("body"); // Theme-agnostic
+
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+
+          // Product form replaced?
+          if (mutation.type === "childList") {
+            if (mutation.addedNodes.length > 0) {
+              
+              // Check if new ATC or form inserted
+              const updatedForm = document.querySelector("[data-product-form]");
+              const updatedBtn = document.querySelector("[data-product-submit-button]");
+
+              if (updatedForm || updatedBtn) {
+                this.reInitAfterAjax();
+              }
+
+            }
+          }
+
+        });
+      });
+
+      observer.observe(target, {
+        childList: true,
+        subtree: true
+      });
+    }
+
+    reInitAfterAjax() {
+      // Re-select new nodes
+      this.productForm = document.querySelector("[data-product-form]");
+      this.mainBtn = document.querySelector("[data-product-submit-button]");
+
+      // Rebind sticky button
+      if (this.stickyBtn && this.mainBtn) {
+        this.stickyBtn.onclick = () => this.mainBtn.click();
+      }
+    }
+
+  }
+
+  customElements.define("sticky-product", StickyProduct);
+
+})();
