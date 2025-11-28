@@ -91,6 +91,45 @@
 
 
 
+{% comment %} Tabs for each option value {% endcomment %}
+<div class="variant-tabs" data-option-position="{{ option.position }}">
+  {%- for value in option.values -%}
+    {%- liquid
+      assign option_disabled = true
+      if value.available
+        assign option_disabled = false
+      endif
+
+      assign is_alt_purchase_block_active = false
+      for block in _section.blocks
+        if block.type == 'alt_purchase_option'
+          assign is_alt_purchase_block_active = true
+          break
+        endif
+      endfor
+
+      assign is_hidden = false
+      if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+        assign is_hidden = true
+      endif
+
+      assign is_selected = false
+      if selected_variant.options[option_index] == value
+        assign is_selected = true
+      endif
+    -%}
+    
+    {% unless is_hidden %}
+      <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}" 
+           data-option-value="{{ value | escape }}"
+           data-option-position="{{ option.position }}">
+        {{ value }}
+      </div>
+    {% endunless %}
+  {%- endfor -%}
+</div>
+
+
 
 
 
@@ -285,6 +324,101 @@
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+(function($) {
+  // Initialize tabs on page load
+  function initializeTabs() {
+    $('.variant-tabs').each(function() {
+      var $tabsContainer = $(this);
+      var optionPosition = $tabsContainer.data('option-position');
+      
+      // Find the checked radio input for this option
+      var $checkedRadio = $('input[type="radio"][name*="-'+optionPosition+'"]:checked');
+      if ($checkedRadio.length) {
+        var selectedValue = $checkedRadio.val();
+        
+        // Activate the corresponding tab
+        $tabsContainer.find('.variant-tab').removeClass('active');
+        $tabsContainer.find('.variant-tab[data-option-value="'+selectedValue+'"]').addClass('active');
+      }
+    });
+  }
+
+  // Tab click handler
+  $(document).on('click', '.variant-tab:not(.disabled)', function() {
+    var $tab = $(this);
+    var optionPosition = $tab.data('option-position');
+    var optionValue = $tab.data('option-value');
+    
+    // Update tabs
+    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
+    $tab.addClass('active');
+    
+    // Find and click the corresponding radio input
+    var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
+    if ($radioInput.length && !$radioInput.hasClass('disabled')) {
+      $radioInput[0].click(); // Trigger actual click on the radio input
+    }
+  });
+
+  // Sync tabs when radio inputs change
+  $(document).on('change', 'input[type="radio"][name*="-"]', function() {
+    var optionName = $(this).attr('name');
+    var optionPosition = optionName.split('-').pop();
+    var optionValue = $(this).val();
+    
+    // Update corresponding tabs
+    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
+    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab[data-option-value="'+optionValue+'"]').addClass('active');
+  });
+
+  // Initialize on page load
+  $(document).ready(function() {
+    initializeTabs();
+  });
+
+})(jQuery);
+</script>
+
+
+<style>
+.variant-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.variant-tab {
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.variant-tab.active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.variant-tab:hover:not(.disabled) {
+  background: #e8e8e8;
+}
+
+.variant-tab.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+</style>
+
 
     <script type="application/json" data-product-json-{{ section.id }}>
       {{ _product | json }}
