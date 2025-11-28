@@ -279,9 +279,7 @@
                         {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
                         {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
-                        {% if sub_object.lozenge_text != blank %}
-                          <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
-                        {% endif %}
+                     
 
                         <div class="label__content">
                           <div class="option-header">
@@ -367,7 +365,7 @@
                                     {{ free_gift.title }}
                                     <div class="free-gift-pricing">
                                       <span class="free-gift-free">Free</span>
-                                      <span class="free-gift-price"> Worth {{ free_gift.price | money }} </span>
+                                      <span class="free-gift-price">{{ free_gift.price | money }} <span class="price-free-gift">{{cart.currency.symbol}}0</span></span>
                                     </div>
                                   </div>
                                 </div>
