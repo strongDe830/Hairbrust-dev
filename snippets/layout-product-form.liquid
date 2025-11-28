@@ -331,6 +331,35 @@
 
 {% endif %}
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const accordions = document.querySelectorAll(".accordion-item");
+
+  accordions.forEach((item) => {
+    const header = item.querySelector(".accordion-header");
+
+    header.addEventListener("click", function () {
+      const isOpen = item.classList.contains("active");
+
+      // Close all
+      accordions.forEach((acc) => {
+        acc.classList.remove("active");
+        acc.querySelector(".accordion-content").style.maxHeight = null;
+      });
+
+      // Open clicked
+      if (!isOpen) {
+        item.classList.add("active");
+        const content = item.querySelector(".accordion-content");
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+
+});
+</script>
+
 
     <!-- How to Use Section -->
   {% assign how_to_use = product.metafields.custom.how_to_use.value %}
