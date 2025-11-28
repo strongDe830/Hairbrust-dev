@@ -216,6 +216,11 @@
             {%- endif -%}
           </button>
 
+          <div class="cs-payment-icon">
+          <span>Secure payments</span>
+          {% render 'payment-icon.svg' %}
+          </div>
+
         {%- when 'alt_purchase_option' -%}
           {%- if alt_variant and alt_variant.available -%}
             <div class="alt-purchase" {{ block.shopify_attributes }}>
