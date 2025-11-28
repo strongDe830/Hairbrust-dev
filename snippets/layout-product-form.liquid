@@ -221,6 +221,126 @@
         <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
           </div>
 
+          <div class="accordion-wrapper">
+
+  <!-- Accordion Section 1 -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Hair
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <ul>
+        <li>Supports better sleep.</li>
+        <li>Helps reduce stress & anxiety.</li>
+        <li>Supports hormonal health.</li>
+        <li>Protects against oxidative stress.</li>
+        <li>Supports menopause symptoms.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Accordion Section 2 -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Body
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dummy content here.</p>
+    </div>
+  </div>
+
+  <!-- Accordion Section 3 -->
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Benefits
+      <span class="accordion-icon">+</span>
+    </button>
+    <div class="accordion-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dummy content here.</p>
+    </div>
+  </div>
+
+</div>
+<style>
+.accordion-wrapper {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 600px;
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e2e2e2;
+}
+
+.accordion-header {
+  background: #fff;
+  border: none;
+  width: 100%;
+  padding: 15px 20px;
+  text-align: left;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-icon {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px 20px;
+  background: #f9f9f9;
+}
+
+.accordion-content ul {
+  padding-left: 20px;
+}
+
+.accordion-content li {
+  margin-bottom: 8px;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('.accordion-header');
+
+  headers.forEach(header => {
+    header.addEventListener('click', function() {
+      const currentlyActive = document.querySelector('.accordion-header.active');
+
+      // Close previously open accordion
+      if (currentlyActive && currentlyActive !== this) {
+        currentlyActive.classList.remove('active');
+        currentlyActive.nextElementSibling.style.display = 'none';
+        currentlyActive.querySelector('.accordion-icon').textContent = '+';
+      }
+
+      // Toggle clicked accordion
+      this.classList.toggle('active');
+      const content = this.nextElementSibling;
+      if (this.classList.contains('active')) {
+        content.style.display = 'block';
+        this.querySelector('.accordion-icon').textContent = '−';
+      } else {
+        content.style.display = 'none';
+        this.querySelector('.accordion-icon').textContent = '+';
+      }
+    });
+  });
+});
+</script>
+
         {%- when 'alt_purchase_option' -%}
           {%- if alt_variant and alt_variant.available -%}
             <div class="alt-purchase" {{ block.shopify_attributes }}>
