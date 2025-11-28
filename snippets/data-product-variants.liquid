@@ -101,10 +101,17 @@ sdfsdfsdf
 
 <div class="variant-tabs" data-option-position="{{ option.position }}">
    {%- for option in _product.options_with_values -%}
+   {%- liquid
+    
+      assign option_index = forloop.index0
+  
+
+     
+    -%}
   {%- for value in option.values -%}
     {%- liquid
       assign option_disabled = true
-      assign option_index = forloop.index0
+    
       if value.available
         assign option_disabled = false
       endif
