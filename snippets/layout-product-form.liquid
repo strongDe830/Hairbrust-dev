@@ -223,20 +223,7 @@
 
 
 
-      <div class="cs-container">
-    <!-- About Section -->
-
-   {% if product.metafields.custom.about_advanced %}
-  <div class="about-advance-wrapper">
-
-    {% for item in product.metafields.custom.about_advanced.value %}
-      <div class="about-advance-block">
-
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-
-
-
+{% for item in product.metafields.custom.about_advanced.value %}
         {% if item.badges %}
           <ul class="badges-list">
             {% for badge in item.badges %}
@@ -244,7 +231,21 @@
             {% endfor %}
           </ul>
         {% endif %}
+        {% endfor %}
 
+      <div class="cs-container">
+    <!-- About Section -->
+
+   {% if product.metafields.custom.about_advance %}
+  <div class="about-advance-wrapper">
+
+    {% for item in product.metafields.custom.about_advance.value %}
+      <div class="about-advance-block">
+
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+
+        
        {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
