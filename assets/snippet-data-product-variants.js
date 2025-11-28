@@ -83,7 +83,7 @@
                             document.querySelector("product-media").initSlider();
                         } else i && a && (a.innerHTML = i.innerHTML);
                     });
-                    alert("variant changed");
+                  //  alert("variant changed");
                 });
         }
         getVariantData() {
