@@ -98,7 +98,7 @@
                 endif
               endfor
             %}
-           {% comment %} <div class="product-option-wrapper test {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
+            <div class="product-option-wrapper {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
               <legend class="form-label">
                 {% if sub_option %}
                   {{- 'products.product.choose_an_option' | t -}}
@@ -268,147 +268,7 @@
                   </li>
                 {%- endfor -%}
               </ul>
-            </div>{% endcomment %}
-{% if sub_option %}
-<div class="subscription-tabs">
-  {% for value in option.values %}
-    {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-    {% assign free_gift = value.variant.metafields.custom.free_gift %}
-    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title %}
-
-    <div 
-      class="subscription-tab {% if selected_variant.id == value.variant.id %}active{% endif %}"
-      data-variant-id="{{ value.variant.id }}"
-      data-product-url="{{ value.product_url }}"
-    >
-      <div class="tab-image">
-        {{ 
-          value.variant.featured_image 
-          | image_url: width: 200
-          | image_tag: loading: 'lazy'
-        }}
-      </div>
-
-      <div class="tab-title">{{ value }}</div>
-
-      {% if sub_object.lozenge_text %}
-        <div class="tab-lozenge">{{ sub_object.lozenge_text }}</div>
-      {% endif %}
-
-      {% if free_gift %}
-        <div class="free-gift-badge">+ FREE GIFT</div>
-      {% endif %}
-    </div>
-  {% endfor %}
-</div>
-{% endif %}
-
-
-{% if sub_option %}
-<div class="subscription-details-wrapper">
-  {% for value in option.values %}
-    {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-    {% assign free_gift = value.variant.metafields.custom.free_gift %}
-    {% assign free_gift_title = value.variant.metafields.custom.free_gift_title %}
-
-    <div 
-      class="subscription-details {% if selected_variant.id == value.variant.id %}active{% endif %}"
-      data-details-id="{{ value.variant.id }}"
-    >
-
-    <div class="subscription_price_heading">
-      <h3>{{ value }}</h3>
-      <div class="price-box">
-        {% unless value.variant.compare_at_price == value.variant.price %}
-          {% assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round %}
-          {% assign saving_percentage = 100 | minus: saving_ratio %}
-          <span class="saving-tag">Save {{ saving_percentage }}%</span>
-        {% endunless %}
-
-        <span class="price">{{ value.variant.price | money }}</span>
-
-        {% if value.variant.compare_at_price %}
-          <span class="compare">{{ value.variant.compare_at_price | money }}</span>
-        {% endif %}
-      </div>
-    </div>
-
-      <ul class="benefits">
-        {% if sub_object.trust_points %}
-          {% for trust_point in sub_object.trust_points.value %}
-            <li>
-              <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.6375 7.9875L0 4.36875L0.95625 3.39375L3.6375 6.075L9.73125 0L10.6875 0.95625L3.6375 7.9875Z" fill="#1C1B1F"/>
-              </svg>
-              {{ trust_point.text }}
-            </li>
-          {% endfor %}
-        {% endif %}
-      </ul>
-
-{% assign gift_variant = product.metafields.custom.free_gift.value %}
-
-{% if gift_variant %}
-  {% assign gift_product = gift_variant.product %}
-
-  <div class="free-gift-wrapper">
-
-    {%- comment %}
-      Resolve correct image for the *variant/product*
-    {%- endcomment %}
-
-    {% assign gift_img = nil %}
-
-    {% if gift_variant.featured_media %}
-      {% assign gift_img = gift_variant.featured_media.preview_image %}
-    {% elsif gift_product.featured_media %}
-      {% assign gift_img = gift_product.featured_media.preview_image %}
-    {% elsif gift_product.featured_image %}
-      {% assign gift_img = gift_product.featured_image %}
-    {% elsif gift_product.images.first %}
-      {% assign gift_img = gift_product.images.first %}
-    {% endif %}
-
-    {% if gift_img %}
-      {{ gift_img 
-        | image_url: width: 600
-        | image_tag: 
-            widths: "320, 400, 500, 600", 
-            alt: gift_product.title, 
-            loading: "lazy", 
-            class: "featured-img"
-      }}
-    {% else %}
-      <!-- No image available -->
-    {% endif %}
-
-    <div class="free-gift-info">
-      {{ gift_product.title }}
-    </div>
-
-  </div>
-{% endif %}
-
-
-
-  </div>
-  </div>
-          <div class="free-gift-info">
-            <div>
-              <span class="free">FREE</span>
-              <span class="worth">Worth {{ free_gift.price | money }}</span>
             </div>
-            <strong>{{ free_gift.title }}</strong>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-    </div>
-  {% endfor %}
-</div>
-{% endif %}
-
-
           </fieldset>
         {%- endif -%}
       {%- endfor -%}
@@ -424,31 +284,7 @@
 {%- endunless -%}
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const tabs = document.querySelectorAll(".subscription-tab");
-  const details = document.querySelectorAll(".subscription-details");
 
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      let variantId = tab.dataset.variantId;
-
-      // Activate tab
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      // Activate content
-      details.forEach(d => {
-        d.classList.toggle("active", d.dataset.detailsId === variantId);
-      });
-
-      // Update actual variant selection
-      document.querySelector(`input[data-variant-id="${variantId}"]`)?.click();
-    });
-  });
-});
-
-</script>
 <style>
 .subscription-tabs {
   display: flex;
