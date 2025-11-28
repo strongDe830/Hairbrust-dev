@@ -12,6 +12,8 @@
   assign selected_variant = _product.selected_or_first_available_variant
 -%}
 
+
+<div class="sticky-title-bx">
 <h2 class="title-sticky">
   {{ product.title }}
 </h2>
@@ -37,6 +39,8 @@
               {% endfor %}
             </ul>
           {% endif %}
+</div>
+
 
 
 
