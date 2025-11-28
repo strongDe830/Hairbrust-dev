@@ -35,7 +35,8 @@
     color: #F8F4F2;
 }
 .variant-tab .cs-free-gift-free {
-    background: #FAF4F4;
+    /* background: #FAF4F4; */
+    background: #ffffff;
     font-weight: 500;
     font-size: 13px;
     line-height: 100%;
@@ -48,6 +49,9 @@
     left: 50%;
     transform: translateX(-50%);
     bottom: -10px;
+}
+.variant-tab.active .cs-free-gift-free {
+    background: #FAF4F4;
 }
 
 .variant-tab.active {
@@ -208,4 +212,37 @@
 
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .checked-icon {
     display: none;
+}
+
+
+.c-btn.add-to-basket {
+    padding-inline: 20px;
+    justify-content: space-between;
+    padding-block: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+.cs-payment-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.cs-payment-icon img.payment-icon {
+    height: 16px;
+    width: auto;
+}
+.data-product-variants .product-option-wrapper.subscription legend.form-label {
+    display: none;
+}
+.data-product-variants .product-option-wrapper.subscription ul#variant-list {
+    margin-top: 10px;
 }
