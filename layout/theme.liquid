@@ -10,12 +10,11 @@
       render 'theme-tracking'
       render 'theme-css'
     %}
-
+     {{ 'subscription-design.css' | asset_url | stylesheet_tag }}
     <script>
       window.videowiseShadow = {
         mode: 'closed',
         assets: [{ type: 'style', src: '{{ "custom-videowise.css" | asset_url }}' }],
-        assets: [{ type: 'style', src: '{{ "subscription-design.css" | asset_url }}' }],
       };
     </script>
 
