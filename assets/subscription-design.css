@@ -272,8 +272,8 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
 
 
 .snippet-action-sticky-product {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     left: 0;
 }
 
@@ -308,15 +308,16 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
 .snippet-action-sticky-product .subscription-select {
     width: auto;
 }
-.snippet-action-sticky-product  button.c-btn.add-to-basket {
+/* .snippet-action-sticky-product button.c-btn.add-to-basket {
     margin: 0;
-}
+} */
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data .csdata-heading {
     font-weight: 600;
     font-size: 15px;
     line-height: 100%;
     letter-spacing: 0;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data span.cs-free-gift-free {
     font-weight: 400;
