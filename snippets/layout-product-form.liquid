@@ -254,12 +254,13 @@
 
 
     <!-- Accordion Section -->
-   {% assign acc = product.metafields.custom.accordion_data %}
+ {% assign acc = product.metafields.custom.accordion_data %}
 
+{% if acc %}
 <div class="accordion">
 
   <!-- ACCORDION 1 : HAIER LIST -->
-  {% if acc.haier %}
+  {% if acc.haier.value %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Features</span>
@@ -268,7 +269,7 @@
 
     <div class="accordion-content">
       <ul>
-        {% for item in acc.haier %}
+        {% for item in acc.haier.value %}
         <li class="haier-block" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
           
           {% if item.image %}
@@ -278,6 +279,7 @@
           {% if item.title %}
           <span>{{ item.title }}</span>
           {% endif %}
+
         </li>
         {% endfor %}
       </ul>
@@ -286,14 +288,13 @@
   {% endif %}
 
 
-  <!-- ACCORDION 2 : RICH TEXT 1 -->
+  <!-- ACCORDION 2: RICH TEXT 1 -->
   {% if acc.richtext_1 %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Details</span>
       <span class="icon">+</span>
     </button>
-
     <div class="accordion-content">
       {{ acc.richtext_1 }}
     </div>
@@ -301,14 +302,13 @@
   {% endif %}
 
 
-  <!-- ACCORDION 3 : RICH TEXT 2 -->
+  <!-- ACCORDION 3: RICH TEXT 2 -->
   {% if acc.richtext_2 %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>More Information</span>
       <span class="icon">+</span>
     </button>
-
     <div class="accordion-content">
       {{ acc.richtext_2 }}
     </div>
@@ -316,6 +316,7 @@
   {% endif %}
 
 </div>
+{% endif %}
 
 
 
