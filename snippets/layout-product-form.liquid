@@ -218,7 +218,7 @@
 
           <div class="cs-payment-icon">
           <span>Secure payments</span>
-          {% render 'payment-icon.svg' %}
+        <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
           </div>
 
         {%- when 'alt_purchase_option' -%}
