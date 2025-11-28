@@ -83,8 +83,43 @@
         </ul>
       </fieldset>
     {%- else -%}
+
+
+
+
+
+<div class="variant-tabs">
+  <ul class="variant-tab-list">
+    {% for option in _product.options_with_values %}
+      {% if option.values.size > 1 %}
+        {% assign option_index = forloop.index0 %}
+
+        {% for value in option.values %}
+          <li class="variant-tab"
+              data-variant-id="{{ value.variant.id }}">
+            
+            {% if value.variant.image != blank %}
+              {{ value.variant.image 
+                | image_url: width: 150 
+                | image_tag: alt: value, class: 'variant-tab-img' 
+              }}
+            {% endif %}
+
+            <span class="variant-tab-title">{{ value }}</span>
+          </li>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+
+
+
       {%- for option in _product.options_with_values -%}
-      dsfdsf
+      
         {%- if option.values.size > 1 -%}
           {% assign downcase_option_name = option.name | downcase %}
           <fieldset>
