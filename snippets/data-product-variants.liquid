@@ -88,30 +88,6 @@
 
 
 
-<div class="variant-tabs">
-  <ul class="variant-tab-list">
-    {% for option in _product.options_with_values %}
-      {% if option.values.size > 1 %}
-        {% assign option_index = forloop.index0 %}
-
-        {% for value in option.values %}
-          <li class="variant-tab"
-              data-variant-id="{{ value.variant.id }}">
-            
-            {% if value.variant.image != blank %}
-              {{ value.variant.image 
-                | image_url: width: 150 
-                | image_tag: alt: value, class: 'variant-tab-img' 
-              }}
-            {% endif %}
-
-            <span class="variant-tab-title">{{ value }}</span>
-          </li>
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
 
 
 
@@ -321,96 +297,7 @@
 
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".variant-tab");
-  const radios = document.querySelectorAll("#variant-list input[type='radio']");
-
-  // Set active tab on page load
-  function setInitialActiveTab() {
-    const checkedRadio = document.querySelector("#variant-list input[type='radio']:checked");
-    if (!checkedRadio) return;
-
-    const variantId = checkedRadio.getAttribute("data-variant-id");
-    tabs.forEach(tab => {
-      tab.classList.toggle("active", tab.dataset.variantId === variantId);
-    });
-  }
-  setInitialActiveTab();
-
-  // When user clicks on a tab
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      const variantId = tab.dataset.variantId;
-
-      // Activate selected tab
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      // Select matching variant radio button
-      radios.forEach(radio => {
-        if (radio.dataset.variantId === variantId) {
-          radio.checked = true;
-          radio.dispatchEvent(new Event("change"));
-        }
-      });
-    });
-  });
-
-  // When variant changes (user clicks radio)
-  radios.forEach(radio => {
-    radio.addEventListener("change", () => {
-      const variantId = radio.dataset.variantId;
-
-      // Update active tab
-      tabs.forEach(tab => {
-        tab.classList.toggle("active", tab.dataset.variantId === variantId);
-      });
-    });
-  });
-});
-
-</script>
-
-
 <style>
-
-
-
-.variant-tabs {
-  margin-bottom: 20px;
-}
-
-.variant-tab-list {
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
-}
-
-.variant-tab {
-  cursor: pointer;
-  border: 1px solid #ddd;
-  padding: 8px 12px;
-  text-align: center;
-  border-radius: 6px;
-  transition: 0.2s;
-}
-
-.variant-tab.active {
-  border-color: black;
-  background: black;
-  color: white;
-}
-
-.variant-tab-img {
-  width: 50px;
-  height: auto;
-  display: block;
-  margin: 0 auto 5px;
-}
-
-
 .subscription-tabs {
   display: flex;
   gap: 12px;
