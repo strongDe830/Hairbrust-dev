@@ -259,17 +259,17 @@
 {% assign accordion = product.metafields.custom.accordion_data.value %}
 
 {% if accordion %}
-<div class="accordion">
+<div class="product-accordion">
 
   <!-- HAIER IMAGE + TEXT LIST -->
   {% if accordion.haier %}
-  <div class="accordion-item">
-    <button class="accordion-header">
+  <div class="pa-item">
+    <button class="pa-header">
       <span>Features</span>
       <span class="icon">+</span>
     </button>
 
-    <div class="accordion-content">
+    <div class="pa-content">
       <ul>
         {% for item in accordion.haier %}
         <li style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
@@ -290,28 +290,30 @@
   {% endif %}
 
 
-  <!-- DETAILS (Richtext 1) -->
+  <!-- DETAILS -->
   {% if accordion.body %}
-  <div class="accordion-item">
-    <button class="accordion-header">
+  <div class="pa-item">
+    <button class="pa-header">
       <span>Details</span>
       <span class="icon">+</span>
     </button>
-    <div class="accordion-content">
+
+    <div class="pa-content">
       {{ accordion.body | metafield_tag }}
     </div>
   </div>
   {% endif %}
 
 
-  <!-- BENEFITS (Richtext 2) -->
+  <!-- BENEFITS -->
   {% if accordion.benifits %}
-  <div class="accordion-item">
-    <button class="accordion-header">
+  <div class="pa-item">
+    <button class="pa-header">
       <span>Benefits</span>
       <span class="icon">+</span>
     </button>
-    <div class="accordion-content">
+
+    <div class="pa-content">
       {{ accordion.benifits | metafield_tag }}
     </div>
   </div>
@@ -320,29 +322,34 @@
 </div>
 {% endif %}
 
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const items = document.querySelectorAll(".accordion-item");
+  const wrapper = document.querySelector(".product-accordion");
+  if (!wrapper) return;
+
+  const items = wrapper.querySelectorAll(".pa-item");
 
   items.forEach((item) => {
-    const header = item.querySelector(".accordion-header");
+    const header = item.querySelector(".pa-header");
 
     header.addEventListener("click", function () {
 
       const isOpen = item.classList.contains("active");
 
+      // CLOSE ALL
       items.forEach((i) => {
         i.classList.remove("active");
-        i.querySelector(".accordion-content").style.maxHeight = null;
+        i.querySelector(".pa-content").style.maxHeight = null;
       });
 
+      // OPEN CLICKED ONE
       if (!isOpen) {
         item.classList.add("active");
-        const content = item.querySelector(".accordion-content");
+        const content = item.querySelector(".pa-content");
         content.style.maxHeight = content.scrollHeight + "px";
       }
+
     });
   });
 
