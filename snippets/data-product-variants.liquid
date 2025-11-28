@@ -136,9 +136,9 @@ sdfsdfsdf
     -%}
     
 
-{{selected_variant.options[option_index]}}xdggfd///{{value}}
 
     {% unless is_hidden %}
+    <div class="cs-data">
     {% assign variant_image = value.variant.featured_media %}
 
   {% if variant_image %}
@@ -158,6 +158,7 @@ sdfsdfsdf
            data-option-value="{{ value | escape }}"
            data-option-position="{{ option.position }}">
         {{ value }}
+      </div>
       </div>
     {% endunless %}
   {%- endfor -%}
