@@ -157,8 +157,8 @@
           </div>
         </div>
 
-        {% comment %} Variant List (Hidden by default, shown based on tab selection) {% endcomment %}
-        <ul id="variant-list" class="variant-list">
+        {% comment %} Variant List {% endcomment %}
+        <ul id="variant-list-{{ option.position }}" class="variant-list" data-option-position="{{ option.position }}">
           {%- for value in option.values -%}
             {%- liquid
               assign option_disabled = true
@@ -382,89 +382,76 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initialize tabs based on currently selected variants
-  initializeVariantTabs();
-  
-  // Add click event listeners to tabs
-  document.querySelectorAll('.variant-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      if (this.classList.contains('disabled')) return;
-      
-      const optionPosition = this.dataset.optionPosition;
-      const optionValue = this.dataset.optionValue;
-      
-      // Update tabs
-      updateTabs(optionPosition, optionValue);
-      
-      // Update variant items visibility
-      updateVariantItems(optionPosition, optionValue);
-      
-      // Select the corresponding radio input
-      selectVariantRadio(optionPosition, optionValue);
-    });
-  });
-  
-  // Also update tabs when variant radio inputs change
-  document.querySelectorAll('input[type="radio"][name*="-"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-      const optionName = this.name;
-      const optionPosition = optionName.split('-').pop();
-      const optionValue = this.value;
-      
-      updateTabs(optionPosition, optionValue);
-      updateVariantItems(optionPosition, optionValue);
-    });
-  });
-  
+(function($) {
+  // Initialize variant tabs
   function initializeVariantTabs() {
-    // For each option group, find the currently selected variant and activate corresponding tab
-    document.querySelectorAll('.variant-tabs-container').forEach(container => {
-      const optionPosition = container.dataset.optionPosition;
-      const selectedRadio = document.querySelector(`input[type="radio"][name*="-${optionPosition}"]:checked`);
+    $('.variant-tabs-container').each(function() {
+      var $container = $(this);
+      var optionPosition = $container.data('option-position');
+      var $selectedRadio = $('input[type="radio"][name*="-'+optionPosition+'"]:checked');
       
-      if (selectedRadio) {
-        const optionValue = selectedRadio.value;
+      if ($selectedRadio.length) {
+        var optionValue = $selectedRadio.val();
         updateTabs(optionPosition, optionValue);
         updateVariantItems(optionPosition, optionValue);
       }
     });
   }
   
+  // Update tabs for a specific option
   function updateTabs(optionPosition, optionValue) {
-    // Deactivate all tabs for this option
-    document.querySelectorAll(`.variant-tab[data-option-position="${optionPosition}"]`).forEach(tab => {
-      tab.classList.remove('active');
-    });
-    
-    // Activate the clicked tab
-    const activeTab = document.querySelector(`.variant-tab[data-option-position="${optionPosition}"][data-option-value="${optionValue}"]`);
-    if (activeTab) {
-      activeTab.classList.add('active');
-    }
+    $('.variant-tab[data-option-position="'+optionPosition+'"]').removeClass('active');
+    $('.variant-tab[data-option-position="'+optionPosition+'"][data-option-value="'+optionValue+'"]').addClass('active');
   }
   
+  // Update variant items for a specific option
   function updateVariantItems(optionPosition, optionValue) {
-    // Hide all variant items for this option
-    document.querySelectorAll(`.variant-item[data-option-position="${optionPosition}"]`).forEach(item => {
-      item.classList.remove('active');
-    });
-    
-    // Show the selected variant item
-    const activeItem = document.querySelector(`.variant-item[data-option-position="${optionPosition}"][data-option-value="${optionValue}"]`);
-    if (activeItem) {
-      activeItem.classList.add('active');
+    $('.variant-item[data-option-position="'+optionPosition+'"]').removeClass('active');
+    $('.variant-item[data-option-position="'+optionPosition+'"][data-option-value="'+optionValue+'"]').addClass('active');
+  }
+  
+  // Select variant radio
+  function selectVariantRadio(optionPosition, optionValue) {
+    var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
+    if ($radioInput.length && !$radioInput.prop('disabled')) {
+      $radioInput.prop('checked', true).trigger('change');
     }
   }
   
-  function selectVariantRadio(optionPosition, optionValue) {
-    const radioInput = document.querySelector(`input[type="radio"][name*="-${optionPosition}"][value="${optionValue}"]`);
-    if (radioInput && !radioInput.disabled) {
-      radioInput.checked = true;
-      radioInput.dispatchEvent(new Event('change', { bubbles: true }));
-    }
-  }
-});
+  // Document ready
+  $(document).ready(function() {
+    initializeVariantTabs();
+  });
+  
+  // Event delegation for dynamically loaded content
+  $(document).on('click', '.variant-tab:not(.disabled)', function() {
+    var $tab = $(this);
+    var optionPosition = $tab.data('option-position');
+    var optionValue = $tab.data('option-value');
+    
+    updateTabs(optionPosition, optionValue);
+    updateVariantItems(optionPosition, optionValue);
+    selectVariantRadio(optionPosition, optionValue);
+  });
+  
+  // Update tabs when variant radio inputs change
+  $(document).on('change', 'input[type="radio"][name*="-"]', function() {
+    var optionName = $(this).attr('name');
+    var optionPosition = optionName.split('-').pop();
+    var optionValue = $(this).val();
+    
+    updateTabs(optionPosition, optionValue);
+    updateVariantItems(optionPosition, optionValue);
+  });
+  
+  // Re-initialize when variant picker content changes (for AJAX updates)
+  $(document).on('variant:change variant:reinitialized', function() {
+    setTimeout(function() {
+      initializeVariantTabs();
+    }, 100);
+  });
+  
+})(jQuery);
 </script>
 
 
