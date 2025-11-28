@@ -450,6 +450,43 @@ $(document).on('click', '.variant-tab', function () {
   </script>
 {%- endunless -%}
 
+
+
+    <script>
+ 
+$(document).on('click', '.variant-tab-sticky', function () {
+    // Stop click if the tab is disabled
+    if ($(this).hasClass('disabled')) return;
+
+    // Remove active from all siblings inside the same .variant-tabs wrapper
+    $(this)
+        .closest('.variant-tabs-sticky')
+        .find('.variant-tab-sticky')
+        .removeClass('active');
+
+    // Add active class to clicked tab
+    $(this).addClass('active');
+
+    // Remove active from all variant sections
+    $(".custom-li-inner-vairant-section").removeClass("active");
+
+    // Get target section from clicked tab
+    var targetSection = $(this).attr("data-variant-custom");
+
+    // Add active to corresponding section
+    $(".data-var-li-" + targetSection).addClass("active");
+        $(".input-variant-input-section-" + targetSection).trigger("click");
+
+
+
+
+
+
+
+});
+
+    </script>
+
 <style>
   .subscription-tabs {
     display: flex;
