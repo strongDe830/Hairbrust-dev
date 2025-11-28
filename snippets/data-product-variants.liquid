@@ -140,6 +140,8 @@ sdfsdfsdf
     {% unless is_hidden %}
     <div class="cs-data">
     {% assign variant_image = value.variant.featured_media %}
+     {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+     {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
 
       <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
        {% if selected_variant.options[option_index] == value %}
