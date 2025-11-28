@@ -140,6 +140,7 @@
                     active
                     {% endif %}
                   "
+                  data-variant-custom="{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                   data-option-value="{{ value | escape }}"
                   data-option-position="{{ option.position }}"
                 >
@@ -402,7 +403,6 @@
     
     <script>
  
-
 $(document).on('click', '.variant-tab', function () {
     // Stop click if the tab is disabled
     if ($(this).hasClass('disabled')) return;
@@ -415,8 +415,16 @@ $(document).on('click', '.variant-tab', function () {
 
     // Add active class to clicked tab
     $(this).addClass('active');
-});
 
+    // Remove active from all variant sections
+    $(".custom-li-inner-variant-section").removeClass("active");
+
+    // Get target section from clicked tab
+    var targetSection = $(this).attr("data-variant-custom");
+
+    // Add active to corresponding section
+    $(".data-var-li-" + targetSection).addClass("active");
+});
 
     </script>
 
