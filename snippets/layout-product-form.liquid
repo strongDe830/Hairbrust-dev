@@ -225,25 +225,27 @@
        <div class="cs-container">
     <!-- About Section -->
 
-    {% if product.metafields.custom.about_advance %}
-  
-  {% assign about = product.metafields.custom.about_advance.value %}
+   {% if product.metafields.custom.about_advance %}
+  <div class="about-advance-wrapper">
 
-  <div class="about-advanced-box">
-    
-    <h2>{{ about.title }}</h2>
-    <p>{{ about.description }}</p>
+    {% for item in product.metafields.custom.about_advance.value %}
+      <div class="about-advance-block">
 
-    {% if about.badges %}
-      <ul class="about-badges">
-        {% for badge in about.badges %}
-          <li>{{ badge }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+
+        {% if item.badges %}
+          <ul class="badges-list">
+            {% for badge in item.badges %}
+              <li>{{ badge }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    {% endfor %}
 
   </div>
-
 {% endif %}
 
 
