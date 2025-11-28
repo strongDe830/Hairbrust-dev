@@ -223,16 +223,6 @@
 
 
 
-{% for item in product.metafields.custom.about_advanced.value %}
-        {% if item.badges %}
-          <ul class="badges-list">
-            {% for badge in item.badges %}
-              <li>{{ badge }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        {% endfor %}
-
       <div class="cs-container">
     <!-- About Section -->
 
@@ -245,7 +235,8 @@
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
 
-        
+
+
        {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
