@@ -143,17 +143,7 @@ sdfsdfsdf
      {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
      {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
 
-{% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-{% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
 
-{% if sub_option %}
-  
-  {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
-  
-  {% if sub_object.lozenge_text != blank %}
-    <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
-  {% endif %}
-{% endif %}
 
       <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
        {% if selected_variant.options[option_index] == value %}
@@ -165,7 +155,7 @@ sdfsdfsdf
              {% if variant_image %}
     <div class="variant-image-box">gg
     {% if sub_object.lozenge_text != blank %}
-                            <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                            <div class="mobile-lozenge-bar44">{{ sub_object.lozenge_text }}</div>
                           {% endif %}
       <img 
         src="{{ variant_image | image_url: width: 200 }}" 
