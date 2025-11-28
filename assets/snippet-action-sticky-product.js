@@ -1,35 +1,60 @@
-(() => {
-    class t extends HTMLElement {
+function initStickyProductComponent() {
+    class StickyProduct extends HTMLElement {
         constructor() {
-            super(), this.initAnchorBtn(), this.initStickyActions();
+            super();
+            this.initAnchorBtn();
+            this.initStickyActions();
         }
-        setupListerners() {}
+
+        // optional future event listeners
+        setupListeners() {}
+
         initAnchorBtn() {
-            const t = this.querySelector("[data-variant-anchor]"),
-                e = document.querySelector("[data-product-variants]");
-            t &&
-                t.addEventListener("click", function () {
-                    e.scrollIntoView({ block: "end" });
+            const anchorBtn = this.querySelector("[data-variant-anchor]");
+            const variantsSection = document.querySelector("[data-product-variants]");
+
+            if (anchorBtn) {
+                anchorBtn.addEventListener("click", () => {
+                    variantsSection.scrollIntoView({ block: "end" });
                 });
+            }
         }
+
         initStickyActions() {
-            const t = document.querySelector("[data-product-form]"),
-                e = this.querySelector("[data-asp-add-to-cart]"),
-                i = this,
-                n = document.querySelector("[data-product-submit-button]");
-            if (e) {
-                const c = { root: null, rootMargin: "8px", threshold: 0 };
-                function o(t, e) {
-                    t.forEach((t) => {
-                        0 === t.intersectionRatio ? i.classList.add("is-visible") : i.classList.remove("is-visible");
+            const productForm = document.querySelector("[data-product-form]");
+            const stickyAddToCart = this.querySelector("[data-asp-add-to-cart]");
+            const submitButton = document.querySelector("[data-product-submit-button]");
+            const self = this;
+
+            if (stickyAddToCart) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "8px",
+                    threshold: 0
+                };
+
+                function onIntersect(entries) {
+                    entries.forEach(entry => {
+                        if (entry.intersectionRatio === 0) {
+                            self.classList.add("is-visible");
+                        } else {
+                            self.classList.remove("is-visible");
+                        }
                     });
                 }
-                e.addEventListener("click", function () {
-                    n.click();
+
+                stickyAddToCart.addEventListener("click", () => {
+                    submitButton.click();
                 });
-                new IntersectionObserver(o, c).observe(t);
+
+                new IntersectionObserver(onIntersect, observerOptions).observe(productForm);
             }
         }
     }
-    customElements.define("sticky-product", t);
-})();
+
+    if (!customElements.get("sticky-product")) {
+        customElements.define("sticky-product", StickyProduct);
+    }
+}
+
+initStickyProductComponent();
