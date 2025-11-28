@@ -1,439 +1,776 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
+
 {%- liquid
- assign selected_variant = _product.selected_or_first_available_variant
+  assign selected_variant = _product.selected_or_first_available_variant
 -%}
 
 {%- unless _product.has_only_default_variant -%}
- <variant-radios
- data-section="{{ section.id }}"
- data-url="{{ product.url }}"
- id="data-product-variants-{{ section.id }}"
- class="data-product-variants"
- data-product-variants
+  <variant-radios
+    data-section="{{ section.id }}"
+    data-url="{{ product.url }}"
+    id="data-product-variants-{{ section.id }}"
+    class="data-product-variants"
+    data-product-variants
+  >
+    {%- if product.tags contains 'bundle' -%}
+      <fieldset class="product-option-wrapper bundle">
+        <legend class="form-label">
+            <strong>{{- product.selected_or_first_available_variant.title }}</strong>
+        </legend>
+        <ul id="variant-list">
+          {% for variant in product.variants -%}
+            {%- liquid
+              assign is_alt_purchase_block_active = false
+              for block in _section.blocks
+                if block.type == 'alt_purchase_option'
+                  assign is_alt_purchase_block_active = true
+                  break
+                endif
+              endfor
 
- >
- {%- if product.tags contains 'bundle' -%}
- <fieldset class="product-option-wrapper bundle">
- <legend class="form-label">
- <strong>{{- product.selected_or_first_available_variant.title }}</strong>
- </legend>
- <ul id="variant-list">
- {% for variant in product.variants -%}
- {%- liquid
- assign is_alt_purchase_block_active = false
- for block in _section.blocks
- if block.type == 'alt_purchase_option'
- assign is_alt_purchase_block_active = true
- break
- endif
- endfor
+              assign is_hidden = false
+              if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == variant.id
+                assign is_hidden = true
+              endif
 
- assign is_hidden = false
- if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == variant.id
- assign is_hidden = true
- endif
+              assign variant_disabled = true
+              if variant.available
+                assign variant_disabled = false
+              endif
+            -%}
+            <li {% if is_hidden %}hidden{% endif %}>
+              {%- capture input_id -%}
+                {{ section.id }}-{{ variant.id }}-{{ forloop.index0 -}}
+              {%- endcapture -%}
+              {%- capture input_name -%}
+                {{- variant.title | handleize -}}
+              {%- endcapture -%}
+              {%- capture input_dataset -%}
+                data-product-url="{{ variant.url }}"
+                data-variant-id="{{ variant.id }}"
+                data-option-value-id="{{ variant.id }}"
+              {%- endcapture -%}
+              {%- capture input_attributes -%}
+                {% if variant == selected_variant %}
+                  checked
+                {% endif %}
+                {% if variant_disabled == true %}
+                  class="disabled"
+                {% endif %}
+              {% endcapture %}
+              <input
+                type="radio"
+                name="{{- input_name -}}"
+                id="{{- input_id -}}"
+                value="{{- variant.title | escape -}}"
+                form="{{- _product_form_id -}}"
+                {{ input_attributes }}
+                {{ input_dataset }}
+              >
+              <label
+                for="{{- input_id -}}"
+                {% if variant.image != blank %}
+                  class="has-image"
+                {% endif %}
+              >
+                {{
+                  variant.image
+                  | image_url: width: '200x'
+                  | image_tag: class: 'image', loading: loading, alt: variant.image.alt
+                }}
+              </label>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </fieldset>
+    {%- else -%}
 
- assign variant_disabled = true
- if variant.available
- assign variant_disabled = false
- endif
- -%}
- <li {% if is_hidden %}hidden{% endif %}>
- {%- capture input_id -%}
- {{ section.id }}-{{ variant.id }}-{{ forloop.index0 -}}
- {%- endcapture -%}
- {%- capture input_name -%}
- {{- variant.title | handleize -}}
- {%- endcapture -%}
- {%- capture input_dataset -%}
- data-product-url="{{ variant.url }}"
- data-variant-id="{{ variant.id }}"
- data-option-value-id="{{ variant.id }}"
- {%- endcapture -%}
- {%- capture input_attributes -%}
- {% if variant == selected_variant %}
- checked
- {% endif %}
- {% if variant_disabled == true %}
- class="disabled"
- {% endif %}
- {% endcapture %}
- <input
- type="radio"
- name="{{- input_name -}}"
- id="{{- input_id -}}"
- value="{{- variant.title | escape -}}"
- form="{{- _product_form_id -}}"
- {{ input_attributes }}
- {{ input_dataset }}
- >
- <label
- for="{{- input_id -}}"
- {% if variant.image != blank %}
- class="has-image"
- {% endif %}
- >
- {{
- variant.image
- | image_url: width: '200x'
- | image_tag: class: 'image', loading: loading, alt: variant.image.alt
- }}
- </label>
- </li>
- {%- endfor -%}
- </ul>
- </fieldset>
- {%- else -%}
+      <!-- FIRST SET OF TABS -->
+      <div class="variant-tabs-container first-tabs" data-section="{{ section.id }}-first">
+        <div class="tabs-header">
+          <h3>Choose Your Option</h3>
+        </div>
+        <div class="variant-tabs-wrapper">
+          {%- for option in _product.options_with_values -%}
+            {%- liquid
+              assign option_index = forloop.index0
+            -%}
+            {%- if option.values.size > 1 -%}
+              <div class="variant-option-group">
+                <div class="option-name">{{ option.name }}</div>
+                <div class="variant-tabs" data-option-position="{{ option.position }}">
+                  {%- for value in option.values -%}
+                    {%- liquid
+                      assign option_disabled = true
+                      if value.available
+                        assign option_disabled = false
+                      endif
 
+                      assign is_alt_purchase_block_active = false
+                      for block in _section.blocks
+                        if block.type == 'alt_purchase_option'
+                          assign is_alt_purchase_block_active = true
+                          break
+                        endif
+                      endfor
 
+                      assign is_hidden = false
+                      if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                        assign is_hidden = true
+                      endif
 
+                      assign is_selected = false
+                      if selected_variant.options[option_index] == value
+                        assign is_selected = true
+                      endif
+                    -%}
 
-{% comment %} Tabs for each option value {% endcomment %}
+                    {% unless is_hidden %}
+                      <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}"
+                        data-option-value="{{ value | escape }}"
+                        data-option-position="{{ option.position }}"
+                        data-option-name="{{ option.name | handleize }}">
+                        
+                        {% assign variant_image = value.variant.featured_media %}
+                        {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                        {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                        {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
-<div class="variant-tabs" data-option-position="{{ option.position }}">
- {%- for option in _product.options_with_values -%}
- {%- liquid
- assign option_index = forloop.index0
- -%}
- {%- for value in option.values -%}
- {%- liquid
- assign option_disabled = true
- 
- if value.available
- assign option_disabled = false
- endif
+                        {% if variant_image %}
+                          <div class="variant-image-box">
+                            {% if sub_object.lozenge_text != blank %}
+                              <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                            {% endif %}
+                            <img 
+                              src="{{ variant_image | image_url: width: 200 }}" 
+                              alt="{{ value }}"
+                              class="variant-tab-image"
+                            >
+                          </div>
+                        {% endif %}
 
- assign is_alt_purchase_block_active = false
- for block in _section.blocks
- if block.type == 'alt_purchase_option'
- assign is_alt_purchase_block_active = true
- break
- endif
- endfor
+                        <div class="variant-tab-content">
+                          {% assign words = value | split: " " %}
+                          {% assign first_two = words[0] | append: " " | append: words[1] %}
+                          {% assign remaining = words | slice: 2, 100 | join: " " %}
 
- assign is_hidden = false
- if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
- assign is_hidden = true
- endif
+                          <div class="csdata-heading">
+                            {{ first_two }} <span>{{ remaining }}</span>
+                          </div>
 
- assign is_selected = false
- if selected_variant.options[option_index] == value
- assign is_selected = true
- endif
- -%}
- 
+                          {% if free_gift != blank %}
+                            <span class="cs-free-gift-free">+ Free Gift</span>
+                          {% endif %}
 
+                          {% if option_disabled %}
+                            <div class="out-of-stock-label">Out of Stock</div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endunless %}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
 
- {% unless is_hidden %}
- <div class="cs-data">
- {% assign variant_image = value.variant.featured_media %}
- {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
- {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
- {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+      <!-- SECOND SET OF TABS (IDENTICAL) -->
+      <div class="variant-tabs-container second-tabs" data-section="{{ section.id }}-second">
+        <div class="tabs-header">
+          <h3>Select Your Variant</h3>
+        </div>
+        <div class="variant-tabs-wrapper">
+          {%- for option in _product.options_with_values -%}
+            {%- liquid
+              assign option_index = forloop.index0
+            -%}
+            {%- if option.values.size > 1 -%}
+              <div class="variant-option-group">
+                <div class="option-name">{{ option.name }}</div>
+                <div class="variant-tabs" data-option-position="{{ option.position }}">
+                  {%- for value in option.values -%}
+                    {%- liquid
+                      assign option_disabled = true
+                      if value.available
+                        assign option_disabled = false
+                      endif
 
+                      assign is_alt_purchase_block_active = false
+                      for block in _section.blocks
+                        if block.type == 'alt_purchase_option'
+                          assign is_alt_purchase_block_active = true
+                          break
+                        endif
+                      endfor
 
- <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
- {% if selected_variant.options[option_index] == value %}
- active
- {% endif %}
- " 
- data-option-value="{{ value | escape }}"
- data-option-position="{{ option.position }}">
- {% if variant_image %}
- <div class="variant-image-box">
- {% if sub_object.lozenge_text != blank %}
- <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
- {% endif %}
- <img 
- src="{{ variant_image | image_url: width: 200 }}" 
- alt="{{ value }}"
- >
- </div>
- {% endif %}
+                      assign is_hidden = false
+                      if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                        assign is_hidden = true
+                      endif
 
-{% assign words = value | split: " " %}
-{% assign first_two = words[0] | append: " " | append: words[1] %}
-{% assign remaining = words | slice: 2, 100 | join: " " %}
+                      assign is_selected = false
+                      if selected_variant.options[option_index] == value
+                        assign is_selected = true
+                      endif
+                    -%}
 
-<div class="csdata-heading">
- {{ first_two }} <span>{{ remaining }}</span>
-</div>
+                    {% unless is_hidden %}
+                      <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}"
+                        data-option-value="{{ value | escape }}"
+                        data-option-position="{{ option.position }}"
+                        data-option-name="{{ option.name | handleize }}">
+                        
+                        {% assign variant_image = value.variant.featured_media %}
+                        {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                        {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                        {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
- {% comment %}<span>{{ value }}</span> {% endcomment %}
- 
- {% if free_gift != blank %}
- <span class="cs-free-gift-free">+ Free Gift</span>
- {% endif %}
- </div>
- </div>
- {% endunless %}
- {%- endfor -%}
- {%- endfor -%}
-</div>
+                        {% if variant_image %}
+                          <div class="variant-image-box">
+                            {% if sub_object.lozenge_text != blank %}
+                              <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                            {% endif %}
+                            <img 
+                              src="{{ variant_image | image_url: width: 200 }}" 
+                              alt="{{ value }}"
+                              class="variant-tab-image"
+                            >
+                          </div>
+                        {% endif %}
 
+                        <div class="variant-tab-content">
+                          {% assign words = value | split: " " %}
+                          {% assign first_two = words[0] | append: " " | append: words[1] %}
+                          {% assign remaining = words | slice: 2, 100 | join: " " %}
 
+                          <div class="csdata-heading">
+                            {{ first_two }} <span>{{ remaining }}</span>
+                          </div>
 
+                          {% if free_gift != blank %}
+                            <span class="cs-free-gift-free">+ Free Gift</span>
+                          {% endif %}
 
+                          {% if option_disabled %}
+                            <div class="out-of-stock-label">Out of Stock</div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endunless %}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
 
- {%- for option in _product.options_with_values -%}
- 
- {%- if option.values.size > 1 -%}
- {% assign downcase_option_name = option.name | downcase %}
- <fieldset>
- {% liquid
- assign sub_option = false
- assign option_index = forloop.index0
+      <!-- Original Variant Selection Fieldsets -->
+      {%- for option in _product.options_with_values -%}
+        {%- if option.values.size > 1 -%}
+          {% assign downcase_option_name = option.name | downcase %}
+          <fieldset class="original-variant-fieldset">
+            {% liquid
+              assign sub_option = false
+              assign option_index = forloop.index0
 
- for option_value in option.values
- if option_value.variant.selling_plan_allocations.size > 0
- assign sub_option = true
- break
- endif
- endfor
- %}
- <div class="product-option-wrapper {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
- <legend class="form-label">
- {% if sub_option %}
- {{- 'products.product.choose_an_option' | t -}}
- {% else %}
- {{- option.name }}: <strong>{{- option.selected_value -}}</strong>
- {% endif %}
- </legend>
- <ul id="variant-list">
- {%- for value in option.values -%}
- {%- liquid
- assign option_disabled = true
- if value.available
- assign option_disabled = false
- endif
+              for option_value in option.values
+                if option_value.variant.selling_plan_allocations.size > 0
+                  assign sub_option = true
+                  break
+                endif
+              endfor
+            %}
+            <div class="product-option-wrapper {% if sub_option %}subscription{% endif %}" {% if sub_option %}data-sub-option{% endif %}>
+              <legend class="form-label">
+                {% if sub_option %}
+                  {{- 'products.product.choose_an_option' | t -}}
+                {% else %}
+                  {{- option.name }}: <strong>{{- option.selected_value -}}</strong>
+                {% endif %}
+              </legend>
+              <ul id="variant-list">
+                {%- for value in option.values -%}
+                  {%- liquid
+                    assign option_disabled = true
+                    if value.available
+                      assign option_disabled = false
+                    endif
 
- assign is_alt_purchase_block_active = false
- for block in _section.blocks
- if block.type == 'alt_purchase_option'
- assign is_alt_purchase_block_active = true
- break
- endif
- endfor
+                    assign is_alt_purchase_block_active = false
+                    for block in _section.blocks
+                      if block.type == 'alt_purchase_option'
+                        assign is_alt_purchase_block_active = true
+                        break
+                      endif
+                    endfor
 
- assign is_hidden = false
- if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
- assign is_hidden = true
- endif
- -%}
- {%- capture input_id -%}
- {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
- {%- endcapture -%}
- {%- capture input_name -%}
- {{ option.name }}-{{ option.position }}
- {%- endcapture -%}
- {%- capture input_dataset -%}
- data-product-url="{{ value.product_url }}"
- data-variant-id="{{ value.variant.id }}"
- data-option-value-id="{{ value.id }}"
- {%- endcapture -%}
- {%- capture input_attributes -%}
- {% if selected_variant.options[option_index] == value %}
- checked
- {% endif %}
- {% if option_disabled == true %}
- class="disabled"
- {% endif %}
- {% endcapture %}
- <li {% if is_hidden %}hidden{% endif %}>
- <input
- type="radio"
- name="{{- input_name -}}"
- id="{{- input_id -}}"
- value="{{- value | escape -}}"
- form="{{- _product_form_id -}}"
- {{ input_attributes }}
- {{ input_dataset }}
- >
+                    assign is_hidden = false
+                    if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                      assign is_hidden = true
+                    endif
+                  -%}
+                  {%- capture input_id -%}
+                    {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
+                  {%- endcapture -%}
+                  {%- capture input_name -%}
+                    {{ option.name }}-{{ option.position }}
+                  {%- endcapture -%}
+                  {%- capture input_dataset -%}
+                    data-product-url="{{ value.product_url }}"
+                    data-variant-id="{{ value.variant.id }}"
+                    data-option-value-id="{{ value.id }}"
+                  {%- endcapture -%}
+                  {%- capture input_attributes -%}
+                    {% if selected_variant.options[option_index] == value %}
+                      checked
+                    {% endif %}
+                    {% if option_disabled == true %}
+                      class="disabled"
+                    {% endif %}
+                  {% endcapture %}
+                  <li {% if is_hidden %}hidden{% endif %}>
+                    <input
+                      type="radio"
+                      name="{{- input_name -}}"
+                      id="{{- input_id -}}"
+                      value="{{- value | escape -}}"
+                      form="{{- _product_form_id -}}"
+                      {{ input_attributes }}
+                      {{ input_dataset }}
+                    >
 
- <label
- for="{{- input_id -}}"
- {% if value.variant.image != blank %}
- class="has-image"
- {% endif %}
- >
- {% if sub_option %}
- {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
- {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
- {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+                      <label
+                        for="{{- input_id -}}"
+                        {% if value.variant.image != blank %}
+                          class="has-image"
+                        {% endif %}
+                      >
+                        {% if sub_option %}
+                          {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                          {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                          {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
- {% if sub_object.lozenge_text != blank %}
- <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
- {% endif %}
+                          {% if sub_object.lozenge_text != blank %}
+                            <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                          {% endif %}
 
- <div class="label__content">
- <div class="option-header">
- <div class="option-selector-title">
- <div class="checked-icon"></div>
- <span class="option-title">{{ value }}</span>
- </div>
+                          <div class="label__content">
+                            <div class="option-header">
+                              <div class="option-selector-title">
+                                <div class="checked-icon"></div>
+                                <span class="option-title">{{ value }}</span>
+                              </div>
 
- {% if sub_object.lozenge_text != blank %}
- <span class="lozenge">{{ sub_object.lozenge_text }}</span>
- {% endif %}
- {%- unless value.variant.compare_at_price == value.variant.price -%}
- {% if value.variant.compare_at_price != blank and value.variant.compare_at_price != value.variant.price %}
- <div class="option-saving">
- {% liquid
- assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
- assign saving_percentage = 100 | minus: saving_ratio
- %}
- <span>
- {{- 'products.product.save' | t }}
- {{ saving_percentage }}%
- </span>
- </div>
- {% endif %}
- {%- endunless -%}
- <div class="prices">
- <span class="current">
- {{- value.variant.price | money }}
- </span>
- {%- unless value.variant.compare_at_price == value.variant.price -%}
- {% if value.variant.compare_at_price != blank %}
- <span class="was">
- {{- value.variant.compare_at_price | money }}
- </span>
- {% endif %}
- {%- endunless -%}
- </div>
- </div>
- {% if sub_object.trust_points.value != blank %}
- <ul class="option-trust-points">
- {% for trust_point in sub_object.trust_points.value %}
- <li>
- {{
- trust_point.icon
- | image_url: width: 80
- | image_tag: class: 'icon', loading: 'lazy'
- }}
- <span>{{ trust_point.text }}</span>
- </li>
- {% endfor %}
- </ul>
- {% if free_gift != blank %}
- <div class="banner">
- <span class="banner-text">
- {% if free_gift_title != blank %}
- {{ free_gift_title }}
- {% else %}
- Free gift worth {{ free_gift.price | money }}
- {% endif %}
- </span>
- </div>
- <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
- <div class="free-gift">
- {{-
- free_gift.featured_image
- | image_url: width: 600
- | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
- -}}
- <div class="free-gift-info">
- {{ free_gift.title }}
- <div class="free-gift-pricing">
- <span class="free-gift-free">Free</span>
- <span class="free-gift-price">
- Worth {{ free_gift.price | money }}
- </span>
- </div>
- </div>
- </div>
- </div>
- {% endif %}
- {% endif %}
- </div> {% comment %} End of .label__content wrapper {% endcomment %}
- {% else %}
- {% if value.variant.image != blank %}
- {{
- value.variant.image
- | image_url: width: '200x'
- | image_tag: class: 'image', loading: loading, alt: value.variant.image.alt
- }}
- {% else %}
- <span>{{ value }}</span>
- {% endif %}
- {% endif %}
- </label>
- </li>
- {%- endfor -%}
- </ul>
- </div>
- </fieldset>
- {%- endif -%}
- {%- endfor -%}
- {%- endif -%}
+                              {% if sub_object.lozenge_text != blank %}
+                                <span class="lozenge">{{ sub_object.lozenge_text }}</span>
+                              {% endif %}
+                              {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                {% if value.variant.compare_at_price != blank and value.variant.compare_at_price != value.variant.price %}
+                                  <div class="option-saving">
+                                    {% liquid
+                                      assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
+                                      assign saving_percentage = 100 | minus: saving_ratio
+                                    %}
+                                    <span>
+                                      {{- 'products.product.save' | t }}
+                                      {{ saving_percentage }}%
+                                    </span>
+                                  </div>
+                                {% endif %}
+                              {%- endunless -%}
+                              <div class="prices">
+                                <span class="current">
+                                  {{- value.variant.price | money }}
+                                </span>
+                                {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                  {% if value.variant.compare_at_price != blank %}
+                                    <span class="was">
+                                      {{- value.variant.compare_at_price | money }}
+                                    </span>
+                                  {% endif %}
+                                {%- endunless -%}
+                              </div>
+                            </div>
+                            {% if sub_object.trust_points.value != blank %}
+                              <ul class="option-trust-points">
+                                {% for trust_point in sub_object.trust_points.value %}
+                                  <li>
+                                    {{
+                                      trust_point.icon
+                                      | image_url: width: 80
+                                      | image_tag: class: 'icon', loading: 'lazy'
+                                    }}
+                                    <span>{{ trust_point.text }}</span>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                              {% if free_gift != blank %}
+                                <div class="banner">
+                                  <span class="banner-text">
+                                    {% if free_gift_title != blank %}
+                                      {{ free_gift_title }}
+                                    {% else %}
+                                      Free gift worth {{ free_gift.price | money }}
+                                    {% endif %}
+                                  </span>
+                                </div>
+                                <div class="free-gift-wrapper" data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}">
+                                  <div class="free-gift">
+                                    {{-
+                                      free_gift.featured_image
+                                      | image_url: width: 600
+                                      | image_tag: widths: '320, 400, 500, 600', alt: free_gift.featured_image.alt, loading: 'lazy', class: 'featured-img'
+                                    -}}
+                                    <div class="free-gift-info">
+                                      {{ free_gift.title }}
+                                      <div class="free-gift-pricing">
+                                        <span class="free-gift-free">Free</span>
+                                        <span class="free-gift-price">
+                                          Worth {{ free_gift.price | money }}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              {% endif %}
+                            {% endif %}
+                          </div> {% comment %} End of .label__content wrapper {% endcomment %}
+                        {% else %}
+                          {% if value.variant.image != blank %}
+                            {{
+                              value.variant.image
+                              | image_url: width: '200x'
+                              | image_tag: class: 'image', loading: loading, alt: value.variant.image.alt
+                            }}
+                          {% else %}
+                            <span>{{ value }}</span>
+                          {% endif %}
+                        {% endif %}
+                      </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </fieldset>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="application/json" data-product-json-{{ section.id }}>
+      {{ _product | json }}
+    </script>
+  </variant-radios>
+  <script type="application/json" data-selected-variant>
+    {{ _product.selected_or_first_available_variant | json }}
+  </script>
+{%- endunless -%}
+
+<style>
+.variant-tabs-container {
+  margin-bottom: 30px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.variant-tabs-container.first-tabs {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-color: #007bff;
+}
+
+.variant-tabs-container.second-tabs {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+  border-color: #ff6b6b;
+}
+
+.tabs-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tabs-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.variant-tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.variant-option-group {
+  margin-bottom: 15px;
+}
+
+.option-name {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.variant-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.variant-tab {
+  padding: 15px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  min-width: 140px;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.variant-tab.active {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.variant-tab:hover:not(.disabled) {
+  border-color: #666;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.variant-tab.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.variant-tab.disabled .variant-tab-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 45%, rgba(255,0,0,0.1) 45%, rgba(255,0,0,0.1) 55%, transparent 55%);
+}
+
+.variant-image-box {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.variant-tab-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.variant-tab-content {
+  position: relative;
+}
+
+.csdata-heading {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.csdata-heading span {
+  font-weight: 500;
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.cs-free-gift-free {
+  color: #ff4444;
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+  margin-top: 4px;
+}
+
+.cs-mobile-lozenge-bar {
+  background: #ff4444;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin-bottom: 8px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.out-of-stock-label {
+  color: #ff4444;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.original-variant-fieldset {
+  margin-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .variant-tabs-container {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .variant-tabs {
+    gap: 8px;
+  }
+  
+  .variant-tab {
+    padding: 12px 8px;
+    min-width: 100px;
+    flex: 0 1 calc(50% - 8px);
+  }
+  
+  .variant-tab-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .csdata-heading {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .variant-tab {
+    flex: 0 1 100%;
+  }
+}
+</style>
 
 <script>
 (function($) {
- // Initialize tabs on page load
- function initializeTabs() {
- $('.variant-tabs').each(function() {
- var $tabsContainer = $(this);
- var optionPosition = $tabsContainer.data('option-position');
- 
- // Find the checked radio input for this option
- var $checkedRadio = $('input[type="radio"][name*="-'+optionPosition+'"]:checked');
- if ($checkedRadio.length) {
- var selectedValue = $checkedRadio.val();
- 
- // Activate the corresponding tab
- $tabsContainer.find('.variant-tab').removeClass('active');
- $tabsContainer.find('.variant-tab[data-option-value="'+selectedValue+'"]').addClass('active');
- }
- });
- }
+  'use strict';
 
- // Tab click handler
- $(document).on('click', '.variant-tab:not(.disabled)', function() {
- var $tab = $(this);
- var optionPosition = $tab.data('option-position');
- var optionValue = $tab.data('option-value');
- 
- // Update tabs
- $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
- $tab.addClass('active');
- 
- // Find and click the corresponding radio input
- var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
- if ($radioInput.length && !$radioInput.hasClass('disabled')) {
- $radioInput[0].click(); // Trigger actual click on the radio input
- }
- });
+  // Variant Tabs Manager
+  class VariantTabsManager {
+    constructor() {
+      this.initialized = false;
+      this.init();
+    }
 
- // Sync tabs when radio inputs change
- $(document).on('change', 'input[type="radio"][name*="-"]', function() {
- var optionName = $(this).attr('name');
- var optionPosition = optionName.split('-').pop();
- var optionValue = $(this).val();
- 
- // Update corresponding tabs
- $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
- $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab[data-option-value="'+optionValue+'"]').addClass('active');
- });
+    init() {
+      if (this.initialized) return;
+      
+      this.bindEvents();
+      this.initializeTabs();
+      this.initialized = true;
+    }
 
- // Initialize on page load
- $(document).ready(function() {
- initializeTabs();
- });
+    bindEvents() {
+      // Use event delegation for tab clicks in BOTH containers
+      $(document).on('click', '.variant-tabs-container .variant-tab:not(.disabled)', (e) => {
+        this.handleTabClick(e);
+      });
+
+      // Sync with original radio inputs
+      $(document).on('change', 'input[type="radio"][name*="-"]', (e) => {
+        this.handleRadioChange(e);
+      });
+    }
+
+    handleTabClick(e) {
+      const $tab = $(e.currentTarget);
+      const optionPosition = $tab.data('option-position');
+      const optionValue = $tab.data('option-value');
+      
+      // Update all tabs for this option in BOTH containers
+      this.updateAllTabsForOption(optionPosition, optionValue);
+      
+      // Find and trigger the corresponding radio input
+      const $radioInput = $(`input[type="radio"][name*="-${optionPosition}"][value="${optionValue}"]`);
+      if ($radioInput.length && !$radioInput.hasClass('disabled')) {
+        $radioInput.prop('checked', true).trigger('change');
+        
+        // Trigger variant change event if needed
+        $(document).trigger('variant:change', [$radioInput.data('variant-id')]);
+      }
+    }
+
+    handleRadioChange(e) {
+      const $radio = $(e.currentTarget);
+      const optionName = $radio.attr('name');
+      const optionPosition = optionName.split('-').pop();
+      const optionValue = $radio.val();
+      
+      // Update ALL tabs to match radio selection (both containers)
+      this.updateAllTabsForOption(optionPosition, optionValue);
+    }
+
+    updateAllTabsForOption(optionPosition, optionValue) {
+      // Remove active class from all tabs in this option group (BOTH containers)
+      $(`.variant-tab[data-option-position="${optionPosition}"]`).removeClass('active');
+      
+      // Add active class to selected tab in BOTH containers
+      $(`.variant-tab[data-option-position="${optionPosition}"][data-option-value="${optionValue}"]`).addClass('active');
+    }
+
+    initializeTabs() {
+      // Initialize ALL tabs based on current radio selections
+      $('input[type="radio"][name*="-"]:checked').each((index, radio) => {
+        const $radio = $(radio);
+        const optionName = $radio.attr('name');
+        const optionPosition = optionName.split('-').pop();
+        const optionValue = $radio.val();
+        
+        this.updateAllTabsForOption(optionPosition, optionValue);
+      });
+    }
+
+    // Public method to refresh if needed
+    refresh() {
+      this.initializeTabs();
+    }
+  }
+
+  // Initialize when document is ready
+  $(document).ready(() => {
+    // Wait a bit to ensure all elements are loaded
+    setTimeout(() => {
+      window.variantTabsManager = new VariantTabsManager();
+    }, 100);
+  });
+
+  // Reinitialize when section reloads (for Shopify sections)
+  $(document).on('shopify:section:load', () => {
+    if (window.variantTabsManager) {
+      window.variantTabsManager.refresh();
+    } else {
+      window.variantTabsManager = new VariantTabsManager();
+    }
+  });
 
 })(jQuery);
 </script>
-
-
- <script type="application/json" data-product-json-{{ section.id }}>
- {{ _product | json }}
- </script>
- </variant-radios>
- <script type="application/json" data-selected-variant>
- {{ _product.selected_or_first_available_variant | json }}
- </script>
-{%- endunless -%}
-
 
 
 <style>
