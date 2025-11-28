@@ -142,7 +142,7 @@ sdfsdfsdf
     {% assign variant_image = value.variant.featured_media %}
      {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
      {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
-
+     {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
 
       <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
@@ -165,10 +165,9 @@ sdfsdfsdf
   {% endif %}
 
        <span>{{ value }}</span> 
-            {% if free_gift_title != blank %}
-        <span class="cs-banner-text">                      
-                  {{ free_gift_title }}
-                     </span>
+       
+            {% if free_gift != blank %}
+         <span class="cs-free-gift-free">Free</span>
                        {% endif %}
       </div>
       </div>
