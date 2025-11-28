@@ -402,13 +402,20 @@
     <script>
  
 
-$(document).on('click', '.variant-tab:not(.disabled)', function() {
-    // Remove active class from all tabs in the same group
-    $(this).siblings('.variant-tab').removeClass('active');
-    alert("clicked");
+$(document).on('click', '.variant-tab', function () {
+    // Stop click if the tab is disabled
+    if ($(this).hasClass('disabled')) return;
+
+    // Remove active from all siblings inside the same .variant-tabs wrapper
+    $(this)
+        .closest('.variant-tabs')
+        .find('.variant-tab')
+        .removeClass('active');
+
     // Add active class to clicked tab
     $(this).addClass('active');
 });
+
 
     </script>
 
