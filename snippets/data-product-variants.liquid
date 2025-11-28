@@ -426,36 +426,86 @@
 
 <style>
 .variant-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .variant-tab {
-  padding: 10px 16px;
-  border: 1px solid #ddd;
-  background: #f8f8f8;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  font-size: 14px;
+    padding: 24px 10px 24px 10px;
+    border: 1px solid #E2DEDB;
+    background: #F8F4F280;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+.variant-tab .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    background: #A06864;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+}
+.variant-tab .cs-free-gift-free {
+    background: #FAF4F4;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    position: absolute;
+    padding: 4px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
 }
 
 .variant-tab.active {
-  background: #000;
-  color: #fff;
-  border-color: #000;
-}
-
-.variant-tab:hover:not(.disabled) {
-  background: #e8e8e8;
+    background: #FFFFFF;
+    border-color: #343436;
 }
 
 .variant-tab.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   text-decoration: line-through;
+}
+.variant-tab .variant-image-box img {
+    height: 61px;
+    width: auto;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+.variant-tab  .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.variant-tab .csdata-heading span {
+    display: block;
+    color: #7A7A7A;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
 }
 </style>
 
