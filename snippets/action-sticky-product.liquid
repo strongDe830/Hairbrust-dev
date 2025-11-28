@@ -62,7 +62,9 @@
                   data-option-position="{{ option.position }}"
                 >
                 
-
+    {% if sub_object.lozenge_text != blank %}
+                        <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                      {% endif %}
        
 
               {% assign lower_value = value | downcase %}
