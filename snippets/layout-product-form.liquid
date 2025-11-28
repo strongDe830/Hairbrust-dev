@@ -252,7 +252,9 @@
 {% endif %}
 
 
-{% assign acc = product.metafields.custom.accordion_data.value %}
+
+    <!-- Accordion Section -->
+ {% assign acc = product.metafields.custom.accordion_data %}
 
 {% if acc %}
 <div class="accordion">
@@ -285,7 +287,8 @@
   </div>
   {% endif %}
 
-  <!-- ACCORDION 2 : RICH TEXT 1 -->
+
+  <!-- ACCORDION 2: RICH TEXT 1 -->
   {% if acc.richtext_1 %}
   <div class="accordion-item">
     <button class="accordion-header">
@@ -298,7 +301,8 @@
   </div>
   {% endif %}
 
-  <!-- ACCORDION 3 : RICH TEXT 2 -->
+
+  <!-- ACCORDION 3: RICH TEXT 2 -->
   {% if acc.richtext_2 %}
   <div class="accordion-item">
     <button class="accordion-header">
