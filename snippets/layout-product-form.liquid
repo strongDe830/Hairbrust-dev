@@ -256,13 +256,13 @@
 
 
 
-{% assign acc = product.metafields.custom.accordion_data.value %}
+{% assign accordion = product.metafields.custom.accordion_data.value %}
 
-{% if acc %}
+{% if accordion %}
 <div class="accordion">
 
-  <!-- ACCORDION 1 : HAIER LIST -->
-  {% if acc.haier and acc.haier.value %}
+  <!-- HAIER IMAGE + TEXT LIST -->
+  {% if accordion.haier %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Features</span>
@@ -271,15 +271,15 @@
 
     <div class="accordion-content">
       <ul>
-        {% for item in acc.haier.value %}
-        <li class="haier-block" style="display:flex;gap:10px;align-items:center;margin-bottom:12px;">
+        {% for item in accordion.haier %}
+        <li style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
           
           {% if item.image %}
-          <img src="{{ item.image | img_url: 'master' }}" style="width:40px;height:auto;">
+            <img src="{{ item.image | img_url: 'master' }}" style="width:40px;height:auto;">
           {% endif %}
 
           {% if item.text %}
-          <span>{{ item.text }}</span>
+            <span>{{ item.text }}</span>
           {% endif %}
 
         </li>
@@ -289,34 +289,37 @@
   </div>
   {% endif %}
 
-  <!-- ACCORDION 2 : BODY -->
-  {% if acc.body %}
+
+  <!-- DETAILS (Richtext 1) -->
+  {% if accordion.body %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Details</span>
       <span class="icon">+</span>
     </button>
     <div class="accordion-content">
-      {{ acc.body }}
+      {{ accordion.body | metafield_tag }}
     </div>
   </div>
   {% endif %}
 
-  <!-- ACCORDION 3 : BENIFITS -->
-  {% if acc.benifits %}
+
+  <!-- BENEFITS (Richtext 2) -->
+  {% if accordion.benifits %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Benefits</span>
       <span class="icon">+</span>
     </button>
     <div class="accordion-content">
-      {{ acc.benifits }}
+      {{ accordion.benifits | metafield_tag }}
     </div>
   </div>
   {% endif %}
 
 </div>
 {% endif %}
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
