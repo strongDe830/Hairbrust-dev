@@ -258,6 +258,7 @@
  class="{% if selected_variant.options[option_index] == value %}active{% endif %} custom-li-inner-vairant-section  data-var-li-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                   >
                     <input
+                      class="input-variant-input-section-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                       type="radio"
                       name="{{- input_name -}}"
                       id="{{- input_id -}}"
@@ -424,6 +425,14 @@ $(document).on('click', '.variant-tab', function () {
 
     // Add active to corresponding section
     $(".data-var-li-" + targetSection).addClass("active");
+        $(".input-variant-input-section-" + targetSection).trigger("click");
+
+
+
+
+
+
+
 });
 
     </script>
