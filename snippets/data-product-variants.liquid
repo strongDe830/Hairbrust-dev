@@ -383,7 +383,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-
 <script>
 (function($) {
   // Initialize variant tabs
@@ -413,11 +412,18 @@
     $('.variant-item[data-option-position="'+optionPosition+'"][data-option-value="'+optionValue+'"]').addClass('active');
   }
   
-  // Select variant radio
+  // Select variant radio and trigger click
   function selectVariantRadio(optionPosition, optionValue) {
     var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
     if ($radioInput.length && !$radioInput.prop('disabled')) {
-      $radioInput.prop('checked', true).trigger('change');
+      $radioInput.prop('checked', true);
+      
+      // Trigger both click and change events to ensure all listeners are fired
+      $radioInput.trigger('click');
+      $radioInput.trigger('change');
+      
+      // Also trigger input event for good measure
+      $radioInput.trigger('input');
     }
   }
   
@@ -437,7 +443,7 @@
     selectVariantRadio(optionPosition, optionValue);
   });
   
-  // Update tabs when variant radio inputs change
+  // Update tabs when variant radio inputs change (to keep tabs in sync)
   $(document).on('change', 'input[type="radio"][name*="-"]', function() {
     var optionName = $(this).attr('name');
     var optionPosition = optionName.split('-').pop();
