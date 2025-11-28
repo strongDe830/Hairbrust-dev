@@ -222,7 +222,8 @@
           </div>
 
 
-       <div class="cs-container">
+
+      <div class="cs-container">
     <!-- About Section -->
 
    {% if product.metafields.custom.about_advance %}
@@ -235,14 +236,13 @@
         <p>{{ item.description }}</p>
 
 
-     
+
+       {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
               <li>{{ badge.title }}</li>
             {% endfor %}
           </ul>
-
-           {% if item.badges and item.badges.value %}
         {% endif %}
 
 
@@ -281,18 +281,39 @@
     </div>
 
     <!-- How to Use Section -->
-    {% assign how_to_use = metaobjects.how_to_use.first %}
-    <div class="how-to-use">
-        <h3>{{ how_to_use.title }}</h3>
+  {% assign how_to_use = product.metafields.custom.how_to_use.value %}
+
+{% if how_to_use %}
+<div class="how-to-use">
+
+    <!-- TITLE -->
+    <h3>{{ how_to_use.title }}</h3>
+
+    <!-- TAGS (List or Single both supported) -->
+    {% if how_to_use.tags %}
         <div class="badges">
-            {% for tag in how_to_use.tags.value %}
-            <span class="badge">{{ tag }}</span>
-            {% endfor %}
+
+            {% if how_to_use.tags.value %}
+                {% for tag in how_to_use.tags.value %}
+                    <span class="badge">{{ tag }}</span>
+                {% endfor %}
+            {% else %}
+                <span class="badge">{{ how_to_use.tags }}</span>
+            {% endif %}
+
         </div>
-        <p>{{ how_to_use.description_1 }}</p>
-        <p>{{ how_to_use.description_2 }}</p>
-        <div class="capsules">{{ how_to_use.capsules_text }}</div>
-    </div>
+    {% endif %}
+
+    <!-- DESCRIPTIONS -->
+    <p>{{ how_to_use.description_1 }}</p>
+    <p>{{ how_to_use.description_2 }}</p>
+
+    <!-- CAPSULE TEXT -->
+    <div class="capsules">{{ how_to_use.capsules_text }}</div>
+
+</div>
+{% endif %}
+
 </div>
 
 

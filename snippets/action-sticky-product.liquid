@@ -7,9 +7,127 @@
 
 {%- if variant.available == true -%}
   <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
+
+
+
+
+       <div class="variant-tabs-sticky" data-option-position="{{ option.position }}">
+        {%- for option in _product.options_with_values -%}
+          {%- liquid
+            assign option_index = forloop.index0
+          -%}
+          {%- for value in option.values -%}
+            {%- liquid
+              assign option_disabled = true
+
+              if value.available
+                assign option_disabled = false
+              endif
+
+              assign is_alt_purchase_block_active = false
+              for block in _section.blocks
+                if block.type == 'alt_purchase_option'
+                  assign is_alt_purchase_block_active = true
+                  break
+                endif
+              endfor
+
+              assign is_hidden = false
+              if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                assign is_hidden = true
+              endif
+
+              assign is_selected = false
+              if selected_variant.options[option_index] == value
+                assign is_selected = true
+              endif
+            -%}
+
+            {% unless is_hidden %}
+              <div class="cs-data">
+                {% assign variant_image = value.variant.featured_media %}
+                {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+
+                <div
+                  class="
+                    variant-tab-sticky {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
+                    {% if selected_variant.options[option_index] == value %}
+                    active
+                    {% endif %}
+                  "
+                  data-variant-custom="{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
+                  data-option-value="{{ value | escape }}"
+                  data-option-position="{{ option.position }}"
+                >
+                
+    {% if sub_object.lozenge_text != blank %}
+                        <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                      {% endif %}
+       
+
+              {% assign lower_value = value | downcase %}
+{% assign cleaned = lower_value | remove: 'subscription' %}
+{% assign remaining = '' %}
+
+{% if lower_value contains 'subscription' %}
+  {% assign remaining = 'subscription' %}
+{% endif %}
+
+<div class="csdata-heading">
+  {{ cleaned | strip }}
+{% if remaining != blank %}  <span>{{ remaining }}</span> {% endif %}
+</div>
+    {%- unless value.variant.compare_at_price == value.variant.price -%}
+                              {% if value.variant.compare_at_price != blank
+                                and value.variant.compare_at_price != value.variant.price
+                              %}
+                                <div class="option-saving">
+                                  {% liquid
+                                    assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
+                                    assign saving_percentage = 100 | minus: saving_ratio
+                                  %}
+                                  <span>
+                                    {{- 'products.product.save' | t }}
+                                    {{ saving_percentage }}%
+                                  </span>
+                                </div>
+                              {% endif %}
+                            {%- endunless -%}
+                            <div class="prices">
+                              <span class="current">
+                                {{- value.variant.price | money }}
+                              </span>
+                              {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                {% if value.variant.compare_at_price != blank %}
+                                  <span class="was">
+                                    {{- value.variant.compare_at_price | money }}
+                                  </span>
+                                {% endif %}
+                              {%- endunless -%}
+                            </div>
+
+
+                  {% comment %}<span>{{ value }}</span> {% endcomment %}
+
+                  {% if free_gift != blank %}
+                    <span class="cs-free-gift-free">+ Free Gift</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endunless %}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+
+
+
     <div class="subscription-select">
       {%- render 'data-prices', _variant: variant -%}
     </div>
+
+
     <button class="c-btn main primary add-to-basket" data-asp-add-to-cart>
       <span class="add-to-basket-text">
         {{- 'products.product.select' | t -}}
