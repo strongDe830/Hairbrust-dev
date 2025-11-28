@@ -224,8 +224,8 @@
 
        <div class="cs-container">
     <!-- About Section -->
-ss
- {% if product.metafields.custom.about_advance %}
+
+   {% if product.metafields.custom.about_advance %}
   <div class="about-advance-wrapper">
 
     {% for item in product.metafields.custom.about_advance.value %}
@@ -234,26 +234,13 @@ ss
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
 
-        {% assign badges = item.badges %}
-
-        {% if badges %}
+     
           <ul class="badges-list">
-            
-            {%- if badges.values -%}
-              {# CASE: List of single-line text #}
-              {% for badge in badges.values %}
-                <li>{{ badge }}</li>
-              {% endfor %}
-            
-            {%- else -%}
-              {# CASE: List of metaobject references #}
-              {% for badge in badges %}
-                <li>{{ badge.title }}</li>
-              {% endfor %}
-            
-            {%- endif -%}
-
+            {% for badge in item.badges %}
+              <li>{{ badge }}</li>
+            {% endfor %}
           </ul>
+             {% if item.badges %}
         {% endif %}
 
       </div>
@@ -262,7 +249,6 @@ ss
   </div>
 {% endif %}
 
-dd
 
     {% assign about = metaobjects.about_advance.first %}
     <h3>About <strong>{{ about.title }}</strong></h3>
