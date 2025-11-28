@@ -225,6 +225,24 @@
        <div class="cs-container">
     <!-- About Section -->
 
+
+<pre>
+1. TYPE 1:
+{% for i in product.metafields.custom.about_advance.value %}
+TITLE: {{ i.title }}
+{% endfor %}
+
+2. TYPE 2:
+{% for i in product.metafields.custom.about_advance.references %}
+TITLE: {{ i.title }}
+{% endfor %}
+
+3. TYPE 3:
+{% for i in product.metafields.custom.about_advance %}
+TITLE: {{ i.value.title }}
+{% endfor %}
+</pre>
+
    {% if product.metafields.custom.about_advance %}
   <div class="about-advance-wrapper">
 
