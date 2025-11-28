@@ -228,14 +228,9 @@
 
 
 
-{% for i in product.metafields.custom.about_advance.value %}
-TITLE: {{ i.title }}
-{% endfor %}
-
-
 {% assign about = product.metafields.custom.about_advance.value %}
 
-
+{% if about %}
 <div class="about-section">
 
     <h3>{{ about.title }}</h3>
@@ -248,33 +243,74 @@ TITLE: {{ i.title }}
     </div>
 
 </div>
-
-
-
-   {% if product.metafields.custom.about_advance %}
-  <div class="about-advance-wrapper">
-
-    {% for item in product.metafields.custom.about_advance.value %}
-      <div class="about-advance-block">
-
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
-
-        {% if item.badges %}
-          <ul class="badges-list">
-            {% for badge in item.badges %}
-              <li>{{ badge }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-
-      </div>
-    {% endfor %}
-
-  </div>
 {% endif %}
 
 
+dddd
+
+{% assign about = shop.metaobjects.about_advance.values.first %}
+
+{% if about %}
+<div class="about-section">
+    <h3>About <strong>{{ about.title }}</strong></h3>
+    <p class="description">{{ about.description }}</p>
+
+    <div class="badges">
+        {% for badge in about.badges.value %}
+            <span class="badge">{{ badge }}</span>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Accordion Section -->
+{% assign accordion = shop.metaobjects.accordion_data.values.first %}
+
+{% if accordion %}
+<div class="accordion">
+    {% for item in accordion.items.value %}
+        <div class="accordion-item">
+            <div class="accordion-header">
+                {{ item.title }}
+                <span class="accordion-toggle">
+                    {% if forloop.first %}−{% else %}+{% endif %}
+                </span>
+            </div>
+
+            <div class="accordion-content {% if forloop.first %}active{% endif %}">
+                <ul>
+                    {% for point in item.points.value %}
+                        <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- How to Use Section -->
+{% assign how_to_use = shop.metaobjects.how_to_use.values.first %}
+
+{% if how_to_use %}
+<div class="how-to-use">
+    <h3>{{ how_to_use.title }}</h3>
+
+    <div class="badges">
+        {% for tag in how_to_use.tags.value %}
+            <span class="badge">{{ tag }}</span>
+        {% endfor %}
+    </div>
+
+    <p>{{ how_to_use.description_1 }}</p>
+    <p>{{ how_to_use.description_2 }}</p>
+
+    <div class="capsules">{{ how_to_use.capsules_text }}</div>
+</div>
+{% endif %}
+
+
+{% comment %}
     {% assign about = metaobjects.about_advance.first %}
     <h3>About <strong>{{ about.title }}</strong></h3>
     <p class="description">{{ about.description }}</p>
@@ -350,7 +386,7 @@ TITLE: {{ i.title }}
             });
         });
     </script>
-
+{% endcomment %}
 
         {%- when 'alt_purchase_option' -%}
           {%- if alt_variant and alt_variant.available -%}
