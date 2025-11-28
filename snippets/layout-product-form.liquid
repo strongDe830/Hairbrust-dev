@@ -224,36 +224,7 @@
 
        <div class="cs-container">
     <!-- About Section -->
-
-
-aa
-{% comment %}
-{% for i in product.metafields.custom.about_advance.value %}
-TITLE: {{ i.title }}
-{% endfor %}
-{% endcomment}
-
-bb
-
-{% assign about = product.metafields.custom.about_advance.value %}
-
-{% if about %}
-<div class="about-section">
-
-    <h3>{{ about.title }}</h3>
-    <p>{{ about.description }}</p>
-
-    <div class="badges">
-        {% for b in about.badges.value %}
-        <span class="badge">{{ b }}</span>
-        {% endfor %}
-    </div>
-
-</div>
-{% endif %}
-
-cc
-
+ss
    {% if product.metafields.custom.about_advance %}
   <div class="about-advance-wrapper">
 
@@ -276,7 +247,6 @@ cc
 
   </div>
 {% endif %}
-
 dd
 
     {% assign about = metaobjects.about_advance.first %}
