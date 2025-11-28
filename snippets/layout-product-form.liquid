@@ -239,7 +239,7 @@
         <p>{{ item.description }}</p>
 
 
-       {% if item.badge and item.badges.value %}
+       {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
               <li>{{ badge.title }}</li>
