@@ -1,0 +1,389 @@
+.variant-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.variant-tab {
+    padding: 24px 10px 24px 10px;
+    border: 1px solid #E2DEDB;
+    background: #F8F4F280;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+.variant-tab .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    background: #A06864;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+}
+.variant-tab .cs-free-gift-free {
+    /* background: #FAF4F4; */
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    position: absolute;
+    padding: 4px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+.variant-tab.active .cs-free-gift-free {
+    background: #FAF4F4;
+}
+
+.variant-tab.active {
+    background: #FFFFFF;
+    border-color: #343436;
+}
+
+.variant-tab.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+.variant-tab .variant-image-box img {
+    height: 61px;
+    width: auto;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+.variant-tab  .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.variant-tab .csdata-heading span {
+    display: block;
+    color: #7A7A7A;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image {
+    border: 0;
+    border-radius: 6px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 16px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-saving span {
+    display: inline-block;
+    background: #FAF4F4;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    padding: 4px;
+    border-radius: 4px;
+}
+.product-option-wrapper.subscription label.has-image .option-header {
+    align-items: center;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.money {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .was span.money {
+    font-size: 13px;
+    font-weight: 500;
+    color: #828282;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 14px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.option-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 14px;
+    padding-bottom: 12px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points {
+    border-top: 1px solid #F3EFEC;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li {
+    flex-basis: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    opacity: 1;
+    margin-top: 4px;
+    align-items: center;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li svg {
+    width: 12px;
+    height: auto;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li img.icon {
+    display: none;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper {
+    border: 0;
+    background: #FAF4F4;
+    border-radius: 6px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
+    padding: 6px;
+    align-items: center;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info {
+    display: block;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing {
+    align-items: center;
+    gap: 8px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing span.free-gift-free {
+    background: #A06864;
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+    opacity: 1;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.money {
+    text-decoration: line-through;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.price-free-gift {
+    color: #343436 !important;
+    font-weight: 600;
+    text-decoration: unset;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
+    background: transparent;
+    padding: 0;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #7A7A7A;
+    margin-bottom: 3px;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .checked-icon {
+    display: none;
+}
+
+
+.c-btn.add-to-basket {
+    padding-inline: 20px;
+    justify-content: space-between;
+    padding-block: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-bottom: 0;
+}
+.cs-payment-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.cs-payment-icon img.payment-icon {
+    height: 16px;
+    width: auto;
+}
+.data-product-variants .product-option-wrapper.subscription legend.form-label {
+    display: none;
+}
+.data-product-variants .product-option-wrapper.subscription ul#variant-list {
+    margin-top: 10px;
+}
+
+ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
+    padding: 6px 10px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.snippet-layout-product-form .product-short-desc p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 136%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-layout-product-form ul.trust-points li {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+
+.snippet-action-sticky-product {
+    width: 100%!important;
+    max-width: 100%!important;
+    left: 0;
+    background-color: #FDFDFD !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    padding-block: 24px !important;
+}
+.snippet-action-sticky-product .variant-tabs-sticky {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data {
+    border: 1px solid #000000;
+    background: #FFFFFF;
+    padding: 20px 13px 20px 33px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    background: #A06864;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.snippet-action-sticky-product .subscription-select {
+    width: auto;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket {
+    max-width: 310px;
+    width: 100%;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text svg {
+    margin-left: auto;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data span.cs-free-gift-free {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #7A7A7A;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    width: 18px;
+    border: 1px solid #000000;
+    height: 18px;
+    border-radius: 50%;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data:has(.variant-tab-sticky.active)::before {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 30px #000;
+}   
+
+.snippet-action-sticky-product .sticky-title-bx h2.title-sticky {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-action-sticky-product .sticky-title-bx {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.snippet-action-sticky-product .sticky-title-bx  ul.c-lozenges {
+    gap: 7px;
+}
+.snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge.we-peep,
+.snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge.tuna.border {
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+
+@media screen and (max-width:767px) {
+    .snippet-action-sticky-product .sticky-title-bx {
+    display: none;
+    }
+    .snippet-action-sticky-product .variant-tabs-sticky {
+    display: none;
+    }
+    .snippet-action-sticky-product button.c-btn.add-to-basket {
+    max-width: 100%;
+    width: 100%;
+    }
+}

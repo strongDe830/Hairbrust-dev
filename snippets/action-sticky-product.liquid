@@ -7,12 +7,145 @@
 
 {%- if variant.available == true -%}
   <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
-    <div class="subscription-select">
-      {%- render 'data-prices', _variant: variant -%}
-    </div>
+
+{%- liquid
+  assign selected_variant = _product.selected_or_first_available_variant
+-%}
+
+
+<div class="sticky-title-bx">
+<h2 class="title-sticky">
+  {{ product.title }}
+</h2>
+{%   assign lozenges = product.metafields.custom.product_lozenges.value %}
+
+   {% if lozenges.count > 0 %}
+            <ul class="c-lozenges">
+              {% for lozenge in lozenges %}
+                {% liquid
+                  assign named_bg_colour = lozenge.background_colour
+                  assign background_colour = blank
+                  case named_bg_colour
+                    when 'Peep Pink'
+                      assign background_colour = 'we-peep'
+                    when 'Tuna Grey'
+                      assign background_colour = 'tuna'
+                    when 'Gallery White'
+                      assign background_colour = 'gallery'
+                  endcase
+                  assign border = lozenge.border | default: false
+                %}
+                <li class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+</div>
+
+
+
+
+   {%- unless product.tags contains 'bundle' -%}
+       <div class="variant-tabs-sticky" data-option-position="{{ option.position }}">
+        {%- for option in _product.options_with_values -%}
+          {%- liquid
+            assign option_index = forloop.index0
+          -%}
+          {%- for value in option.values -%}
+            {%- liquid
+              assign option_disabled = true
+
+              if value.available
+                assign option_disabled = false
+              endif
+
+              assign is_alt_purchase_block_active = false
+              for block in _section.blocks
+                if block.type == 'alt_purchase_option'
+                  assign is_alt_purchase_block_active = true
+                  break
+                endif
+              endfor
+
+              assign is_hidden = false
+              if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                assign is_hidden = true
+              endif
+
+              assign is_selected = false
+              if selected_variant.options[option_index] == value
+                assign is_selected = true
+              endif
+            -%}
+
+            {% unless is_hidden %}
+              <div class="cs-data">
+                {% assign variant_image = value.variant.featured_media %}
+                {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
+
+                <div
+                  class="
+                    variant-tab-sticky {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
+                    {% if selected_variant.options[option_index] == value %}
+                    active
+                    {% endif %}
+                  "
+                  data-variant-custom="{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
+                  data-option-value="{{ value | escape }}"
+                  data-option-position="{{ option.position }}"
+                >
+                
+    {% if sub_object.lozenge_text != blank %}
+                        <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                      {% endif %}
+       
+
+              {% assign lower_value = value | downcase %}
+{% assign cleaned = lower_value | remove: 'subscription' %}
+{% assign remaining = '' %}
+
+{% if lower_value contains 'subscription' %}
+  {% assign remaining = 'subscription' %}
+{% endif %}
+
+<div class="csdata-heading">
+  {{ cleaned | strip }}
+{% if remaining != blank %}  <span>{{ remaining }}</span> {% endif %}
+</div>
+ 
+
+
+                  {% comment %}<span>{{ value }}</span> {% endcomment %}
+
+                  {% if free_gift != blank %}
+                    <span class="cs-free-gift-free">+ Free Gift</span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endunless %}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+
+
+
+    {% endunless %}
+
+
     <button class="c-btn main primary add-to-basket" data-asp-add-to-cart>
       <span class="add-to-basket-text">
-        {{- 'products.product.select' | t -}}
+       {%if variant.available %}
+         {{- 'products.product.add_to_cart' | t -}}
+ 
+            {%- else -%}
+             {{- 'products.product.sold_out' | t -}}
+             {%endif %}
+
+        - {{ variant.price | money   }}  
+        <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.3579 5.88345L7.50847 10.7329C7.40129 10.8401 7.25548 10.8999 7.1031 10.8991C6.95073 10.8983 6.80428 10.837 6.69597 10.7286C6.58766 10.6203 6.52637 10.4739 6.52557 10.3215C6.52477 10.1691 6.58453 10.0233 6.69171 9.91614L10.5655 6.04231L0.577484 5.98995C0.425114 5.98914 0.278672 5.92783 0.170374 5.81951C0.0620766 5.7112 0.00079433 5.56475 8.58635e-06 5.41238C-0.000777147 5.26001 0.058999 5.1142 0.166185 5.00703C0.273372 4.89986 0.419189 4.84011 0.57156 4.84092L10.5595 4.89329L6.64486 0.978626C6.53655 0.870317 6.47525 0.723866 6.47445 0.571493C6.47365 0.419119 6.53342 0.273304 6.6406 0.166124C6.74778 0.0589448 6.89359 -0.000819254 7.04597 -2.04345e-05C7.19834 0.000778383 7.34479 0.0620747 7.4531 0.170384L12.3537 5.07095C12.3554 5.07265 12.3564 5.07466 12.3581 5.07633C12.383 5.10172 12.4057 5.12935 12.4256 5.15885C12.4354 5.17346 12.4422 5.18927 12.4506 5.20453C12.4728 5.23859 12.4886 5.27638 12.4972 5.31603C12.5022 5.33257 12.5087 5.34847 12.5122 5.3656C12.5197 5.40231 12.5236 5.43964 12.524 5.47704L12.5241 5.47803C12.5242 5.51585 12.5206 5.55356 12.5133 5.59059C12.5101 5.60719 12.5039 5.6225 12.4993 5.63857C12.491 5.67883 12.4754 5.71714 12.4531 5.75157C12.445 5.76645 12.4385 5.78194 12.429 5.79622C12.4083 5.8276 12.3845 5.85682 12.3579 5.88345Z" fill="#FDFDFD"/>
+</svg>
       </span>
     </button>
   </sticky-product>
