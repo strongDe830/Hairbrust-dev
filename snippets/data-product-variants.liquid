@@ -475,7 +475,10 @@ $(document).on('click', '.variant-tab-sticky', function () {
     $(".data-var-li-" + targetSection).addClass("active");
         $(".input-variant-input-section-" + targetSection).trigger("click");
 
-
+        $(document).on("click", "[data-asp-add-to-cart]", function (e) {
+    e.preventDefault();
+    $("[data-product-submit-button]").click();
+});
 
 
 
