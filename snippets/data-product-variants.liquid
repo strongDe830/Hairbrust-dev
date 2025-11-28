@@ -1,3 +1,5 @@
+
+
 {%- liquid
   assign selected_variant = _product.selected_or_first_available_variant
 -%}
@@ -9,7 +11,6 @@
     id="data-product-variants-{{ section.id }}"
     class="data-product-variants"
     data-product-variants
-
   >
     {%- if product.tags contains 'bundle' -%}
       <fieldset class="product-option-wrapper bundle">
@@ -84,100 +85,99 @@
       </fieldset>
     {%- else -%}
 
+      <!-- Variant Tabs at the Top -->
+      <div class="variant-tabs-container" data-section="{{ section.id }}">
+        <div class="variant-tabs-wrapper">
+          {%- for option in _product.options_with_values -%}
+            {%- liquid
+              assign option_index = forloop.index0
+            -%}
+            {%- if option.values.size > 1 -%}
+              <div class="variant-option-group">
+                <div class="option-name">{{ option.name }}</div>
+                <div class="variant-tabs" data-option-position="{{ option.position }}">
+                  {%- for value in option.values -%}
+                    {%- liquid
+                      assign option_disabled = true
+                      if value.available
+                        assign option_disabled = false
+                      endif
 
+                      assign is_alt_purchase_block_active = false
+                      for block in _section.blocks
+                        if block.type == 'alt_purchase_option'
+                          assign is_alt_purchase_block_active = true
+                          break
+                        endif
+                      endfor
 
-{% comment %} Tabs for each option value {% endcomment %}
+                      assign is_hidden = false
+                      if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                        assign is_hidden = true
+                      endif
 
-<div class="variant-tabs" data-option-position="{{ option.position }}">
-   {%- for option in _product.options_with_values -%}
-   {%- liquid
-      assign option_index = forloop.index0
-    -%}
-  {%- for value in option.values -%}
-    {%- liquid
-      assign option_disabled = true
-    
-      if value.available
-        assign option_disabled = false
-      endif
+                      assign is_selected = false
+                      if selected_variant.options[option_index] == value
+                        assign is_selected = true
+                      endif
+                    -%}
 
-      assign is_alt_purchase_block_active = false
-      for block in _section.blocks
-        if block.type == 'alt_purchase_option'
-          assign is_alt_purchase_block_active = true
-          break
-        endif
-      endfor
+                    {% unless is_hidden %}
+                      <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}"
+                        data-option-value="{{ value | escape }}"
+                        data-option-position="{{ option.position }}"
+                        data-option-name="{{ option.name | handleize }}">
+                        
+                        {% assign variant_image = value.variant.featured_media %}
+                        {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
+                        {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
+                        {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
-      assign is_hidden = false
-      if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
-        assign is_hidden = true
-      endif
+                        {% if variant_image %}
+                          <div class="variant-image-box">
+                            {% if sub_object.lozenge_text != blank %}
+                              <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                            {% endif %}
+                            <img 
+                              src="{{ variant_image | image_url: width: 200 }}" 
+                              alt="{{ value }}"
+                              class="variant-tab-image"
+                            >
+                          </div>
+                        {% endif %}
 
-      assign is_selected = false
-      if selected_variant.options[option_index] == value
-        assign is_selected = true
-      endif
-    -%}
-    
+                        <div class="variant-tab-content">
+                          {% assign words = value | split: " " %}
+                          {% assign first_two = words[0] | append: " " | append: words[1] %}
+                          {% assign remaining = words | slice: 2, 100 | join: " " %}
 
+                          <div class="csdata-heading">
+                            {{ first_two }} <span>{{ remaining }}</span>
+                          </div>
 
-    {% unless is_hidden %}
-    <div class="cs-data">
-    {% assign variant_image = value.variant.featured_media %}
-     {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-     {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
-     {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
-
-
-      <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
-       {% if selected_variant.options[option_index] == value %}
-                      active
-                    {% endif %}
-      " 
-           data-option-value="{{ value | escape }}"
-           data-option-position="{{ option.position }}">
-             {% if variant_image %}
-    <div class="variant-image-box">
-    {% if sub_object.lozenge_text != blank %}
-                            <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
+                          {% if free_gift != blank %}
+                            <span class="cs-free-gift-free">+ Free Gift</span>
                           {% endif %}
-      <img 
-        src="{{ variant_image | image_url: width: 200 }}" 
-        alt="{{ value }}"
-      >
-    </div>
-  {% endif %}
 
-{% assign words = value | split: " " %}
-{% assign first_two = words[0] | append: " " | append: words[1] %}
-{% assign remaining = words | slice: 2, 100 | join: " " %}
-
-<div class="csdata-heading">
-  {{ first_two }} <span>{{ remaining }}</span>
-</div>
-
-    {% comment %}<span>{{ value }}</span> {% endcomment %}
-       
-            {% if free_gift != blank %}
-            <span class="cs-free-gift-free">+ Free Gift</span>
-            {% endif %}
+                          {% if option_disabled %}
+                            <div class="out-of-stock-label">Out of Stock</div>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endunless %}
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
       </div>
-      </div>
-    {% endunless %}
-  {%- endfor -%}
-    {%- endfor -%}
-</div>
 
-
-
-
-
+      <!-- Original Variant Selection Fieldsets -->
       {%- for option in _product.options_with_values -%}
-      
         {%- if option.values.size > 1 -%}
           {% assign downcase_option_name = option.name | downcase %}
-          <fieldset>
+          <fieldset class="original-variant-fieldset">
             {% liquid
               assign sub_option = false
               assign option_index = forloop.index0
@@ -365,63 +365,303 @@
       {%- endfor -%}
     {%- endif -%}
 
+    <script type="application/json" data-product-json-{{ section.id }}>
+      {{ _product | json }}
+    </script>
+  </variant-radios>
+  <script type="application/json" data-selected-variant>
+    {{ _product.selected_or_first_available_variant | json }}
+  </script>
+{%- endunless -%}
+
+<style>
+.variant-tabs-container {
+  margin-bottom: 30px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.variant-tabs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.variant-option-group {
+  margin-bottom: 15px;
+}
+
+.option-name {
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+.variant-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.variant-tab {
+  padding: 15px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  min-width: 140px;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.variant-tab.active {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.variant-tab:hover:not(.disabled) {
+  border-color: #666;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.variant-tab.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.variant-tab.disabled .variant-tab-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 45%, rgba(255,0,0,0.1) 45%, rgba(255,0,0,0.1) 55%, transparent 55%);
+}
+
+.variant-image-box {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.variant-tab-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.variant-tab-content {
+  position: relative;
+}
+
+.csdata-heading {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.csdata-heading span {
+  font-weight: 500;
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.cs-free-gift-free {
+  color: #ff4444;
+  font-size: 11px;
+  font-weight: 600;
+  display: block;
+  margin-top: 4px;
+}
+
+.cs-mobile-lozenge-bar {
+  background: #ff4444;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin-bottom: 8px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.out-of-stock-label {
+  color: #ff4444;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.original-variant-fieldset {
+  margin-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .variant-tabs-container {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .variant-tabs {
+    gap: 8px;
+  }
+  
+  .variant-tab {
+    padding: 12px 8px;
+    min-width: 100px;
+    flex: 0 1 calc(50% - 8px);
+  }
+  
+  .variant-tab-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .csdata-heading {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .variant-tab {
+    flex: 0 1 100%;
+  }
+}
+</style>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script>
 (function($) {
-  // Initialize tabs on page load
-  function initializeTabs() {
-    $('.variant-tabs').each(function() {
-      var $tabsContainer = $(this);
-      var optionPosition = $tabsContainer.data('option-position');
+  'use strict';
+
+  // Variant Tabs Manager
+  class VariantTabsManager {
+    constructor() {
+      this.initialized = false;
+      this.init();
+    }
+
+    init() {
+      if (this.initialized) return;
       
-      // Find the checked radio input for this option
-      var $checkedRadio = $('input[type="radio"][name*="-'+optionPosition+'"]:checked');
-      if ($checkedRadio.length) {
-        var selectedValue = $checkedRadio.val();
+      this.bindEvents();
+      this.initializeTabs();
+      this.initialized = true;
+    }
+
+    bindEvents() {
+      // Use event delegation for tab clicks
+      $(document).on('click', '.variant-tabs-container .variant-tab:not(.disabled)', (e) => {
+        this.handleTabClick(e);
+      });
+
+      // Sync with original radio inputs
+      $(document).on('change', 'input[type="radio"][name*="-"]', (e) => {
+        this.handleRadioChange(e);
+      });
+    }
+
+    handleTabClick(e) {
+      const $tab = $(e.currentTarget);
+      const optionPosition = $tab.data('option-position');
+      const optionValue = $tab.data('option-value');
+      
+      // Update all tabs for this option
+      this.updateTabsForOption(optionPosition, optionValue);
+      
+      // Find and trigger the corresponding radio input
+      const $radioInput = $(`input[type="radio"][name*="-${optionPosition}"][value="${optionValue}"]`);
+      if ($radioInput.length && !$radioInput.hasClass('disabled')) {
+        $radioInput.prop('checked', true).trigger('change');
         
-        // Activate the corresponding tab
-        $tabsContainer.find('.variant-tab').removeClass('active');
-        $tabsContainer.find('.variant-tab[data-option-value="'+selectedValue+'"]').addClass('active');
+        // Trigger variant change event if needed
+        $(document).trigger('variant:change', [$radioInput.data('variant-id')]);
       }
-    });
+    }
+
+    handleRadioChange(e) {
+      const $radio = $(e.currentTarget);
+      const optionName = $radio.attr('name');
+      const optionPosition = optionName.split('-').pop();
+      const optionValue = $radio.val();
+      
+      // Update tabs to match radio selection
+      this.updateTabsForOption(optionPosition, optionValue);
+    }
+
+    updateTabsForOption(optionPosition, optionValue) {
+      // Remove active class from all tabs in this option group
+      $(`.variant-tab[data-option-position="${optionPosition}"]`).removeClass('active');
+      
+      // Add active class to selected tab
+      $(`.variant-tab[data-option-position="${optionPosition}"][data-option-value="${optionValue}"]`).addClass('active');
+      
+      // Update option name display if exists
+      const $optionName = $(`.original-variant-fieldset .form-label strong`);
+      if ($optionName.length) {
+        // You might want to update this based on your specific structure
+        console.log('Option selected:', optionValue);
+      }
+    }
+
+    initializeTabs() {
+      // Initialize tabs based on current radio selections
+      $('input[type="radio"][name*="-"]:checked').each((index, radio) => {
+        const $radio = $(radio);
+        const optionName = $radio.attr('name');
+        const optionPosition = optionName.split('-').pop();
+        const optionValue = $radio.val();
+        
+        this.updateTabsForOption(optionPosition, optionValue);
+      });
+    }
+
+    // Public method to refresh if needed
+    refresh() {
+      this.initializeTabs();
+    }
   }
 
-  // Tab click handler
-  $(document).on('click', '.variant-tab:not(.disabled)', function() {
-    var $tab = $(this);
-    var optionPosition = $tab.data('option-position');
-    var optionValue = $tab.data('option-value');
-    
-    // Update tabs
-    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
-    $tab.addClass('active');
-    
-    // Find and click the corresponding radio input
-    var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
-    if ($radioInput.length && !$radioInput.hasClass('disabled')) {
-      $radioInput[0].click(); // Trigger actual click on the radio input
+  // Initialize when document is ready
+  $(document).ready(() => {
+    // Wait a bit to ensure all elements are loaded
+    setTimeout(() => {
+      window.variantTabsManager = new VariantTabsManager();
+    }, 100);
+  });
+
+  // Reinitialize when section reloads (for Shopify sections)
+  $(document).on('shopify:section:load', () => {
+    if (window.variantTabsManager) {
+      window.variantTabsManager.refresh();
+    } else {
+      window.variantTabsManager = new VariantTabsManager();
     }
-  });
-
-  // Sync tabs when radio inputs change
-  $(document).on('change', 'input[type="radio"][name*="-"]', function() {
-    var optionName = $(this).attr('name');
-    var optionPosition = optionName.split('-').pop();
-    var optionValue = $(this).val();
-    
-    // Update corresponding tabs
-    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
-    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab[data-option-value="'+optionValue+'"]').addClass('active');
-  });
-
-  // Initialize on page load
-  $(document).ready(function() {
-    initializeTabs();
   });
 
 })(jQuery);
 </script>
+
+
 
 
 <style>
