@@ -254,10 +254,7 @@
                     {% if is_hidden %}
                       hidden
                     {% endif %}
-
-                     {% if selected_variant.options[option_index] == value %}
- class="active"
- {% endif %}
+ class="{% if selected_variant.options[option_index] == value %}active{% endif %} custom-li-inner-vairant-section  data-var-li-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                   >
                     <input
                       type="radio"
