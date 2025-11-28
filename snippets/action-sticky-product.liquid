@@ -44,7 +44,7 @@
 
 
 
-
+   {%- unless product.tags contains 'bundle' -%}
        <div class="variant-tabs-sticky" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
           {%- liquid
@@ -130,7 +130,7 @@
 
 
 
-    
+    {% endunless %}
 
 
     <button class="c-btn main primary add-to-basket" data-asp-add-to-cart>
