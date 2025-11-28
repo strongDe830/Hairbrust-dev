@@ -262,7 +262,11 @@
 <div class="accordion">
 
   <!-- HAIER IMAGE + TEXT LIST -->
-  {% if accordion.haier %}
+ {% if acc %}
+<div class="accordion">
+
+  <!-- HAIER LIST -->
+  {% if acc.haier %}
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Features</span>
@@ -271,11 +275,11 @@
 
     <div class="accordion-content">
       <ul>
-        {% for item in accordion.haier %}
+        {% for item in acc.haier %}
         <li style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
-          
+
           {% if item.image %}
-            <img src="{{ item.image | img_url: 'master' }}" style="width:40px;height:auto;">
+            <img src="{{ item.image | image_url: width: 80 }}" style="width:40px;height:auto;">
           {% endif %}
 
           {% if item.text %}
@@ -288,6 +292,38 @@
     </div>
   </div>
   {% endif %}
+
+
+  <!-- DETAILS -->
+  {% if acc.body %}
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>Details</span>
+      <span class="icon">+</span>
+    </button>
+    <div class="accordion-content">
+      {{ acc.body | metafield_tag }}
+    </div>
+  </div>
+  {% endif %}
+
+
+  <!-- BENEFITS -->
+  {% if acc.benifits %}
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>Benefits</span>
+      <span class="icon">+</span>
+    </button>
+    <div class="accordion-content">
+      {{ acc.benifits | metafield_tag }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+{% endif %}
+
 
 
   <!-- DETAILS (Richtext 1) -->
