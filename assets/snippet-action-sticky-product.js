@@ -25,7 +25,7 @@
                     });
                 }
                 e.addEventListener("click", function () {
-                    n.click();
+                //    n.click();
                 });
                 new IntersectionObserver(o, c).observe(t);
             }
