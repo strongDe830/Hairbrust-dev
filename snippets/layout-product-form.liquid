@@ -221,273 +221,84 @@
         <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
           </div>
 
-            <div class="container">
-            <h2>Advanced+ | Premium Health Supplement</h2>
-    <h3>About <strong>Advanced+</strong></h3>
-    <p class="description">Formulated with powerful blends of clinically-backed ingredients, it works from within to protect the body.</p>
+       <div class="cs-container">
+    <!-- About Section -->
+    {% assign about = metaobjects.about_advanced.first %}
+    <h3>About <strong>{{ about.title }}</strong></h3>
+    <p class="description">{{ about.description }}</p>
     
     <div class="badges">
-      <span class="badge">Vegan</span>
-      <span class="badge">GMO Free</span>
-      <span class="badge">Gluten-Free</span>
-      <span class="badge">No Dairy</span>
+        {% for badge in about.badges.value %}
+            <span class="badge">{{ badge }}</span>
+        {% endfor %}
     </div>
 
+    <!-- Accordion Section -->
+    {% assign accordion = metaobjects.accordion_data.first %}
     <div class="accordion">
-      <div class="accordion-item">
-        <div class="accordion-header">Hair <span class="accordion-toggle">−</span></div>
-        <div class="accordion-content" style="display:block;">
-          <ul>
-            <li>Supports better sleep.</li>
-            <li>Helps reduce stress & anxiety.</li>
-            <li>Supports hormonal health.</li>
-            <li>Protects against oxidative stress.</li>
-            <li>Supports menopause symptoms.</li>
-          </ul>
+        {% for item in accordion.items.value %}
+        <div class="accordion-item">
+            <div class="accordion-header">{{ item.title }} <span class="accordion-toggle">{% if forloop.first %}−{% else %}+{% endif %}</span></div>
+            <div class="accordion-content {% if forloop.first %}active{% endif %}">
+                <ul>
+                    {% for point in item.points.value %}
+                    <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-      </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header">Body <span class="accordion-toggle">+</span></div>
-        <div class="accordion-content">
-          <ul>
-            <li>Body benefits content...</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <div class="accordion-header">Benefits <span class="accordion-toggle">+</span></div>
-        <div class="accordion-content">
-          <ul>
-            <li>Other benefits content...</li>
-          </ul>
-        </div>
-      </div>
+        {% endfor %}
     </div>
 
+    <!-- How to Use Section -->
+    {% assign how_to_use = metaobjects.how_to_use.first %}
     <div class="how-to-use">
-      <h3>How To Use & Results</h3>
-      <div class="badges">
-        <span class="badge">Growth</span>
-        <span class="badge">Hormone</span>
-        <span class="badge">Fuller Hair</span>
-      </div>
-      <p>Targets the root causes of hair loss, such as nutritional deficiencies & hormonal changes to support long-term scalp and follicle health.</p>
-      <p>Best taken with breakfast and water, to support absorption and consistency. Stick with it for at least 90 days to see visible results.</p>
-      <div class="capsules">We recommend to <strong>take 4 capsules</strong> daily.</div>
+        <h3>{{ how_to_use.title }}</h3>
+        <div class="badges">
+            {% for tag in how_to_use.tags.value %}
+            <span class="badge">{{ tag }}</span>
+            {% endfor %}
+        </div>
+        <p>{{ how_to_use.description_1 }}</p>
+        <p>{{ how_to_use.description_2 }}</p>
+        <div class="capsules">{{ how_to_use.capsules_text }}</div>
     </div>
-  </div>
-
-  <script>
-    // Accordion toggle functionality
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        const toggle = header.querySelector('.accordion-toggle');
-        if(content.style.display === "block") {
-          content.style.display = "none";
-          toggle.textContent = '+';
-        } else {
-          content.style.display = "block";
-          toggle.textContent = '−';
-        }
-      });
-    });
-  </script>
+</div>
 
 
-  <style>
-        :root {
-            --primary: #2c5530;
-            --secondary: #5a9367;
-            --accent: #c6e6c3;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f9f9f9;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            color: var(--primary);
-            margin: 25px 0 15px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 8px;
-        }
-        
-        h3 {
-            color: var(--secondary);
-            margin: 20px 0 10px;
-        }
-        
-        .intro {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .badge {
-            background-color: var(--accent);
-            color: var(--primary);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 30px 0;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
-        
-        .benefit-card {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .checklist {
-            list-style: none;
-            margin: 15px 0;
-        }
-        
-        .checklist li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .checklist li:before {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--secondary);
-            border-radius: 3px;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-        
-        .checklist li.checked:before {
-            background-color: var(--secondary);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .features-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .features-table th {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-        
-        .features-table td {
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .usage-info {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-        
-        .dosage {
-            background-color: var(--accent);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
+<script>
+        // Accordion toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
             
-            .features-table {
-                font-size: 0.9rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
-
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const toggle = header.querySelector('.accordion-toggle');
+                    
+                    // Close all other accordion items
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherToggle = otherHeader.querySelector('.accordion-toggle');
+                            otherContent.classList.remove('active');
+                            otherToggle.textContent = '+';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (content.classList.contains('active')) {
+                        content.classList.remove('active');
+                        toggle.textContent = '+';
+                    } else {
+                        content.classList.add('active');
+                        toggle.textContent = '−';
+                    }
+                });
+            });
+        });
+    </script>
+    
 
         {%- when 'alt_purchase_option' -%}
           {%- if alt_variant and alt_variant.available -%}
