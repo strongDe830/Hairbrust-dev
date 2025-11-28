@@ -286,7 +286,7 @@
                             <div class="option-selector-title">
                               <div class="checked-icon"></div>
                               <span class="option-title">{{ value }}</span>
-                              <span class="customsuppy-text">{{ value.variant.metafields.custom.supply_days }}</span>
+                              <span class="customsuppy-text">{{ value.variant.metafields.custom.supply_days }} day Supply <Span class="supply-price">{{value.variant.price | divided_by:value.variant.metafields.custom.supply_days | money }}</span></span>
                             </div>
 
                             {% if sub_object.lozenge_text != blank %}
