@@ -348,7 +348,18 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 30px #000;
 }   
 
-
+.snippet-action-sticky-product .sticky-title-bx .title-sticky {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-action-sticky-product .sticky-title-bx {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+}
 
 
 
