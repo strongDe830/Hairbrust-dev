@@ -471,66 +471,65 @@
       {%- endfor -%}
     {%- endif -%}
 
-    <script>
-      (function ($) {
-        // Initialize tabs on page load
-        function initializeTabs() {
-          $('.variant-tabs').each(function () {
-            var $tabsContainer = $(this);
-            var optionPosition = $tabsContainer.data('option-position');
+  <script>
+(function ($) {
 
-            // Find the checked radio input for this option
-            var $checkedRadio = $('input[type="radio"][name*="-' + optionPosition + '"]:checked');
-            if ($checkedRadio.length) {
-              var selectedValue = $checkedRadio.val();
+  function updateTabs(optionPosition, optionValue) {
+    // Update ALL tab groups that share the same option position
+    $('[data-option-position="' + optionPosition + '"].variant-tabs')
+      .find('.variant-tab')
+      .removeClass('active')
+      .filter('[data-option-value="' + optionValue + '"]')
+      .addClass('active');
+  }
 
-              // Activate the corresponding tab
-              $tabsContainer.find('.variant-tab').removeClass('active');
-              $tabsContainer.find('.variant-tab[data-option-value="' + selectedValue + '"]').addClass('active');
-            }
-          });
-        }
+  // Handle tab click
+  $(document).on('click', '.variant-tab:not(.disabled)', function () {
+    var $tab = $(this);
+    var optionPosition = $tab.data('option-position');
+    var optionValue = $tab.data('option-value');
 
-        // Tab click handler
-        $(document).on('click', '.variant-tab:not(.disabled)', function () {
-          var $tab = $(this);
-          var optionPosition = $tab.data('option-position');
-          var optionValue = $tab.data('option-value');
+    // Update all tab UIs
+    updateTabs(optionPosition, optionValue);
 
-          // Update tabs
-          $('.variant-tabs[data-option-position="' + optionPosition + '"] .variant-tab').removeClass('active');
-          $tab.addClass('active');
+    // Find corresponding radio (global inside product form)
+    var $radio = $('input[data-option-value-id][value="' + optionValue + '"][name*="-' + optionPosition + '"]');
 
-          // Find and click the corresponding radio input
-          var $radioInput = $('input[type="radio"][name*="-' + optionPosition + '"][value="' + optionValue + '"]');
-          if ($radioInput.length && !$radioInput.hasClass('disabled')) {
-            $radioInput[0].click(); // Trigger actual click on the radio input
-          }
-        });
+    if ($radio.length && !$radio.hasClass('disabled')) {
+      $radio.prop('checked', true).trigger('change');
+    }
+  });
 
-        // Sync tabs when radio inputs change
-        $(document).on('change', 'input[type="radio"][name*="-"]', function () {
-          var optionName = $(this).attr('name');
-          var optionPosition = optionName.split('-').pop();
-          var optionValue = $(this).val();
+  // Sync tabs when radio changes
+  $(document).on('change', 'input[type="radio"][name*="-"]', function () {
+    var optionName = $(this).attr('name');
+    var optionValue = $(this).val();
+    var optionPosition = optionName.split('-').pop();
 
-          // Update corresponding tabs
-          $('.variant-tabs[data-option-position="' + optionPosition + '"] .variant-tab').removeClass('active');
-          $(
-            '.variant-tabs[data-option-position="' +
-              optionPosition +
-              '"] .variant-tab[data-option-value="' +
-              optionValue +
-              '"]'
-          ).addClass('active');
-        });
+    updateTabs(optionPosition, optionValue);
+  });
 
-        // Initialize on page load
-        $(document).ready(function () {
-          initializeTabs();
-        });
-      })(jQuery);
-    </script>
+  // Initialize tabs on load
+  function initializeTabs() {
+    $('.variant-tabs').each(function () {
+
+      var optionPosition = $(this).data('option-position');
+
+      var $checked = $('input[type="radio"][name*="-' + optionPosition + '"]:checked');
+
+      if ($checked.length) {
+        updateTabs(optionPosition, $checked.val());
+      }
+    });
+  }
+
+  $(document).ready(function () {
+    initializeTabs();
+  });
+
+})(jQuery);
+</script>
+
 
     <script type="application/json" data-product-json-{{ section.id }}>
       {{ _product | json }}
