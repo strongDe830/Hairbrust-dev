@@ -141,15 +141,6 @@ sdfsdfsdf
     <div class="cs-data">
     {% assign variant_image = value.variant.featured_media %}
 
-  {% if variant_image %}
-    <div class="variant-image-box">
-      <img 
-        src="{{ variant_image | image_url: width: 200 }}" 
-        alt="{{ value }}"
-      >
-    </div>
-  {% endif %}
-  
       <div class="variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
        {% if selected_variant.options[option_index] == value %}
                       active
@@ -157,7 +148,16 @@ sdfsdfsdf
       " 
            data-option-value="{{ value | escape }}"
            data-option-position="{{ option.position }}">
-        {{ value }}
+             {% if variant_image %}
+    <div class="variant-image-box">
+      <img 
+        src="{{ variant_image | image_url: width: 200 }}" 
+        alt="{{ value }}"
+      >
+    </div>
+  {% endif %}
+
+       <span>{{ value }}</span> 
       </div>
       </div>
     {% endunless %}
