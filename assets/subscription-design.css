@@ -192,10 +192,12 @@
     letter-spacing: 0;
     color: #828282;
     opacity: 1;
+    text-decoration: line-through;
 }
-.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.money {
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.price-free-gift {
     color: #343436 !important;
     font-weight: 600;
+    text-decoration: unset;
 }
 
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
