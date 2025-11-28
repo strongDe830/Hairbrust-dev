@@ -236,7 +236,6 @@
         <p>{{ item.description }}</p>
 
 
-
        {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
@@ -252,16 +251,6 @@
   </div>
 {% endif %}
 
-
-    {% assign about = metaobjects.about_advance.first %}
-    <h3>About <strong>{{ about.title }}</strong></h3>
-    <p class="description">{{ about.description }}</p>
-    
-    <div class="badges">
-        {% for badge in about.badges.value %}
-            <span class="badge">{{ badge }}</span>
-        {% endfor %}
-    </div>
  
     <!-- Accordion Section -->
    {% assign acc = product.metafields.custom.accordion_data %}
@@ -271,7 +260,7 @@
 <div class="accordion">
 
   <!-- ACCORDION 1 : HAIER LIST -->
-  {% if acc.haier %}
+
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Features</span>
@@ -295,11 +284,11 @@
       </ul>
     </div>
   </div>
-  {% endif %}
+
 
 
   <!-- ACCORDION 2 : RICH TEXT 1 -->
-  {% if acc.richtext_1 %}
+  
   <div class="accordion-item">
     <button class="accordion-header">
       <span>Details</span>
@@ -310,11 +299,11 @@
       {{ acc.richtext_1 }}
     </div>
   </div>
-  {% endif %}
+
 
 
   <!-- ACCORDION 3 : RICH TEXT 2 -->
-  {% if acc.richtext_2 %}
+
   <div class="accordion-item">
     <button class="accordion-header">
       <span>More Information</span>
@@ -325,7 +314,7 @@
       {{ acc.richtext_2 }}
     </div>
   </div>
-  {% endif %}
+
 
 </div>
 
