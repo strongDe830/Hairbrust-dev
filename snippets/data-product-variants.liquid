@@ -102,11 +102,7 @@ sdfsdfsdf
 <div class="variant-tabs" data-option-position="{{ option.position }}">
    {%- for option in _product.options_with_values -%}
    {%- liquid
-    
       assign option_index = forloop.index0
-  
-
-     
     -%}
   {%- for value in option.values -%}
     {%- liquid
@@ -153,7 +149,7 @@ sdfsdfsdf
            data-option-value="{{ value | escape }}"
            data-option-position="{{ option.position }}">
              {% if variant_image %}
-    <div class="variant-image-box">gg
+    <div class="variant-image-box">
     {% if sub_object.lozenge_text != blank %}
                             <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
                           {% endif %}
@@ -167,8 +163,8 @@ sdfsdfsdf
        <span>{{ value }}</span> 
        
             {% if free_gift != blank %}
-         <span class="cs-free-gift-free">Free</span>
-                       {% endif %}
+            <span class="cs-free-gift-free">+ Free Gift</span>
+            {% endif %}
       </div>
       </div>
     {% endunless %}
