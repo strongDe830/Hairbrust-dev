@@ -222,6 +222,31 @@
           </div>
 
 
+{% if product.metafields.custom.about_advance %}
+  <div class="about-advance-wrapper">
+
+    {% for item in product.metafields.custom.about_advance.value %}
+      <div class="about-advance-block">
+
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+
+        {% if item.badges and item.badges.value %}
+          <ul class="badges-list">
+            {% for badge in item.badges.value %}
+              <li>{{ badge.title }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+      </div>
+    {% endfor %}
+
+  </div>
+{% endif %}
+
+
+
        <div class="cs-container">
     <!-- About Section -->
 
@@ -235,14 +260,12 @@
         <p>{{ item.description }}</p>
 
 
-     
+       {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
               <li>{{ badge.title }}</li>
             {% endfor %}
           </ul>
-
-           {% if item.badges and item.badges.value %}
         {% endif %}
 
 
