@@ -140,6 +140,7 @@
                     active
                     {% endif %}
                   "
+                  data-variant-custom="{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                   data-option-value="{{ value | escape }}"
                   data-option-position="{{ option.position }}"
                 >
@@ -250,16 +251,14 @@
  class="disabled"
  {% endif %}
  {% endcapture %}
-                  <li  class="custom-inner-item-li  
-                    {% if selected_variant.options[option_index] == value %}
- active
- {% endif %}"
-                
+                  <li
                     {% if is_hidden %}
                       hidden
                     {% endif %}
+ class="{% if selected_variant.options[option_index] == value %}active{% endif %} custom-li-inner-vairant-section  data-var-li-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                   >
                     <input
+                      class="input-variant-input-section-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                       type="radio"
                       name="{{- input_name -}}"
                       id="{{- input_id -}}"
@@ -280,9 +279,7 @@
                         {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
                         {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
 
-                        {% if sub_object.lozenge_text != blank %}
-                          <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
-                        {% endif %}
+                     
 
                         <div class="label__content">
                           <div class="option-header">
@@ -327,6 +324,9 @@
                             <ul class="option-trust-points">
                               {% for trust_point in sub_object.trust_points.value %}
                                 <li>
+                                  <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.6375 7.9875L0 4.36875L0.95625 3.39375L3.6375 6.075L9.73125 0L10.6875 0.95625L3.6375 7.9875Z" fill="#1C1B1F"/>
+                                  </svg>
                                   {{
                                     trust_point.icon
                                     | image_url: width: 80
@@ -337,15 +337,9 @@
                               {% endfor %}
                             </ul>
                             {% if free_gift != blank %}
-                              <div class="banner">
-                                <span class="banner-text">
-                                  {% if free_gift_title != blank %}
-                                    {{ free_gift_title }}
-                                  {% else %}
-                                    Free gift worth {{ free_gift.price | money }}
-                                  {% endif %}
-                                </span>
-                              </div>
+                              {% comment %} <div class="banner">
+                                
+                              </div> {% endcomment %}
                               <div
                                 class="free-gift-wrapper"
                                 data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}"
@@ -361,10 +355,17 @@
                                       class: 'featured-img'
                                   -}}
                                   <div class="free-gift-info">
+                                    <span class="banner-text">
+                                      {% if free_gift_title != blank %}
+                                        {{ free_gift_title }}
+                                      {% else %}
+                                        Free gift worth {{ free_gift.price | money }}
+                                      {% endif %}
+                                    </span>
                                     {{ free_gift.title }}
                                     <div class="free-gift-pricing">
                                       <span class="free-gift-free">Free</span>
-                                      <span class="free-gift-price"> Worth {{ free_gift.price | money }} </span>
+                                      <span class="free-gift-price">{{ free_gift.price | money }} <span class="price-free-gift">{{cart.currency.symbol}}0</span></span>
                                     </div>
                                   </div>
                                 </div>
@@ -405,7 +406,6 @@
     
     <script>
  
-
 $(document).on('click', '.variant-tab', function () {
     // Stop click if the tab is disabled
     if ($(this).hasClass('disabled')) return;
@@ -419,11 +419,23 @@ $(document).on('click', '.variant-tab', function () {
     // Add active class to clicked tab
     $(this).addClass('active');
 
+    // Remove active from all variant sections
+    $(".custom-li-inner-vairant-section").removeClass("active");
+
+    // Get target section from clicked tab
+    var targetSection = $(this).attr("data-variant-custom");
+
+    // Add active to corresponding section
+    $(".data-var-li-" + targetSection).addClass("active");
+        $(".input-variant-input-section-" + targetSection).trigger("click");
 
 
-    
+
+
+
+
+
 });
-
 
     </script>
 
@@ -435,6 +447,43 @@ $(document).on('click', '.variant-tab', function () {
     {{ _product.selected_or_first_available_variant | json }}
   </script>
 {%- endunless -%}
+
+
+
+    <script>
+ 
+$(document).on('click', '.variant-tab-sticky', function () {
+    // Stop click if the tab is disabled
+    if ($(this).hasClass('disabled')) return;
+
+    // Remove active from all siblings inside the same .variant-tabs wrapper
+    $(this)
+        .closest('.variant-tabs-sticky')
+        .find('.variant-tab-sticky')
+        .removeClass('active');
+
+    // Add active class to clicked tab
+    $(this).addClass('active');
+
+    // Remove active from all variant sections
+    $(".custom-li-inner-vairant-section").removeClass("active");
+
+    // Get target section from clicked tab
+    var targetSection = $(this).attr("data-variant-custom");
+
+    // Add active to corresponding section
+    $(".data-var-li-" + targetSection).addClass("active");
+        $(".input-variant-input-section-" + targetSection).trigger("click");
+
+
+
+
+
+
+
+});
+
+    </script>
 
 <style>
   .subscription-tabs {
@@ -677,4 +726,13 @@ $(document).on('click', '.variant-tab', function () {
     font-size: 15px;
   }
   /* Free Gift Section Css End */
+
+
+
+
+
+.custom-li-inner-vairant-section:not(.active) {
+    display: none;
+}
+
 </style>
