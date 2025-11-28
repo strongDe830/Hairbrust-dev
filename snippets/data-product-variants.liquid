@@ -480,9 +480,9 @@ document.addEventListener("DOMContentLoaded", function () {
   position: relative;
 }
 .subscription-details .free-gift-section {
-    background: #a0686429;
-    padding: 8px;
-    border-radius: 6px;
+    background: transparent;
+    padding: 0px;
+    border-radius: 0px;
 }
 .subscription-details .free-gift-section .free-gift-title {
     font-weight: 400;
@@ -633,4 +633,61 @@ ul.benefits {
     color: #343436;
 }
 /* Best Seller Css End */
+
+/* Free Gift Section Css */
+.subscription-details .free-gift {
+    background: #a0686429;
+    padding: 8px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 14px;
+    align-items: center;
+}
+.subscription-details .free-gift img {
+    width: 100%;
+}
+.subscription-details .free-gift .free-gift-info strong {
+    display: block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+    color: #343436;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-free {
+    display: inline-block;
+    background-color: #A06864;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+    padding: 4px 6px;
+    border-radius: 4px;
+    order: 1;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+    display: inline-block;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-price .money {
+    color: #343436;
+    font-weight: 600;
+    font-size: 15px;
+}
+/* Free Gift Section Css End */
 </style>
