@@ -284,23 +284,31 @@
 
 {% if how_to_use %}
 <div class="how-to-use">
-    
+
+    <!-- TITLE -->
     <h3>{{ how_to_use.title }}</h3>
 
-    {% if how_to_use.tags and how_to_use.tags.value %}
+    <!-- TAGS (List or Single both supported) -->
+    {% if how_to_use.tags %}
         <div class="badges">
-            {% for tag in how_to_use.tags.value %}
-                <span class="badge">{{ tag }}</span>
-            {% endfor %}
+
+            {% if how_to_use.tags.value %}
+                {% for tag in how_to_use.tags.value %}
+                    <span class="badge">{{ tag }}</span>
+                {% endfor %}
+            {% else %}
+                <span class="badge">{{ how_to_use.tags }}</span>
+            {% endif %}
+
         </div>
     {% endif %}
 
+    <!-- DESCRIPTIONS -->
     <p>{{ how_to_use.description_1 }}</p>
     <p>{{ how_to_use.description_2 }}</p>
 
-    <div class="capsules">
-        {{ how_to_use.capsules_text }}
-    </div>
+    <!-- CAPSULE TEXT -->
+    <div class="capsules">{{ how_to_use.capsules_text }}</div>
 
 </div>
 {% endif %}
