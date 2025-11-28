@@ -97,6 +97,7 @@ sdfsdfsdf
 
 
 <div class="variant-tabs" data-option-position="{{ option.position }}">
+   {%- for option in _product.options_with_values -%}
   {%- for value in option.values -%}
     {%- liquid
       assign option_disabled = true
@@ -131,6 +132,7 @@ sdfsdfsdf
       </div>
     {% endunless %}
   {%- endfor -%}
+    {%- endfor -%}
 </div>
 
 
