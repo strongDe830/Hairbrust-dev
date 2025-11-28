@@ -326,6 +326,9 @@
                             <ul class="option-trust-points">
                               {% for trust_point in sub_object.trust_points.value %}
                                 <li>
+                                  <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M3.6375 7.9875L0 4.36875L0.95625 3.39375L3.6375 6.075L9.73125 0L10.6875 0.95625L3.6375 7.9875Z" fill="#1C1B1F"/>
+                                  </svg>
                                   {{
                                     trust_point.icon
                                     | image_url: width: 80
