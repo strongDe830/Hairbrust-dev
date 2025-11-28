@@ -221,8 +221,32 @@
         <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
           </div>
 
+
        <div class="cs-container">
     <!-- About Section -->
+
+    {% if product.metafields.custom.about_advance %}
+  
+  {% assign about = product.metafields.custom.about_advance.value %}
+
+  <div class="about-advanced-box">
+    
+    <h2>{{ about.title }}</h2>
+    <p>{{ about.description }}</p>
+
+    {% if about.badges %}
+      <ul class="about-badges">
+        {% for badge in about.badges %}
+          <li>{{ badge }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+
+{% endif %}
+
+
     {% assign about = metaobjects.about_advanced.first %}
     <h3>About <strong>{{ about.title }}</strong></h3>
     <p class="description">{{ about.description }}</p>
