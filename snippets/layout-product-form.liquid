@@ -226,15 +226,24 @@
       <div class="cs-container">
     <!-- About Section -->
 
-   {% if product.metafields.custom.about_advance %}
+   {% if product.metafields.custom.about_advanced %}
   <div class="about-advance-wrapper">
 
-    {% for item in product.metafields.custom.about_advance.value %}
+    {% for item in product.metafields.custom.about_advanced.value %}
       <div class="about-advance-block">
 
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
 
+
+
+        {% if item.badges %}
+          <ul class="badges-list">
+            {% for badge in item.badges %}
+              <li>{{ badge }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
 
        {% if item.badges and item.badges.value %}
           <ul class="badges-list">
