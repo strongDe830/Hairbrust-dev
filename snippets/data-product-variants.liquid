@@ -254,6 +254,10 @@
                     {% if is_hidden %}
                       hidden
                     {% endif %}
+
+                     {% if selected_variant.options[option_index] == value %}
+ class="active"
+ {% endif %}
                   >
                     <input
                       type="radio"
