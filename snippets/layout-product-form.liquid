@@ -264,21 +264,73 @@
     </div>
  
     <!-- Accordion Section -->
-    {% assign accordion = metaobjects.accordion_data.first %}
-    <div class="accordion">
-        {% for item in accordion.items.value %}
-        <div class="accordion-item">
-            <div class="accordion-header">{{ item.title }} <span class="accordion-toggle">{% if forloop.first %}−{% else %}+{% endif %}</span></div>
-            <div class="accordion-content {% if forloop.first %}active{% endif %}">
-                <ul>
-                    {% for point in item.points.value %}
-                    <li>{{ point }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+   {% assign acc = product.metafields.custom.accordion_data %}
+
+{% if acc %}
+
+<div class="accordion">
+
+  <!-- ACCORDION 1 : HAIER LIST -->
+  {% if acc.haier %}
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>Features</span>
+      <span class="icon">+</span>
+    </button>
+
+    <div class="accordion-content">
+      <ul>
+        {% for item in acc.haier %}
+        <li class="haier-block" style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
+          
+          {% if item.image %}
+          <img src="{{ item.image | img_url: 'master' }}" style="width:40px;height:auto;">
+          {% endif %}
+
+          {% if item.title %}
+          <span>{{ item.title }}</span>
+          {% endif %}
+        </li>
         {% endfor %}
+      </ul>
     </div>
+  </div>
+  {% endif %}
+
+
+  <!-- ACCORDION 2 : RICH TEXT 1 -->
+  {% if acc.richtext_1 %}
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>Details</span>
+      <span class="icon">+</span>
+    </button>
+
+    <div class="accordion-content">
+      {{ acc.richtext_1 }}
+    </div>
+  </div>
+  {% endif %}
+
+
+  <!-- ACCORDION 3 : RICH TEXT 2 -->
+  {% if acc.richtext_2 %}
+  <div class="accordion-item">
+    <button class="accordion-header">
+      <span>More Information</span>
+      <span class="icon">+</span>
+    </button>
+
+    <div class="accordion-content">
+      {{ acc.richtext_2 }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+{% endif %}
+
 
     <!-- How to Use Section -->
   {% assign how_to_use = product.metafields.custom.how_to_use.value %}
