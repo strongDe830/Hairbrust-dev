@@ -308,8 +308,17 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
 .snippet-action-sticky-product .subscription-select {
     width: auto;
 }
-.snippet-action-sticky-product  button.c-btn.add-to-basket {
-    margin: 0;
+.snippet-action-sticky-product button.c-btn.add-to-basket {
+    max-width: 310px;
+    width: 100%;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text svg {
+    margin-left: auto;
 }
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data .csdata-heading {
     font-weight: 600;
