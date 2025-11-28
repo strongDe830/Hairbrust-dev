@@ -155,7 +155,7 @@ sdfsdfsdf
              {% if variant_image %}
     <div class="variant-image-box">gg
     {% if sub_object.lozenge_text != blank %}
-                            <div class="mobile-lozenge-bar44">{{ sub_object.lozenge_text }}</div>
+                            <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
                           {% endif %}
       <img 
         src="{{ variant_image | image_url: width: 200 }}" 
@@ -165,6 +165,11 @@ sdfsdfsdf
   {% endif %}
 
        <span>{{ value }}</span> 
+            {% if free_gift_title != blank %}
+        <span class="cs-banner-text">                      
+                  {{ free_gift_title }}
+                     </span>
+                       {% endif %}
       </div>
       </div>
     {% endunless %}
