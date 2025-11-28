@@ -160,7 +160,15 @@ sdfsdfsdf
     </div>
   {% endif %}
 
-       <span>{{ value }}</span> 
+{% assign words = value | split: " " %}
+{% assign first_two = words[0] | append: " " | append: words[1] %}
+{% assign remaining = words | slice: 2, 100 | join: " " %}
+
+<div class="csdata-heading">
+  {{ first_two }} <span>{{ remaining }}</span>
+</div>
+
+    {% comment %} <span>{{ value }}</span> {% endcomment %}
        
             {% if free_gift != blank %}
             <span class="cs-free-gift-free">+ Free Gift</span>
