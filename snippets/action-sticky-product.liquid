@@ -79,6 +79,34 @@
   {{ cleaned | strip }}
 {% if remaining != blank %}  <span>{{ remaining }}</span> {% endif %}
 </div>
+    {%- unless value.variant.compare_at_price == value.variant.price -%}
+                              {% if value.variant.compare_at_price != blank
+                                and value.variant.compare_at_price != value.variant.price
+                              %}
+                                <div class="option-saving">
+                                  {% liquid
+                                    assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
+                                    assign saving_percentage = 100 | minus: saving_ratio
+                                  %}
+                                  <span>
+                                    {{- 'products.product.save' | t }}
+                                    {{ saving_percentage }}%
+                                  </span>
+                                </div>
+                              {% endif %}
+                            {%- endunless -%}
+                            <div class="prices">
+                              <span class="current">
+                                {{- value.variant.price | money }}
+                              </span>
+                              {%- unless value.variant.compare_at_price == value.variant.price -%}
+                                {% if value.variant.compare_at_price != blank %}
+                                  <span class="was">
+                                    {{- value.variant.compare_at_price | money }}
+                                  </span>
+                                {% endif %}
+                              {%- endunless -%}
+                            </div>
 
 
                   {% comment %}<span>{{ value }}</span> {% endcomment %}
