@@ -168,7 +168,7 @@ sdfsdfsdf
   {{ first_two }} <span>{{ remaining }}</span>
 </div>
 
-    {% comment %} <span>{{ value }}</span> {% endcomment %}
+    {% comment %}<span>{{ value }}</span> {% endcomment %}
        
             {% if free_gift != blank %}
             <span class="cs-free-gift-free">+ Free Gift</span>
@@ -180,43 +180,7 @@ sdfsdfsdf
     {%- endfor -%}
 </div>
 
-<script>
-$(document).ready(function() {
-  // Hide all details except the initially active tab
-  $('.variant-tabs').each(function() {
-    $(this).find('.variant-tab').each(function() {
-      if (!$(this).hasClass('active')) {
-        $(this).find('.variant-tab-details').hide();
-      }
-    });
-  });
 
-  // Click handler for variant tabs
-  $(document).on('click', '.variant-tab:not(.disabled)', function() {
-    var $tab = $(this);
-    var optionPosition = $tab.data('option-position');
-    var optionValue = $tab.data('option-value');
-
-    // Remove active class from all tabs in this option
-    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab').removeClass('active');
-
-    // Add active class to clicked tab
-    $tab.addClass('active');
-
-    // Hide all details for this option
-    $('.variant-tabs[data-option-position="'+optionPosition+'"] .variant-tab-details').hide();
-
-    // Show details for clicked tab
-    $tab.find('.variant-tab-details').show();
-
-    // Trigger corresponding radio input (optional, if using Shopify form)
-    var $radioInput = $('input[type="radio"][name*="-'+optionPosition+'"][value="'+optionValue+'"]');
-    if ($radioInput.length && !$radioInput.hasClass('disabled')) {
-      $radioInput[0].click();
-    }
-  });
-});
-</script>
 
 
 
