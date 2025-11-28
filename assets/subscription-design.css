@@ -205,3 +205,7 @@
     color: #7A7A7A;
     margin-bottom: 3px;
 }
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .checked-icon {
+    display: none;
+}
