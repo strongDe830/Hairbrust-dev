@@ -226,22 +226,30 @@
     <!-- About Section -->
 
 
-<pre>
-1. TYPE 1:
+
+
 {% for i in product.metafields.custom.about_advance.value %}
 TITLE: {{ i.title }}
 {% endfor %}
 
-2. TYPE 2:
-{% for i in product.metafields.custom.about_advance.references %}
-TITLE: {{ i.title }}
-{% endfor %}
 
-3. TYPE 3:
-{% for i in product.metafields.custom.about_advance %}
-TITLE: {{ i.value.title }}
-{% endfor %}
-</pre>
+{% assign about = product.metafields.custom.about_advance.value %}
+
+
+<div class="about-section">
+
+    <h3>{{ about.title }}</h3>
+    <p>{{ about.description }}</p>
+
+    <div class="badges">
+        {% for b in about.badges.value %}
+        <span class="badge">{{ b }}</span>
+        {% endfor %}
+    </div>
+
+</div>
+
+
 
    {% if product.metafields.custom.about_advance %}
   <div class="about-advance-wrapper">
