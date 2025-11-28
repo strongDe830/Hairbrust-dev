@@ -250,7 +250,11 @@
  class="disabled"
  {% endif %}
  {% endcapture %}
-                  <li
+                  <li  class="custom-inner-item-li  
+                    {% if selected_variant.options[option_index] == value %}
+ active
+ {% endif %}"
+                
                     {% if is_hidden %}
                       hidden
                     {% endif %}
@@ -414,6 +418,10 @@ $(document).on('click', '.variant-tab', function () {
 
     // Add active class to clicked tab
     $(this).addClass('active');
+
+
+
+    
 });
 
 
