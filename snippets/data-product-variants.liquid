@@ -104,6 +104,7 @@ sdfsdfsdf
   {%- for value in option.values -%}
     {%- liquid
       assign option_disabled = true
+      assign option_index = forloop.index0
       if value.available
         assign option_disabled = false
       endif
