@@ -8,6 +8,9 @@
 {%- if variant.available == true -%}
   <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
 
+{%- liquid
+  assign selected_variant = _product.selected_or_first_available_variant
+-%}
 
 
 
