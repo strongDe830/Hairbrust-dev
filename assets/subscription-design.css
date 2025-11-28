@@ -192,6 +192,8 @@
     letter-spacing: 0;
     color: #828282;
     opacity: 1;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.money {
     text-decoration: line-through;
 }
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.price-free-gift {
@@ -247,4 +249,92 @@
 }
 .data-product-variants .product-option-wrapper.subscription ul#variant-list {
     margin-top: 10px;
+}
+
+ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
+    padding: 6px 10px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.snippet-layout-product-form .product-short-desc p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 136%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-layout-product-form ul.trust-points li {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    letter-spacing: 0;
+}
+
+
+.snippet-action-sticky-product {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+}
+
+.snippet-action-sticky-product .variant-tabs-sticky {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data {
+    border: 1px solid #000000;
+    background: #FFFFFF;
+    padding: 20px 13px 20px 33px;
+    border-radius: 6px;
+    position: relative;
+}
+
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    background: #A06864;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.snippet-action-sticky-product .subscription-select {
+    width: auto;
+}
+.snippet-action-sticky-product  button.c-btn.add-to-basket {
+    margin: 0;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data span.cs-free-gift-free {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #7A7A7A;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 8px;
+    width: 18px;
+    border: 1px solid #000000;
+    height: 18px;
+    border-radius: 50%;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data:has(.variant-tab-sticky.active)::before {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 30px #000;
 }
