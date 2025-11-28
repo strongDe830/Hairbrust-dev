@@ -234,24 +234,17 @@
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
 
-     
 
-      {% if item.badges and item.badges.value %}
+     
           <ul class="badges-list">
             {% for badge in item.badges.value %}
               <li>{{ badge.title }}</li>
             {% endfor %}
           </ul>
+
+           {% if item.badges and item.badges.value %}
         {% endif %}
 
-        
-          <ul class="badges-list">
-            {% for badge in item.badges %}
-              <li>{{ badge }}</li>
-            {% endfor %}
-          </ul>
-             {% if item.badges %}
-        {% endif %}
 
       </div>
     {% endfor %}
