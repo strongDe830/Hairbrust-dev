@@ -9,13 +9,9 @@
   <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
 
 
-<<<<<<< HEAD
-      <h2>{{ product.title }}</h2>   
-=======
 
->>>>>>> 9b9b55d5a9073d55a4b0f0c66625c7405ba93ebd
 
-       <div class="variant-tabs-sticky" data-option-position="{{ option.position }}">
+          <div class="variant-tabs" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
           {%- liquid
             assign option_index = forloop.index0
@@ -56,7 +52,7 @@
 
                 <div
                   class="
-                    variant-tab-sticky {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
+                    variant-tab {% if is_selected %}active{% endif %} {% if option_disabled %}disabled{% endif %}
                     {% if selected_variant.options[option_index] == value %}
                     active
                     {% endif %}
@@ -65,53 +61,26 @@
                   data-option-value="{{ value | escape }}"
                   data-option-position="{{ option.position }}"
                 >
-                
-    {% if sub_object.lozenge_text != blank %}
+                  {% if variant_image %}
+                    <div class="variant-image-box">
+                      {% if sub_object.lozenge_text != blank %}
                         <div class="cs-mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
                       {% endif %}
-       
+                      <img
+                        src="{{ variant_image | image_url: width: 200 }}"
+                        alt="{{ value }}"
+                      >
+                    </div>
+                  {% endif %}
 
-              {% assign lower_value = value | downcase %}
-{% assign cleaned = lower_value | remove: 'subscription' %}
-{% assign remaining = '' %}
+                  {% assign words = value | split: ' ' %}
+                  {% assign first_two = words[0] | append: ' ' | append: words[1] %}
+                  {% assign remaining = words | slice: 2, 100 | join: ' ' %}
 
-{% if lower_value contains 'subscription' %}
-  {% assign remaining = 'subscription' %}
-{% endif %}
-
-<div class="csdata-heading">
-  {{ cleaned | strip }}
-{% if remaining != blank %}  <span>{{ remaining }}</span> {% endif %}
-</div>
-    {%- unless value.variant.compare_at_price == value.variant.price -%}
-                              {% if value.variant.compare_at_price != blank
-                                and value.variant.compare_at_price != value.variant.price
-                              %}
-                                <div class="option-saving">
-                                  {% liquid
-                                    assign saving_ratio = value.variant.price | times: 100.0 | divided_by: value.variant.compare_at_price | round
-                                    assign saving_percentage = 100 | minus: saving_ratio
-                                  %}
-                                  <span>
-                                    {{- 'products.product.save' | t }}
-                                    {{ saving_percentage }}%
-                                  </span>
-                                </div>
-                              {% endif %}
-                            {%- endunless -%}
-                            <div class="prices">
-                              <span class="current">
-                                {{- value.variant.price | money }}
-                              </span>
-                              {%- unless value.variant.compare_at_price == value.variant.price -%}
-                                {% if value.variant.compare_at_price != blank %}
-                                  <span class="was">
-                                    {{- value.variant.compare_at_price | money }}
-                                  </span>
-                                {% endif %}
-                              {%- endunless -%}
-                            </div>
-
+                  <div class="csdata-heading">
+                    {{ first_two }}
+                    <span>{{ remaining }}</span>
+                  </div>
 
                   {% comment %}<span>{{ value }}</span> {% endcomment %}
 
@@ -124,8 +93,6 @@
           {%- endfor -%}
         {%- endfor -%}
       </div>
-
-
 
     
 
