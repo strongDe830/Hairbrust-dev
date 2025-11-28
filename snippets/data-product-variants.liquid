@@ -477,6 +477,11 @@ $(document).on('click', '.variant-tab-sticky', function () {
 
 
 
+        $(document).on("click", "[data-asp-add-to-cart]", function (e) {
+    e.preventDefault();
+    $("form[data-product-form]").submit();
+});
+
 
 
 
