@@ -336,15 +336,9 @@
                               {% endfor %}
                             </ul>
                             {% if free_gift != blank %}
-                              <div class="banner">
-                                <span class="banner-text">
-                                  {% if free_gift_title != blank %}
-                                    {{ free_gift_title }}
-                                  {% else %}
-                                    Free gift worth {{ free_gift.price | money }}
-                                  {% endif %}
-                                </span>
-                              </div>
+                              {% comment %} <div class="banner">
+                                
+                              </div> {% endcomment %}
                               <div
                                 class="free-gift-wrapper"
                                 data-free-gift-id="{{ free_gift.selected_or_first_available_variant.id }}"
@@ -360,6 +354,13 @@
                                       class: 'featured-img'
                                   -}}
                                   <div class="free-gift-info">
+                                    <span class="banner-text">
+                                      {% if free_gift_title != blank %}
+                                        {{ free_gift_title }}
+                                      {% else %}
+                                        Free gift worth {{ free_gift.price | money }}
+                                      {% endif %}
+                                    </span>
                                     {{ free_gift.title }}
                                     <div class="free-gift-pricing">
                                       <span class="free-gift-free">Free</span>
