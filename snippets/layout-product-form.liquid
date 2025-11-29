@@ -186,7 +186,7 @@
                   endcase
                   assign border = lozenge.border | default: false
                 %}
-                <li  style="background-color:rgb({{lozenge.background_color_new.red}} {{lozenge.background_color_new.green}} {{lozenge.background_color_new.blue}} / {{lozenge.background_color_opacity}}%); !important;color:{{lozenge.text_color}} !important"  class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
+                <li  style="background-color:rgb({{lozenge.background_color_new.value.red}} {{lozenge.background_color_new.green}} {{lozenge.background_color_new.blue}} / {{lozenge.background_color_opacity}}%); !important;color:{{lozenge.text_color}} !important"  class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
               {% endfor %}
             </ul>
           {% endif %}
