@@ -961,6 +961,14 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
     gap: 12px;
     }
+    .variant-tab .cs-free-gift-free {
+    font-size: 10px;
+    bottom: -8px;
+    width: max-content;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.money {
+    font-size: 12px;
+    }
 }
 
 
