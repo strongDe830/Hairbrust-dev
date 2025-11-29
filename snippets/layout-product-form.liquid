@@ -315,82 +315,171 @@
 
 {% when 'tabs' %}
 
-
-
 {% assign accordion = product.metafields.custom.accordion_data.value %}
 
-{%if accordion %}
+{% if accordion %}
 
-{%if accordion.haier.value  %}
-<div class="hair-accordian-wrap">
-<div class="title-hair-tab  comman-pdp-tab-title">
-  {{accordion.hair_tab_title | default:'Hair' }}
+<style>
+/* Accordion styling */
+.comman-pdp-tab-title {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f2f2f2;
+  margin-bottom: 5px;
+}
+.comman-pdp-tab-title.active {
+  background: #d9d9d9;
+}
+.pdp-tab-content-comman {
+  display: none;
+  padding: 10px 0;
+}
+.tab-icon {
+  width: 10px;
+  height: 10px;
+}
+.tab-icon svg {
+  display: block;
+}
+.tab-icon svg.icon-minus {
+  display: none;
+}
+</style>
+
+<div class="accordion-wrapper">
+
+  {% if accordion.haier.value %}
+  <div class="hair-accordian-wrap">
+    <div class="title-hair-tab comman-pdp-tab-title">
+      {{ accordion.hair_tab_title | default: 'Hair' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="pdp-tab-content-comman hair-tab-pdp">
+      {% for field in accordion.haier.value %}
+      <span class="hair-points-wrap">
+        <img 
+          src="{{ field.image | image_url: width: 200 }}" 
+          loading="lazy"
+          alt="{{ field.image.alt }}"
+          width="200"
+          height="auto"
+        >
+        <span class="hair-tab-points">{{ field.text }}</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if accordion.body != blank %}
+  <div class="body-accordian-wrap">
+    <div class="title-body-tab comman-pdp-tab-title">
+      {{ accordion.body_tab_title | default: 'Body' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+    <div class="pdp-tab-content-comman body-tab-pdp">
+      {{ accordion.body | metafield_tag }}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if accordion.benifits != blank %}
+  <div class="benefits-accordian-wrap">
+    <div class="title-benefits-tab comman-pdp-tab-title">
+      {{ accordion.benifits_tab_title | default: 'Benefits' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+    <div class="pdp-tab-content-comman benefits-tab-pdp">
+      {{ accordion.benifits | metafield_tag }}
+    </div>
+  </div>
+  {% endif %}
+
 </div>
 
-<div class="pdp-tab-content-comman hair-tab-pdp">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
 
-  {% for field in accordion.haier.value %}
-  <span class="hair-points-wrap">
-    <img 
-      src="{{ field.image | image_url: width: 200 }}" 
-      loading="lazy"
-      alt="{{field.image.alt }}"
-      width="200"
-      height="auto"
-    >
-    <span class="hair-tab-points">{{ field.text }}</span>
-  </span>
-{% endfor %}
+  // Hide all tab contents initially
+  $('.pdp-tab-content-comman').hide();
 
+  // Open Hair tab by default, or first tab if Hair doesn't exist
+  if($('.hair-tab-pdp').length){
+    $('.hair-tab-pdp').show();
+    $('.title-hair-tab').addClass('active');
+    $('.title-hair-tab .icon-plus').hide();
+    $('.title-hair-tab .icon-minus').show();
+  } else {
+    var firstTab = $('.comman-pdp-tab-title').first();
+    firstTab.addClass('active');
+    firstTab.next('.pdp-tab-content-comman').show();
+    firstTab.find('.icon-plus').hide();
+    firstTab.find('.icon-minus').show();
+  }
 
-</div>
+  // Tab click functionality
+  $('.comman-pdp-tab-title').click(function(){
+    var content = $(this).next('.pdp-tab-content-comman');
 
-</div>
-{%endif %}
+    if(content.is(':visible')){
+      content.slideUp();
+      $(this).removeClass('active');
+      $(this).find('.icon-plus').show();
+      $(this).find('.icon-minus').hide();
+    } else {
+      // Close other tabs
+      $('.pdp-tab-content-comman').slideUp();
+      $('.comman-pdp-tab-title').removeClass('active');
+      $('.comman-pdp-tab-title .icon-plus').show();
+      $('.comman-pdp-tab-title .icon-minus').hide();
 
+      // Open clicked tab
+      content.slideDown();
+      $(this).addClass('active');
+      $(this).find('.icon-plus').hide();
+      $(this).find('.icon-minus').show();
+    }
+  });
+});
+</script>
 
+{% endif %}
 
-{%if accordion.body != blank  %}
-<div class="body-accordian-wrap">
-<div class="title-body-tab  comman-pdp-tab-title">
-  {{accordion.body_tab_title | default:'Body' }}
-</div>
-
-{%if accordion.body %}
-<div class="pdp-tab-content-comman body-tab-pdp">
-
-{{accordion.body | metafield_tag }}
-</div>
-{%endif %}
-
-</div>
-{%endif %}
-
-
-
-
-{%if accordion. benifits != blank  %}
-<div class="body-accordian-wrap">
-<div class="title-body-tab  comman-pdp-tab-title">
-  {{accordion.benifits_tab_title | default:'Benefits' }}
-</div>
-
-{%if accordion. benifits %}
-<div class="pdp-tab-content-comman body-tab-pdp">
-
-{{accordion.benifits | metafield_tag }}
-</div>
-{%endif %}
-
-</div>
-{%endif %}
-
-
-
-
-
-
-{%endif %}
 
 
 
