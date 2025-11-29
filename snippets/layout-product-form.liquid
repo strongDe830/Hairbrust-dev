@@ -326,7 +326,10 @@
 </div>
 
 <div class="pdp-tab-content-comman hair-tab-pdp">
- {{accordion.haier  }}
+{% for field in accordion.haier.value %}
+<span class="hair-tab-points">{{field.text }}</span>
+{% endfor %}
+
 </div>
 
 </div>
