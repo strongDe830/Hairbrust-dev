@@ -350,6 +350,46 @@
 
 
 
+{%if accordion.body != blank  %}
+<div class="body-accordian-wrap">
+<div class="title-body-tab  comman-pdp-tab-title">
+  {{accordion.body_tab_title | default:'Body' }}
+</div>
+
+{%if accordion.body %}
+<div class="pdp-tab-content-comman body-tab-pdp">
+
+{{accordion.body | metafield_tag }}
+</div>
+{%endif %}
+
+</div>
+{%endif %}
+
+
+
+
+{%if accordion. benifits != blank  %}
+<div class="body-accordian-wrap">
+<div class="title-body-tab  comman-pdp-tab-title">
+  {{accordion.benifits_tab_title | default:'Benefits' }}
+</div>
+
+{%if accordion. benifits %}
+<div class="pdp-tab-content-comman body-tab-pdp">
+
+{{accordion.benifits | metafield_tag }}
+</div>
+{%endif %}
+
+</div>
+{%endif %}
+
+
+
+
+
+
 {%endif %}
 
 
