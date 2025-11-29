@@ -534,6 +534,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data .variant-tab-sticky {
     padding: 20px 13px 20px 33px;
     cursor: pointer;
+    position: relative;
 }
 
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data .cs-mobile-lozenge-bar {
@@ -580,6 +581,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     line-height: 16px;
     letter-spacing: 0;
     color: #7A7A7A;
+    position: absolute;
 }
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data::before {
     content: "";
