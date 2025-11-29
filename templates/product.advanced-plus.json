@@ -55,6 +55,10 @@
           "type": "buy_button",
           "settings": {}
         },
+        "aboutadvance_3WU7Y8": {
+          "type": "aboutadvance",
+          "settings": {}
+        },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
           "settings": {
@@ -86,6 +90,7 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "aboutadvance_3WU7Y8",
         "disclaimer_k6BUJH",
         "customer_q_and_a_AGC3JH",
         "complementary_jG7QHC"
@@ -103,6 +108,7 @@
           "static": true,
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "center",
             "text_color": ""
           },
@@ -114,7 +120,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "center",
-                "margin_bottom": 16
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             },
@@ -123,6 +130,8 @@
               "settings": {
                 "text": "<p>In a 90-day consumer trial study, women saw visible improvements in the look, feel, and fullness of their hair.<br/><em>*Based on a double-blinded placebo consumer trial study with 129 people over 90 days</em></p>",
                 "add_margin": false,
+                "full_width": false,
+                "text_size": "md",
                 "text_align": "center",
                 "use_icons_in_list": false,
                 "margin_bottom": 24
@@ -135,16 +144,34 @@
             "text_Dqxtkh"
           ]
         },
+        "static-group-progress": {
+          "type": "group-progress",
+          "static": true,
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
+          "blocks": {}
+        },
         "static-group-statistics": {
           "type": "group-statistics",
           "static": true,
-          "settings": {},
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
           "blocks": {
             "statistic_TwHRcp": {
               "type": "statistic",
               "settings": {
                 "title": "88%",
-                "text": "of people said their hair looked better."
+                "heading_size": "lg",
+                "text": "of people said their hair looked better.",
+                "background_color": "",
+                "text_color": "",
+                "opacity_value": 1
               },
               "blocks": {}
             },
@@ -152,7 +179,11 @@
               "type": "statistic",
               "settings": {
                 "title": "87%",
-                "text": "of people said the condition of their hair had improved."
+                "heading_size": "lg",
+                "text": "of people said the condition of their hair had improved.",
+                "background_color": "",
+                "text_color": "",
+                "opacity_value": 1
               },
               "blocks": {}
             },
@@ -160,7 +191,11 @@
               "type": "statistic",
               "settings": {
                 "title": "87%",
-                "text": "of people said their hair looked healthier."
+                "heading_size": "lg",
+                "text": "of people said their hair looked healthier.",
+                "background_color": "",
+                "text_color": "",
+                "opacity_value": 1
               },
               "blocks": {}
             },
@@ -168,7 +203,11 @@
               "type": "statistic",
               "settings": {
                 "title": "86%",
-                "text": "of people said their hair looked and felt fuller."
+                "heading_size": "lg",
+                "text": "of people said their hair looked and felt fuller.",
+                "background_color": "",
+                "text_color": "",
+                "opacity_value": 1
               },
               "blocks": {}
             }
@@ -182,7 +221,16 @@
         }
       },
       "settings": {
-        "margin_bottom": "md"
+        "horizontal_layout": false,
+        "margin_bottom": "md",
+        "bg_color": "rgba(0,0,0,0)",
+        "border_radius": 0,
+        "custom_class": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 36,
+        "padding_right": 36
       }
     },
     "text_jR7VmD": {
@@ -193,6 +241,7 @@
           "name": "t:blocks.group_content.name",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "center",
             "text_color": ""
           },
@@ -205,7 +254,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "center",
-                "margin_bottom": 16
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             },
@@ -215,6 +265,8 @@
               "settings": {
                 "text": "<p>With 22 premium ingredients, Advanced+ replaces the need for multiple hair & wellness supplements.</p>",
                 "add_margin": false,
+                "full_width": false,
+                "text_size": "md",
                 "text_align": "center",
                 "use_icons_in_list": false,
                 "margin_bottom": 24
@@ -227,6 +279,7 @@
               "settings": {
                 "kicker": "One Powerful Formula",
                 "background_colour": "we-peep",
+                "text_color": "",
                 "margin_bottom": 8
               },
               "blocks": {}
@@ -237,6 +290,7 @@
               "settings": {
                 "kicker": "Clinically Proven Results",
                 "background_colour": "we-peep",
+                "text_color": "",
                 "margin_bottom": 8
               },
               "blocks": {}
@@ -247,6 +301,7 @@
               "settings": {
                 "kicker": "No Compromises",
                 "background_colour": "we-peep",
+                "text_color": "",
                 "margin_bottom": 8
               },
               "blocks": {}
@@ -279,6 +334,7 @@
           "static": true,
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -320,6 +376,7 @@
           "type": "group-content",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "center",
             "text_color": ""
           },
@@ -331,7 +388,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "center",
-                "margin_bottom": 16
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             },
@@ -340,6 +398,8 @@
               "settings": {
                 "text": "<p>With 22 premium ingredients. Advanced+ replaces the need for multiple hair & wellness supplements. One powerful formula. Clinically backed results. No compromises.</p>",
                 "add_margin": false,
+                "full_width": false,
+                "text_size": "md",
                 "text_align": "center",
                 "use_icons_in_list": false,
                 "margin_bottom": 5
@@ -378,6 +438,7 @@
               "type": "group-content",
               "settings": {
                 "add_margin": false,
+                "horizontal_layout": true,
                 "text_align": "start",
                 "text_color": ""
               },
@@ -387,6 +448,7 @@
                   "settings": {
                     "kicker": "Monthly breakdown",
                     "background_colour": "gallery",
+                    "text_color": "",
                     "margin_bottom": 20
                   },
                   "blocks": {}
@@ -396,6 +458,8 @@
                   "settings": {
                     "text": "<ul><li>Minerals, Antioxidants <strong>£35</strong></li><li>Stress reduction supplements <strong>£24</strong></li><li>Immunity <strong>£20</strong></li><li>Anti-Inflammatories <strong>£34</strong></li><li>DHT Blockers <strong>£14</strong></li><li>Anxiety Regulators <strong>£30</strong></li><li>Biotin <strong>£18</strong></li><li>100% Natural Turmeric <strong>£17</strong></li><li>Reishi Mushroom <strong>£35</strong></li><li>KSM-66 Ashwagandha <strong>£25</strong></li></ul>",
                     "add_margin": false,
+                    "full_width": false,
+                    "text_size": "md",
                     "text_align": "start",
                     "use_icons_in_list": false,
                     "margin_bottom": 35
@@ -407,6 +471,8 @@
                   "settings": {
                     "text": "<p><strong>Traditional supplements: </strong>£251  (£8 p/day)</p><p><strong>Advanced+ formula: </strong>£44.99 (£1.49 p/day)<strong><br/></strong><em>*based on 3 month subscription</em></p>",
                     "add_margin": false,
+                    "full_width": false,
+                    "text_size": "md",
                     "text_align": "start",
                     "use_icons_in_list": false,
                     "margin_bottom": 5
@@ -461,6 +527,7 @@
           "name": "t:blocks.group_content.name",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -473,7 +540,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "start",
-                "margin_bottom": 1
+                "margin_bottom": 1,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -545,6 +613,7 @@
           "static": true,
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "center",
             "text_color": ""
           },
@@ -556,7 +625,8 @@
                 "heading_type": "h2",
                 "heading_size": "lg",
                 "text_align": "center",
-                "margin_bottom": 1
+                "margin_bottom": 1,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -776,6 +846,7 @@
           "type": "group-content",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -788,7 +859,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "start",
-                "margin_bottom": 16
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -817,7 +889,8 @@
             "heading_type": "h2",
             "heading_size": "md",
             "text_align": "start",
-            "margin_bottom": 16
+            "margin_bottom": 16,
+            "text_color": ""
           },
           "blocks": {}
         }
