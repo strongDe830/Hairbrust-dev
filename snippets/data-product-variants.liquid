@@ -98,8 +98,17 @@
         {%- for option in _product.options_with_values -%}
              {%- if option.values.size > 1 -%}
           {%- liquid
-            assign option_index = forloop.index0
+               assign sub_option = false
+              assign option_index = forloop.index0
+
+              for option_value in option.values
+                if option_value.variant.selling_plan_allocations.size > 0
+                  assign sub_option = true
+                  break
+                endif
+              endfor
           -%}
+          {%if sub_option %}
           {%- for value in option.values -%}
             {%- liquid
               assign option_disabled = true
@@ -176,6 +185,7 @@
             {% endunless %}
           {%- endfor -%}
         {% endif %}
+        {%endif %}
         {%- endfor -%}
       </div>
 
