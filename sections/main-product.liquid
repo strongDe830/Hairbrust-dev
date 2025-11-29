@@ -6,6 +6,11 @@
 {%- render 'file-css', _name: 'section-main-product.css' -%}
 {%- render 'file-css', _name: 'snippet-layout-product-media.css' -%}
 
+    {{ 'subscription-design.css' | asset_url | stylesheet_tag }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
 <main-product
   class="{{- template_name }} u-space-below-md"
   data-section-type="{{- template_name -}}"

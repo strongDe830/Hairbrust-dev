@@ -47,7 +47,7 @@
 
 
 
-
+{%- unless _product.has_only_default_variant -%}
    {%- unless product.tags contains 'bundle' -%}
        <div class="variant-tabs-sticky" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
@@ -133,7 +133,7 @@
       </div>
 
 
-
+    {% endunless %}
     {% endunless %}
 
 
