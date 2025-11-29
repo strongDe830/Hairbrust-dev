@@ -96,6 +96,7 @@
 
        <div class="variant-tabs" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
+             {%- if option.values.size > 1 -%}
           {%- liquid
             assign option_index = forloop.index0
           -%}
@@ -174,6 +175,7 @@
               </div>
             {% endunless %}
           {%- endfor -%}
+        {% endif %}
         {%- endfor -%}
       </div>
 
