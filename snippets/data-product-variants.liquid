@@ -223,7 +223,7 @@
                   {{- option.name }}: <strong>{{- option.selected_value -}}</strong>
                 {% endif %}
               </legend>
-              <ul id="variant-lis {% unless sub_option %}normal_widthoy_sub_product {% endunless %}">
+              <ul id="variant-lis {% unless sub_option %}normal_without_sub_product {% endunless %}">
                 {%- for value in option.values -%}
                   {%- liquid
                     assign option_disabled = true
