@@ -96,9 +96,19 @@
 
        <div class="variant-tabs" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
+             {%- if option.values.size > 1 -%}
           {%- liquid
-            assign option_index = forloop.index0
+               assign sub_option = false
+              assign option_index = forloop.index0
+
+              for option_value in option.values
+                if option_value.variant.selling_plan_allocations.size > 0
+                  assign sub_option = true
+                  break
+                endif
+              endfor
           -%}
+          {%if sub_option %}
           {%- for value in option.values -%}
             {%- liquid
               assign option_disabled = true
@@ -174,6 +184,8 @@
               </div>
             {% endunless %}
           {%- endfor -%}
+        {% endif %}
+        {%endif %}
         {%- endfor -%}
       </div>
 
@@ -211,7 +223,7 @@
                   {{- option.name }}: <strong>{{- option.selected_value -}}</strong>
                 {% endif %}
               </legend>
-              <ul id="variant-list">
+              <ul id="variant-list" class="{% unless sub_option %}normal_without_sub_product{% endunless %}">
                 {%- for value in option.values -%}
                   {%- liquid
                     assign option_disabled = true
