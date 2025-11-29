@@ -99,13 +99,14 @@
           {% render block %}
 
         {%- when 'heading' -%}
-          <h1 class="u-heading-md product-title" id="product-form-title-{{ _section.id }}">{{- _product.title }}</h1>
-          <a
+           <a
             href="#product-reviews"
             aria-label="{{- 'products.product.view_reviews' | t -}}"
             class="ruk_rating_snippet"
             data-sku="{{- product_skus -}}"
           ></a>
+          <h1 class="u-heading-md product-title" id="product-form-title-{{ _section.id }}">{{- _product.title }}</h1>
+         
 
         {%- when 'short_desc' -%}
           {% if short_desc != blank %}
