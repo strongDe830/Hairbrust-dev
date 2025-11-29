@@ -327,8 +327,12 @@
 
 <div class="pdp-tab-content-comman hair-tab-pdp">
 {% for field in accordion.haier.value %}
-<span class="hair-tab-points">{{field.text }}</span>
+  <span class="hair-points-wrap">
+    <img src="{{ field.image | image_url }}" alt="">
+    <span class="hair-tab-points">{{ field.text }}</span>
+  </span>
 {% endfor %}
+}
 
 </div>
 
