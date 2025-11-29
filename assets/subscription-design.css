@@ -120,9 +120,6 @@
     font-weight: 500;
     color: #828282;
 }
-.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
-    gap: 14px;
-}
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.option-title {
     font-weight: 600;
     font-size: 16px;
@@ -131,10 +128,12 @@
 }
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
     gap: 14px;
-    padding-bottom: 12px;
+    padding-bottom: 14px;
 }
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points {
     border-top: 1px solid #F3EFEC;
+    padding-top: 14px;
+    margin-bottom: 2px;
 }
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li {
     flex-basis: 100%;
@@ -220,14 +219,14 @@
 
 
 .c-btn.add-to-basket {
-    padding-inline: 20px;
-    justify-content: space-between;
+    padding-inline: 25px;
+    justify-content: space-between !important;
     padding-block: 12px;
     border-radius: 6px;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 .cs-payment-icon {
     display: flex;
@@ -264,9 +263,9 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     color: #343436;
 }
 .snippet-layout-product-form ul.trust-points li {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 130%;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 130% !important;
     letter-spacing: 0;
 }
 
@@ -373,7 +372,39 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     font-size: 15px;
 }
 
-
+.snippet-layout-product-form .shopify-product-form ul.trust-points {
+    gap: 9px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-selector-title {
+    display: block;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-selector-title span.customsuppy-text {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+    margin-top: 3px;
+}
+.cs-container .about-advance-wrapper .about-advance-block {
+    margin-top: 50px;
+}
+.cs-container .about-advance-wrapper .about-advance-block h3 {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.cs-container .about-advance-wrapper .about-advance-block  p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin: 15px 0 25px 0;
+    color: #343436;
+}
 
 @media screen and (max-width:767px) {
     .snippet-action-sticky-product .sticky-title-bx {
