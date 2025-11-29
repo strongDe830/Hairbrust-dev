@@ -946,6 +946,21 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     .accordion-wrapper .pdp-tab-content-comman {
     padding-top: 12px;
     }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing span.free-gift-free {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+    font-size: 12px;
+    }   
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
+    gap: 12px;
+    }
 }
 
 
