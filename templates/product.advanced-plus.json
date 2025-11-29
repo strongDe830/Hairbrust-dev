@@ -57,7 +57,19 @@
         },
         "aboutadvance_3WU7Y8": {
           "type": "aboutadvance",
-          "settings": {}
+          "settings": {
+            "textcolor": "#343436",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff"
+          }
+        },
+        "how_to_use_cr9Ujm": {
+          "type": "how-to-use",
+          "settings": {
+            "textcolor": "#343436",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff"
+          }
         },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
@@ -91,6 +103,7 @@
         "variants_QqyznA",
         "buy_button_CqAMED",
         "aboutadvance_3WU7Y8",
+        "how_to_use_cr9Ujm",
         "disclaimer_k6BUJH",
         "customer_q_and_a_AGC3JH",
         "complementary_jG7QHC"
