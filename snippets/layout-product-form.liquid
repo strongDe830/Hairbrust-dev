@@ -111,9 +111,9 @@
           {% if short_desc != blank %}
             <div class="product-short-desc">
               <p>{{ short_desc }}</p>
-              {%- if product_information != blank -%}
+              {% comment %} {%- if product_information != blank -%}
                 <a href="#product-info" class="read-more">{{- 'buttons.read_more' | t -}}</a>
-              {%- endif -%}
+              {%- endif -%} {% endcomment %}
             </div>
           {% endif %}
 
