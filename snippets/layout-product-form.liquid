@@ -179,10 +179,14 @@
                       assign background_colour = 'tuna'
                     when 'Gallery White'
                       assign background_colour = 'gallery'
+                        when 'White'
+                        assign background_colour = 'pure-White'
+                             when 'Pale Rose'
+                        assign background_colour = 'Pale Rose'
                   endcase
                   assign border = lozenge.border | default: false
                 %}
-                <li class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
+                <li  style="background-color:{{lozenge.background_color_new}} !important;color:{{lozenge.text_color}} !important"  class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}">{{ lozenge.text }}</li>
               {% endfor %}
             </ul>
           {% endif %}
