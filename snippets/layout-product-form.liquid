@@ -320,6 +320,8 @@
 {% assign accordion = product.metafields.custom.accordion_data.value %}
 
 {%if accordion %}
+
+{%if accordion.haier.value  %}
 <div class="hair-accordian-wrap">
 <div class="title-hair-tab  comman-pdp-tab-title">
   {{accordion.hair_tab_title | default:'Hair' }}
@@ -344,6 +346,9 @@
 </div>
 
 </div>
+{%endif %}
+
+
 
 {%endif %}
 
