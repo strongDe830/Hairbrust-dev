@@ -6,6 +6,11 @@
 {%- render 'file-css', _name: 'section-main-product.css' -%}
 {%- render 'file-css', _name: 'snippet-layout-product-media.css' -%}
 
+    {{ 'subscription-design.css' | asset_url | stylesheet_tag }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
 <main-product
   class="{{- template_name }} u-space-below-md"
   data-section-type="{{- template_name -}}"
@@ -116,6 +121,116 @@
       "name": "t:sections.main_product.blocks.buy_button.name",
       "limit": 1
     },
+     {
+      "type": "aboutadvance",
+      "name": "About advance + block",
+      "limit": 1,
+       "settings": [
+ {
+          "type": "color",
+          "id": "textcolor",
+          "label": "text color",
+          "default":"#343436"
+        },
+         {
+          "type": "color",
+          "id": "badgebgcolor",
+          "label": "badge background color",
+          "default":"#A06864"
+        },
+        {
+          "type": "color",
+          "id": "badgecolor",
+          "label": "badge text color",
+           "default":"#fff"
+        },
+       ]
+    },
+     {
+      "type": "how-to-use",
+      "name": "how to use",
+      "limit": 1,
+       "settings": [
+ {
+          "type": "html",
+          "id": "svg_icon",
+          "label": "svg icon"
+        },
+         {
+          "type": "color",
+          "id": "bg_color",
+          "label": "bg_color",
+          "default":"#fff"
+        },
+         {
+          "type": "color",
+          "id": "badgebgcolor",
+          "label": "badge background color",
+          "default":"#A06864"
+        },
+        {
+          "type": "color",
+          "id": "badgecolor",
+          "label": "badge text color",
+           "default":"#fff"
+        },
+          {
+          "type": "color",
+          "id": "capsule_bg_color",
+          "label": "capsule text background color",
+           "default":"#F3EFEC"
+        },
+         {
+          "type": "color",
+          "id": "capsule_text_color",
+          "label": "capsule text  color",
+           "default":"#343436"
+        },
+       ]
+    },
+      {
+      "type": "tabs",
+      "name": "tabs section",
+      "limit": 1,
+       "settings": [
+ {
+          "type": "html",
+          "id": "svg_icon",
+          "label": "svg icon"
+        },
+         {
+          "type": "color",
+          "id": "bg_color",
+          "label": "bg_color",
+          "default":"#fff"
+        },
+         {
+          "type": "color",
+          "id": "badgebgcolor",
+          "label": "badge background color",
+          "default":"#A06864"
+        },
+        {
+          "type": "color",
+          "id": "badgecolor",
+          "label": "badge text color",
+           "default":"#fff"
+        },
+          {
+          "type": "color",
+          "id": "capsule_bg_color",
+          "label": "capsule text background color",
+           "default":"#F3EFEC"
+        },
+         {
+          "type": "color",
+          "id": "capsule_text_color",
+          "label": "capsule text  color",
+           "default":"#343436"
+        },
+       ]
+    },
+
     {
       "type": "alt_purchase_option",
       "name": "Alt Purchase Option",
