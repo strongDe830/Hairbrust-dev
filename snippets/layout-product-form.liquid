@@ -274,7 +274,7 @@
   {% assign how_to_use = product.metafields.custom.how_to_use.value %}
 
 {% if how_to_use %}
-<div class="how-to-use">
+<div style="background-color:{{block.settings.bg_color }};" class="how-to-use">
 
     <!-- TITLE -->
     {%if how_to_use.title != blank %}
