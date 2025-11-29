@@ -476,7 +476,7 @@ font-size: 15px;
     margin-top: 10px;
 }
 
-ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
+ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna {
     padding: 6px 10px;
     line-height: 100%;
     letter-spacing: 0.5px;
@@ -486,14 +486,14 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     font-size: 15px;
     font-weight: 500;
 }
-/* ul.c-lozenges li.c-lozenge.we-peep {
+ul.c-lozenges li.c-lozenge.we-peep {
     background: #FFFFFF;
     color: #A06864;
 }
 ul.c-lozenges li.c-lozenge.tuna.border {
     background-color: #E8CFCD38;
     color: #A06864;
-} */
+}
 .snippet-layout-product-form .product-short-desc p {
     font-weight: 400;
     font-size: 15px;
@@ -525,10 +525,14 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 }
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data {
     border: 1px solid #000000;
-    background: #FFFFFF;
-    padding: 20px 13px 20px 33px;
+    background: #fff;
+    padding: 0;
     border-radius: 6px;
     position: relative;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .variant-tab-sticky {
+    padding: 20px 13px 20px 33px;
+    cursor: pointer;
 }
 
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data .cs-mobile-lozenge-bar {
@@ -723,18 +727,6 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 }
 
 /* Accordion styling */
-.comman-pdp-tab-title {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: #f2f2f2;
-  margin-bottom: 5px;
-}
-.comman-pdp-tab-title.active {
-  background: #d9d9d9;
-}
 .pdp-tab-content-comman {
   display: none;
   padding: 10px 0;
@@ -894,7 +886,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     font-size: 28px;
     margin-block: 2px 5px;
     }
-    ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
+    ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna {
     font-size: 13px;
     }      
     .snippet-layout-product-form .shopify-product-form ul.c-lozenges {
