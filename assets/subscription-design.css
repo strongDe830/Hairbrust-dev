@@ -388,6 +388,7 @@ font-size: 15px;
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
     padding: 6px;
     align-items: center;
+    margin-top: 20px;
 }
 .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info {
     display: block;
@@ -944,5 +945,27 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     }
     .accordion-wrapper .pdp-tab-content-comman {
     padding-top: 12px;
+    }
+}
+
+
+@media screen and (max-width:375px) {
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content {
+    padding: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 5px;
+    }
+    .snippet-layout-product-form .data-product-variants .product-option-wrapper.subscription ul li label .option-header .prices .current {
+    font-size: 13px;
+    }
+    .c-btn.add-to-basket {
+    padding-inline: 18px;
+    }
+    .about-advance-wrapper .about-advance-block ul.badges-list li {
+    font-size: 11px;
+    }
+    .how-to-use .badges span.badge {
+    font-size: 11px;
     }
 }
