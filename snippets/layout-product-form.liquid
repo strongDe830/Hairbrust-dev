@@ -239,9 +239,12 @@
 
     {% for item in product.metafields.custom.about_advance.value %}
       <div class="about-advance-block">
-
-        <h3>{{ item.title }}</h3>
-        <p>{{ item.description }}</p>
+{%if item.title   %}
+        <h3 style="color:{{ block.settings.textcolor }}"  class="title-advance-plus">{{ item.title }}</h3>
+        {%endif %}
+        {% if  item.description  %}
+        <div style="color:{{ block.settings.textcolor }}" class="advanceplus-description">{{ item.description }}</div>
+        {%endif %}
 
 
 
@@ -251,7 +254,7 @@
        {% if item.badges and item.badges.value %}
           <ul class="badges-list">
             {% for badge in item.badges.value %}
-              <li>{{ badge }}</li>
+              <li style="background-color:{{ block.settings.badgebgcolor }};color:{{ block.settings.badgecolor }}">{{ badge }}</li>
             {% endfor %}
           </ul>
         {% endif %}
