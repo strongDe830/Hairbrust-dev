@@ -6,6 +6,9 @@
 {%- render 'file-css', _name: 'section-main-product.css' -%}
 {%- render 'file-css', _name: 'snippet-layout-product-media.css' -%}
 
+    {{ 'subscription-design.css' | asset_url | stylesheet_tag }}
+
+
 <main-product
   class="{{- template_name }} u-space-below-md"
   data-section-type="{{- template_name -}}"
