@@ -56,6 +56,10 @@
           "type": "buy_button",
           "settings": {}
         },
+        "aboutadvance_CQUffU": {
+          "type": "aboutadvance",
+          "settings": {}
+        },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
           "settings": {
@@ -98,6 +102,7 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "aboutadvance_CQUffU",
         "disclaimer_k6BUJH",
         "trackingmore_pre_edd_QrbXpk",
         "customer_q_and_a_bdQVAc",
@@ -144,6 +149,7 @@
           "type": "group-content",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -156,7 +162,8 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "start",
-                "margin_bottom": 16
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -184,7 +191,8 @@
             "heading_type": "h2",
             "heading_size": "md",
             "text_align": "start",
-            "margin_bottom": 16
+            "margin_bottom": 16,
+            "text_color": ""
           },
           "blocks": {}
         }
