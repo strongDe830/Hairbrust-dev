@@ -296,6 +296,9 @@
         </div>
     {% endif %}
 
+
+
+
     <!-- DESCRIPTIONS -->{% if how_to_use.description %}
     <div class="custom-description">{{ how_to_use.description |metafield_tag }}</div>
     {%endif %}
@@ -310,108 +313,144 @@
 {% endif %}
 
 
-
-
+{% when 'tabs' %}
 
 {% assign accordion = product.metafields.custom.accordion_data.value %}
 
 {% if accordion %}
-<div class="product-accordion">
 
-  <!-- HAIER IMAGE + TEXT LIST -->
-  {% if accordion.haier %}
-  <div class="pa-item">
-    <button class="pa-header">
-      <span>Features</span>
-      <span class="icon">+</span>
-    </button>
 
-    <div class="pa-content">
-      <ul>
-        {% for item in accordion.haier %}
-        <li style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
-          
-          {% if item.image %}
-            <img src="{{ item.image | img_url: 'master' }}" style="width:40px;height:auto;">
-          {% endif %}
 
-          {% if item.text %}
-            <span>{{ item.text }}</span>
-          {% endif %}
+<div class="accordion-wrapper">
 
-        </li>
-        {% endfor %}
-      </ul>
+  {% if accordion.haier.value %}
+  <div class="hair-accordian-wrap">
+    <div class="title-hair-tab comman-pdp-tab-title">
+      {{ accordion.hair_tab_title | default: 'Hair' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="pdp-tab-content-comman hair-tab-pdp">
+      {% for field in accordion.haier.value %}
+      <span class="hair-points-wrap">
+       {%if field.svg_icon %}
+          <span class="svg-icon-hair-points">{{field.svg_icon }}</span>
+          {%endif %}
+          {%if field.text %}
+        <span class="hair-tab-points">{{ field.text }}</span>
+        {%endif %}
+      </span>
+      {% endfor %}
     </div>
   </div>
   {% endif %}
 
-
-  <!-- DETAILS -->
-  {% if accordion.body %}
-  <div class="pa-item">
-    <button class="pa-header">
-      <span>Details</span>
-      <span class="icon">+</span>
-    </button>
-
-    <div class="pa-content">
+  {% if accordion.body != blank %}
+  <div class="body-accordian-wrap">
+    <div class="title-body-tab comman-pdp-tab-title">
+      {{ accordion.body_tab_title | default: 'Body' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+    <div class="pdp-tab-content-comman body-tab-pdp">
       {{ accordion.body | metafield_tag }}
     </div>
   </div>
   {% endif %}
 
-
-  <!-- BENEFITS -->
-  {% if accordion.benifits %}
-  <div class="pa-item">
-    <button class="pa-header">
-      <span>Benefits</span>
-      <span class="icon">+</span>
-    </button>
-
-    <div class="pa-content">
+  {% if accordion.benifits != blank %}
+  <div class="benefits-accordian-wrap">
+    <div class="title-benefits-tab comman-pdp-tab-title">
+      {{ accordion.benifits_tab_title | default: 'Benefits' }}
+      <span class="tab-icon">
+        <!-- Plus -->
+        <svg class="icon-plus" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="5.05469" y1="0.000492452" x2="5.04483" y2="10.0005" stroke="#FDFDFD"/>
+          <line x1="10.0001" y1="5.04529" x2="0.000110576" y2="5.04751" stroke="#FDFDFD"/>
+        </svg>
+        <!-- Minus -->
+        <svg class="icon-minus" width="10" height="1" viewBox="0 0 10 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10.0001" y1="0.5" x2="0.000110576" y2="0.502219" stroke="#FDFDFD"/>
+        </svg>
+      </span>
+    </div>
+    <div class="pdp-tab-content-comman benefits-tab-pdp">
       {{ accordion.benifits | metafield_tag }}
     </div>
   </div>
   {% endif %}
 
 </div>
-{% endif %}
+
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function(){
 
-  const wrapper = document.querySelector(".product-accordion");
-  if (!wrapper) return;
+  // Hide all tab contents initially
+  $('.pdp-tab-content-comman').hide();
 
-  const items = wrapper.querySelectorAll(".pa-item");
+  // Open Hair tab by default, or first tab if Hair doesn't exist
+  if($('.hair-tab-pdp').length){
+    $('.hair-tab-pdp').show();
+    $('.title-hair-tab').addClass('active');
+    $('.title-hair-tab .icon-plus').hide();
+    $('.title-hair-tab .icon-minus').show();
+  } else {
+    var firstTab = $('.comman-pdp-tab-title').first();
+    firstTab.addClass('active');
+    firstTab.next('.pdp-tab-content-comman').show();
+    firstTab.find('.icon-plus').hide();
+    firstTab.find('.icon-minus').show();
+  }
 
-  items.forEach((item) => {
-    const header = item.querySelector(".pa-header");
+  // Tab click functionality
+  $('.comman-pdp-tab-title').click(function(){
+    var content = $(this).next('.pdp-tab-content-comman');
 
-    header.addEventListener("click", function () {
+    if(content.is(':visible')){
+      content.slideUp();
+      $(this).removeClass('active');
+      $(this).find('.icon-plus').show();
+      $(this).find('.icon-minus').hide();
+    } else {
+      // Close other tabs
+      $('.pdp-tab-content-comman').slideUp();
+      $('.comman-pdp-tab-title').removeClass('active');
+      $('.comman-pdp-tab-title .icon-plus').show();
+      $('.comman-pdp-tab-title .icon-minus').hide();
 
-      const isOpen = item.classList.contains("active");
-
-      // CLOSE ALL
-      items.forEach((i) => {
-        i.classList.remove("active");
-        i.querySelector(".pa-content").style.maxHeight = null;
-      });
-
-      // OPEN CLICKED ONE
-      if (!isOpen) {
-        item.classList.add("active");
-        const content = item.querySelector(".pa-content");
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-
-    });
+      // Open clicked tab
+      content.slideDown();
+      $(this).addClass('active');
+      $(this).find('.icon-plus').hide();
+      $(this).find('.icon-minus').show();
+    }
   });
-
 });
 </script>
+
+{% endif %}
+
+
 
 
 
