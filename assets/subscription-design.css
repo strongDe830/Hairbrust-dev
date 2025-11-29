@@ -586,7 +586,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 .snippet-action-sticky-product .variant-tabs-sticky .cs-data::before {
     content: "";
     position: absolute;
-    top: 12px;
+    top: 14px;
     left: 8px;
     width: 18px;
     border: 1px solid #000000;
