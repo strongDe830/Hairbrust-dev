@@ -253,8 +253,21 @@
 ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     padding: 6px 10px;
     line-height: 100%;
-    letter-spacing: 0;
+    letter-spacing: 0.5px;
+    border: 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
 }
+/* ul.c-lozenges li.c-lozenge.we-peep {
+    background: #FFFFFF;
+    color: #A06864;
+}
+ul.c-lozenges li.c-lozenge.tuna.border {
+    background-color: #E8CFCD38;
+    color: #A06864;
+} */
 .snippet-layout-product-form .product-short-desc p {
     font-weight: 400;
     font-size: 15px;
@@ -397,12 +410,63 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     letter-spacing: 0;
     color: #343436;
 }
-.cs-container .about-advance-wrapper .about-advance-block  p {
+.cs-container .about-advance-wrapper .about-advance-block p {
     font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    letter-spacing: 0;
+    margin: 15px 0 25px 0;
+    color: #343436;
+}
+
+.cs-container .how-to-use {
+    background: #FDFDFD;
+    padding: 16px 15px;
+    border-radius: 12px;
+}
+.cs-container .how-to-use h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    margin-bottom: 16px;
+}
+.cs-container .how-to-use .badges {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.cs-container .how-to-use .badges span.badge {
+    background: #A06864;
+    padding: 6px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 500;
     font-size: 15px;
     line-height: 100%;
     letter-spacing: 0;
-    margin: 15px 0 25px 0;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.cs-container .how-to-use p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 126%;
+    letter-spacing: 0;
+    color: #343436;
+    margin: 0 0 16px 0;
+}
+.cs-container .how-to-use .capsules {
+    background: #F3EFEC;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 134%;
+    letter-spacing: 0;
     color: #343436;
 }
 
@@ -416,5 +480,56 @@ ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
     .snippet-action-sticky-product button.c-btn.add-to-basket {
     max-width: 100%;
     width: 100%;
+    }
+    .variant-tab .cs-mobile-lozenge-bar {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-saving span {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li svg {
+    width: 12px;
+    }
+    .cs-container .about-advance-wrapper .about-advance-block h3 {
+    font-size: 28px;
+    }
+    .cs-container .about-advance-wrapper .about-advance-block p {
+    font-size: 14px;
+    }
+    .cs-container .how-to-use h3 {
+    font-size: 15px;
+    }
+    .cs-container .how-to-use .badges span.badge {
+    font-size: 13px;
+    }
+    .cs-container .how-to-use p {
+    font-size: 14px;
+    }
+    .cs-container .how-to-use .capsules {
+    font-size: 12px;
+    }
+    .cs-payment-icon {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 10px;
+    }         
+    .snippet-layout-product-form .product-title {
+    font-size: 28px;
+    }
+    ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna.border {
+    font-size: 13px;
+    }      
+    .snippet-layout-product-form .shopify-product-form ul.c-lozenges {
+    gap: 5px;
+    }
+    .snippet-layout-product-form ul.trust-points li {
+    font-size: 14px!important;
+    }      
+    .snippet-layout-product-form .product-short-desc p {
+    font-size: 14px;
     }
 }
