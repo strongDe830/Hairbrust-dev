@@ -230,7 +230,7 @@
           <span>{{block.settings.text }}</span>
           {% endif %}
           {%if block.settings.image %}
-        <img src="{{block.settings.image | img_url:'500x' }}" alt="Payment Icon" class="payment-icon">
+        <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
         {%endif %}
           </div>
 
