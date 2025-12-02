@@ -420,36 +420,41 @@
     
     <script>
  
-$(document).on('click', '.variant-tab', function () {
-    // Stop click if the tab is disabled
-    if ($(this).hasClass('disabled')) return;
+document.addEventListener("click", function (e) {
+    const tab = e.target.closest(".variant-tab");
+    if (!tab) return; // click not on .variant-tab
 
-    // Remove active from all siblings inside the same .variant-tabs wrapper
-    $(this)
-        .closest('.variant-tabs')
-        .find('.variant-tab')
-        .removeClass('active');
+    // If tab is disabled → stop
+    if (tab.classList.contains("disabled")) return;
 
-    // Add active class to clicked tab
-    $(this).addClass('active');
+    // Remove active from all siblings inside same wrapper
+    const wrapper = tab.closest(".variant-tabs");
+    if (wrapper) {
+        wrapper.querySelectorAll(".variant-tab").forEach(el => {
+            el.classList.remove("active");
+        });
+    }
+
+    // Add active to clicked tab
+    tab.classList.add("active");
 
     // Remove active from all variant sections
-    $(".custom-li-inner-vairant-section").removeClass("active");
+    document.querySelectorAll(".custom-li-inner-vairant-section").forEach(el => {
+        el.classList.remove("active");
+    });
 
-    // Get target section from clicked tab
-    var targetSection = $(this).attr("data-variant-custom");
+    // Get target section value
+    const targetSection = tab.getAttribute("data-variant-custom");
 
-    // Add active to corresponding section
-    $(".data-var-li-" + targetSection).addClass("active");
-        $(".input-variant-input-section-" + targetSection).trigger("click");
+    // Add active to correct variant content
+    const section = document.querySelector(".data-var-li-" + targetSection);
+    if (section) section.classList.add("active");
 
-
-
-
-
-
-
+    // Trigger click on input
+    const input = document.querySelector(".input-variant-input-section-" + targetSection);
+    if (input) input.click();
 });
+
 
     </script>
 
@@ -465,42 +470,51 @@ $(document).on('click', '.variant-tab', function () {
 
 
     <script>
- 
-$(document).on('click', '.variant-tab-sticky', function () {
-    // Stop click if the tab is disabled
-    if ($(this).hasClass('disabled')) return;
+ document.addEventListener("click", function (e) {
+    const tab = e.target.closest(".variant-tab-sticky");
+    if (!tab) return; // Not clicked on .variant-tab-sticky
 
-    // Remove active from all siblings inside the same .variant-tabs wrapper
-    $(this)
-        .closest('.variant-tabs-sticky')
-        .find('.variant-tab-sticky')
-        .removeClass('active');
+    // Stop if disabled
+    if (tab.classList.contains("disabled")) return;
 
-    // Add active class to clicked tab
-    $(this).addClass('active');
+    // Remove active class from siblings inside .variant-tabs-sticky
+    const wrapper = tab.closest(".variant-tabs-sticky");
+    if (wrapper) {
+        wrapper.querySelectorAll(".variant-tab-sticky").forEach(el => {
+            el.classList.remove("active");
+        });
+    }
+
+    // Add active to clicked tab
+    tab.classList.add("active");
 
     // Remove active from all variant sections
-    $(".custom-li-inner-vairant-section").removeClass("active");
+    document.querySelectorAll(".custom-li-inner-vairant-section").forEach(el => {
+        el.classList.remove("active");
+    });
 
-    // Get target section from clicked tab
-    var targetSection = $(this).attr("data-variant-custom");
+    // Read target section
+    const targetSection = tab.getAttribute("data-variant-custom");
 
-    // Add active to corresponding section
-    $(".data-var-li-" + targetSection).addClass("active");
-        $(".input-variant-input-section-" + targetSection).trigger("click");
+    // Activate right section
+    const section = document.querySelector(".data-var-li-" + targetSection);
+    if (section) section.classList.add("active");
 
-  
-
-
-
-
+    // Trigger click on input
+    const input = document.querySelector(".input-variant-input-section-" + targetSection);
+    if (input) input.click();
 });
 
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest("[data-asp-add-to-cart]");
+    if (!btn) return;
 
-      $(document).on("click", "[data-asp-add-to-cart]", function (e) {
     e.preventDefault();
-    $("[data-product-submit-button]").click();
+
+    const submitBtn = document.querySelector("[data-product-submit-button]");
+    if (submitBtn) submitBtn.click();
 });
+
 
 
     </script>
