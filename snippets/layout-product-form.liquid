@@ -226,9 +226,9 @@
 
           {%- when 'payment-icons' -%}
           <div class="cs-payment-icon">
-            {%if block.settings.Secure payments  %}
+            {% if block.settings.Secure payments  %}
           <span>{{block.settings.text }}</span>
-          {%endif %}
+          {% endif %}
           {%if block.settings.image %}
         <img src="{{block.settings.image | img_url:'500x' }}" alt="Payment Icon" class="payment-icon">
         {%endif %}
