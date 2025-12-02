@@ -56,9 +56,19 @@
           "type": "buy_button",
           "settings": {}
         },
+        "payment_icons_fRA3VT": {
+          "type": "payment-icons",
+          "settings": {
+            "textcolor": "Secure payments"
+          }
+        },
         "aboutadvance_CQUffU": {
           "type": "aboutadvance",
-          "settings": {}
+          "settings": {
+            "textcolor": "#343436",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff"
+          }
         },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
@@ -102,6 +112,7 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "payment_icons_fRA3VT",
         "aboutadvance_CQUffU",
         "disclaimer_k6BUJH",
         "trackingmore_pre_edd_QrbXpk",
