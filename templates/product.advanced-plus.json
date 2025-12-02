@@ -55,6 +55,12 @@
           "type": "buy_button",
           "settings": {}
         },
+        "payment_icons_CY4Xxh": {
+          "type": "payment-icons",
+          "settings": {
+            "text": "Secure payments"
+          }
+        },
         "aboutadvance_3WU7Y8": {
           "type": "aboutadvance",
           "settings": {
@@ -116,6 +122,7 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "payment_icons_CY4Xxh",
         "aboutadvance_3WU7Y8",
         "tabs_pWkMcT",
         "how_to_use_cr9Ujm",
