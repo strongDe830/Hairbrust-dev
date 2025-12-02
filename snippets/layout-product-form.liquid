@@ -224,9 +224,14 @@
             {%- endif -%}
           </button>
 
+          {%- when 'payment-icons' -%}
           <div class="cs-payment-icon">
-          <span>Secure payments</span>
-        <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
+            {%if block.settings.Secure payments  %}
+          <span>{{block.settings.text }}</span>
+          {%endif %}
+          {%if block.settings.image %}
+        <img src="{{block.settings.image }}" alt="Payment Icon" class="payment-icon">
+        {%endif %}
           </div>
 
 {%- when 'aboutadvance' -%}
