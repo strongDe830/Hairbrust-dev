@@ -55,6 +55,36 @@
           "type": "buy_button",
           "settings": {}
         },
+        "aboutadvance_3WU7Y8": {
+          "type": "aboutadvance",
+          "settings": {
+            "textcolor": "#343436",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff"
+          }
+        },
+        "tabs_pWkMcT": {
+          "type": "tabs",
+          "settings": {
+            "svg_icon": "",
+            "bg_color": "#ffffff",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff",
+            "capsule_bg_color": "#f3efec",
+            "capsule_text_color": "#343436"
+          }
+        },
+        "how_to_use_cr9Ujm": {
+          "type": "how-to-use",
+          "settings": {
+            "svg_icon": "<svg width=\"22\" height=\"23\" viewbox=\"0 0 22 23\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M21.2903 23H16.3226C15.9301 23 15.6129 22.678 15.6129 22.2812V0.71875C15.6129 0.322 15.9301 0 16.3226 0H21.2903C21.6828 0 22 0.322 22 0.71875V22.2812C22 22.678 21.6828 23 21.2903 23ZM20.5806 1.4375H17.0323V21.5625H20.5806V1.4375ZM13.4839 23H8.51613C8.12439 23 7.80645 22.678 7.80645 22.2812V12.2188C7.80645 11.822 8.12439 11.5 8.51613 11.5H13.4839C13.8763 11.5 14.1935 11.822 14.1935 12.2188V22.2812C14.1935 22.678 13.8763 23 13.4839 23ZM12.7742 12.9375H9.22581V21.5625H12.7742V12.9375ZM5.67742 23H0.709677C0.317935 23 0 22.678 0 22.2812V7.90625C0 7.5095 0.317935 7.1875 0.709677 7.1875H5.67742C6.06916 7.1875 6.3871 7.5095 6.3871 7.90625V22.2812C6.3871 22.678 6.06916 23 5.67742 23ZM4.96774 8.625H1.41935V21.5625H4.96774V8.625Z\" fill=\"#343436\"></path>\n</svg>",
+            "bg_color": "#ffffff",
+            "badgebgcolor": "#a06864",
+            "badgecolor": "#ffffff",
+            "capsule_bg_color": "#f3efec",
+            "capsule_text_color": "#343436"
+          }
+        },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
           "settings": {
@@ -86,6 +116,9 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "aboutadvance_3WU7Y8",
+        "tabs_pWkMcT",
+        "how_to_use_cr9Ujm",
         "disclaimer_k6BUJH",
         "customer_q_and_a_AGC3JH",
         "complementary_jG7QHC"
@@ -103,72 +136,146 @@
           "static": true,
           "settings": {
             "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
+            "horizontal_layout": true,
+            "text_align": "start",
+            "text_color": "#ffffff"
           },
           "blocks": {
+            "kicker_Dk6CjV": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "AT THE ROOT",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
             "heading_imPaDF": {
               "type": "heading",
               "settings": {
-                "heading": "Proven by real results",
+                "heading": "<em>Transform</em> your hair from within.",
                 "heading_type": "h2",
                 "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
+                "text_align": "start",
+                "full_width": false,
+                "margin_bottom": 16,
+                "text_color": "#ffffff"
               },
               "blocks": {}
             },
             "text_Dqxtkh": {
               "type": "text",
               "settings": {
-                "text": "<p>In a 90-day consumer trial study, women saw visible improvements in the look, feel, and fullness of their hair.<br/><em>*Based on a double-blinded placebo consumer trial study with 129 people over 90 days</em></p>",
+                "text": "<p>Discover a powerful, research-backed supplement that targets the root causes of hair thinning.</p>",
                 "add_margin": false,
-                "text_align": "center",
+                "full_width": false,
+                "text_color": "#ffffff",
+                "text_size": "md",
+                "text_align": "start",
                 "use_icons_in_list": false,
                 "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "image_QXqJNG": {
+              "type": "image",
+              "name": "t:blocks.image.name",
+              "settings": {
+                "block_image": "shopify://shop_images/ChatGPT_Image_Nov_12_2025_08_24_21_PM_2_4287b68b-6823-4221-be91-bca467d65d70.png",
+                "block_mobile_image": "shopify://shop_images/ChatGPT_Image_Nov_12_2025_08_24_21_PM_1.png",
+                "margin_bottom": 0
               },
               "blocks": {}
             }
           },
           "block_order": [
+            "kicker_Dk6CjV",
             "heading_imPaDF",
-            "text_Dqxtkh"
+            "text_Dqxtkh",
+            "image_QXqJNG"
           ]
+        },
+        "static-group-progress": {
+          "type": "group-progress",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
+          "blocks": {}
         },
         "static-group-statistics": {
           "type": "group-statistics",
           "static": true,
-          "settings": {},
+          "settings": {
+            "block_layout": "grid",
+            "rows_desktop": "2",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
           "blocks": {
             "statistic_TwHRcp": {
               "type": "statistic",
               "settings": {
-                "title": "88%",
-                "text": "of people said their hair looked better."
+                "title": "Stronger, Healthier Hair.",
+                "heading_size": "sm",
+                "text": "Discover a powerful, research-backed supplement that targets the root causes of hair thinning breakage.",
+                "block_icon": "shopify://shop_images/Group_242.svg",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": false,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_KGnKd9": {
               "type": "statistic",
               "settings": {
-                "title": "87%",
-                "text": "of people said the condition of their hair had improved."
+                "title": "Shield Against Damage.",
+                "heading_size": "sm",
+                "text": "Discover a powerful, research-backed supplement that targets the root causes of hair thinning breakage.",
+                "block_icon": "shopify://shop_images/Group_244.svg",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": false,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_xEXnFi": {
               "type": "statistic",
               "settings": {
-                "title": "87%",
-                "text": "of people said their hair looked healthier."
+                "title": "Grow Longer & Stronger.",
+                "heading_size": "sm",
+                "text": "Discover a powerful, research-backed supplement that targets the root causes of hair thinning breakage.",
+                "block_icon": "shopify://shop_images/Vector_bf167b19-0641-4254-a7f3-0503e4def4ff.svg",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": false,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_RgerqR": {
               "type": "statistic",
               "settings": {
-                "title": "86%",
-                "text": "of people said their hair looked and felt fuller."
+                "title": "Supports Better Sleep.",
+                "heading_size": "sm",
+                "text": "Discover a powerful, research-backed supplement that targets the root causes of hair thinning breakage.",
+                "block_icon": "shopify://shop_images/Vector_d071b85a-4e0a-42be-aee9-430747a7cdd8.svg",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": false,
+                "opacity_value": 1
               },
               "blocks": {}
             }
@@ -182,315 +289,536 @@
         }
       },
       "settings": {
-        "margin_bottom": "md"
+        "horizontal_layout": false,
+        "margin_bottom": "md",
+        "bg_color": "radial-gradient(rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "mobile_bg_color": "radial-gradient(rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "image_position": true,
+        "border_radius": 0,
+        "custom_class": "remove-padding",
+        "full_width": false,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
-    "text_jR7VmD": {
-      "type": "text",
-      "blocks": {
-        "group_content_96p93i": {
-          "type": "group-content",
-          "name": "t:blocks.group_content.name",
-          "settings": {
-            "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_7xaHPU": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
-              "settings": {
-                "heading": "One Formula That Replaces Your Entire Supplement Shelf",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_Xckbng": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>With 22 premium ingredients, Advanced+ replaces the need for multiple hair & wellness supplements.</p>",
-                "add_margin": false,
-                "text_align": "center",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            },
-            "kicker_THHTkp": {
-              "type": "kicker",
-              "name": "t:blocks.kicker.name",
-              "settings": {
-                "kicker": "One Powerful Formula",
-                "background_colour": "we-peep",
-                "margin_bottom": 8
-              },
-              "blocks": {}
-            },
-            "kicker_Qaa4Pw": {
-              "type": "kicker",
-              "name": "t:blocks.kicker.name",
-              "settings": {
-                "kicker": "Clinically Proven Results",
-                "background_colour": "we-peep",
-                "margin_bottom": 8
-              },
-              "blocks": {}
-            },
-            "kicker_cBVhJJ": {
-              "type": "kicker",
-              "name": "t:blocks.kicker.name",
-              "settings": {
-                "kicker": "No Compromises",
-                "background_colour": "we-peep",
-                "margin_bottom": 8
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_7xaHPU",
-            "text_Xckbng",
-            "kicker_THHTkp",
-            "kicker_Qaa4Pw",
-            "kicker_cBVhJJ"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_96p93i"
-      ],
-      "name": "t:sections.text.name",
-      "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "xs"
-      }
-    },
-    "page_hero_full_width_jAkCzN": {
-      "type": "page-hero-full-width",
+    "text_grid_k3mXPr": {
+      "type": "text-grid",
       "blocks": {
         "static-group-content": {
           "type": "group-content",
           "static": true,
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
-          "blocks": {}
-        },
-        "static-media": {
-          "type": "media",
-          "static": true,
-          "settings": {
-            "image_mobile": "shopify://shop_images/monthly.mob.svg",
-            "image": "shopify://shop_images/Monthly.svg",
-            "image_size": "large",
-            "iframe_embed": "",
-            "media_type": "image",
-            "video_source": "shopify-upload",
-            "use_controls": false
-          },
-          "blocks": {}
-        },
-        "static-badge": {
-          "type": "badge",
-          "static": true,
-          "settings": {
-            "text": ""
-          },
-          "blocks": {}
-        }
-      },
-      "name": "t:sections.page_hero_full_width.name",
-      "settings": {
-        "content_position": "top_left",
-        "margin_bottom": "md"
-      }
-    },
-    "text_q4FB94": {
-      "type": "text",
-      "blocks": {
-        "group_content_WnqxDL": {
-          "type": "group-content",
-          "settings": {
-            "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
-          },
           "blocks": {
-            "heading_aP33Ma": {
-              "type": "heading",
+            "kicker_cnBfrm": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
               "settings": {
-                "heading": "One Formula That Replaces Your Entire Supplement Shelf",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
+                "kicker": "INGREDIENTS",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
               },
               "blocks": {}
             },
-            "text_bbiUxR": {
-              "type": "text",
+            "heading_AeBF39": {
+              "type": "heading",
               "settings": {
-                "text": "<p>With 22 premium ingredients. Advanced+ replaces the need for multiple hair & wellness supplements. One powerful formula. Clinically backed results. No compromises.</p>",
-                "add_margin": false,
+                "heading": "<em>Our most advanced </em>supplement.",
+                "heading_type": "h2",
+                "heading_size": "md",
                 "text_align": "center",
-                "use_icons_in_list": false,
-                "margin_bottom": 5
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_aP33Ma",
-            "text_bbiUxR"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_WnqxDL"
-      ],
-      "disabled": true,
-      "settings": {
-        "text_align": "centre",
-        "justify_content": "centre",
-        "margin_bottom": "none"
-      }
-    },
-    "text_and_media_Kw9PGA": {
-      "type": "text-and-media",
-      "blocks": {
-        "content_media_GQMKpc": {
-          "type": "content-media",
-          "settings": {
-            "background_colour": "white",
-            "layout_direction": "media-right",
-            "content_alignment": "middle"
-          },
-          "blocks": {
-            "group_content_WEqhph": {
-              "type": "group-content",
-              "settings": {
-                "add_margin": false,
-                "text_align": "start",
+                "full_width": true,
+                "margin_bottom": 1,
                 "text_color": ""
               },
+              "blocks": {}
+            },
+            "text_UzRzmw": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Rooted in research and developed with experts, our formulas support healthier<br/>hair from the inside out.</p>",
+                "add_margin": false,
+                "full_width": false,
+                "text_color": "",
+                "text_size": "md",
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_kickers_tyeYic": {
+              "type": "group-kickers",
+              "name": "t:blocks.group_kickers.name",
+              "settings": {
+                "margin_bottom": 0,
+                "full_width": false
+              },
               "blocks": {
-                "kicker_tbLpRq": {
+                "kicker_fzrckC": {
                   "type": "kicker",
+                  "name": "t:blocks.kicker.name",
                   "settings": {
-                    "kicker": "Monthly breakdown",
-                    "background_colour": "gallery",
-                    "margin_bottom": 20
+                    "kicker": "Folishield",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
                   },
                   "blocks": {}
                 },
-                "text_WrR9yP": {
-                  "type": "text",
+                "kicker_PtctbY": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
                   "settings": {
-                    "text": "<ul><li>Minerals, Antioxidants <strong>£35</strong></li><li>Stress reduction supplements <strong>£24</strong></li><li>Immunity <strong>£20</strong></li><li>Anti-Inflammatories <strong>£34</strong></li><li>DHT Blockers <strong>£14</strong></li><li>Anxiety Regulators <strong>£30</strong></li><li>Biotin <strong>£18</strong></li><li>100% Natural Turmeric <strong>£17</strong></li><li>Reishi Mushroom <strong>£35</strong></li><li>KSM-66 Ashwagandha <strong>£25</strong></li></ul>",
-                    "add_margin": false,
-                    "text_align": "start",
-                    "use_icons_in_list": false,
-                    "margin_bottom": 35
+                    "kicker": "Trichoburst",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
                   },
                   "blocks": {}
                 },
-                "text_gX4VhG": {
-                  "type": "text",
+                "kicker_UrDwR6": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
                   "settings": {
-                    "text": "<p><strong>Traditional supplements: </strong>£251  (£8 p/day)</p><p><strong>Advanced+ formula: </strong>£44.99 (£1.49 p/day)<strong><br/></strong><em>*based on 3 month subscription</em></p>",
-                    "add_margin": false,
-                    "text_align": "start",
-                    "use_icons_in_list": false,
-                    "margin_bottom": 5
+                    "kicker": "Ashwagandha",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_F3wdky": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Cellulose",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_jRRRDg": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Elderberry",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_ELRdDe": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Biotin",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 24,
+                    "margin_bottom": 8
                   },
                   "blocks": {}
                 }
               },
               "block_order": [
-                "kicker_tbLpRq",
-                "text_WrR9yP",
-                "text_gX4VhG"
+                "kicker_fzrckC",
+                "kicker_PtctbY",
+                "kicker_UrDwR6",
+                "kicker_F3wdky",
+                "kicker_jRRRDg",
+                "kicker_ELRdDe"
               ]
-            },
-            "media_xfwXj7": {
-              "type": "media",
+            }
+          },
+          "block_order": [
+            "kicker_cnBfrm",
+            "heading_AeBF39",
+            "text_UzRzmw",
+            "group_kickers_tyeYic"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "block_media_TVh6HA": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
               "settings": {
-                "image": "shopify://shop_images/Why_choose_Advanced.png",
+                "image": "shopify://shop_images/ChatGPT_Image_Nov_18_2025_08_52_46_AM_1.png",
                 "image_size": "large",
                 "iframe_embed": "",
                 "media_type": "image",
                 "video_source": "shopify-upload",
-                "use_controls": false
+                "use_controls": false,
+                "overlay_text": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "group_content_WEqhph",
-            "media_xfwXj7"
+            "block_media_TVh6HA"
+          ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {
+            "margin_top": 16,
+            "margin_bottom": 16
+          },
+          "blocks": {
+            "text_grid_block_L3eJkK": {
+              "type": "text-grid-block",
+              "settings": {},
+              "blocks": {
+                "title_iHAGD8": {
+                  "type": "title",
+                  "settings": {
+                    "title": "KSM-66 Ashwagandha",
+                    "margin_bottom": 1
+                  },
+                  "blocks": {}
+                },
+                "text_light_yRRaYB": {
+                  "type": "text-light",
+                  "settings": {
+                    "text": "A clinically studied adaptogen proven to lower cortisol by helping the body manage stress, improve sleep and support hormonal balance, creating the right environment for healthy hair growth. Turmeric & Black Pepper. Reishi Mushroom.",
+                    "text_align": "start",
+                    "margin_bottom": 2
+                  },
+                  "blocks": {}
+                },
+                "static-group-statistics": {
+                  "type": "group-statistics",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "block_layout": "grid",
+                    "rows_desktop": "1",
+                    "columns_mobile": "2",
+                    "margin_bottom": "md"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "title_iHAGD8",
+                "text_light_yRRaYB"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_L3eJkK"
           ]
         }
       },
-      "block_order": [
-        "content_media_GQMKpc"
-      ],
-      "disabled": true,
       "settings": {
-        "margin_bottom": "md"
+        "margin_bottom": "md",
+        "bg_color": "transparent",
+        "mobile_bg_color": "transparent",
+        "custom_class": "",
+        "tab_functionality": true,
+        "padding_top": 36,
+        "padding_bottom": 0
       }
     },
-    "product_information_HQXiA4": {
-      "type": "product-information",
-      "settings": {
-        "margin_bottom": "md"
-      }
-    },
-    "text_kxcQTP": {
-      "type": "text",
+    "statistics_pzTKrz": {
+      "type": "statistics",
       "blocks": {
-        "group_content_p8q6ai": {
+        "group_statistics_bar_T3yRpE": {
+          "type": "group-statistics-bar",
+          "name": "t:blocks.group_statistics_bar.name",
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "sm"
+          },
+          "blocks": {
+            "statistic_bar_FUr6yw": {
+              "type": "statistic-bar",
+              "name": "t:blocks.statistic_bar.name",
+              "settings": {
+                "percentage": 90,
+                "color": "#f4d3d7",
+                "text": "of people said their hair looked healthier after 90 days."
+              },
+              "blocks": {}
+            },
+            "statistic_bar_7FPY3y": {
+              "type": "statistic-bar",
+              "name": "t:blocks.statistic_bar.name",
+              "settings": {
+                "percentage": 87,
+                "color": "#f4d3d7",
+                "text": "of people said their hair looked healthier after 90 days."
+              },
+              "blocks": {}
+            },
+            "statistic_bar_drn6GT": {
+              "type": "statistic-bar",
+              "name": "t:blocks.statistic_bar.name",
+              "settings": {
+                "percentage": 84,
+                "color": "#f4d3d7",
+                "text": "of people said their hair looked healthier after 90 days."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "statistic_bar_FUr6yw",
+            "statistic_bar_7FPY3y",
+            "statistic_bar_drn6GT"
+          ]
+        },
+        "group_content_6hmhkU": {
           "type": "group-content",
           "name": "t:blocks.group_content.name",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
           "blocks": {
-            "heading_xVEWnC": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
+            "anchor_tF9fBQ": {
+              "type": "anchor",
+              "name": "t:blocks.anchor.name",
               "settings": {
-                "heading": "Complete your routine.",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "start",
-                "margin_bottom": 1
+                "anchor_url": "#",
+                "title": "SEE FULL RESULTS",
+                "anchor_version": "main",
+                "button_position": "left",
+                "anchor_style": "tuna",
+                "anchor_icon": "arrow-right"
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "heading_xVEWnC"
+            "anchor_tF9fBQ"
           ]
+        },
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "horizontal_layout": true,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "kicker_8dqz9R": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "CLINICAL TRIAL",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
+            "text_Mh9pGU": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Double-blinded placebo consumer trial study with 129 people over 90 days.</p>",
+                "add_margin": false,
+                "full_width": false,
+                "text_color": "",
+                "text_size": "md",
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kicker_8dqz9R",
+            "text_Mh9pGU"
+          ]
+        },
+        "static-group-progress": {
+          "type": "group-progress",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
+          "blocks": {}
+        },
+        "static-group-statistics": {
+          "type": "group-statistics",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "block_layout": "grid",
+            "rows_desktop": "1",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "group_content_p8q6ai"
+        "group_statistics_bar_T3yRpE",
+        "group_content_6hmhkU"
       ],
-      "name": "t:sections.text.name",
+      "name": "t:sections.statistics.name",
       "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "none"
+        "horizontal_layout": true,
+        "margin_bottom": "md",
+        "bg_color": "rgba(255,255,255)",
+        "mobile_bg_color": "rgba(255,255,255)",
+        "image_position": true,
+        "border_radius": 0,
+        "custom_class": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_left": 36,
+        "padding_right": 36
+      }
+    },
+    "featured_testimonials": {
+      "type": "featured-testimonials",
+      "settings": {
+        "featured_testimonial": [],
+        "use_stacked_slides": false,
+        "use_thumbnails": true,
+        "margin_bottom": "xs"
+      }
+    },
+    "compare_table_CdkjKR": {
+      "type": "compare-table",
+      "blocks": {
+        "row_NYPhbg": {
+          "type": "row",
+          "settings": {
+            "row_label": "Inflammation",
+            "row_sub_title": "healthier scalp",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_9J68t4": {
+          "type": "row",
+          "settings": {
+            "row_label": "Stress",
+            "row_sub_title": "stress response",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_atY9K9": {
+          "type": "row",
+          "settings": {
+            "row_label": "Hormones",
+            "row_sub_title": "reducing shedding",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_aJw7Ae": {
+          "type": "row",
+          "settings": {
+            "row_label": "Ageing",
+            "row_sub_title": "nourishing follicles",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_xQxHc8": {
+          "type": "row",
+          "settings": {
+            "row_label": "Nutrition",
+            "row_sub_title": "essential vitamins",
+            "col1check": true,
+            "col2check": true,
+            "col3check": true
+          }
+        },
+        "row_ELnFx8": {
+          "type": "row",
+          "settings": {
+            "row_label": "Metabolism",
+            "row_sub_title": "nutrient uptake",
+            "col1check": true,
+            "col2check": true,
+            "col3check": true
+          }
+        },
+        "row_mGUc39": {
+          "type": "row",
+          "settings": {
+            "row_label": "Key Ingredients",
+            "row_sub_title": "A powerful blend",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        }
+      },
+      "block_order": [
+        "row_NYPhbg",
+        "row_9J68t4",
+        "row_atY9K9",
+        "row_aJw7Ae",
+        "row_xQxHc8",
+        "row_ELnFx8",
+        "row_mGUc39"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "small_heading": "Our Products",
+        "main_heading": "<i>Find</i> your formula.",
+        "subtext": "One Formula That Replaces Your Entire Supplement Shelf with 22 premium ingredients.",
+        "button_label": "Shop Advanced+ Hair Formula",
+        "button_link": "",
+        "col1": "Advanced+ Hair Formula",
+        "col1_advanced": true,
+        "col2": "Chewable Hair Vitamins",
+        "col2_advanced": false,
+        "col3": "Healthy Hair Vitamins",
+        "col3_advanced": false,
+        "table_style": "style-2",
+        "table_position": "center",
+        "text_align": "center",
+        "section_bg": "#f3efec",
+        "advance_tab_color": "#343436",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mb_padding_top": 36,
+        "mb_padding_bottom": 36
       }
     },
     "featured_products_AFRNar": {
@@ -514,250 +842,11 @@
       "block_order": [
         "block_PzTBTj"
       ],
+      "disabled": true,
       "name": "t:sections.featured_products.name",
       "settings": {
         "heading": "",
         "use_add_to_cart_btn": true,
-        "margin_bottom": "md"
-      }
-    },
-    "featured_testimonials": {
-      "type": "featured-testimonials",
-      "settings": {
-        "featured_testimonial": [],
-        "use_stacked_slides": false,
-        "use_thumbnails": true,
-        "margin_bottom": "md"
-      }
-    },
-    "video_testimonial_fwx6cQ": {
-      "type": "video-testimonial",
-      "settings": {
-        "testimonial_object": "",
-        "margin_bottom": "sm"
-      }
-    },
-    "text_grid_k3mXPr": {
-      "type": "text-grid",
-      "blocks": {
-        "static-group-content": {
-          "type": "group-content",
-          "static": true,
-          "settings": {
-            "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_AeBF39": {
-              "type": "heading",
-              "settings": {
-                "heading": "Why choose Advanced+",
-                "heading_type": "h2",
-                "heading_size": "lg",
-                "text_align": "center",
-                "margin_bottom": 1
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_AeBF39"
-          ]
-        },
-        "static-group-text-grid-blocks": {
-          "type": "group-text-grid-blocks",
-          "static": true,
-          "settings": {},
-          "blocks": {
-            "text_grid_block_L3eJkK": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_iHAGD8": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Expertly Formulated Over 5 Years",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_yRRaYB": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "Created with leading nutritionists to deliver the most effective results possible.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_iHAGD8",
-                "text_light_yRRaYB"
-              ]
-            },
-            "text_grid_block_U7EXe9": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_kH4Rin": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Targets Root Causes of Hair Loss",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_DjRQc9": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "Goes beyond surface-level symptoms to support growth from the inside out.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_kH4Rin",
-                "text_light_DjRQc9"
-              ]
-            },
-            "text_grid_block_KwzAGP": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_fypTKT": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Powered by Evidence-based Ingredients",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_YXPfxM": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "Not all ingredients are created equal, ours are trademarked, tested, and trusted to deliver.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_fypTKT",
-                "text_light_YXPfxM"
-              ]
-            },
-            "text_grid_block_NJi9FJ": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_HD78WC": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Trusted by over 1 Million Women",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_9Qhijk": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "Real stories. Real results. Millions of women have already taken back control.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_HD78WC",
-                "text_light_9Qhijk"
-              ]
-            },
-            "text_grid_block_DhhiGj": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_zxfxF4": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Made in the UK",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_kwqpb3": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "Vegan friendly and made to the highest standards right here in the UK.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_zxfxF4",
-                "text_light_kwqpb3"
-              ]
-            },
-            "text_grid_block_RybDFY": {
-              "type": "text-grid-block",
-              "settings": {},
-              "blocks": {
-                "title_rF3UDR": {
-                  "type": "title",
-                  "settings": {
-                    "title": "Backed by Our 90-Day Guarantee",
-                    "margin_bottom": 1
-                  },
-                  "blocks": {}
-                },
-                "text_light_bQEPE7": {
-                  "type": "text-light",
-                  "settings": {
-                    "text": "We’re that confident. See results in 90 days — or your money back.",
-                    "text_align": "start",
-                    "margin_bottom": 2
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "title_rF3UDR",
-                "text_light_bQEPE7"
-              ]
-            }
-          },
-          "block_order": [
-            "text_grid_block_L3eJkK",
-            "text_grid_block_U7EXe9",
-            "text_grid_block_KwzAGP",
-            "text_grid_block_NJi9FJ",
-            "text_grid_block_DhhiGj",
-            "text_grid_block_RybDFY"
-          ]
-        },
-        "static-media": {
-          "type": "media",
-          "static": true,
-          "settings": {
-            "image_mobile": "shopify://shop_images/Why_choose_Advanced.png",
-            "image": "shopify://shop_images/Why_choose_Advanced.png",
-            "image_size": "large",
-            "iframe_embed": "",
-            "media_type": "image",
-            "video_source": "shopify-upload",
-            "use_controls": false
-          },
-          "blocks": {}
-        }
-      },
-      "settings": {
         "margin_bottom": "md"
       }
     },
@@ -776,6 +865,7 @@
           "type": "group-content",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -788,7 +878,9 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "start",
-                "margin_bottom": 16
+                "full_width": true,
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -813,11 +905,13 @@
         "heading_KtgaQ9": {
           "type": "heading",
           "settings": {
-            "heading": "You may also like",
+            "heading": "<em>Complete</em> your routine.",
             "heading_type": "h2",
             "heading_size": "md",
             "text_align": "start",
-            "margin_bottom": 16
+            "full_width": true,
+            "margin_bottom": 16,
+            "text_color": ""
           },
           "blocks": {}
         }
@@ -826,15 +920,13 @@
         "heading_KtgaQ9"
       ],
       "settings": {
-        "product_limit": 8,
+        "product_limit": 4,
         "use_add_to_cart_btn": false,
+        "show_slider_btn": false,
         "default_product": "",
+        "content_layout": "grid",
         "margin_bottom": "md"
       }
-    },
-    "reviews": {
-      "type": "main-product-reviews",
-      "settings": {}
     },
     "faqs_FhGg3P": {
       "type": "faqs",
@@ -851,38 +943,50 @@
           "settings": {
             "faq_group_object": "advanced-pdp-faq"
           }
+        },
+        "button_yNyA38": {
+          "type": "button",
+          "settings": {
+            "anchor_url": "#",
+            "title": "OUR HELP CENTER",
+            "anchor_version": "main",
+            "button_position": "left",
+            "anchor_style": "tuna",
+            "anchor_icon": "arrow-right"
+          }
         }
       },
       "block_order": [
         "faq_group_qQb9d7",
-        "faq_group_9Ng4R7"
+        "faq_group_9Ng4R7",
+        "button_yNyA38"
       ],
       "settings": {
         "heading": "",
-        "text": "<h3>Got questions? We’ve got answers. </h3><p>Here you’ll find everything you need to know about our Advanced+ Hair Formula, from how it works to what makes it so effective.</p>",
-        "contact_heading": "Still unsure?",
-        "contact_text": "<p>Visit our <a href=\"https://help.hairburst.com/en-US?_gl=1*1cbhmza*_gcl_aw*R0NMLjE3NTE4ODMwODYuQ2p3S0NBanc0SzNEQmhCcUVpd0FZdEdfOUN0MTNkNlVILU0yQk9aTjV2WmlpZUx0c2UwWXBVaXBZVjNVbWNKV1hPRU9FQnRuNEI4VnpSb0N5dkVRQXZEX0J3RQ..*_gcl_au*MTk1NDQ0MjEyLjE3NTE2MTc2MzQ.\" title=\"https://help.hairburst.com/en-US?_gl=1*1cbhmza*_gcl_aw*R0NMLjE3NTE4ODMwODYuQ2p3S0NBanc0SzNEQmhCcUVpd0FZdEdfOUN0MTNkNlVILU0yQk9aTjV2WmlpZUx0c2UwWXBVaXBZVjNVbWNKV1hPRU9FQnRuNEI4VnpSb0N5dkVRQXZEX0J3RQ..*_gcl_au*MTk1NDQ0MjEyLjE3NTE2MTc2MzQ.\"><strong>help centre</strong></a><strong> </strong>or reach out to our customer support team on <a href=\"mailto:support@hairburst.com\" title=\"mailto:support@hairburst.com\"><strong>support@hairburst.com</strong></a><strong> </strong>and they will be happy to assist you with any questions or guidance you need to kickstart your hair growth journey.</p>",
-        "margin_bottom": "md"
+        "text": "",
+        "contact_heading": "<p><em>Got questions? </em> We’ve got answers.</p>",
+        "contact_text": "<p>Visit our help centre or reach out to our customer support team on upport@hairburst.com </p>",
+        "margin_bottom": "md",
+        "background_image": "shopify://shop_images/dd4b2446e03d811b3c426e726ec2a6c081746603.jpg"
       }
+    },
+    "reviews": {
+      "type": "main-product-reviews",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "statistics_3jCVQp",
-    "text_jR7VmD",
-    "page_hero_full_width_jAkCzN",
-    "text_q4FB94",
-    "text_and_media_Kw9PGA",
-    "product_information_HQXiA4",
-    "text_kxcQTP",
-    "featured_products_AFRNar",
-    "featured_testimonials",
-    "video_testimonial_fwx6cQ",
     "text_grid_k3mXPr",
+    "statistics_pzTKrz",
+    "featured_testimonials",
+    "compare_table_CdkjKR",
+    "featured_products_AFRNar",
     "timeline",
     "bundles",
     "related_products_yLm4ry",
-    "reviews",
-    "faqs_FhGg3P"
+    "faqs_FhGg3P",
+    "reviews"
   ]
 }

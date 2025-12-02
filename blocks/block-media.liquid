@@ -1,0 +1,181 @@
+{% liquid
+  assign image = block.settings.image
+  assign image_mobile = block.settings.image_mobile
+  assign video = block.settings.video
+  assign iframe_embed = block.settings.iframe_embed
+  assign video_source = block.settings.video_source
+  assign use_controls = block.settings.use_controls
+  assign media_type = block.settings.media_type
+
+  assign image_size = block.settings.image_size
+
+  comment
+    Change the settings below based on the theme you are developing.
+  endcomment
+  if image_size == 'small'
+    assign image_width = 600
+    assign image_widths = '600'
+  elsif image_size == 'medium'
+    assign image_width = 800
+    assign image_widths = '400, 600, 800'
+  elsif image_size == 'large'
+    assign image_width = 1500
+    assign image_widths = '400, 600, 800, 1024, 1500'
+  endif
+
+  if video_source == 'shopify-upload'
+    if use_controls == true
+      assign video_controls = true
+    else
+      assign video_controls = false
+    endif
+  endif
+
+  assign fetch_priority = 'auto'
+  assign loading = 'lazy'
+  if section.index == 1
+    assign fetch_priority = 'high'
+    assign loading = 'eager'
+  endif
+%}
+
+{% capture picture %}
+  <picture>
+    <source media="(min-width:1024px)" srcset="{{- image | image_url: width: 1500 -}}">
+    <source media="(min-width:800px)" srcset="{{- image | image_url: width: 1024 -}}">
+    <source media="(min-width:551px)" srcset="{{- image_mobile | image_url: width: 800 -}}">
+    <source media="(max-width: 550.8px)" srcset="{{- image_mobile  | image_url: width: 600 -}}">
+    <img
+      src="{{- image_mobile  | image_url: width: 400 -}}"
+      alt="{{- image_alt -}}"
+      loading="lazy"
+    >
+  </picture>
+{% endcapture %}
+
+<div class="block-media grid-block-media {% if block.settings.overlay_text != blank %}media-with-text{% endif %}">
+  {% liquid
+    if media_type == 'video'
+      if video_source == 'shopify-upload' and video != blank
+        echo video | video_tag: controls: video_controls, autoplay: true, loop: true, image_size: '800'
+      elsif video_source == 'iframe' and iframe_embed != blank
+        echo iframe_embed
+      endif
+    else
+      if image_mobile != blank and image != blank
+        echo picture
+      elsif image != blank
+        echo image | image_url: width: image_width | image_tag: widths: image_widths, alt: image.alt, loading: loading, fetchpriority: fetch_priority
+      else
+        echo 'image' | placeholder_svg_tag: 'placeholder-svg'
+      endif
+    endif
+  %}
+  {% if block.settings.overlay_icon %}
+    <img class="overlay-icon" src="{{ block.settings.overlay_icon | image_url: width: 50 }}">
+  {% endif %}
+   {% if block.settings.overlay_text != blank %}
+    <div class="media-overlay-text">
+      {{ block.settings.overlay_text }}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "t:blocks.media.name",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.all.image_mobile.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.all.image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "t:blocks.media.settings.image_size.label",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:global.sizes.small.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:global.sizes.medium.label"
+        },
+        {
+          "value": "large",
+          "label": "t:global.sizes.large.label"
+        },
+      ],
+      "default": "large"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:sections.all.video.label"
+    },
+    {
+      "type": "html",
+      "id": "iframe_embed",
+      "label": "t:sections.all.iframe_embed.label"
+    },
+
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "t:sections.all.media_type.label",
+      "options": [
+        {
+          "value": "image",
+          "label": "t:sections.all.image.label"
+        },
+        {
+          "value": "video",
+          "label": "t:sections.all.video.label"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "select",
+      "id": "video_source",
+      "label": "t:sections.all.video_source.label",
+      "options": [
+        {
+          "value": "shopify-upload",
+          "label": "t:sections.all.video_source.options.shopify_upload.label"
+        },
+        {
+          "value": "iframe",
+          "label": "t:sections.all.video_source.options.iframe.label"
+        }
+      ],
+      "default": "shopify-upload"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_controls",
+      "label": "t:sections.all.use_controls.label",
+      "info": "t:sections.all.use_controls.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "overlay_icon",
+      "label": "Overlay icon"
+    },
+    {
+      "type": "richtext",
+      "id": "overlay_text",
+      "label": "Overlay text"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.media.name" }]
+}
+{% endschema %}

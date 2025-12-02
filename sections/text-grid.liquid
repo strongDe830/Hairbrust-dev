@@ -5,17 +5,39 @@
 %}
 
 {%- render 'file-css', _name: 'section-text-grid.css' -%}
+{%- render 'file-js', _name: 'section-text-grid.js', _load_type: 'defer'  -%}
 
+{%- style -%}
+ @media screen and (min-width: 750px) {
+   .section-{{ section.id }}  {
+       background:{{ section.settings.bg_color }};
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+   }
+  .{{ section.settings.custom_class }} .block-statistic {
+      padding-left: 0;
+    }
+
+  }
+  @media (max-width:749px ) {
+    .section-{{ section.id }} {
+      background:{{ section.settings.mobile_bg_color }};
+      padding-top: 56px;
+      padding-bottom: 56px;
+
+    }
+  }
+{%- endstyle -%}
 <div
-  class="{{- template_name }} u-space-below-{{- margin_bottom }}"
+  class="{{- template_name }} u-space-below-{{ margin_bottom }} section-{{ section.id }} {{ section.settings.custom_class }}"
   data-section-type="{{- template_name -}}"
   data-section-id="{{ section.id }}"
 >
   <div class="container">
-    {% content_for 'block', type: 'group-content', id:'static-group-content' %}
-    <div class="grid">
-      {% content_for 'block', type: 'group-text-grid-blocks', id:'static-group-text-grid-blocks' %}
+    <div class="grid text-grid-layout {% if section.settings.tab_functionality == true %}tab-functionality{% endif %}">
+      {% content_for 'block', type: 'group-content', id:'static-group-content' %}
       {% content_for 'block', type: 'media', id:'static-media' %}
+      {% content_for 'block', type: 'group-text-grid-blocks', id:'static-group-text-grid-blocks' %}
     </div>
   </div>
 </div>
@@ -56,7 +78,55 @@
         }
       ],
       "default": "md"
-    }
+    },
+     {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "transparent"
+    }, 
+    {
+      "type": "color_background",
+      "id": "mobile_bg_color",
+      "label": "Mobile background color",
+      "default": "transparent"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Add a custom class (e.g., 'text-center my-style') for further styling or scripting."
+    },
+    {
+      "type": "checkbox",
+      "id": "tab_functionality",
+      "label": "Tab functionality",
+      "default": true
+    },
+     {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom",
+      "default": 36
+    },
   ],
   "blocks": [
     { "type": "group-content" },

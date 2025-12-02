@@ -91,10 +91,10 @@
     </a>
     {%- render 'data-prices', _product: _product, _variant: variant -%}
     <a href="{{ _product.url }}" class="rating">
-      <div
-        class="ruk_rating_snippet"
-        data-sku="{{ product_skus }}"
-      ></div>
+        <div
+          class="ruk_rating_snippet"
+          data-sku="{{ _product.variants | map: 'sku' | join: ';' }};{{ _product.variants | map: 'id' | join: ';' }}"
+        ></div>
     </a>
   </div>
   {%- if _use_add_to_cart_btn == true -%}

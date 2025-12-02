@@ -1,21 +1,54 @@
 {% style %}
-.block-{{ block.id }}.block-statistic {
-  background-color : {{ block.settings.background_color }};
-}
-
-.block-{{ block.id }}.block-statistic span, .block-{{ block.id }}.block-statistic p {
-  color: {{ block.settings.text_color }};
-}
-
-@media(max-width: 749px) {
-  .block-{{ block.id }} {
-    opacity: {{ block.settings.opacity_value }};
+  .block-{{ block.id }}.block-statistic {
+    background-color : {{ block.settings.background_color }};
   }
-}
+
+  .block-{{ block.id }}.block-statistic span, .block-{{ block.id }}.block-statistic p {
+    color: {{ block.settings.text_color }};
+  }
+
+  .block-statistic-icon {
+    display: flex;
+    flex-direction: column;
+    align-items:start; 
+    width: 100%;
+    position: relative;
+  }
+
+  .block-icon {
+    display: block;
+    margin-bottom: 8px; 
+  }
+
+  .block-{{ block.id }} .block-icon-dots {
+    width: 100%;
+    height: 2px;
+    border-bottom: 0.5px dashed;
+    border-color: {{ block.settings.border_color }}; 
+  }
+  @media(max-width: 749px) {
+    .block-{{ block.id }} {
+      opacity: {{ block.settings.opacity_value }};
+    }
+  }
 
 {% endstyle %}
 <div class="block-statistic block-{{ block.id }}">
+  {% if block.settings.block_icon !=blank %}
+    <div class="block-statistic-icon">
+      <img
+          class="block-icon"
+          src="{{- block.settings.block_icon  | image_url: width: 50 -}}"
+          alt="{{- image_alt -}}"
+          loading="lazy"
+      >
+      <div class="block-icon-dots"></div>
+    </div>
+  {% endif %}
   <span class="title u-title-{{- block.settings.heading_size }}">{{- block.settings.title -}}</span>
+  {% if block.settings.display_border %}
+    <div class="block-icon-dots"></div>
+  {% endif %}
   <p class="u-text-md">{{- block.settings.text -}}</p>
 </div>
 
@@ -29,7 +62,7 @@
       "id": "title",
       "label": "t:global.title.label"
     },
-       {
+    {
       "type": "select",
       "id": "heading_size",
       "label": "t:sections.all.heading_size.label",
@@ -63,6 +96,11 @@
       "label": "t:global.text.label"
     },
     {
+      "type": "image_picker",
+      "id": "block_icon",
+      "label": "Statistic icon"
+    },
+    {
       "type": "color",
       "id": "background_color",
       "label": "Background Color"
@@ -71,6 +109,18 @@
       "type": "color",
       "id": "text_color",
       "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#fff"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_border",
+      "label": "Display border",
+      "default": false
     },
     {
       "type": "range",

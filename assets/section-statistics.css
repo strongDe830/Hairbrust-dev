@@ -13,6 +13,30 @@
 .section-statistics.horizontal-layout div:last-of-type p {
   margin-bottom: 0;
 }
+
+.section-statistics .block-text {
+  max-width: 33rem;
+}
+.section-statistics  .wrap-heading{
+  max-width: 30rem;
+}
+
+.section-statistics .full-width {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .block-images-absolute {
+    position: relative;
+  }
+
+  .block-images-absolute .block-statistic-image {
+      position: absolute;
+      right: 0;
+      top: 10%;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 1023.98px) {
   .section-statistics .block-group-content {
     max-width: var(--tablet-max-width);
@@ -23,5 +47,9 @@
   .section-statistics.horizontal-layout {
     display: flex;
     flex-direction: column;
+  }
+
+  .block-images-absolute .block-statistic-image {
+    transform: translateX(-27px);
   }
 }

@@ -18,6 +18,7 @@
   <style>
     #shopify-block-{{- block.id -}} {
       margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
+      color: {{  block.settings.text_color }};
       }
   </style>
 {%- endif -%}
@@ -54,11 +55,16 @@
       "id": "add_margin",
       "label": "t:blocks.text.settings.add_margin.label"
     },
-      {
+    {
       "type": "checkbox",
       "id": "full_width",
       "default": false,
       "label": "t:blocks.text.settings.full_width.label"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
     },
     {
       "type": "select",

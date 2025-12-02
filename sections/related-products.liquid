@@ -28,7 +28,9 @@
       _product: product,
       _use_vertical_slider: use_vertical_slider,
       _use_add_to_cart_btn: use_add_to_cart_btn,
-      _default_product: section.settings.default_product
+      _default_product: section.settings.default_product,
+      _show_slider_btn: section.settings.show_slider_btn,
+      _content_layout : section.settings.content_layout
     -%}
   </div>
 </div>
@@ -59,10 +61,32 @@
       "default": false
     },
     {
+      "type": "checkbox",
+      "id": "show_slider_btn",
+      "label": "Show slider button",
+      "default": false
+    },
+    {
       "type": "product",
       "id": "default_product",
       "label": "t:sections.related_products.settings.default_product.label",
       "info": "t:sections.related_products.settings.default_product.info"
+    },
+    {
+      "type": "select",
+      "id": "content_layout",
+      "default": "carousel",
+      "label": "Content layout",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
     },
     {
       "type": "select",

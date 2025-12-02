@@ -1,5 +1,8 @@
 <div class="block-text-grid-block" {{ block.shopify_attributes }}>
-  {% content_for 'blocks' %}
+  <div class="block-statics-grid">
+    {% content_for 'block',  type: 'group-statistics', id: 'static-group-statistics' %}
+    </div>
+        {% content_for 'blocks' %}
 </div>
 
 {% schema %}
@@ -11,7 +14,10 @@
   "blocks": [
     { "type": "icon" },
     { "type": "title" },
-    { "type": "text-light" }
+    { "type": "text-light" },
+    { "type": "anchor" },
+    { "type": "statistic" }
+    
   ],
   "presets": [
     {

@@ -13,11 +13,18 @@
   elsif _page
     assign url = _page.url
     assign card_title = block.settings.card_title | default: _page.title
-    assign description = block.settings.description | default: _page.excerpt
+    assign description = block.settings.description
+
     assign image = block.settings.image
     assign image_alt = card_title
     assign seperate_content = block.settings.seperate_content
+    if description == blank and collection
+      assign description = _collection.description
+    endif
 
+    if description == blank 
+      assign description = _page.excerpt 
+    endif
     if card_title == blank
       assign card_title = _page.title
     endif
@@ -47,7 +54,7 @@
   -%}
   <div class="card-category-content">
     <h3 class="u-heading-md card-title">
-      <a href="{{- url -}}" class="c-btn stretched-link">
+      <a href="{{- url -}}" class="stretched-link c-lozenge pampas xl">
         {{- card_title -}}
       </a>
     </h3>

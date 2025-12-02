@@ -1,47 +1,68 @@
 {%- liquid
   assign template_name = 'compare-table-section'
-  render 'file-css', _name: 'section-table-compare.css', _load_type: 'defer'
+  assign section_bg = section.settings.section_bg
+  assign advance_tab_color = section.settings.advance_tab_color
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign mb_padding_top = section.settings.mb_padding_top
+  assign mb_padding_bottom = section.settings.mb_padding_bottom
 %}
+
+{%- render 'file-css', _name: 'section-table-compare.css', _load_type: 'defer' -%}
+
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  .section-{{ section.id }} {
+    padding-top: {{ padding_top }}px;
+    padding-bottom: {{ padding_bottom }}px;
+    background-color: {{ section_bg }};
+  }
+  .section-{{ section.id }} .pt__option__item.recommend{
+    background: {{ advance_tab_color }};
+  }
+  .section-{{ section.id }} .compare-header {
+    text-align:{{ section.settings.text_align }};
+  }
+  .section-{{ section.id }} .compare-header .top_content {
+    align-items: {{ section.settings.text_align }};
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  @media screen and (max-width: 750px) {
+    .section-{{ section.id }} {
+      padding-top: {{ mb_padding_top }}px;
+      padding-bottom: {{ mb_padding_bottom }}px;
     }
   }
 
 {%- endstyle -%}
 
 
-<section class="{{- template_name }} section-{{ section.id }}-padding {{ section.settings.table_position }}"  data-section-type="section-compare-text" data-section-id="template--{{ section.id }}">
+<section class="{{- template_name }} section-{{ section.id }} {{ section.settings.table_position }} compare-{{ section.settings.table_style }}"  data-section-type="section-compare-text" data-section-id="template--{{ section.id }}">
   <div class="container">
     
     <!-- Left Column -->
-    <div class="compare-header" style=" text-align:{{ section.settings.text_align }}">
-      <span class="small_tag" >
-        {{ section.settings.small_heading }}
-      </span>
-      <h2>
-        {{ section.settings.main_heading }}
-      </h2>
-      <p class="sub_text" style=" text-align:{{ section.settings.text_align }}">
-        {{ section.settings.subtext }}
-      </p>
-
-      {% if section.settings.button_label != blank %}
-      <a href="{{ section.settings.button_link }}" class="compare-btn small-hide">
-        {{ section.settings.button_label }}
-      </a>
-      {% endif %}
+    <div class="compare-header">
+      <div class="top_content">
+        <span class="small_tag" >
+          {{ section.settings.small_heading }}
+        </span>
+        <h2>
+          {{ section.settings.main_heading }}
+        </h2>
+        <p class="sub_text">
+          {{ section.settings.subtext }}
+        </p>
+      </div>
+      <div class="bottom_content">
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="compare-btn">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
     </div>
 
     <!-- Table Layout -->
-    <div class="compare-list">
+    <div class="compare-list {{ section.settings.table_style }} ">
         <div class="pricing__table">
             <div class="pt__title">
                 <div class="pt__title__wrap">
@@ -49,81 +70,89 @@
                 {% for row in section.blocks %}
                     <div class="pt__row">
                     {{ row.settings.row_label }}
-                    <span class="row_sub_title">{{ row.settings.row_sub_title }}</span>
+                    <span>{{ row.settings.row_sub_title }}</span>
                     </div>
                 {% endfor %}
                 </div>
             </div>
             <div class="pt__option">
-              <div class="pt__option__slider swiper" id="pricingTableSlider">
+                <div class="pt__option__slider swiper" id="pricingTableSlider">
                 <div class="pt__option_wrapper">
-                  <div class=" pt__option__item">
-                    <div class="pt__item {% if section.settings.col1_advanced %}recommend{% endif %}">
+                    <div class=" pt__option__item {% if section.settings.col1_advanced %}recommend{% endif %}">
+                    <div class="pt__item">
                         <div class="pt__item__wrap">
-                          <div class="pt__row pt__heading">
-                            {{ section.settings.col1 }}
-                          </div>
-                            {% for row in section.blocks %}
-                                <div class="pt__row">
-                                  {% if row.settings.col1check %} 
-                                    {{- 'true.svg' | inline_asset_content -}}
-                                  {% else %} 
-                                      {{- 'false.svg' | inline_asset_content -}}
-                                  {% endif %}
-                                </div>
-                            {% endfor %}
-                            {% if section.settings.col1_advanced %}<div class="pt__row"></div>{% endif %}
+                        <div class="pt__row pt__heading">{{ section.settings.col1 }}</div>
+                        {% for row in section.blocks %}
+                            <div class="pt__row">
+                              {% if row.settings.col1check %} 
+                                  {{- 'true.svg' | inline_asset_content -}}
+                              {% else %} 
+                                  {% if section.settings.table_style == 'style-2' %}
+                                    <span>No</span>
+                                  {% else %}
+                                    {{- 'false.svg' | inline_asset_content -}}
+                                  {% endif %} 
+                              {% endif %}
+                            </div>
+                        {% endfor %}
+                        {% if section.settings.col1_advanced %}<div class="pt__row"></div>{% endif %}
                         </div>
+                        
                     </div>
-                  </div>
-                  <div class=" pt__option__item">
+                    </div>
+                    <div class=" pt__option__item">
                     <div class="pt__item {% if section.settings.col2_advanced %}recommend{% endif %}">
                         <div class="pt__item__wrap">
-                          <div class="pt__row pt__heading">
-                            {{ section.settings.col2 }}
-                          </div>
-                          {% for row in section.blocks %}
-                              <div class="pt__row">
-                                {% if row.settings.col2check %} 
-                                    {{- 'true.svg' | inline_asset_content -}}
-                                {% else %} 
-                                  {{- 'false.svg' | inline_asset_content -}}
-                                {% endif %}
-                              </div>
-                          {% endfor %}
-                          {% if section.settings.col2_advanced %}<div class="pt__row"></div>{% endif %}
+                        <div class="pt__row pt__heading">{{ section.settings.col2 }}</div>
+                        {% for row in section.blocks %}
+                            <div class="pt__row">
+                              {% if row.settings.col2check %} 
+                                  {{- 'true.svg' | inline_asset_content -}}
+                              {% else %} 
+                                  {% if section.settings.table_style == 'style-2' %}
+                                    <span>No</span>
+                                  {% else %}
+                                    {{- 'false.svg' | inline_asset_content -}}
+                                  {% endif %} 
+                              {% endif %}
+                            </div>
+                        {% endfor %}
+                        {% if section.settings.col2_advanced %}<div class="pt__row"></div>{% endif %}
                         </div>
                     </div>
-                  </div>
-                  <div class=" pt__option__item">
-                    <div class="pt__item {% if section.settings.col3_advanced %}recommend{% endif %}">
-                      <div class="pt__item__wrap">
-                          <div class="pt__row pt__heading">
-                            {{ section.settings.col3 }}
-                          </div>
-                          {% for row in section.blocks %}
-                              <div class="pt__row">
-                                {% if row.settings.col3check %} 
-                                    {{- 'true.svg' | inline_asset_content -}}
-                                {% else %} 
-                                    {{- 'false.svg' | inline_asset_content -}}
-                                {% endif %}
-                              </div>
-                          {% endfor %}
-                          {% if section.settings.col3_advanced %}<div class="pt__row"></div>{% endif %}
-                      </div>
                     </div>
-                  </div>
+                    <div class=" pt__option__item">
+                    <div class="pt__item {% if section.settings.col3_advanced %}recommend{% endif %}">
+                        <div class="pt__item__wrap">
+                        <div class="pt__row pt__heading">{{ section.settings.col3 }}</div>
+                        {% for row in section.blocks %}
+                          <div class="pt__row">
+                            {% if row.settings.col3check %} 
+                                {{- 'true.svg' | inline_asset_content -}}
+                            {% else %} 
+                                {% if section.settings.table_style == 'style-2' %}
+                                    <span>No</span>
+                                  {% else %}
+                                    {{- 'false.svg' | inline_asset_content -}}
+                                  {% endif %} 
+                            {% endif %}
+                          </div>
+                        {% endfor %}
+                        {% if section.settings.col3_advanced %}<div class="pt__row"></div>{% endif %}
+                        </div>
+                    </div>
+                    </div>
                 </div>
-              </div>
+                </div>
             </div>
         </div>
     </div>
-      {% if section.settings.button_label != blank %}
-      <a href="{{ section.settings.button_link }}" class="compare-btn large-up-hide medium-hide">
+    
+    {% if section.settings.button_label != blank  %}
+      <a href="{{ section.settings.btn_position }}" class="compare-btn botom_btn">
         {{ section.settings.button_label }}
       </a>
-      {% endif %}
+    {% endif %}
   </div>
 </section>
 
@@ -131,7 +160,7 @@
 {
   "name": "Comparison Table Section",
   "class": "section",
-    "tag": "section",
+  "tag": "section",
   "settings": [
     {
       "type": "text",
@@ -140,10 +169,10 @@
       "default": "Our Products"
     },
     {
-      "type": "richtext",
+      "type": "textarea",
       "id": "main_heading",
       "label": "Main Heading",
-      "default": "<p>Find your formula.</p>"
+      "default": "<i>Find</i> your formula."
     },
     {
       "type": "textarea",
@@ -161,27 +190,6 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
-    },
-     {
-      "type": "select",
-      "id": "table_position",
-      "label": "Table Position",
-      "default": "right",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "text_align",
-      "label": "Text Alignment",
-      "default": "left",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ]
     },
     {
       "type": "text",
@@ -205,25 +213,94 @@
     },
     { "type": "checkbox", "id": "col3_advanced", "label": "Column 3 is Advanced?" },
     {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "padding_top",
-        "default": 36
-      }, {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "padding_bottom",
-        "default": 36
-      }
+      "type": "header",
+      "content": "Style Settings"
+    },
+    {
+      "type": "select",
+      "id": "table_style",
+      "label": "Choose Style",
+      "default": "style-1",
+      "options": [
+        { "value": "style-1", "label": "Style 1" },
+        { "value": "style-2", "label": "Style 2" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "table_position",
+      "label": "Table Position",
+      "default": "right",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" },
+        { "value": "center", "label": "center" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background Color",
+      "default": "#F3EFEC"
+    },
+    {
+      "type": "color",
+      "id": "advance_tab_color",
+      "label": "Advance tab Color",
+      "default": "#F1DFDC"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop padding top",
+      "default": 80
+    }, {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop padding bottom",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "mb_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile padding top",
+      "default": 36
+    }, {
+      "type": "range",
+      "id": "mb_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile padding bottom",
+      "default": 36
+    }
   ],
+  
   "blocks": [
     {
       "type": "row",
