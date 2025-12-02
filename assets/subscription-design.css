@@ -738,8 +738,8 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 
 /* Accordion styling */
 .pdp-tab-content-comman {
-  display: none;
-  padding: 10px 0;
+  /* display: none; */
+  padding: 0px 0;
 }
 .tab-icon {
   width: 10px;
@@ -818,11 +818,13 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 .pdp-tab-content-comman {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.5s ease;
+  height: 100%;
 }
 
 .pdp-tab-content-comman.active {
-  max-height: 1000px; /* Large enough to fit content */
+  max-height: 450px; /* Large enough to fit content */
+  padding-top: 12px;
 }
 
 
