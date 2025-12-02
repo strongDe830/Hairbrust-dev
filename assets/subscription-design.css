@@ -813,6 +813,20 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     display: block !important;
 }
 
+
+
+.pdp-tab-content-comman {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.pdp-tab-content-comman.active {
+  max-height: 1000px; /* Large enough to fit content */
+}
+
+
+
 @media screen and (max-width:1650px) {
     .section-featured-testimonials .wrapper [data-ft-swiper] {
     width: 100%;

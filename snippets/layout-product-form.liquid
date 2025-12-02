@@ -392,52 +392,67 @@
               {% endif %}
             </div>
 
-
 <script>
-$(document).ready(function(){
+document.addEventListener("DOMContentLoaded", function () {
 
   // Hide all tab contents initially
-  $('.pdp-tab-content-comman').hide();
+  document.querySelectorAll(".pdp-tab-content-comman").forEach(el => {
+    el.classList.remove("active");
+  });
 
-  // Open Hair tab by default, or first tab if Hair doesn't exist
-  if($('.hair-tab-pdp').length){
-    $('.hair-tab-pdp').show();
-    $('.title-hair-tab').addClass('active');
-    $('.title-hair-tab .icon-plus').hide();
-    $('.title-hair-tab .icon-minus').show();
+  // Default: Open hair tab OR first tab
+  const hairTab = document.querySelector(".hair-tab-pdp");
+  if (hairTab) {
+    hairTab.classList.add("active");
+    const hairTitle = document.querySelector(".title-hair-tab");
+    hairTitle.classList.add("active");
+    hairTitle.querySelector(".icon-plus").style.display = "none";
+    hairTitle.querySelector(".icon-minus").style.display = "block";
   } else {
-    var firstTab = $('.comman-pdp-tab-title').first();
-    firstTab.addClass('active');
-    firstTab.next('.pdp-tab-content-comman').show();
-    firstTab.find('.icon-plus').hide();
-    firstTab.find('.icon-minus').show();
+    const firstTitle = document.querySelector(".comman-pdp-tab-title");
+    const firstContent = firstTitle.nextElementSibling;
+
+    firstTitle.classList.add("active");
+    firstContent.classList.add("active");
+    firstTitle.querySelector(".icon-plus").style.display = "none";
+    firstTitle.querySelector(".icon-minus").style.display = "block";
   }
 
   // Tab click functionality
-  $('.comman-pdp-tab-title').click(function(){
-    var content = $(this).next('.pdp-tab-content-comman');
+  document.addEventListener("click", function (e) {
+    const tab = e.target.closest(".comman-pdp-tab-title");
+    if (!tab) return;
 
-    if(content.is(':visible')){
-      content.slideUp();
-      $(this).removeClass('active');
-      $(this).find('.icon-plus').show();
-      $(this).find('.icon-minus').hide();
+    const content = tab.nextElementSibling;
+
+    // If content is open → close it
+    if (content.classList.contains("active")) {
+      content.classList.remove("active");
+      tab.classList.remove("active");
+      tab.querySelector(".icon-plus").style.display = "block";
+      tab.querySelector(".icon-minus").style.display = "none";
     } else {
-      // Close other tabs
-      $('.pdp-tab-content-comman').slideUp();
-      $('.comman-pdp-tab-title').removeClass('active');
-      $('.comman-pdp-tab-title .icon-plus').show();
-      $('.comman-pdp-tab-title .icon-minus').hide();
+      // Close all tabs
+      document.querySelectorAll(".pdp-tab-content-comman").forEach(el => {
+        el.classList.remove("active");
+      });
+      document.querySelectorAll(".comman-pdp-tab-title").forEach(el => {
+        el.classList.remove("active");
+        el.querySelector(".icon-plus").style.display = "block";
+        el.querySelector(".icon-minus").style.display = "none";
+      });
 
-      // Open clicked tab
-      content.slideDown();
-      $(this).addClass('active');
-      $(this).find('.icon-plus').hide();
-      $(this).find('.icon-minus').show();
+      // Open the clicked tab
+      content.classList.add("active");
+      tab.classList.add("active");
+      tab.querySelector(".icon-plus").style.display = "none";
+      tab.querySelector(".icon-minus").style.display = "block";
     }
   });
+
 });
 </script>
+
 
 {% endif %}
 
