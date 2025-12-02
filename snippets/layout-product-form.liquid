@@ -224,9 +224,14 @@
             {%- endif -%}
           </button>
 
+       {%- when 'payment-icons' -%}
           <div class="cs-payment-icon">
-          <span>Secure payments</span>
-          <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
+            {% if block.settings.text  %}
+          <span>{{block.settings.text }}</span>
+          {% endif %}
+       
+        <img src="{{ 'payment-icon.svg' | asset_url }}" alt="Payment Icon" class="payment-icon">
+       
           </div>
 
         {%- when 'aboutadvance' -%}
@@ -268,7 +273,7 @@
 
                 <!-- TITLE -->
                 {%if how_to_use.title != blank %}
-                <h3 class="howtouse-title">{%if block.settings.svg_icon%}<span class="svg_icon_custom-how-to"></span>{{block.settings.svg_icon}}</span>{%endif%}{{ how_to_use.title }}</h3>
+                <h3 class="howtouse-title">{%if block.settings.svg_icon%}<span class="svg_icon_custom-how-to">{{block.settings.svg_icon}}</span>{%endif%}{{ how_to_use.title }}</h3>
                 {%endif %}
 
                 <!-- TAGS (List or Single both supported) -->
