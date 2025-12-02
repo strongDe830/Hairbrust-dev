@@ -1,5 +1,5 @@
 <{{ block.settings.heading_type }}
-  class="u-heading-{{- block.settings.heading_size }} block-heading"
+  class="u-heading-{{- block.settings.heading_size }} block-heading {% if block.settings.full_width == false%}wrap-heading{% else %}full-width {% endif %}"
   id="shopify-block-{{- block.id -}}"
 >
   {{- block.settings.heading -}}
@@ -126,6 +126,12 @@
         }
       ],
       "default": "start"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:blocks.text.settings.full_width.label"
     },
     {
       "type": "range",

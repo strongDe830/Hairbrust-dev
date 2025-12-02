@@ -1,0 +1,63 @@
+<div class="block-group-images" {{ block.shopify_attributes }} id="shopify-block-{{- block.id -}}" >
+  {% if block.settings.block_image !=blank %}
+    <div class="block-statistic-image small-hide">
+      <img
+          class="block-icon"
+          src="{{ block.settings.block_image  | img_url: 'master'  }}"
+          alt="{{- image_alt -}}"
+          loading="lazy"
+      >
+    </div>
+  {% endif %}
+  {% if block.settings.block_mobile_image !=blank %}
+    <div class="block-statistic-image large-up-hide medium-hide">
+      <img
+          class="block-icon"
+          src="{{ block.settings.block_mobile_image  | img_url: 'master'  }}"
+          alt="{{- image_alt -}}"
+          loading="lazy"
+      >
+    </div>
+  {% endif %}
+</div>
+
+  <style>
+    #shopify-block-{{- block.id -}} {
+      margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 | remove: '.0' -}}rem;
+    }
+
+    @media(min-width: 768px) {
+      #shopify-block-{{- block.id -}}  .desktop-hidden {
+        display: none;
+     }
+    }
+  </style>
+
+{% schema %}
+{
+  "name": "t:blocks.image.name",
+  "tag": null,
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "block_image",
+        "label": "Image"
+    },
+    {
+        "type": "image_picker",
+        "id": "block_mobile_image",
+        "label": "Mobile mage"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 0,
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    }
+  ],
+  "presets": [{ "name": "t:blocks.image.name" }]
+}
+{% endschema %}

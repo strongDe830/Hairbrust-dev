@@ -18,6 +18,8 @@
   gap: 0.5rem;
   font-size: 0.813rem;
 }
+
+
 .snippet-card-product-add-on > img,
 .snippet-card-product-add-on > svg {
   border-radius: var(--border-radius-xs);
@@ -56,4 +58,19 @@
 .snippet-card-product-add-on form svg {
   height: 1rem;
   width: 1rem;
+}
+@media (min-width: 768px) {
+  .layout-related-products-grid-wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout-related-products-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
 }

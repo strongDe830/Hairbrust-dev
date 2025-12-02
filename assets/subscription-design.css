@@ -1,0 +1,996 @@
+/* 28-Nov-2025 Css */
+.subscription-tabs {
+display: flex;
+gap: 12px;
+margin-bottom: 20px;
+overflow: visible;
+}
+.tab-lozenge {
+position: absolute;
+top: -10px;
+left: 0px;
+right: 0px;
+width: fit-content;
+margin: 0 auto;
+background: #a06864;
+color: white;
+text-transform: uppercase;
+padding: 2px 5px;
+border-radius: 5px;
+font-size: 12px;
+}
+.subscription-tab {
+border: 1px solid #e2dedb;
+border-radius: 6px;
+padding: 25px 20px;
+text-align: center;
+cursor: pointer;
+min-width: 150px;
+position: relative;
+}
+.subscription-details .free-gift-section {
+background: transparent;
+padding: 0px;
+border-radius: 0px;
+}
+.subscription-details .free-gift-section .free-gift-title {
+font-weight: 400;
+font-size: 13px;
+line-height: 100%;
+letter-spacing: 0;
+color: #7a7a7a;
+margin-bottom: 2px;
+}
+ul.benefits {
+margin-bottom: 20px;
+}
+.subscription-tab.active {
+border-color: #343436;
+box-shadow: 0 0 0 1px #343436 inset;
+background: white;
+}
+.subscription-details-wrapper {
+background: white;
+padding: 20px;
+border-radius: 10px;
+}
+.free-gift-badge {
+position: absolute;
+bottom: -6px;
+left: 50%;
+transform: translateX(-50%);
+background: #ffffff;
+padding: 2px 8px;
+border-radius: 4px;
+font-size: 12px;
+color: #a06864;
+}
+.subscription-tab.active .free-gift-badge {
+background: #faf4f4;
+}
+
+.subscription-details {
+display: none;
+}
+
+.subscription-details.active {
+display: block;
+}
+
+.subscription-tabs .tab-title {
+margin-top: 10px;
+}
+.subscription-details .subscription_price_heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 14px;
+padding-bottom: 14px;
+border-bottom: 1px solid #f3efec;
+}
+.subscription-details .subscription_price_heading .price-box {
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+max-width: 200px;
+}
+.subscription-details .subscription_price_heading .price-box span.saving-tag {
+grid-row: span 2;
+margin-left: auto;
+margin-right: 14px;
+background: #faf4f4;
+padding: 5px 5px;
+font-weight: 500;
+font-size: 13px;
+line-height: 100%;
+letter-spacing: 0;
+text-transform: uppercase;
+color: #a06864;
+border-radius: 4px;
+}
+.subscription-details .subscription_price_heading .price-box span.price {
+font-weight: 600;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0;
+margin-bottom: 5px;
+margin-left: auto;
+}
+.subscription-details .subscription_price_heading .price-box span.compare {
+text-align: right;
+font-weight: 500;
+font-size: 13px;
+line-height: 100%;
+letter-spacing: 0;
+color: #828282;
+margin-left: auto;
+display: block;
+width: 100%;
+}
+.subscription-details .benefits {
+padding-left: 0;
+}
+.subscription-details .benefits {
+padding-left: 0;
+list-style: none;
+}
+.subscription-details .benefits li {
+font-weight: 400;
+font-size: 15px;
+line-height: 100%;
+letter-spacing: 0;
+color: #343436;
+margin-top: 8px;
+display: grid;
+align-items: center;
+gap: 8px;
+grid-template-columns: 14px 1fr;
+}
+.subscription-details .benefits li svg {
+width: 100%;
+height: auto;
+}
+
+/* Best Seller Css Start */
+
+.snippet-layout-product-form .product-title {
+font-weight: 500;
+font-size: 40px;
+line-height: 120%;
+letter-spacing: 0;
+color: #343436;
+}
+/* Best Seller Css End */
+
+/* Free Gift Section Css */
+.subscription-details .free-gift {
+background: #a0686429;
+padding: 8px;
+border-radius: 6px;
+display: grid;
+grid-template-columns: 80px 1fr;
+gap: 14px;
+align-items: center;
+}
+.subscription-details .free-gift img {
+width: 100%;
+}
+.subscription-details .free-gift .free-gift-info strong {
+display: block;
+font-weight: 600;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0;
+margin-bottom: 5px;
+color: #343436;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing {
+display: flex;
+gap: 5px;
+margin-top: 10px;
+flex-wrap: wrap;
+align-items: center;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-free {
+display: inline-block;
+background-color: #a06864;
+font-weight: 500;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0;
+text-transform: uppercase;
+color: #f8f4f2;
+padding: 4px 6px;
+border-radius: 4px;
+order: 1;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0;
+color: #828282;
+display: inline-block;
+}
+.subscription-details .free-gift .free-gift-info .free-gift-pricing .free-gift-price .money {
+color: #343436;
+font-weight: 600;
+font-size: 15px;
+}
+/* Free Gift Section Css End */
+.custom-li-inner-vairant-section:not(.active) {
+    display: none;
+}
+
+/* 28-Nov-2025 Css ENd */
+
+.variant-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.variant-tab {
+    padding: 24px 10px 24px 10px;
+    border: 1px solid #E2DEDB;
+    background: #F8F4F280;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+.variant-tab .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    background: #A06864;
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+}
+.variant-tab .cs-free-gift-free {
+    /* background: #FAF4F4; */
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    position: absolute;
+    padding: 4px;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+}
+.variant-tab.active .cs-free-gift-free {
+    background: #FAF4F4;
+}
+
+.variant-tab.active {
+    background: #FFFFFF;
+    border-color: #343436;
+}
+
+.variant-tab.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+.variant-tab .variant-image-box img {
+    height: 61px;
+    width: auto;
+    margin-inline: auto;
+    margin-bottom: 10px;
+}
+.variant-tab  .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.variant-tab .csdata-heading span {
+    display: block;
+    color: #7A7A7A;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image {
+    border: 0;
+    border-radius: 6px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 16px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-saving span {
+    display: inline-block;
+    background: #FAF4F4;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #A06864;
+    padding: 4px;
+    border-radius: 4px;
+}
+.product-option-wrapper.subscription label.has-image .option-header {
+    align-items: center;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.money {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .was span.money {
+    font-size: 13px;
+    font-weight: 500;
+    color: #828282;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.option-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 14px;
+    padding-bottom: 14px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points {
+    border-top: 1px solid #F3EFEC;
+    padding-top: 14px;
+    margin-bottom: 2px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li {
+    flex-basis: 100%;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    opacity: 1;
+    margin-top: 4px;
+    align-items: center;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li svg {
+    width: 12px;
+    height: auto;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li img.icon {
+    display: none;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper {
+    border: 0;
+    background: #FAF4F4;
+    border-radius: 6px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
+    padding: 6px;
+    align-items: center;
+    margin-top: 20px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info {
+    display: block;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing {
+    align-items: center;
+    gap: 8px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing span.free-gift-free {
+    background: #A06864;
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+    opacity: 1;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.money {
+    text-decoration: line-through;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price span.price-free-gift {
+    color: #343436 !important;
+    font-weight: 600;
+    text-decoration: unset;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
+    background: transparent;
+    padding: 0;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #7A7A7A;
+    margin-bottom: 3px;
+}
+
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .checked-icon {
+    display: none;
+}
+
+
+.c-btn.add-to-basket {
+    padding-inline: 25px;
+    justify-content: space-between !important;
+    padding-block: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-bottom: 0 !important;
+}
+.cs-payment-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.cs-payment-icon img.payment-icon {
+    height: 16px;
+    width: auto;
+}
+.data-product-variants .product-option-wrapper.subscription legend.form-label {
+    display: none;
+}
+.data-product-variants .product-option-wrapper.subscription ul#variant-list {
+    margin-top: 10px;
+}
+
+ul.c-lozenges li.c-lozenge {
+    padding: 6px 10px;
+    line-height: 100%;
+    letter-spacing: 0.5px;
+    border: 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+}
+ul.c-lozenges li.c-lozenge.we-peep {
+    background: #FFFFFF;
+    color: #A06864;
+}
+ul.c-lozenges li.c-lozenge.tuna.border {
+    background-color: #E8CFCD38;
+    color: #A06864;
+}
+.snippet-layout-product-form .product-short-desc p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 136%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-layout-product-form ul.trust-points li {
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 130% !important;
+    letter-spacing: 0;
+}
+
+
+.snippet-action-sticky-product {
+    width: 100%!important;
+    max-width: 100%!important;
+    left: 0;
+    background-color: #FDFDFD !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    padding-block: 24px !important;
+}
+.snippet-action-sticky-product .variant-tabs-sticky {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data {
+    border: 1px solid #000000;
+    background: #fff;
+    padding: 0;
+    border-radius: 6px;
+    position: relative;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .variant-tab-sticky {
+    padding: 15px 13px 20px 33px;
+    cursor: pointer;
+    position: relative;
+}
+
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .cs-mobile-lozenge-bar {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    background: #A06864;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #F8F4F2;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.snippet-action-sticky-product .subscription-select {
+    width: auto;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket {
+    max-width: 310px;
+    width: 100%;
+    background-color: #343436;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.snippet-action-sticky-product button.c-btn.add-to-basket span.add-to-basket-text svg {
+    margin-left: auto;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data .csdata-heading {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data span.cs-free-gift-free {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #7A7A7A;
+    position: absolute;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 8px;
+    width: 18px;
+    border: 1px solid #000000;
+    height: 18px;
+    border-radius: 50%;
+}
+.snippet-action-sticky-product .variant-tabs-sticky .cs-data:has(.variant-tab-sticky.active)::before {
+    box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 30px #000;
+}   
+
+.snippet-action-sticky-product .sticky-title-bx h2.title-sticky {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-action-sticky-product .sticky-title-bx {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+}
+.snippet-action-sticky-product .sticky-title-bx  ul.c-lozenges {
+    gap: 7px;
+}
+.snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge,
+.snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge {
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+/* .snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge.we-peep {
+    background: #F1E8E54D;
+    color: #A06864;
+}
+.snippet-action-sticky-product .sticky-title-bx ul.c-lozenges li.c-lozenge.tuna {
+    background: #E8CFCD38;
+    color: #A06864;
+} */
+.snippet-layout-product-form .shopify-product-form ul.trust-points {
+    gap: 9px;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-selector-title {
+    display: block;
+}
+.product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-selector-title span.customsuppy-text {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #828282;
+    margin-top: 3px;
+}
+.about-advance-wrapper .about-advance-block {
+    margin-top: 50px;
+}
+.about-advance-wrapper .about-advance-block .title-advance-plus {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: 0;
+    color: #343436;
+    margin-bottom: 15px;
+}
+.about-advance-wrapper .about-advance-block .advanceplus-description {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    letter-spacing: 0;
+    margin: 15px 0 25px 0;
+    color: #343436;
+}
+
+.how-to-use {
+    background: #FDFDFD;
+    padding: 16px 15px;
+    border-radius: 12px;
+}
+.how-to-use .howtouse-title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+.how-to-use .howtouse-title svg {
+    margin-right: 12px;
+}
+.how-to-use .badges {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.how-to-use .badges span.badge {
+    background: #A06864;
+    padding: 6px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.how-to-use .custom-description p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 126%;
+    letter-spacing: 0;
+    color: #343436;
+    margin: 0 0 16px 0;
+}
+.how-to-use .capsules {
+    background: #F3EFEC;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 134%;
+    letter-spacing: 0;
+    color: #343436;
+}
+.snippet-layout-product-form .shopify-product-form .product-title {
+    margin-block: 7px 10px;
+}
+.about-advance-wrapper .about-advance-block ul.badges-list {
+    padding: 0;
+    list-style: none;
+    margin-block: 24px;
+    display: flex;
+    gap: 5px;
+}
+.about-advance-wrapper .about-advance-block ul.badges-list li {
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+/* Accordion styling */
+.pdp-tab-content-comman {
+  display: none;
+  padding: 10px 0;
+}
+.tab-icon {
+  width: 10px;
+  height: 10px;
+}
+.tab-icon svg {
+  display: block;
+}
+.tab-icon svg.icon-minus {
+  display: none;
+}
+.accordion-wrapper {
+    padding: 16px 15px;
+    border-radius: 12px;
+    background-color: #fff;
+}
+.accordion-wrapper .comman-pdp-tab-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: #343436;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.accordion-wrapper .comman-pdp-tab-title span.tab-icon {
+    background-color: #343436;
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+.accordion-wrapper .body-accordian-wrap {
+    border-bottom: 0.5px dashed #343436;
+    padding-block: 12px;
+}
+.accordion-wrapper .hair-accordian-wrap {
+    border-bottom: 0.5px dashed #343436;
+    padding-block: 0 12px;
+}
+.accordion-wrapper .benefits-accordian-wrap {
+    padding-block: 12px 0;
+}
+.accordion-wrapper .pdp-tab-content-comman {
+    padding-top: 14px;
+}
+.accordion-wrapper .pdp-tab-content-comman .metafield-rich_text_field p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 140%;
+    letter-spacing: 0;
+}
+.accordion-wrapper .pdp-tab-content-comman span.hair-points-wrap {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 8px;
+    margin-block: 5px 0;
+}
+.accordion-wrapper .pdp-tab-content-comman span.hair-points-wrap:first-child {
+    margin-top: 0;
+}
+.accordion-wrapper .pdp-tab-content-comman span.hair-points-wrap svg {
+    width: 20px;
+    height: auto;
+}
+.snippet-layout-product-form .data-product-variants .product-option-wrapper ul.normal_without_sub_product .custom-li-inner-vairant-section {
+    display: block !important;
+}
+
+@media screen and (max-width:1650px) {
+    .section-featured-testimonials .wrapper [data-ft-swiper] {
+    width: 100%;
+    }
+}
+
+@media screen and (max-width:1440px) {
+    .snippet-layout-product-form .product-title {
+    font-size: 35px;
+    }
+    .about-advance-wrapper .about-advance-block .title-advance-plus {
+    font-size: 35px;
+    }
+    .template-product .section-main-product .main-wrapper {
+    gap: 5rem;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .template-product .section-main-product .main-wrapper {
+    gap: 2rem;
+    }
+    .snippet-layout-product-form .product-title {
+    font-size: 32px;
+    }
+    .about-advance-wrapper .about-advance-block .title-advance-plus {
+    font-size: 32px;
+    }
+    .about-advance-wrapper .about-advance-block {
+    margin-top: 30px;
+    }
+}
+ 
+@media screen and (max-width:767px) {
+    .snippet-action-sticky-product .sticky-title-bx {
+    display: none;
+    }
+    .snippet-action-sticky-product .variant-tabs-sticky {
+    display: none;
+    }
+    .snippet-action-sticky-product button.c-btn.add-to-basket {
+    max-width: 100%;
+    width: 100%;
+    }
+    .variant-tab .cs-mobile-lozenge-bar {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-saving span {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content ul.option-trust-points li svg {
+    width: 12px;
+    }
+    .about-advance-wrapper .about-advance-block .title-advance-plus {
+    font-size: 28px;
+    }
+    .about-advance-wrapper .about-advance-block .advanceplus-description {
+    font-size: 14px;
+    margin: 15px 0 20px;
+    }
+    .how-to-use .howtouse-title {
+    font-size: 15px;
+    }
+    .how-to-use .badges span.badge {
+    font-size: 13px;
+    }
+    .how-to-use p {
+    font-size: 14px;
+    }
+    .how-to-use .capsules {
+    font-size: 12px;
+    }
+    .cs-payment-icon {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 10px;
+    }         
+    .snippet-layout-product-form .shopify-product-form .product-title {
+    font-size: 28px;
+    margin-block: 2px 5px;
+    }
+    ul.c-lozenges li.c-lozenge.we-peep, ul.c-lozenges li.c-lozenge.tuna {
+    font-size: 13px;
+    }      
+    .snippet-layout-product-form .shopify-product-form ul.c-lozenges {
+    gap: 5px;
+    }
+    .snippet-layout-product-form ul.trust-points li {
+    font-size: 14px!important;
+    }      
+    .snippet-layout-product-form .product-short-desc p {
+    font-size: 14px;
+    }
+    .variant-tab .csdata-heading {
+    font-size: 13px;
+    }
+    .variant-tab .csdata-heading span {
+    font-size: 10px;
+    }   
+    .variant-tab {
+    padding: 16px 10px 16px 10px;
+    }    
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header .option-selector-title span.customsuppy-text {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.option-title {
+    font-size: 14px;
+    }
+    .snippet-layout-product-form .data-product-variants .product-option-wrapper.subscription ul li label .option-header .prices .was {
+    font-size: 12px;
+    margin-left: auto;
+    }      
+    .about-advance-wrapper .about-advance-block ul.badges-list li {
+    font-size: 13px;
+    }
+    .about-advance-wrapper .about-advance-block ul.badges-list {
+    margin-block: 0 12px;
+    }
+    .accordion-wrapper .comman-pdp-tab-title span.tab-icon {
+    width: 20px;
+    height: 20px;
+    }
+    .accordion-wrapper .comman-pdp-tab-title {
+    font-size: 14px;
+    }
+    .accordion-wrapper .pdp-tab-content-comman .metafield-rich_text_field p {
+    font-size: 14px;
+    }
+    .accordion-wrapper .pdp-tab-content-comman {
+    padding-top: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info {
+    font-size: 12px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing span.free-gift-free {
+    font-size: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info .free-gift-pricing .free-gift-price {
+    font-size: 12px;
+    }   
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift {
+    gap: 12px;
+    }
+    .variant-tab .cs-free-gift-free {
+    font-size: 10px;
+    bottom: -8px;
+    width: max-content;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header span.money {
+    font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width:375px) {
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content {
+    padding: 10px;
+    }
+    .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .option-header {
+    gap: 5px;
+    }
+    .snippet-layout-product-form .data-product-variants .product-option-wrapper.subscription ul li label .option-header .prices .current {
+    font-size: 13px;
+    }
+    .c-btn.add-to-basket {
+    padding-inline: 18px;
+    }
+    .about-advance-wrapper .about-advance-block ul.badges-list li {
+    font-size: 11px;
+    }
+    .how-to-use .badges span.badge {
+    font-size: 11px;
+    }
+}

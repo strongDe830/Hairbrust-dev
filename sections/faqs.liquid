@@ -27,21 +27,101 @@
   render 'file-js', _name: 'tabs.js', _load_type: 'defer'
   render 'file-css', _name: 'snippet-info-modal.css', _load_type: 'defer'
 %}
+<style>
+  .content {
+    background-image: url('{{ section.settings.background_image | img_url: 'original' }}');
+    position: relative;    
+    border-radius: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    border-radius: 12px;
+  }
+  .content-position {
+    position: absolute;
+    bottom: 32px;
+    color: #fff;
+    padding: 32px;
+    padding-bottom: 0;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+  }
+  .content-position .question-text {
+    font-family: Playfair Display;
+    font-weight: 400;
+    font-style: Italic;
+    font-size: 40px;
+    line-height: 120%;
+  }
+  .content-position .heading {
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+  }
+  .content-position .contact-text {
+    font-family: Manrope;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    vertical-align: middle;
+    width: 80%;
+    margin-top: 16px;
+  }
+  .faq-groups .c-btn.main.tuna {
+    margin-top: 32px;
+  }
+  .faq-groups details {
+    border-bottom: 1px dashed #343436;
+  }
+  @media(max-width: 768px) {
+    .content-position {
+      padding-left: 20px;
+      padding-right: 19px;
+    }
+    .content-position .contact-text {
+      font-size: 14px;
+      width: 100%;
+    }
+    .content-position .question-text,
+    .content-position .heading {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .content-position {
+      bottom: 30px;
+    }
+  }
+</style>
 
 <section-faqs class="{{- template_name }} u-space-below-{{- margin_bottom }}" data-section-type="{{- template_name -}}" data-section-id="{{ section.id }}">
   <div class="container">
     <div class="wrapper">
       <div class="content">
-        {%- if heading != blank -%}
-          <h2 class="u-heading-md heading">{{ heading }}</h2>
-        {%- endif -%}
-        {%- if text != blank -%}
-          <div class="c-rte">{{ text }}</div>
-        {%- endif -%}
-        {%- if contact_heading != blank and contact_text != blank -%}
-          <h3 class="u-heading-xs heading">{{- contact_heading -}}</h3>
-          <div class="c-rte">{{- contact_text -}}</div>
-        {%- endif -%}
+        <div class="content-position">
+          {%- if heading != blank -%}
+            <h2 class="u-heading-md heading">{{ heading }}</h2>
+          {%- endif -%}
+          {%- if text != blank -%}
+            <div class="question-text c-rte">{{ text }}</div>
+          {%- endif -%}
+          {%- if contact_heading != blank and contact_text != blank -%}
+            <h3 class="u-heading-xs heading">{{- contact_heading -}}</h3>
+            <div class="contact-text c-rte">{{- contact_text -}}</div>
+          {%- endif -%}
+        </div>
       </div>
       <div class="faq-groups">
         <spark-tabs>
@@ -267,25 +347,29 @@
               </div>
             {%- endfor -%}
           {%- endif -%}
+
+          {% for block in section.blocks %}
+            {%- case block.type -%}
+              {%- when "button" -%}
+                {%- render 'anchor',
+                  _anchor_text: block.settings.title,
+                  _anchor_url: block.settings.anchor_url,
+                  _anchor_style: block.settings.anchor_style,
+                  _anchor_version: block.settings.anchor_version,
+                  _icon: block.settings.anchor_icon,
+                  button_position: block.settings.button_position,
+
+                -%}                
+              {%- endcase -%}
+            
+          {% endfor %}
+
         </spark-tabs>
       </div>
     </div>
   </div>
 </section-faqs>
 
-{% comment %} {%- for faq_group in faq_groups -%}
-  {%- for vt_object in faq_group.video_and_transcript_objects.value -%}
-    {% liquid
-      assign data_attribute = vt_object.video_title | handleize | remove: '-'
-      assign overlay_data_attribute = 'data-' | append: data_attribute | append: '-external-el="overlay"'
-    %}
-    <spark-popup identifier="{{- data_attribute -}}">
-      {{ vt_object.video_title }}
-    </spark-popup>
-
-    {% render 'overlay', _data_attributes: overlay_data_attribute %}
-  {%- endfor -%}
-{%- endfor -%} {% endcomment %}
 
 {%- schema -%}
 {
@@ -312,10 +396,10 @@
       "content": "t:sections.faqs.header_contact.content"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "contact_heading",
       "label": "t:sections.faqs.settings.contact_heading.label",
-      "default": "t:sections.faqs.settings.contact_heading.default"
+      "default": "<p>t:sections.faqs.settings.contact_heading.default</p>"
     },
     {
       "type": "richtext",
@@ -354,6 +438,11 @@
       ],
       "default": "md"
     },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    }
   ],
   "blocks": [
     {
@@ -365,9 +454,105 @@
           "id": "faq_group_object",
           "label": "t:sections.faqs.blocks.faq_group.settings.label",
           "metaobject_type": "faq_group"
+        },
+      ]
+    },    
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "url",
+          "id": "anchor_url",
+          "label": "t:blocks.anchor.settings.anchor_url.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:blocks.anchor.settings.anchor_text.label"
+        },
+        {
+          "type": "select",
+          "id": "anchor_version",
+          "label": "t:blocks.anchor.settings.anchor_version.label",
+          "options": [
+            {
+              "value": "main",
+              "label": "t:global.versions.main.label"
+            },
+            {
+              "value": "alt",
+              "label": "t:global.versions.alt.label"
+            }
+          ],
+          "default": "main"
+        },
+        {
+          "type": "select",
+          "id": "button_position",
+          "label": "Button position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "anchor_style",
+          "label": "t:blocks.anchor.settings.anchor_style.label",
+          "options": [
+            {
+              "value": "white",
+              "label": "t:global.colours.white.label"
+            },
+            {
+              "value": "tuna",
+              "label": "t:global.colours.tuna.label"
+            },
+            {
+              "value": "we-peep",
+              "label": "t:global.colours.we-peep.label"
+            }
+          ],
+          "default": "white"
+        },
+        {
+          "type": "select",
+          "id": "anchor_icon",
+          "label": "t:blocks.anchor.settings.anchor_icon.label",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:global.options.none.label"
+            },
+            {
+              "value": "arrow-up",
+              "label": "t:global.icons.arrow_up.label"
+            },
+            {
+              "value": "arrow-right",
+              "label": "t:global.icons.arrow_right.label"
+            },
+            {
+              "value": "arrow-down",
+              "label": "t:global.icons.arrow_down.label"
+            },
+            {
+              "value": "arrow-left",
+              "label": "t:global.icons.arrow_left.label"
+            }
+          ],
+          "default": "none"
         }
       ]
-    }
+    }  
   ],
   "presets": [
     {

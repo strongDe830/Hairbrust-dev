@@ -1,5 +1,5 @@
 {%- if block.settings.image != blank -%}
-  <div class="block-badge">
+  <div class=" block-{{ block.id }} block-badge {% if block.settings.image_position == "right" %}image-position {% endif %}">
     {{- block.settings.text -}}
     {{-
       block.settings.image
@@ -9,6 +9,29 @@
   </div>
 {%- endif -%}
 
+{%- style -%}
+  @media(min-width: 768px) {
+    .block-{{ block.id }}.image-position {
+      position: absolute;
+      top: 20%;
+      right: 0;
+    } 
+
+     .block-{{ block.id }}.image-position img {
+      max-width: 118px;
+     }
+  }
+  @media(max-width: 767px) {
+    .block-{{ block.id }}.image-position {
+      position: absolute;
+      bottom: 26px;
+      left: 26px;
+    } 
+     .block-{{ block.id }}.image-position img {
+      max-width: 118px;
+     }
+  }
+{%- endstyle -%}
 {% schema %}
 {
   "name": "t:blocks.badge.name",
@@ -24,7 +47,23 @@
       "id": "image",
       "label": "t:sections.all.image.label",
       "info": "t:blocks.badge.settings.image.info"
-    }
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
   ],
   "presets": [{ "name": "t:blocks.badge.name" }]
 }

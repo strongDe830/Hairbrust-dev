@@ -29,6 +29,9 @@
       "white": {
         "label": "White"
       },
+        "light-white": {
+        "label": "Light White"
+      },
       "tuna": {
         "label": "Tuna"
       },
@@ -120,6 +123,7 @@
         "label": "None"
       }
     },
+    
     "sizes": {
       "extra_small": {
         "label": "Extra Small"
@@ -145,6 +149,9 @@
     },
     "percentage": {
       "label":"Percentage"
+    },
+    "border-radius": {
+       "label":"Border radius"
     },
     "versions": {
       "main": {
@@ -202,6 +209,9 @@
           "label": "Anchor Version"
         }
       }
+    },
+    "image": {
+      "name": "Image"
     },
     "accordion": {
       "name": "Accordion"
@@ -263,6 +273,9 @@
     },
     "group_anchors": {
       "name": "Group Anchors"
+    },
+    "group_kickers": {
+      "name": "Group Kickers"
     },
     "group_media": {
       "name": "Group Media",

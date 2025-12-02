@@ -6,7 +6,7 @@
 
 <div class="u-space-below-{{- block.settings.margin_bottom }}  block-group-statistics" {{ block.shopify_attributes }}>
   <group-statistics class="{% if block.settings.block_layout  == 'carousel' %}swiper{% endif %}">
-    <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-statistics-grid grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
+    <div class="{% if block.settings.block_layout  == 'carousel' %}swiper-wrapper{% else %} group-statistics-grid grid-desktop-row--{{ block.settings.rows_desktop }} grid--{{ block.settings.columns_mobile }}-col-table-down {% endif %}">
       {% content_for 'blocks' %}
     </div>
   </group-statistics>
@@ -30,6 +30,22 @@
         {
           "value": "grid",
           "label": "Grid"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "rows_desktop",
+      "default": "1",
+      "label": "Number of rows on desktop",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
         }
       ]
     },

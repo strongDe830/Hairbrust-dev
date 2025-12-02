@@ -2,7 +2,13 @@
   render 'file-css', _name: 'block-group-text-grid-blocks.css', _load_type: 'defer'
 %}
 
-<div class="block-group-text-grid-blocks">
+{%- style -%}
+  .block-{{ block.id }}.block-group-text-grid-blocks {
+    margin-top: {{ block.settings.margin_top }}px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+  }
+{%- endstyle -%} 
+<div class="block-group-text-grid-blocks block-{{ block.id }}">
   {% content_for 'blocks' %}
 </div>
 
@@ -10,6 +16,26 @@
 {
   "name": "t:blocks.group_text_grid_blocks.name",
   "tag": null,
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 16,
+      "label": "t:sections.all.spacing.margin_top.label"
+    },
+     {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 16,
+      "label": "t:sections.all.spacing.margin_bottom.label"
+    }
+  ],
   "blocks": [{ "type": "text-grid-block" }],
   "presets": [{ "name": "t:blocks.group_text_grid_blocks.name" }]
 }

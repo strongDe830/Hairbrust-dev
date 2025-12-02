@@ -14,13 +14,13 @@
 
 <related-products
   class="layout-related-products"
-  data-url="{{ routes.product_recommendations_url }}?section_id={{ _section.id }}&product_id={{ _product.id }}&limit=6&intent=related"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ _section.id }}&product_id={{ _product.id }}&limit={{ product_limit }}&intent=related"
 >
   {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-    <div class="swiper {% if _use_vertical_slider == true %} js-is-vertical{% endif -%}" data-lcp-slider>
-      <div class="swiper-wrapper">
-        {%- for product in recommendations.products -%}
-          <div class="swiper-slide">
+    <div class="{% if _content_layout == 'carousel' %}swiper {% endif %} {% if _use_vertical_slider == true %} js-is-vertical{% endif -%}" data-lcp-slider>
+      <div class="{% if _content_layout == 'carousel' %}swiper-wrapper {% else %} layout-related-products-grid-wrapper {% endif %}">
+        {%- for product in recommendations.products limit: product_limit -%}
+          <div class="{% if _content_layout == 'carousel' %}swiper-slide {% else %} layout-related-products-grid-item {% endif %}">
             {% if _use_vertical_slider == true %}
               {%-
                 render 'card-product-add-on',
@@ -37,14 +37,17 @@
           </div>
         {%- endfor -%}
       </div>
-      <div class="swiper-btns">
-        <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.previous' | t -}}" data-slider-prev>
-          {%- render 'element-icon', _icon: 'arrow-left' -%}
-        </button>
-        <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.next' | t -}}"  data-slider-next>
-          {%- render 'element-icon', _icon: 'arrow-right' -%}
-        </button>
-      </div>
+
+      {% if _show_slider_btn == true %}
+        <div class="swiper-btns">
+          <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.previous' | t -}}" data-slider-prev>
+            {%- render 'element-icon', _icon: 'arrow-left' -%}
+          </button>
+          <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.next' | t -}}"  data-slider-next>
+            {%- render 'element-icon', _icon: 'arrow-right' -%}
+          </button>
+        </div>
+      {% endif %}
     </div>
   {%- endif -%}
 </related-products>

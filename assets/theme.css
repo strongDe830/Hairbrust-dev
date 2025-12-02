@@ -646,6 +646,11 @@ a:has(.ruk_rating_snippet:empty) {
 .c-lozenges .c-lozenge.light-peep {
   background-color: var(--colour-light-peep);
 }
+
+.c-lozenge.light-white,
+.c-lozenges .c-lozenge.light-white {
+  background-color: var(--colour-light-white);
+}
 .c-lozenge.glass,
 .c-lozenges .c-lozenge.glass {
   background-color: var(--colour-white-glass);

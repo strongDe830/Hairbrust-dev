@@ -24,6 +24,7 @@
           "static": true,
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -33,6 +34,8 @@
               "settings": {
                 "kicker": "Hair Biology",
                 "background_colour": "gallery",
+                "text_color": "",
+                "border_radius": 8,
                 "margin_bottom": 8
               },
               "blocks": {}
@@ -44,7 +47,9 @@
                 "heading_type": "h2",
                 "heading_size": "lg",
                 "text_align": "start",
-                "margin_bottom": 16
+                "full_width": true,
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             },
@@ -55,7 +60,9 @@
                 "heading_type": "h3",
                 "heading_size": "xs",
                 "text_align": "start",
-                "margin_bottom": 16
+                "full_width": true,
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -69,15 +76,7 @@
         "static-media": {
           "type": "media",
           "static": true,
-          "settings": {
-            "image_mobile": "shopify://shop_images/SCIENCE_PAGE.png",
-            "image": "shopify://shop_images/SCIENCE_PAGE.png",
-            "image_size": "large",
-            "iframe_embed": "",
-            "media_type": "image",
-            "video_source": "shopify-upload",
-            "use_controls": false
-          },
+          "settings": {},
           "blocks": {}
         },
         "static-badge": {
@@ -85,7 +84,8 @@
           "disabled": true,
           "static": true,
           "settings": {
-            "text": ""
+            "text": "",
+            "image_position": "left"
           },
           "blocks": {}
         }
@@ -94,518 +94,598 @@
         "margin_bottom": "sm"
       }
     },
-    "text_LDQq7j": {
-      "type": "text",
-      "blocks": {
-        "group_content_jkCPjq": {
-          "type": "group-content",
-          "name": "t:blocks.group_content.name",
-          "settings": {
-            "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
-          },
-          "blocks": {
-            "group_anchors_z6AzzR": {
-              "type": "group-anchors",
-              "name": "t:blocks.group_anchors.name",
-              "settings": {
-                "margin_bottom": 0
-              },
-              "blocks": {
-                "anchor_L73TWk": {
-                  "type": "anchor",
-                  "name": "t:blocks.anchor.name",
-                  "settings": {
-                    "anchor_url": "#shopify-block-AQ0JaSWxZNTNVYlR1S__heading_ipeb3g",
-                    "title": "The Hair Growth Cycle",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                },
-                "anchor_fLcErn": {
-                  "type": "anchor",
-                  "name": "t:blocks.anchor.name",
-                  "settings": {
-                    "anchor_url": "#shopify-block-AdkF0UyttbnFkZWVKQ__heading_FfRPFR",
-                    "title": "Your Hair Growth Pathway",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                },
-                "anchor_q78B8J": {
-                  "type": "anchor",
-                  "name": "t:blocks.anchor.name",
-                  "settings": {
-                    "anchor_url": "#shopify-block-AMDZIZGpsaGQyVml5N__heading_b6rmHd",
-                    "title": "Your DHT & ECM explained",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                },
-                "anchor_T3ijK8": {
-                  "type": "anchor",
-                  "name": "t:blocks.anchor.name",
-                  "disabled": true,
-                  "settings": {
-                    "anchor_url": "shopify://pages/science",
-                    "title": "Oxidative Stress",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                },
-                "anchor_GrNxdJ": {
-                  "type": "anchor",
-                  "name": "t:blocks.anchor.name",
-                  "settings": {
-                    "anchor_url": "#shopify-block-AVkFXQTdTYzcybXNHd__heading_R7kxQb",
-                    "title": "Root Causes of Hair Loss",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "anchor_L73TWk",
-                "anchor_fLcErn",
-                "anchor_q78B8J",
-                "anchor_T3ijK8",
-                "anchor_GrNxdJ"
-              ]
-            }
-          },
-          "block_order": [
-            "group_anchors_z6AzzR"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_jkCPjq"
-      ],
-      "name": "t:sections.text.name",
-      "settings": {
-        "text_align": "centre",
-        "justify_content": "centre",
-        "margin_bottom": "sm"
-      }
-    },
-    "text_3Pzn8b": {
-      "type": "text",
-      "blocks": {
-        "group_content_qxjNJ8": {
-          "type": "group-content",
-          "name": "t:blocks.group_content.name",
-          "settings": {
-            "add_margin": false,
-            "text_align": "start",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_ipeb3g": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
-              "settings": {
-                "heading": "Understanding the Hair Growth Cycle",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "start",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_8aLWge": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what<br/>your hair needs at every stage <strong>and how to combat phases of hair loss.</strong></p><p>That’s why our formulations work; because they’re designed to support your hair’s natural rhythm for stronger, healthier growth <strong>and target the root causes of thinning.</strong></p>",
-                "add_margin": false,
-                "text_align": "start",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_ipeb3g",
-            "text_8aLWge"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_qxjNJ8"
-      ],
-      "name": "t:sections.text.name",
-      "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "none"
-      }
-    },
-    "custom_tabs_GTdEBG": {
-      "type": "custom-tabs",
-      "blocks": {
-        "block_wMbhHN": {
-          "type": "block",
-          "settings": {
-            "title": "Anagen: The Growth Phase",
-            "text": "<p>This is the phase when your hair is actively growing with an average of half an inch per<br/>month. The longer your hair stays in this phase, the longer it will grow.</p><p><strong>What’s happening?</strong> Your follicles are working hard, producing new hair cells and pushing them out of the scalp. Around 85-90% of your hair is in this phase at any given time and this phase usually lasts around 3-5 years depending on age, gender and ethnicity.</p>",
-            "kicker": "3 - 5 years"
-          }
-        },
-        "block_nxbGt8": {
-          "type": "block",
-          "settings": {
-            "title": "Catagen: The Transition Phase",
-            "text": "<p>The second stage of your hair cycle is the shortest phase, think of this as a reset period. Your hair stops growing, but it’s still attached to the follicle as it prepares to shed.</p><p><strong>What’s happening?</strong> The follicle shrinks, cutting off the blood supply to the hair strand as it prepares for the next growth cycle. This phase affects around 5% of your hair at any given time and lasts approximately 2-3 weeks.</p>",
-            "kicker": "3 - 4 weeks"
-          }
-        },
-        "block_itkaj3": {
-          "type": "block",
-          "settings": {
-            "title": "Telogen: The Resting Phase",
-            "text": "<p>The third stage of the natural hair growth cycle is a resting period where strands remain in the follicles but are not actively growing.<br/><br/><strong>What’s happening?</strong> The follicle rests before it begins to shed, around 10-15% of your hair is in this phase at any given time and it usually lasts around 3 months. Sudden changes like stress, hormonal imbalances, nutritional deficiencies and rapid weight loss can cause hair strands to enter the telogen phase prematurely which can lead to increased hair loss. This condition is known as telogen effluvium.</p>",
-            "kicker": "3 - 4 months"
-          }
-        },
-        "block_tE8Tgj": {
-          "type": "block",
-          "settings": {
-            "title": "Exogen: Shedding Phase",
-            "text": "<p>During the last phase, hair begins to shed as new strands begin to grow in the follicle, this causes on average 50-100 hair strands to shed a day during this phase.</p><p><strong>What’s happening?</strong> Hair strands begin to shed as new follicle growth begins. This phase typically lasts around 2-5 months with on average 9% of hair being in this phase at any given time.</p>",
-            "kicker": "2 - 5 months"
-          }
-        }
-      },
-      "block_order": [
-        "block_wMbhHN",
-        "block_nxbGt8",
-        "block_itkaj3",
-        "block_tE8Tgj"
-      ],
-      "settings": {
-        "margin_bottom": "md"
-      }
-    },
-    "text_LL87MG": {
-      "type": "text",
-      "blocks": {
-        "group_content_cbdJiR": {
-          "type": "group-content",
-          "name": "t:blocks.group_content.name",
-          "settings": {
-            "add_margin": false,
-            "text_align": "start",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_FfRPFR": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
-              "settings": {
-                "heading": "Your Hair Growth Pathway",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "start",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_yVkcYj": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>The Wnt pathway is a group of signals your body uses to control how cells grow, divide, and function, especially in places like your skin and hair follicles. It plays a big role in starting and maintaining the hair growth cycle, helping to keep follicles active and healthy.</p>",
-                "add_margin": false,
-                "text_align": "start",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_FfRPFR",
-            "text_yVkcYj"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_cbdJiR"
-      ],
-      "name": "t:sections.text.name",
-      "settings": {
-        "text_align": "centre",
-        "justify_content": "centre",
-        "margin_bottom": "none"
-      }
-    },
-    "custom_tabs_iFx4q9": {
-      "type": "custom-tabs",
-      "blocks": {
-        "block_iMeNj4": {
-          "type": "block",
-          "settings": {
-            "title": "Your Wnt Pathway Explained",
-            "text": "<p>Think of the Wnt pathway as a road that carries growth signals to your hair follicles. When traffic is flowing smoothly, the signals get through, and your hair stays in a healthy growth cycle. But if there's a traffic jam, roadblock, or detour the signals can’t reach their destination which can then cause hair follicles to slow down or stay in a resting phase, eventually leading to thinning or hair loss.</p>",
-            "kicker": "Your Wnt Pathway Explained"
-          }
-        },
-        "block_Rd3dXB": {
-          "type": "block",
-          "settings": {
-            "title": "Wnt Road Blockers",
-            "text": "<p>Some of the “road blockers” that slow down the Wnt pathway are natural proteins in the body that act like stop signs for hair growth.</p><p>These include things like <strong>Dkk1, sFRPs, </strong>and <strong>SOST</strong> - they may sound complicated, but their job is simple: they tell your hair follicles to slow down or stop growing. These blockers can show up more when your scalp is dealing with inflammation, stress, hormonal changes, or skin issues like eczema and psoriasis. When too many of these blockers are active, they can make it harder for your hair to grow strong and healthy. </p><p>Think of the Wnt pathway like a road that sends “grow” messages to your hair. When the road is clear, your hair keeps growing strong. But things like stress and inflammation can put up stop signs (proteins like Dkk1 and SOST) that block the signals.</p><p>When that happens, hair growth slows down, and thinning can start.</p>",
-            "kicker": "Wnt Road Blockers"
-          }
-        },
-        "block_mKndTp": {
-          "type": "block",
-          "settings": {
-            "title": "How Hairburst Works",
-            "text": "<p>At Hairburst, our scalp treatments contain trademarked ingredients that encourage the production of R-spondin 1, this helps keep your Wnt pathway clear and supports longevity in the growth cycle. </p>",
-            "kicker": "How Hairburst Works"
-          }
-        }
-      },
-      "block_order": [
-        "block_iMeNj4",
-        "block_Rd3dXB",
-        "block_mKndTp"
-      ],
-      "name": "t:sections.custom_tabs.name",
-      "settings": {
-        "margin_bottom": "xs"
-      }
-    },
-    "text_Ya8efM": {
-      "type": "text",
-      "blocks": {
-        "group_content_UJcmJ4": {
-          "type": "group-content",
-          "name": "t:blocks.group_content.name",
-          "settings": {
-            "add_margin": false,
-            "text_align": "start",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_b6rmHd": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
-              "settings": {
-                "heading": "Your DHT & ECM Explained",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_b6rmHd"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_UJcmJ4"
-      ],
-      "name": "t:sections.text.name",
-      "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "none"
-      }
-    },
-    "custom_tabs_ripXnz": {
-      "type": "custom-tabs",
-      "blocks": {
-        "block_TCDNBT": {
-          "type": "block",
-          "settings": {
-            "title": "What is DHT?",
-            "text": "<p>DHT (dihydrotestosterone) is a type of hormone derived from testosterone, it’s produced when the enzyme 5-alpha-reductase converts testosterone into DHT.</p><p>It’s naturally present in both men and women, but in different amounts and plays an important role in the<br/>body, especially during development. </p>",
-            "kicker": "What is DHT?"
-          }
-        },
-        "block_DNhmh6": {
-          "type": "block",
-          "settings": {
-            "title": "DHT explained",
-            "text": "<p>In males, DHT is crucial for male characteristics during fetal growth and triggers changes during puberty like facial and body hair growth and voice deepening. In females, it exists in much lower levels and helps regulate hormone balance and support sexual health.</p><p>However, DHT is also one of the key hormones involved in hair loss, particularly in a condition called <strong>androgenetic alopecia, </strong>also known as male-pattern or female pattern hair loss.</p><p>When too much testosterone is converted into DHT, it can begin to affect the hair follicles on the scalp, especially in people who are more sensitive to it. DHT binds to androgen receptors in the follicles and can trigger a process called<strong> follicular miniaturisation</strong>. This is where the follicles gradually shrink, particularly in areas like the temples, crown, and mid-scalp, which causes hair to grow back thinner, shorter, and weaker with each cycle. Over time, the follicles can become so small that they no longer produce visible hair. DHT also <strong>shortens the anagen (growth) phase, </strong>causing hair to fall out sooner, and <strong>increases the telogen (resting) phase</strong>, so more hairs remain in the shedding stage, leading to noticeable thinning. <strong>However, not everyone responds to DHT the same way and your genetics play a major role in how sensitive your hair follicles are to its effects.</strong> </p><p>Because of this, we have prioritised including trademarked ingredients within our scalp treatments that have shown to imitate testosterone so that less DHT is converted, as well as slow down the production of enzyme 5-alpha-reductase to also reduce the conversion of DHT. This helps to reduce thinning, hair loss etc. Together, this helps minimise hair thinning, reduce shedding, and support healthier, fuller-looking hair.</p>",
-            "kicker": "DHT explained"
-          }
-        },
-        "block_yiDR7y": {
-          "type": "block",
-          "settings": {
-            "title": "What is ECM?",
-            "text": "<p>Your ECM is known as an extracellular matrix which acts as a supportive network that provides structure and stability to tissues, including the hair follicle. It’s made up of a complex mix of molecules that each play an important role. </p>",
-            "kicker": "ECM explained"
-          }
-        },
-        "block_KapDmH": {
-          "type": "block",
-          "settings": {
-            "title": "ECM explained",
-            "text": "<p>Structural proteins like <strong>collagen, elastin, </strong>and<strong> fibronectin</strong> give strength and flexibility to the surrounding tissue. <strong>Proteoglycans</strong> act like multitaskers that help cells stick together, sending important signals, and carrying growth factors where they’re needed. <strong>Laminin</strong> plays a key role by helping cells attach securely to the ECM, keeping everything in place and functioning properly.</p><p>The ECM also surrounds and supports the cells in tissue, acting like a kind of <strong>scaffolding or structural framework</strong> that holds everything together. Beyond support, it plays a crucial role in maintaining <strong>vascularisation</strong> by helping to form and stabilise the blood vessels that deliver oxygen and nutrients to the hair follicle. Without this steady supply, hair growth can slow down or weaken, making a healthy ECM essential for strong, thriving hair.</p><p>While everyone has an ECM, its composition and function can vary based on individual factors like age, genetics, and overall health. its quality and function decline with age or due to stress, inflammation, or hormonal factors (like DHT).</p><p>Changes in the ECM can contribute to hair loss. For example, the ECM may become damaged or altered due to aging, stress, nutritional deficiencies etc. which can affect hair growth and lead to thinning or loss of hair. At Hairburst, we use trademarked ingredients across our scalp </p>",
-            "kicker": "ECM explained"
-          }
-        }
-      },
-      "block_order": [
-        "block_TCDNBT",
-        "block_DNhmh6",
-        "block_yiDR7y",
-        "block_KapDmH"
-      ],
-      "name": "t:sections.custom_tabs.name",
-      "settings": {
-        "margin_bottom": "md"
-      }
-    },
-    "ingredients_KpwUrx": {
-      "type": "ingredients",
-      "blocks": {
-        "group_content_hCL3Bn": {
-          "type": "group-content",
-          "settings": {
-            "add_margin": false,
-            "text_align": "start",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_R7kxQb": {
-              "type": "heading",
-              "settings": {
-                "heading": "The Root of Hair Problems",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "start",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_ABnD8R": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>Thinning, shedding, slow growth, breakage… sound familiar?<br/><br/>You’re not alone. If your hair isn’t behaving the way it used to, there’s a reason for it - actually, there are several. Stress, hormones, poor nutrition, age and even environmental damage can all disrupt your hair growth cycle, leaving you frustrated with weak, lifeless strands or even hair loss.</p><p>But here’s the good news: hair struggles aren’t permanent. Once you understand<br/>what’s really causing the issue, you can start combatting the root cause.</p>",
-                "add_margin": false,
-                "text_align": "start",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_R7kxQb",
-            "text_ABnD8R"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_hCL3Bn"
-      ],
-      "settings": {
-        "ingredients": [
-          "stress",
-          "hormones",
-          "nutrition",
-          "ageing",
-          "environmental-damage",
-          "skin-scalp-health"
-        ],
-        "margin_bottom": "md"
-      }
-    },
-    "statistics_nnhfgC": {
-      "type": "statistics",
+    "text_grid_EJF7Wq": {
+      "type": "text-grid",
       "blocks": {
         "static-group-content": {
           "type": "group-content",
           "static": true,
           "settings": {
             "add_margin": false,
-            "text_align": "center",
+            "horizontal_layout": true,
+            "text_align": "start",
             "text_color": ""
           },
           "blocks": {
-            "heading_xYNhnW": {
-              "type": "heading",
+            "kicker_E6Q6mc": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
               "settings": {
-                "heading": "Clinically Proven, Customer-Approved",
-                "heading_type": "h2",
-                "heading_size": "lg",
-                "text_align": "center",
-                "margin_bottom": 16
+                "kicker": "ROOT CAUSES",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
               },
               "blocks": {}
             },
-            "text_pGcFdq": {
-              "type": "text",
+            "heading_FHhKQH": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
               "settings": {
-                "text": "<p>We don’t just make claims—we prove them. Backed by <strong>over 10 years of research</strong>, our products contain <strong>clinically proven ingredients</strong> that deliver real results.</p>",
+                "heading": "<em>Your hair </em>reflects what’s happening inside.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "full_width": false,
+                "margin_bottom": 16,
+                "text_color": ""
+              },
+              "blocks": {}
+            },
+            "text_zCNkUi": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Your hair is a reflection of what’s happening inside your body & that’s <br/>why we target the root causes.</p>",
                 "add_margin": false,
-                "text_align": "center",
+                "full_width": false,
+                "text_color": "",
+                "text_size": "md",
+                "text_align": "start",
                 "use_icons_in_list": false,
                 "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_kickers_88ibQM": {
+              "type": "group-kickers",
+              "name": "t:blocks.group_kickers.name",
+              "settings": {
+                "margin_bottom": 0,
+                "full_width": false
+              },
+              "blocks": {
+                "kicker_m3N66f": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Ageing",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_8btrL4": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Inflammation",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_P8pbcT": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Hormones",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_MaL6VQ": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Stress",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_cqkj3a": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Lifestyle",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_hYgXUC": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Nutrition",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "kicker_m3N66f",
+                "kicker_8btrL4",
+                "kicker_P8pbcT",
+                "kicker_MaL6VQ",
+                "kicker_cqkj3a",
+                "kicker_hYgXUC"
+              ]
+            }
+          },
+          "block_order": [
+            "kicker_E6Q6mc",
+            "heading_FHhKQH",
+            "text_zCNkUi",
+            "group_kickers_88ibQM"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "block_media_zjTcnJ": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image_size": "large",
+                "video": "shopify://files/videos/Olivia Stress 5x4 Long.mp4",
+                "iframe_embed": "",
+                "media_type": "video",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_text": ""
+              },
+              "blocks": {}
+            },
+            "block_media_4Pt76a": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image_size": "large",
+                "video": "shopify://files/videos/Priya PP 5x4 Long.mp4",
+                "iframe_embed": "",
+                "media_type": "video",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_text": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "heading_xYNhnW",
-            "text_pGcFdq"
+            "block_media_zjTcnJ",
+            "block_media_4Pt76a"
           ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {
+            "margin_top": 16,
+            "margin_bottom": 16
+          },
+          "blocks": {
+            "text_grid_block_RYwe6B": {
+              "type": "text-grid-block",
+              "name": "t:blocks.text_grid_block.name",
+              "settings": {},
+              "blocks": {
+                "anchor_qdazYb": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#",
+                    "title": "your whole-body analysis",
+                    "anchor_version": "main",
+                    "button_position": "left",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "arrow-right"
+                  },
+                  "blocks": {}
+                },
+                "static-group-statistics": {
+                  "type": "group-statistics",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "block_layout": "grid",
+                    "rows_desktop": "1",
+                    "columns_mobile": "2",
+                    "margin_bottom": "md"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_qdazYb"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_RYwe6B"
+          ]
+        }
+      },
+      "name": "t:sections.text_grid.name",
+      "settings": {
+        "margin_bottom": "md",
+        "bg_color": "transparent",
+        "mobile_bg_color": "transparent",
+        "custom_class": "",
+        "tab_functionality": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "text_grid_QgaRAt": {
+      "type": "text-grid",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "horizontal_layout": true,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "kicker_jU9xix": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "OUR APPROACH",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
+            "heading_rLYxNQ": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "<em>Our whole body </em>approach to hair health",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "full_width": false,
+                "margin_bottom": 16,
+                "text_color": ""
+              },
+              "blocks": {}
+            },
+            "text_ADJapN": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Whole-body approach to hair health, targeting the internal imbalances behind thinning & breakage.</p>",
+                "add_margin": false,
+                "full_width": false,
+                "text_color": "",
+                "text_size": "md",
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kicker_jU9xix",
+            "heading_rLYxNQ",
+            "text_ADJapN"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "block_media_ccDnqR": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image_mobile": "shopify://shop_images/923ed21f7581eb3a61924c95aca9b2072d17f181-removebg-preview.png",
+                "image": "shopify://shop_images/923ed21f7581eb3a61924c95aca9b2072d17f181.png",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_icon": "shopify://shop_images/Group_2700.svg",
+                "overlay_text": "<p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what your hair needs at every stage and how to combat phases of hair loss.</p>"
+              },
+              "blocks": {}
+            },
+            "block_media_Y7WQGP": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image": "shopify://shop_images/Frame_13744.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "video",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_text": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "block_media_ccDnqR",
+            "block_media_Y7WQGP"
+          ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {
+            "margin_top": 0,
+            "margin_bottom": 0
+          },
+          "blocks": {
+            "text_grid_block_tN9bap": {
+              "type": "text-grid-block",
+              "name": "t:blocks.text_grid_block.name",
+              "settings": {},
+              "blocks": {
+                "anchor_yY8NXH": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#",
+                    "title": "shop advanced+ hair formula",
+                    "anchor_version": "main",
+                    "button_position": "left",
+                    "anchor_style": "tuna",
+                    "anchor_icon": "arrow-right"
+                  },
+                  "blocks": {}
+                },
+                "static-group-statistics": {
+                  "type": "group-statistics",
+                  "static": true,
+                  "settings": {
+                    "block_layout": "grid",
+                    "rows_desktop": "1",
+                    "columns_mobile": "2",
+                    "margin_bottom": "sm"
+                  },
+                  "blocks": {
+                    "statistic_qeRind": {
+                      "type": "statistic",
+                      "name": "t:blocks.statistic.name",
+                      "settings": {
+                        "title": "Protect.",
+                        "heading_size": "sm",
+                        "text": "Support the body by helping to balance hormones, reduce stress and anxiety, and promote better sleep.",
+                        "block_icon": "shopify://shop_images/Frame_13769.svg",
+                        "background_color": "",
+                        "text_color": "#343436",
+                        "border_color": "#343436",
+                        "display_border": false,
+                        "opacity_value": 1
+                      },
+                      "blocks": {}
+                    },
+                    "statistic_9NxABM": {
+                      "type": "statistic",
+                      "name": "t:blocks.statistic.name",
+                      "settings": {
+                        "title": "Grow.",
+                        "heading_size": "sm",
+                        "text": "Support the body by helping to balance hormones, reduce stress and anxiety, and promote better sleep.",
+                        "block_icon": "shopify://shop_images/Frame_13769.svg",
+                        "background_color": "",
+                        "text_color": "#343436",
+                        "border_color": "#343436",
+                        "display_border": false,
+                        "opacity_value": 1
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "statistic_qeRind",
+                    "statistic_9NxABM"
+                  ]
+                }
+              },
+              "block_order": [
+                "anchor_yY8NXH"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_tN9bap"
+          ]
+        }
+      },
+      "name": "t:sections.text_grid.name",
+      "settings": {
+        "margin_bottom": "md",
+        "bg_color": "transparent",
+        "mobile_bg_color": "transparent",
+        "custom_class": "remove-padding",
+        "tab_functionality": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "statistics_nnhfgC": {
+      "type": "statistics",
+      "blocks": {
+        "group_content_QHQb3t": {
+          "type": "group-content",
+          "name": "t:blocks.group_content.name",
+          "settings": {
+            "add_margin": false,
+            "horizontal_layout": false,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "badge_hGUQAQ": {
+              "type": "badge",
+              "name": "t:blocks.badge.name",
+              "settings": {
+                "text": "",
+                "image": "shopify://shop_images/6902112b1bc037ae9f585b403327b8115eb74447.png",
+                "image_position": "right"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "badge_hGUQAQ"
+          ]
+        },
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "horizontal_layout": true,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "kicker_acHinn": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "QUANTITY",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
+            "heading_xYNhnW": {
+              "type": "heading",
+              "settings": {
+                "heading": "<em>Proven performance</em> you can rely on.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "full_width": false,
+                "margin_bottom": 16,
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kicker_acHinn",
+            "heading_xYNhnW"
+          ]
+        },
+        "static-group-progress": {
+          "type": "group-progress",
+          "disabled": true,
+          "static": true,
+          "settings": {
+            "block_layout": "grid",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
+          "blocks": {}
         },
         "static-group-statistics": {
           "type": "group-statistics",
           "static": true,
-          "settings": {},
+          "settings": {
+            "block_layout": "grid",
+            "rows_desktop": "1",
+            "columns_mobile": "2",
+            "margin_bottom": "md"
+          },
           "blocks": {
             "statistic_mfM8ef": {
               "type": "statistic",
               "settings": {
-                "title": "88%",
-                "text": "of Advanced+ Hair Formula users said their hair looked healthier."
+                "title": "Clinically Proven.",
+                "heading_size": "sm",
+                "text": "Ingredients that have been shown to improve hair health for real, measurable results.",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": true,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_6KrVit": {
               "type": "statistic",
               "settings": {
-                "title": "86%",
-                "text": "of Advanced+ Hair Formula users said their hair looked fuller."
+                "title": "Expert Formulated.",
+                "heading_size": "sm",
+                "text": "Nutritionists & hair-health specialists to deliver the most effective blend for stronger hair.",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": true,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_aD7WnB": {
               "type": "statistic",
               "settings": {
-                "title": "98%",
-                "text": "of Healthy Hair Vitamin users noticed faster hair growth."
+                "title": "10+ Years & UK made.",
+                "heading_size": "sm",
+                "text": "Built on a decade of testing, Exceptional quality and safety standards.",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": true,
+                "opacity_value": 1
               },
               "blocks": {}
             },
             "statistic_Gff9RT": {
               "type": "statistic",
               "settings": {
-                "title": "97%",
-                "text": "of Healthy Hair Vitamin users said their hair felt thicker."
+                "title": "By 1 Million+ Women.",
+                "heading_size": "sm",
+                "text": "Trusted,Loved & relied on by women worldwide who want fuller, stronger, healthier hair.",
+                "background_color": "",
+                "text_color": "#ffffff",
+                "border_color": "#ffffff",
+                "display_border": true,
+                "opacity_value": 1
               },
               "blocks": {}
             }
@@ -618,79 +698,72 @@
           ]
         }
       },
-      "disabled": true,
-      "settings": {
-        "margin_bottom": "md"
-      }
-    },
-    "timeline_fHKyer": {
-      "type": "timeline",
-      "blocks": {
-        "heading_93L9QA": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Science of Good Hair",
-            "heading_type": "h2",
-            "heading_size": "lg",
-            "text_align": "center",
-            "margin_bottom": 16
-          },
-          "blocks": {}
-        },
-        "text_eNiQ3N": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Hair growth isn’t just about products—it’s about understanding your hair’s natural cycle and giving it what it needs to thrive.</p><p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what your hair needs at every stage. That’s why our formulations work—because they’re designed to support your hair’s natural rhythm for stronger, healthier growth.</p>",
-            "add_margin": true,
-            "text_align": "center",
-            "use_icons_in_list": false,
-            "margin_bottom": 24
-          },
-          "blocks": {}
-        }
-      },
       "block_order": [
-        "heading_93L9QA",
-        "text_eNiQ3N"
+        "group_content_QHQb3t"
       ],
-      "disabled": true,
       "settings": {
-        "timeline_cards": [
-          "hair-cycle-anagen",
-          "hair-cycle-catagen",
-          "hair-cycle-telegen"
-        ],
-        "margin_bottom": "md"
+        "horizontal_layout": false,
+        "margin_bottom": "md",
+        "bg_color": "linear-gradient(90deg, rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "mobile_bg_color": "linear-gradient(90deg, rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "image_position": false,
+        "border_radius": 0,
+        "custom_class": "padding-remove",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 36,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
-    "text_kCA6LK": {
-      "type": "text",
+    "categories_WwTbfQ": {
+      "type": "categories",
       "blocks": {
-        "group_content_V9pF8U": {
+        "static-group-content": {
           "type": "group-content",
-          "disabled": true,
+          "static": true,
           "settings": {
             "add_margin": false,
-            "text_align": "center",
+            "horizontal_layout": true,
+            "text_align": "start",
             "text_color": ""
           },
           "blocks": {
-            "heading_4CPmf6": {
-              "type": "heading",
+            "kicker_3mEQ9r": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
               "settings": {
-                "heading": "What’s Causing Your Hair Struggles?",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
+                "kicker": "INGREDIENTS",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
               },
               "blocks": {}
             },
-            "text_xRQFML": {
-              "type": "text",
+            "heading_YdzgzQ": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
               "settings": {
-                "text": "<p>Thinning, shedding, slow growth, breakage… sound familiar? You’re not alone. If your hair isn’t behaving the way it used to, there’s a reason for it—actually, there are several. But here’s the good news: hair struggles aren’t permanent. Once you understand what’s really causing the issue, you can start giving your hair exactly what it needs to thrive.</p>",
+                "heading": "<em>Our most advanced</em> supplement.",
+                "heading_type": "h2",
+                "heading_size": "lg",
+                "text_align": "start",
+                "full_width": true,
+                "margin_bottom": 16,
+                "text_color": ""
+              },
+              "blocks": {}
+            },
+            "text_NfH94J": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Rooted in research and developed with experts, our formulas support healthier hair <br/>from the inside out.</p>",
                 "add_margin": false,
+                "full_width": false,
+                "text_color": "",
+                "text_size": "md",
                 "text_align": "start",
                 "use_icons_in_list": false,
                 "margin_bottom": 24
@@ -699,209 +772,390 @@
             }
           },
           "block_order": [
-            "heading_4CPmf6",
-            "text_xRQFML"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_V9pF8U"
-      ],
-      "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "xs"
-      }
-    },
-    "custom_tabs_PF3FiC": {
-      "type": "custom-tabs",
-      "blocks": {
-        "block_ECnieW": {
-          "type": "block",
-          "settings": {
-            "title": "Stress",
-            "text": "<p>Ever noticed more hair in the shower after a stressful few months? That’s because stress triggers Telogen Effluvium—a condition that forces too many hairs into the shedding phase too soon. High cortisol (your stress hormone) literally puts your hair into survival mode, prioritising essential functions over growth.</p>",
-            "kicker": "Stress",
-            "image": "shopify://shop_images/STRESS.jpg"
-          }
-        },
-        "block_MpzKgT": {
-          "type": "block",
-          "settings": {
-            "title": "Hormones",
-            "text": "<p>Hormonal changes—whether due to pregnancy, postpartum, perimenopause, or even the contraceptive pill—can throw your hair completely off track. DHT, a hormone linked to hair loss, can shrink follicles over time, making hair thinner and weaker.</p>",
-            "kicker": "Hormones",
-            "image": "shopify://shop_images/HORMONES_1.jpg"
-          }
-        },
-        "block_mdmx4a": {
-          "type": "block",
-          "settings": {
-            "title": "Nutrition",
-            "text": "<p>Your hair needs a <strong>constant supply of nutrients</strong> to grow strong, but modern diets often lack the essentials. If you’re low in <strong>biotin, zinc, selenium, or folic acid</strong>, your hair follicles don’t get the fuel they need—leading to weak, slow-growing strands that break before they reach their full potential.</p>",
-            "kicker": "Nutrition",
-            "image": "shopify://shop_images/NUTRITION.jpg"
-          }
-        },
-        "block_Cw6PH8": {
-          "type": "block",
-          "settings": {
-            "title": "Environmental Damage",
-            "text": "<p>Hard water, pollution, UV rays, excessive heat styling—your hair deals with <strong>a lot</strong> every single day. Over time, <strong>oxidative stress</strong> weakens your strands, causing dryness, breakage, and dullness.</p>",
-            "kicker": "Environmental Damage",
-            "image": "shopify://shop_images/ENVIRONMENT.jpg"
-          }
-        },
-        "block_zTyJgL": {
-          "type": "block",
-          "settings": {
-            "title": "Scalp Health",
-            "text": "<p>A <strong>dry, flaky, or oily scalp</strong> can mean clogged follicles, inflammation, and poor hair growth. A healthy scalp = the best possible environment for strong, thick hair to flourish.</p>",
-            "kicker": "Scalp Health",
-            "image": "shopify://shop_images/SCALP.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "block_ECnieW",
-        "block_MpzKgT",
-        "block_mdmx4a",
-        "block_Cw6PH8",
-        "block_zTyJgL"
-      ],
-      "disabled": true,
-      "settings": {
-        "margin_bottom": "md"
-      }
-    },
-    "categories_hcrTAW": {
-      "type": "categories",
-      "blocks": {
-        "static-group-content": {
-          "type": "group-content",
-          "static": true,
-          "settings": {
-            "add_margin": false,
-            "text_align": "center",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_ehTRQV": {
-              "type": "heading",
-              "name": "t:sections.all.heading.label",
-              "settings": {
-                "heading": "What's <em>your</em> hair dealing with?",
-                "heading_type": "h2",
-                "heading_size": "md",
-                "text_align": "center",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_kX3zby": {
-              "type": "text",
-              "name": "t:blocks.text.name",
-              "settings": {
-                "text": "<p>Whether it’s stress, hormones, or postpartum changes. Our Advanced+ Hair Formula gets to the root of it.</p>",
-                "add_margin": false,
-                "text_align": "center",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_ehTRQV",
-            "text_kX3zby"
+            "kicker_3mEQ9r",
+            "heading_YdzgzQ",
+            "text_NfH94J"
           ]
         },
         "static-group-categories": {
           "type": "group-categories",
           "static": true,
           "settings": {
-            "product": ""
+            "product": "",
+            "swiper_num_desktop": 4.5,
+            "swiper_num_mobile": 1.5
           },
           "blocks": {
-            "page_yWQABT": {
+            "page_ndBted": {
               "type": "page",
               "name": "t:blocks.page.name",
               "settings": {
-                "page": "stress-hair-loss-solutions",
-                "image": "shopify://shop_images/Stress_Page_Link.png",
-                "card_title": "",
-                "category": "",
-                "button_label": "Learn more"
+                "page": "",
+                "image": "shopify://shop_images/759fcd7f5b3b957a98c469fe342bb5cf3f39adc9.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
               },
               "blocks": {}
             },
-            "page_FgPTWG": {
+            "page_tCWLUA": {
               "type": "page",
               "name": "t:blocks.page.name",
               "settings": {
-                "page": "hormonal-hair-loss-solutions",
-                "image": "shopify://shop_images/Horonal_Page_Link.png",
-                "card_title": "",
-                "category": "",
-                "button_label": "Learn more"
+                "page": "",
+                "image": "shopify://shop_images/774b6654516a01ec011d6d73140d38e70c1b7c59.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
               },
               "blocks": {}
             },
-            "page_8fgJrV": {
+            "page_ynVN9D": {
               "type": "page",
               "name": "t:blocks.page.name",
               "settings": {
-                "page": "postpartum-hair-loss-solutions",
-                "image": "shopify://shop_images/Postpartum_Page_Link.png",
-                "card_title": "",
-                "category": "",
-                "button_label": "Learn more"
+                "page": "",
+                "image": "shopify://shop_images/759fcd7f5b3b957a98c469fe342bb5cf3f39adc9.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
+              },
+              "blocks": {}
+            },
+            "page_heKdaF": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "",
+                "image": "shopify://shop_images/774b6654516a01ec011d6d73140d38e70c1b7c59.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
+              },
+              "blocks": {}
+            },
+            "page_7YRJiD": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "",
+                "image": "shopify://shop_images/759fcd7f5b3b957a98c469fe342bb5cf3f39adc9.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
+              },
+              "blocks": {}
+            },
+            "page_qRRiNK": {
+              "type": "page",
+              "name": "t:blocks.page.name",
+              "settings": {
+                "page": "",
+                "image": "shopify://shop_images/774b6654516a01ec011d6d73140d38e70c1b7c59.jpg",
+                "seperate_content": false,
+                "card_title": "Turmeric & Black Pepper",
+                "description": "<p>Powerful plant compounds derived from turmeric that help calm inflammation and protect the body from oxidative stress - two key triggers linked to hair thinning. <br/>Read More.</p>",
+                "button_label": "",
+                "button_url": ""
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "page_yWQABT",
-            "page_FgPTWG",
-            "page_8fgJrV"
+            "page_ndBted",
+            "page_tCWLUA",
+            "page_ynVN9D",
+            "page_heKdaF",
+            "page_7YRJiD",
+            "page_qRRiNK"
           ]
         }
       },
-      "disabled": true,
       "name": "t:sections.categories.name",
       "settings": {
         "margin_bottom": "md"
       }
     },
+    "text_grid_NqR6Yi": {
+      "type": "text-grid",
+      "blocks": {
+        "static-group-content": {
+          "type": "group-content",
+          "static": true,
+          "settings": {
+            "add_margin": false,
+            "horizontal_layout": true,
+            "text_align": "start",
+            "text_color": ""
+          },
+          "blocks": {
+            "kicker_PjJcbP": {
+              "type": "kicker",
+              "name": "t:blocks.kicker.name",
+              "settings": {
+                "kicker": "ROOT CAUSES",
+                "background_colour": "light-peep",
+                "text_color": "#a06864",
+                "border_radius": 8,
+                "margin_bottom": 8
+              },
+              "blocks": {}
+            },
+            "heading_mpALmL": {
+              "type": "heading",
+              "name": "t:sections.all.heading.label",
+              "settings": {
+                "heading": "<em>Proven</em> with results.",
+                "heading_type": "h2",
+                "heading_size": "md",
+                "text_align": "start",
+                "full_width": false,
+                "margin_bottom": 16,
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            },
+            "text_mbGzyE": {
+              "type": "text",
+              "name": "t:blocks.text.name",
+              "settings": {
+                "text": "<p>Your hair is a reflection of what’s happening inside your body and that’s why we target the root causes.</p>",
+                "add_margin": false,
+                "full_width": false,
+                "text_color": "#ffffff",
+                "text_size": "md",
+                "text_align": "start",
+                "use_icons_in_list": false,
+                "margin_bottom": 24
+              },
+              "blocks": {}
+            },
+            "group_kickers_VQwMnq": {
+              "type": "group-kickers",
+              "name": "t:blocks.group_kickers.name",
+              "settings": {
+                "margin_bottom": 0,
+                "full_width": false
+              },
+              "blocks": {
+                "kicker_t8Ma3Q": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Ageing",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_ptwxWh": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Inflammation",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_QzQwDE": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Hormones",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                },
+                "kicker_LnfqPm": {
+                  "type": "kicker",
+                  "name": "t:blocks.kicker.name",
+                  "settings": {
+                    "kicker": "Stress",
+                    "background_colour": "light-white",
+                    "text_color": "",
+                    "border_radius": 28,
+                    "margin_bottom": 8
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "kicker_t8Ma3Q",
+                "kicker_ptwxWh",
+                "kicker_QzQwDE",
+                "kicker_LnfqPm"
+              ]
+            }
+          },
+          "block_order": [
+            "kicker_PjJcbP",
+            "heading_mpALmL",
+            "text_mbGzyE",
+            "group_kickers_VQwMnq"
+          ]
+        },
+        "static-media": {
+          "type": "media",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "block_media_wD6bL6": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image_mobile": "shopify://shop_images/Frame_13744.jpg",
+                "image": "shopify://shop_images/Frame_13744.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_text": ""
+              },
+              "blocks": {}
+            },
+            "block_media_fzR7yC": {
+              "type": "block-media",
+              "name": "t:blocks.media.name",
+              "settings": {
+                "image": "shopify://shop_images/Frame_15206.jpg",
+                "image_size": "large",
+                "iframe_embed": "",
+                "media_type": "image",
+                "video_source": "shopify-upload",
+                "use_controls": false,
+                "overlay_text": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "block_media_wD6bL6",
+            "block_media_fzR7yC"
+          ]
+        },
+        "static-group-text-grid-blocks": {
+          "type": "group-text-grid-blocks",
+          "static": true,
+          "settings": {
+            "margin_top": 16,
+            "margin_bottom": 16
+          },
+          "blocks": {
+            "text_grid_block_GEfjd3": {
+              "type": "text-grid-block",
+              "name": "t:blocks.text_grid_block.name",
+              "settings": {},
+              "blocks": {
+                "anchor_nm9kmC": {
+                  "type": "anchor",
+                  "name": "t:blocks.anchor.name",
+                  "settings": {
+                    "anchor_url": "#",
+                    "title": "your whole-body analysis",
+                    "anchor_version": "main",
+                    "button_position": "left",
+                    "anchor_style": "white",
+                    "anchor_icon": "arrow-right"
+                  },
+                  "blocks": {}
+                },
+                "static-group-statistics": {
+                  "type": "group-statistics",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "block_layout": "grid",
+                    "rows_desktop": "1",
+                    "columns_mobile": "2",
+                    "margin_bottom": "md"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "anchor_nm9kmC"
+              ]
+            }
+          },
+          "block_order": [
+            "text_grid_block_GEfjd3"
+          ]
+        }
+      },
+      "name": "t:sections.text_grid.name",
+      "settings": {
+        "margin_bottom": "md",
+        "bg_color": "linear-gradient(90deg, rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "mobile_bg_color": "linear-gradient(90deg, rgba(91, 66, 64, 1), rgba(55, 38, 36, 1) 100%)",
+        "custom_class": "",
+        "tab_functionality": true,
+        "padding_top": 80,
+        "padding_bottom": 36
+      }
+    },
     "featured_testimonials_3VagAY": {
       "type": "featured-testimonials",
       "blocks": {
-        "heading_PHaxeV": {
-          "type": "heading",
-          "settings": {
-            "heading": "Real people, <em>real results</em>",
-            "heading_type": "h2",
-            "heading_size": "lg",
-            "text_align": "start",
-            "margin_bottom": 16
-          },
-          "blocks": {}
-        },
         "heading_ET4pAY": {
           "type": "heading",
           "settings": {
-            "heading": "Over 6000   ★ ★ ★ ★ ★   reviews across our range",
+            "heading": "Excellent  ★ ★ ★ ★ ★ ",
             "heading_type": "h5",
             "heading_size": "xs",
             "text_align": "start",
-            "margin_bottom": 16
+            "full_width": true,
+            "margin_bottom": 0,
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "heading_PHaxeV": {
+          "type": "heading",
+          "settings": {
+            "heading": "<em>Trusted  </em>by over 1M women.",
+            "heading_type": "h2",
+            "heading_size": "md",
+            "text_align": "start",
+            "full_width": true,
+            "margin_bottom": 16,
+            "text_color": ""
+          },
+          "blocks": {}
+        },
+        "text_light_xj97Rt": {
+          "type": "text-light",
+          "name": "t:blocks.text_light.name",
+          "settings": {
+            "text": "Discover a powerful, research-backed supplement that targets the root causes of hair thinning.",
+            "text_align": "start",
+            "margin_bottom": 24
           },
           "blocks": {}
         }
       },
       "block_order": [
+        "heading_ET4pAY",
         "heading_PHaxeV",
-        "heading_ET4pAY"
+        "text_light_xj97Rt"
       ],
       "settings": {
         "featured_testimonial": [
@@ -923,141 +1177,123 @@
         "margin_bottom": "md"
       }
     },
-    "text_BaEPNM": {
-      "type": "text",
+    "compare_table_dBcnXR": {
+      "type": "compare-table",
       "blocks": {
-        "group_content_ffjtcz": {
-          "type": "group-content",
+        "row_PcT8dF": {
+          "type": "row",
           "settings": {
-            "add_margin": false,
-            "text_align": "start",
-            "text_color": ""
-          },
-          "blocks": {
-            "heading_fim7AN": {
-              "type": "heading",
-              "settings": {
-                "heading": "Your Hair Growth Routine Starts Here",
-                "heading_type": "h2",
-                "heading_size": "lg",
-                "text_align": "start",
-                "margin_bottom": 16
-              },
-              "blocks": {}
-            },
-            "text_BwYKeb": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Great hair is all about <strong>consistency</strong>—but knowing what works for you is key. Our <strong>Routine Builder</strong> takes the guesswork out, creating a <strong>personalised Hairburst routine</strong> tailored to your hair goals. Build the right habits, use the right products, and watch your hair transform.</p>",
-                "add_margin": false,
-                "text_align": "start",
-                "use_icons_in_list": false,
-                "margin_bottom": 24
-              },
-              "blocks": {}
-            },
-            "group_anchors_PYwnLw": {
-              "type": "group-anchors",
-              "settings": {
-                "margin_bottom": 0
-              },
-              "blocks": {
-                "anchor_VHa4cP": {
-                  "type": "anchor",
-                  "settings": {
-                    "anchor_url": "shopify://collections/frontpage",
-                    "title": "Find your perfect routine",
-                    "anchor_version": "main",
-                    "anchor_style": "white",
-                    "anchor_icon": "none"
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "anchor_VHa4cP"
-              ]
-            }
-          },
-          "block_order": [
-            "heading_fim7AN",
-            "text_BwYKeb",
-            "group_anchors_PYwnLw"
-          ]
-        }
-      },
-      "block_order": [
-        "group_content_ffjtcz"
-      ],
-      "settings": {
-        "text_align": "left",
-        "justify_content": "left",
-        "margin_bottom": "md"
-      }
-    },
-    "timeline_78BHf9": {
-      "type": "timeline",
-      "blocks": {
-        "heading_nQDQaf": {
-          "type": "heading",
-          "name": "t:sections.all.heading.label",
-          "settings": {
-            "heading": "Understanding the Hair Growth Cycle",
-            "heading_type": "h2",
-            "heading_size": "md",
-            "text_align": "center",
-            "margin_bottom": 16
-          },
-          "blocks": {}
+            "row_label": "Inflammation",
+            "row_sub_title": "healthier scalp",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
         },
-        "text_y8CKzQ": {
-          "type": "text",
-          "name": "t:blocks.text.name",
+        "row_LBbRHM": {
+          "type": "row",
           "settings": {
-            "text": "<p>We’ve spent over a decade researching the hair growth cycle, so we know exactly what<br/>your hair needs at every stage <strong>and how to combat phases of hair loss.</strong></p><p>That’s why our formulations work; because they’re designed to support your hair’s natural rhythm for stronger, healthier growth <strong>and target the root causes of thinning.</strong></p>",
-            "add_margin": false,
-            "text_align": "center",
-            "use_icons_in_list": false,
-            "margin_bottom": 24
-          },
-          "blocks": {}
+            "row_label": "Stress",
+            "row_sub_title": "stress response",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_jPpWAf": {
+          "type": "row",
+          "settings": {
+            "row_label": "Hormones",
+            "row_sub_title": "reducing shedding",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_U9CWQF": {
+          "type": "row",
+          "settings": {
+            "row_label": "Ageing",
+            "row_sub_title": "nourishing follicles",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
+        },
+        "row_X6Bwa6": {
+          "type": "row",
+          "settings": {
+            "row_label": "Nutrition",
+            "row_sub_title": "essential vitamins",
+            "col1check": true,
+            "col2check": true,
+            "col3check": true
+          }
+        },
+        "row_cj6LWJ": {
+          "type": "row",
+          "settings": {
+            "row_label": "Metabolism",
+            "row_sub_title": "nutrient uptake",
+            "col1check": true,
+            "col2check": true,
+            "col3check": true
+          }
+        },
+        "row_aT49fj": {
+          "type": "row",
+          "settings": {
+            "row_label": "Key Ingredients",
+            "row_sub_title": "A powerful blend",
+            "col1check": true,
+            "col2check": false,
+            "col3check": false
+          }
         }
       },
       "block_order": [
-        "heading_nQDQaf",
-        "text_y8CKzQ"
+        "row_PcT8dF",
+        "row_LBbRHM",
+        "row_jPpWAf",
+        "row_U9CWQF",
+        "row_X6Bwa6",
+        "row_cj6LWJ",
+        "row_aT49fj"
       ],
-      "disabled": true,
-      "name": "t:sections.timeline.name",
+      "name": "Comparison Table",
       "settings": {
-        "timeline_cards": [
-          "science-page-anagen-the-growth-phase",
-          "science-page-catagen-the-transition-phase",
-          "science-page-telogen-the-resting-phase",
-          "science-page-exogen-shedding-phase"
-        ],
-        "margin_bottom": "md"
+        "small_heading": "Our Products",
+        "main_heading": "<i>Find</i> your formula.",
+        "subtext": "One Formula That Replaces Your Entire Supplement Shelf with 22 premium ingredients.",
+        "button_label": "Shop Advanced+ Hair Formula",
+        "button_link": "",
+        "col1": "Advanced+ Hair Formula",
+        "col1_advanced": true,
+        "col2": "Chewable Hair Vitamins",
+        "col2_advanced": false,
+        "col3": "Healthy Hair Vitamins",
+        "col3_advanced": false,
+        "table_style": "style-2",
+        "table_position": "center",
+        "text_align": "center",
+        "section_bg": "#F3EFEC",
+        "advance_tab_color": "#343436",
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mb_padding_top": 36,
+        "mb_padding_bottom": 36
       }
     }
   },
   "order": [
     "main-page",
     "page_hero_JfHpVn",
-    "text_LDQq7j",
-    "text_3Pzn8b",
-    "custom_tabs_GTdEBG",
-    "text_LL87MG",
-    "custom_tabs_iFx4q9",
-    "text_Ya8efM",
-    "custom_tabs_ripXnz",
-    "ingredients_KpwUrx",
+    "text_grid_EJF7Wq",
+    "text_grid_QgaRAt",
     "statistics_nnhfgC",
-    "timeline_fHKyer",
-    "text_kCA6LK",
-    "custom_tabs_PF3FiC",
-    "categories_hcrTAW",
+    "categories_WwTbfQ",
+    "text_grid_NqR6Yi",
     "featured_testimonials_3VagAY",
-    "text_BaEPNM",
-    "timeline_78BHf9"
+    "compare_table_dBcnXR"
   ]
 }

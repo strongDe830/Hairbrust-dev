@@ -5,6 +5,7 @@
 {%- render 'file-css', _name: 'snippet-action-sticky-product.css' -%}
 {%- render 'file-js', _name: 'snippet-action-sticky-product.js', _load_type: 'defer' -%}
 
+<<<<<<< Updated upstream
 {%- if variant.available == true -%}
   <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
     <div class="subscription-select">
@@ -17,3 +18,176 @@
     </button>
   </sticky-product>
 {%- endif -%}
+=======
+{% if variant.available %}
+
+<sticky-product
+  id="snippet-action-sticky-product-{{ _section.id }}"
+  class="snippet-action-sticky-product"
+>
+
+  {% liquid
+    assign selected_variant = _product.selected_or_first_available_variant
+    assign lozenges = product.metafields.custom.product_lozenges.value
+  %}
+
+  <!-- Title & Lozenges -->
+  <div class="sticky-title-bx">
+    <h2 class="title-sticky">
+      {{ product.title }}
+    </h2>
+
+    {% if lozenges.count > 0 %}
+      <ul class="c-lozenges">
+        {% for lozenge in lozenges %}
+          {% liquid
+            assign named_bg_colour = lozenge.background_colour
+            assign background_colour = blank
+
+            case named_bg_colour
+              when 'Peep Pink'
+                assign background_colour = 'we-peep'
+              when 'Tuna Grey'
+                assign background_colour = 'tuna'
+              when 'Gallery White'
+                assign background_colour = 'gallery'
+              when 'White'
+                assign background_colour = 'pure-White'
+              when 'Pale Rose'
+                assign background_colour = 'Pale Rose'
+            endcase
+
+            assign border = lozenge.border | default: false
+          %}
+
+          <li
+            class="c-lozenge {{ background_colour }} {% if border %}border{% endif %}"
+            style="
+              background-color: rgb(
+                {{ lozenge.background_color_new.value.red }}
+                {{ lozenge.background_color_new.value.green }}
+                {{ lozenge.background_color_new.value.blue }}
+                / {{ lozenge.background_color_opacity | default: 100 }}%
+              ) !important;
+              color: {{ lozenge.text_color }} !important;
+              {% if border %}
+                border: 1px solid #000 !important;
+              {% else %}
+                border: unset !important;
+              {% endif %}
+            "
+          >
+            {{ lozenge.text }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  {% unless _product.has_only_default_variant %}
+    {% unless product.tags contains 'bundle' %}
+
+      <div class="variant-tabs-sticky">
+
+        {% for option in _product.options_with_values %}
+          {% assign option_index = forloop.index0 %}
+
+          {% for value in option.values %}
+            {% liquid
+              assign option_disabled = false
+              if value.available == false
+                assign option_disabled = true
+              endif
+
+              assign is_alt_purchase_block_active = false
+              for block in _section.blocks
+                if block.type == 'alt_purchase_option'
+                  assign is_alt_purchase_block_active = true
+                  break
+                endif
+              endfor
+
+              assign is_hidden = false
+              if is_alt_purchase_block_active and _alt_variant and _alt_variant.id == value.variant.id
+                assign is_hidden = true
+              endif
+
+              assign is_selected = false
+              if selected_variant.options[option_index] == value
+                assign is_selected = true
+              endif
+
+              assign variant_image = value.variant.featured_media
+              assign sub_object = value.variant.metafields.custom.subscription_info.value
+              assign free_gift = value.variant.metafields.custom.free_gift.value
+            %}
+
+            {% unless is_hidden %}
+
+              {% assign lower_value = value | downcase %}
+              {% assign cleaned = lower_value | remove: 'subscription' %}
+              {% assign remaining = '' %}
+              {% if lower_value contains 'subscription' %}
+                {% assign remaining = 'subscription' %}
+              {% endif %}
+
+              <div class="cs-data">
+                <div
+                  class="variant-tab-sticky
+                    {% if is_selected %}active{% endif %}
+                    {% if option_disabled %}disabled{% endif %}
+                  "
+                  data-variant-custom="{{ value | escape | handleize }}-{{ option.name | escape | handleize }}--{{ option.position | escape | handleize }}"
+                  data-option-value="{{ value | escape }}"
+                  data-option-position="{{ option.position }}"
+                >
+                  {% if sub_object.lozenge_text != blank %}
+                    <div class="cs-mobile-lozenge-bar">
+                      {{ sub_object.lozenge_text }}
+                    </div>
+                  {% endif %}
+
+                  <div class="csdata-heading">
+                    {{ cleaned | strip }}
+                    {% if remaining != blank %}
+                      <span>{{ remaining }}</span>
+                    {% endif %}
+                  </div>
+
+                  {% if free_gift != blank %}
+                    <span class="cs-free-gift-free">+ Free Gift</span>
+                  {% endif %}
+                </div>
+              </div>
+
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+
+    {% endunless %}
+  {% endunless %}
+
+  <!-- Add to cart -->
+  <button class="c-btn main primary add-to-basket" data-asp-add-to-cart>
+    <span class="add-to-basket-text">
+
+      {% if variant.available %}
+        {{ 'products.product.add_to_cart' | t }}
+      {% else %}
+        {{ 'products.product.sold_out' | t }}
+      {% endif %}
+
+      – {{ variant.price | money }}
+
+      <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.3579 5.88345L7.50847 10.7329C7.40129 10.8401 7.25548 10.8999 7.1031 10.8991C6.95073 10.8983 6.80428 10.837 6.69597 10.7286C6.58766 10.6203 6.52637 10.4739 6.52557 10.3215C6.52477 10.1691 6.58453 10.0233 6.69171 9.91614L10.5655 6.04231L0.577484 5.98995C0.425114 5.98914 0.278672 5.92783 0.170374 5.81951C0.0620766 5.7112 0.00079433 5.56475 8.58635e-06 5.41238C-0.000777147 5.26001 0.058999 5.1142 0.166185 5.00703C0.273372 4.89986 0.419189 4.84011 0.57156 4.84092L10.5595 4.89329L6.64486 0.978626C6.53655 0.870317 6.47525 0.723866 6.47445 0.571493C6.47365 0.419119 6.53342 0.273304 6.6406 0.166124C6.74778 0.0589448 6.89359 -0.000819254 7.04597 -2.04345e-05C7.19834 0.000778383 7.34479 0.0620747 7.4531 0.170384L12.3537 5.07095C12.4083 5.12559 12.4385 5.17593 12.4531 5.23859C12.491 5.30021 12.5063 5.38695 12.5133 5.59059C12.5206 5.55356 12.5242 5.51585 12.5241 5.47803C12.5241 5.54018 12.5124 5.62877 12.4531 5.75157C12.4083 5.82673 12.3845 5.85682 12.3579 5.88345Z" fill="#FDFDFD"/>
+      </svg>
+
+    </span>
+  </button>
+
+</sticky-product>
+{% endif %}
+>>>>>>> Stashed changes

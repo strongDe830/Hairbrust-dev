@@ -10,19 +10,25 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  aspect-ratio: 1;
 }
 .section-faqs .wrapper > .content .heading {
   margin: 0;
 }
 .section-faqs .wrapper spark-tabs {
   display: block;
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
 }
+
 .section-faqs .wrapper .faq-groups {
-  background-color: var(--colour-white);
   padding: 1rem;
   max-width: 848px;
   overflow: hidden;
+  position: relative;
 }
 .section-faqs .wrapper .faq-groups .tab-menu {
   display: flex;
@@ -36,7 +42,6 @@
   border: 0;
   -webkit-appearance: none;
           appearance: none;
-  background-color: var(--colour-white);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-sm);
   font-weight: 600;
@@ -58,7 +63,7 @@
 .section-faqs .wrapper .faq-groups .tab-content {
   display: flex;
   flex-direction: column;
-  padding-top: 2.5rem;
+  /* padding-top: 2.5rem; */
   gap: 2.5rem;
   width: 100%;
 }
@@ -121,6 +126,21 @@
   .section-faqs .wrapper .faq-groups {
     border-radius: var(--border-radius-xl);
   }
+
+  .section-faqs .wrapper spark-tabs {
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 16px;
+}
+
+.section-faqs .wrapper spark-tabs::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section-faqs .wrapper spark-tabs::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 4px;
+}
 }
 @media (min-width: 768px) and (max-width: 1023.98px) {
   .section-faqs > .container {
@@ -130,7 +150,7 @@
 @media (min-width: 1024px) {
   .section-faqs .wrapper {
     display: grid;
-    grid-template-columns: 1fr 56%;
+    grid-template-columns: 1fr 48%;
     gap: 4rem;
   }
   .section-faqs .wrapper > .content {
@@ -142,9 +162,23 @@
 }
 @media (max-width: 767.98px) {
   .section-faqs > .container {
-    padding: 0;
+    padding: 0 16px;
   }
   .section-faqs .wrapper > .content {
     padding: 0 var(--gutter);
+    aspect-ratio: 0.89;
+  }
+  .section-faqs .wrapper spark-tabs {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: unset;
+    width: 100%;
+  }
+  .section-faqs .wrapper .faq-groups {
+    padding: 0;
+  }
+  .section-faqs .wrapper .faq-groups .tab-content {
+    padding-top: 0;
   }
 }

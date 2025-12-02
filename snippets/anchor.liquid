@@ -5,7 +5,7 @@
 {%- if _anchor_text != blank and _anchor_url != blank -%}
   <a
     href="{{- _anchor_url -}}"
-    class="c-btn {{ anchor_version }} {{ anchor_style }} {{ _class }} {% if button_position == "right" %}button-position {% endif %} "
+    class="c-btn {{ anchor_version }} {{ anchor_style }} {{ _class }} {% if button_position == "right" %}button-position {% endif %}"
     {% if _target != blank %}
       target="{{- _target -}}"
     {% endif %}

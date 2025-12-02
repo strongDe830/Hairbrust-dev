@@ -1,12 +1,10 @@
 <p class="title" id="shopify-block-{{- block.id -}}">{{- block.settings.title -}}</p>
 
-{%- if block.settings.margin_bottom > 0 -%}
   <style>
     #shopify-block-{{- block.id -}} {
       margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
       }
   </style>
-{%- endif -%}
 
 {% schema %}
 {
@@ -25,7 +23,7 @@
       "max": 40,
       "step": 1,
       "default": 16,
-      "label": "t:sections.all.margin_bottom.label"
+      "label": "t:sections.all.spacing.margin_bottom.label"
     }
   ],
   "presets": [{ "name": "t:blocks.title.name" }]

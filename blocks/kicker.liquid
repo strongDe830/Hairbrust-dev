@@ -1,11 +1,12 @@
-<span class="c-lozenge kicker u-text-md block-kicker {{ block.settings.background_colour }}" id="shopify-block-{{- block.id -}}">
+<span class="c-lozenge kicker u-text-md block-kicker {{ block.settings.background_colour }}" id="shopify-block-{{ block.id }}">
   {{ block.settings.kicker }}
 </span>
 
 <style>
-  #shopify-block-{{- block.id -}} {
+  #shopify-block-{{ block.id }} {
     margin-bottom: {{ block.settings.margin_bottom | divided_by: 16.0 | round: 3 -}}rem;
     color: {{ block.settings.text_color }};
+    border-radius: {{ block.settings.border_radius }}px;
   }
 </style>
 
@@ -27,6 +28,10 @@
         {
           "value": "white",
           "label": "t:global.colours.white.label"
+        },
+        {
+          "value": "light-white",
+          "label": "t:global.colours.light-white.label"
         },
         {
           "value": "we-peep",
@@ -52,7 +57,15 @@
       "id": "text_color",
       "label": "t:global.text_colour.label"
     },
-
+     {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "default": 8,
+      "label": "t:global.border-radius.label"
+    },
     {
       "type": "range",
       "id": "margin_bottom",
