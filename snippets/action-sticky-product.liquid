@@ -5,20 +5,6 @@
 {%- render 'file-css', _name: 'snippet-action-sticky-product.css' -%}
 {%- render 'file-js', _name: 'snippet-action-sticky-product.js', _load_type: 'defer' -%}
 
-<<<<<<< Updated upstream
-{%- if variant.available == true -%}
-  <sticky-product id="snippet-action-sticky-product-{{ _section.id }}" class="snippet-action-sticky-product">
-    <div class="subscription-select">
-      {%- render 'data-prices', _variant: variant -%}
-    </div>
-    <button class="c-btn main primary add-to-basket" data-asp-add-to-cart>
-      <span class="add-to-basket-text">
-        {{- 'products.product.select' | t -}}
-      </span>
-    </button>
-  </sticky-product>
-{%- endif -%}
-=======
 {% if variant.available %}
 
 <sticky-product
@@ -190,4 +176,3 @@
 
 </sticky-product>
 {% endif %}
->>>>>>> Stashed changes

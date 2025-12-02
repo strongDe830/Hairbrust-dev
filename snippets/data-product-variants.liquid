@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 {%- liquid
   assign selected_variant = _product.selected_or_first_available_variant
 -%}
@@ -87,8 +84,7 @@
         </ul>
       </fieldset>
     {%- else -%}
-<<<<<<< Updated upstream
-=======
+
       {% comment %} Tabs for each option value {% endcomment %}
        <div class="variant-tabs" data-option-position="{{ option.position }}">
         {%- for option in _product.options_with_values -%}
@@ -183,7 +179,7 @@
           {% endif %}
         {%- endfor -%}
       </div>
->>>>>>> Stashed changes
+
       {%- for option in _product.options_with_values -%}
         {%- if option.values.size > 1 -%}
           {% assign downcase_option_name = option.name | downcase %}
@@ -229,7 +225,7 @@
                     endif
                   -%}
                   {%- capture input_id -%}
-<<<<<<< Updated upstream
+
                     {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
                   {%- endcapture -%}
                   {%- capture input_name -%}
@@ -249,7 +245,7 @@
                     {% endif %}
                   {% endcapture %}
                   <li {% if is_hidden %}hidden{% endif %}>
-=======
+
                   {{ section.id }}-{{ option.position }}-{{ forloop.index0 -}}
                   {%- endcapture -%}
                   {%- capture input_name -%}
@@ -274,7 +270,7 @@
                     {% endif %}
                     class="{% if selected_variant.options[option_index] == value %}active{% endif %} custom-li-inner-vairant-section  data-var-li-{{- value | escape |handleize  -}}-{{ option.name | escape | handleize  }}--{{ option.position | escape |handleize  }}"
                                     >
->>>>>>> Stashed changes
+
                     <input
                       type="radio"
                       name="{{- input_name -}}"
@@ -284,19 +280,6 @@
                       {{ input_attributes }}
                       {{ input_dataset }}
                     >
-<<<<<<< Updated upstream
-
-                      <label
-                        for="{{- input_id -}}"
-                        {% if value.variant.image != blank %}
-                          class="has-image"
-                        {% endif %}
-                      >
-                        {% if sub_option %}
-                          {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
-                          {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
-                          {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
-=======
                     <label
                       for="{{- input_id -}}"
                       {% if value.variant.image != blank %}
@@ -307,7 +290,6 @@
                         {% assign sub_object = value.variant.metafields.custom.subscription_info.value %}
                         {% assign free_gift_title = value.variant.metafields.custom.free_gift_title.value %}
                         {% assign free_gift = value.variant.metafields.custom.free_gift.value %}
->>>>>>> Stashed changes
 
                           {% if sub_object.lozenge_text != blank %}
                             <div class="mobile-lozenge-bar">{{ sub_object.lozenge_text }}</div>
@@ -415,8 +397,6 @@
       {%- endfor -%}
     {%- endif -%}
 
-<<<<<<< Updated upstream
-=======
     <script>
       $(document).on('click', '.variant-tab', function () {
           // Stop click if the tab is disabled
@@ -443,17 +423,12 @@
       });
     </script>
 
->>>>>>> Stashed changes
     <script type="application/json" data-product-json-{{ section.id }}>
       {{ _product | json }}
     </script>
     </variant-radios>
     <script type="application/json" data-selected-variant>
     {{ _product.selected_or_first_available_variant | json }}
-<<<<<<< Updated upstream
-  </script>
-{%- endunless -%}
-=======
     </script>
 {%- endunless -%}
 
@@ -488,4 +463,3 @@ $(document).on('click', '.variant-tab-sticky', function () {
 
 });
 </script>
->>>>>>> Stashed changes
