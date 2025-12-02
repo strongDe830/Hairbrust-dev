@@ -333,7 +333,8 @@
                   </div>
 
                   <div class="pdp-tab-content-comman hair-tab-pdp">
-                    {% for field in accordion.haier.value %}
+                    <div class="accordian-inner-content">
+                 {% for field in accordion.haier.value %}
                     <span class="hair-points-wrap">
                     {%if field.svg_icon %}
                         <span class="svg-icon-hair-points">{{field.svg_icon }}</span>
@@ -343,6 +344,8 @@
                       {%endif %}
                     </span>
                     {% endfor %}
+                    </div>
+                   
                   </div>
                 </div>
               {% endif %}
@@ -364,7 +367,9 @@
                     </span>
                   </div>
                   <div class="pdp-tab-content-comman body-tab-pdp">
+                       <div class="accordian-inner-content">
                     {{ accordion.body | metafield_tag }}
+                       </div>
                   </div>
                 </div>
               {% endif %}
@@ -386,7 +391,9 @@
                     </span>
                   </div>
                   <div class="pdp-tab-content-comman benefits-tab-pdp">
+                       <div class="accordian-inner-content">
                     {{ accordion.benifits | metafield_tag }}
+                       </div>
                   </div>
                 </div>
               {% endif %}
