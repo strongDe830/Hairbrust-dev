@@ -1,0 +1,52 @@
+
+
+{% liquid
+  assign product_limit = _product_limit
+
+  render 'file-js', _name: 'snippet-layout-related-products.js', _load_type: 'defer'
+  render 'file-css', _name: 'snippet-card-product-add-on.css', _load_type: 'defer'
+  if _use_vertical_slider == true
+    render 'file-js', _name: 'snippet-card-product.js', _load_type: 'defer'
+  endif
+
+  if _product == blank
+    assign _product = _default_product
+  endif
+%}
+
+<related-products
+  class="layout-related-products"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ _section.id }}&product_id={{ _product.id }}&limit=6&intent=related"
+>
+  {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    <div class="swiper {% if _use_vertical_slider == true %} js-is-vertical{% endif -%}" data-lcp-slider>
+      <div class="swiper-wrapper">
+        {%- for product in recommendations.products -%}
+          <div class="swiper-slide">
+            {% if _use_vertical_slider == true %}
+              {%-
+                render 'card-product-add-on',
+                _product: product,
+                _quick_add: true
+              -%}
+            {%- else -%}
+              {%-
+                render 'card-product',
+                _product: product,
+                _use_add_to_cart_btn: _use_add_to_cart_btn
+              -%}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="swiper-btns">
+        <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.previous' | t -}}" data-slider-prev>
+          {%- render 'element-icon', _icon: 'arrow-left' -%}
+        </button>
+        <button class="swiper-btn c-btn" aria-label="{{- 'components.swiper.next' | t -}}"  data-slider-next>
+          {%- render 'element-icon', _icon: 'arrow-right' -%}
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+</related-products>
