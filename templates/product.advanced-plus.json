@@ -931,7 +931,7 @@
         "use_add_to_cart_btn": false,
         "show_slider_btn": false,
         "default_product": "",
-        "content_layout": "carousel",
+        "content_layout": "grid",
         "margin_bottom": "md"
       }
     },
