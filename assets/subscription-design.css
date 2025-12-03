@@ -738,8 +738,8 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 
 /* Accordion styling */
 .pdp-tab-content-comman {
-  display: none;
-  padding: 10px 0;
+  /* display: none; */
+  padding: 0px 0;
 }
 .tab-icon {
   width: 10px;
@@ -788,7 +788,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     padding-block: 12px 0;
 }
 .accordion-wrapper .pdp-tab-content-comman {
-    padding-top: 14px;
+    padding-top: 0px;
 }
 .accordion-wrapper .pdp-tab-content-comman .metafield-rich_text_field p {
     font-weight: 400;
@@ -812,6 +812,23 @@ ul.c-lozenges li.c-lozenge.tuna.border {
 .snippet-layout-product-form .data-product-variants .product-option-wrapper ul.normal_without_sub_product .custom-li-inner-vairant-section {
     display: block !important;
 }
+
+
+
+.pdp-tab-content-comman {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  height: 100%;
+}
+
+.pdp-tab-content-comman.active {
+  max-height: 450px; /* Large enough to fit content */
+}
+.accordion-wrapper .pdp-tab-content-comman .accordian-inner-content {
+    padding-top: 10px;
+}
+
 
 @media screen and (max-width:1650px) {
     .section-featured-testimonials .wrapper [data-ft-swiper] {
@@ -946,7 +963,7 @@ ul.c-lozenges li.c-lozenge.tuna.border {
     font-size: 14px;
     }
     .accordion-wrapper .pdp-tab-content-comman {
-    padding-top: 12px;
+    padding-top: 0px;
     }
     .product-option-wrapper.subscription ul#variant-list label.has-image .label__content .free-gift-wrapper .free-gift .free-gift-info span.banner-text {
     font-size: 10px;

@@ -56,6 +56,12 @@
           "type": "buy_button",
           "settings": {}
         },
+        "payment_icons_zH8xyx": {
+          "type": "payment-icons",
+          "settings": {
+            "text": "Secure payments"
+          }
+        },
         "disclaimer_k6BUJH": {
           "type": "disclaimer",
           "settings": {
@@ -98,6 +104,7 @@
         "recharge_subscriptions_subscription_widget_EzLtJq",
         "variants_QqyznA",
         "buy_button_CqAMED",
+        "payment_icons_zH8xyx",
         "disclaimer_k6BUJH",
         "trackingmore_pre_edd_QrbXpk",
         "customer_q_and_a_bdQVAc",
@@ -144,6 +151,7 @@
           "type": "group-content",
           "settings": {
             "add_margin": false,
+            "horizontal_layout": true,
             "text_align": "start",
             "text_color": ""
           },
@@ -156,7 +164,9 @@
                 "heading_type": "h2",
                 "heading_size": "md",
                 "text_align": "start",
-                "margin_bottom": 16
+                "full_width": true,
+                "margin_bottom": 16,
+                "text_color": ""
               },
               "blocks": {}
             }
@@ -184,7 +194,9 @@
             "heading_type": "h2",
             "heading_size": "md",
             "text_align": "start",
-            "margin_bottom": 16
+            "full_width": true,
+            "margin_bottom": 16,
+            "text_color": ""
           },
           "blocks": {}
         }
@@ -195,7 +207,9 @@
       "settings": {
         "product_limit": 8,
         "use_add_to_cart_btn": false,
+        "show_slider_btn": false,
         "default_product": "",
+        "content_layout": "carousel",
         "margin_bottom": "md"
       }
     },

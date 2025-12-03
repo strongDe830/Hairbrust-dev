@@ -7,7 +7,7 @@
 {%- render 'file-css', _name: 'snippet-layout-product-media.css' -%}
 
     {{ 'subscription-design.css' | asset_url | stylesheet_tag }}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 
 
 
@@ -121,6 +121,23 @@
       "name": "t:sections.main_product.blocks.buy_button.name",
       "limit": 1
     },
+    {
+      "type": "payment-icons",
+      "name": "payment icons",
+      "limit": 1,
+       "settings": [
+ {
+  
+          "type": "text",
+          "id": "text",
+          "label": "text",
+          "default":"Secure payments"
+        }
+        
+      
+       ]
+    },
+    
      {
       "type": "aboutadvance",
       "name": "About advance + block",
